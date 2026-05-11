@@ -36,5 +36,11 @@ defineProps({
   width: auto;
   object-fit: contain;
   transition: all var(--transition-base);
+  filter: grayscale(1) opacity(0.45);
+}
+
+.partner-logo:hover .partner-logo__icon,
+.partner-logo:hover .partner-logo__img {
+  filter: grayscale(0) opacity(1);
 }
 </style>

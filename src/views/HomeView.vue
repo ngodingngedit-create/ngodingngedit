@@ -5,7 +5,6 @@
     <PartnerSection />
     <PortfolioSection />
     <CtaSection />
-    <PartnerSection variant="light" />
   </main>
 </template>
 

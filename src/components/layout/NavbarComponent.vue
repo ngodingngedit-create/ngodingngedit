@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar" :class="{ 'navbar--scrolled': scrolled }">
+  <header class="navbar" :class="{ 'navbar--scrolled': scrolled, 'navbar--light': isLightTheme }">
     <div class="container">
       <div class="navbar__inner">
         <!-- Logo -->
@@ -14,22 +14,35 @@
 
         <!-- Navigation -->
         <nav class="navbar__nav">
-          <RouterLink
-            v-for="item in navItems"
-            :key="item.path"
-            :to="item.path"
-            class="navbar__link"
-            active-class="navbar__link--active"
-          >
-            {{ item.label }}
-            <span class="navbar__link-indicator"></span>
-          </RouterLink>
+          <template v-for="item in navItems" :key="item.path">
+            <!-- Real routes get RouterLink -->
+            <RouterLink
+              v-if="item.isRoute"
+              :to="item.path"
+              class="navbar__link"
+              active-class=""
+              :class="{ 'navbar__link--active': isRouteActive(item) }"
+            >
+              {{ item.label }}
+              <span class="navbar__link-indicator"></span>
+            </RouterLink>
+            <!-- Hash anchors get <a> with smooth scroll -->
+            <a
+              v-else
+              :href="item.path"
+              class="navbar__link"
+              @click.prevent="scrollToHash(item.path)"
+            >
+              {{ item.label }}
+              <span class="navbar__link-indicator"></span>
+            </a>
+          </template>
         </nav>
 
         <!-- CTA -->
         <div class="navbar__actions">
           <a href="#contact" class="navbar__cta">
-            Mulai Proyek
+            Hubungi Kami
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
@@ -50,17 +63,27 @@
     <Transition name="fade">
       <div v-if="menuOpen" class="navbar__mobile-menu" @click.self="closeMenu">
         <nav class="navbar__mobile-nav">
-          <RouterLink
-            v-for="item in navItems"
-            :key="item.path"
-            :to="item.path"
-            class="navbar__mobile-link"
-            active-class="navbar__mobile-link--active"
-            @click="closeMenu"
-          >
-            {{ item.label }}
-          </RouterLink>
-          <a href="#contact" class="navbar__mobile-cta" @click="closeMenu">Mulai Proyek</a>
+          <template v-for="item in navItems" :key="item.path">
+            <RouterLink
+              v-if="item.isRoute"
+              :to="item.path"
+              class="navbar__mobile-link"
+              active-class=""
+              :class="{ 'navbar__mobile-link--active': isRouteActive(item) }"
+              @click="closeMenu"
+            >
+              {{ item.label }}
+            </RouterLink>
+            <a
+              v-else
+              :href="item.path"
+              class="navbar__mobile-link"
+              @click.prevent="scrollToHash(item.path); closeMenu()"
+            >
+              {{ item.label }}
+            </a>
+          </template>
+          <a href="#contact" class="navbar__mobile-cta" @click="closeMenu">Hubungi Kami</a>
         </nav>
       </div>
     </Transition>
@@ -68,19 +91,42 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { RouterLink } from 'vue-router'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
 
 const scrolled = ref(false)
 const menuOpen = ref(false)
 
+const isLightTheme = computed(() => route.path === '/services')
+
 const navItems = [
-  { label: 'Beranda', path: '/' },
-  { label: 'Layanan', path: '/#services' },
-  { label: 'Solusi', path: '/#solutions' },
-  { label: 'Portfolio', path: '/#portfolio' },
-  { label: 'Tentang Kami', path: '/#about' },
+  { label: 'Beranda', path: '/', isRoute: true },
+  { label: 'Layanan', path: '/services', isRoute: true },
+  { label: 'Solusi', path: '/#solutions', isRoute: false },
+  { label: 'Portfolio', path: '/#portfolio', isRoute: false },
+  { label: 'Tentang Kami', path: '/#about', isRoute: false },
 ]
+
+function isRouteActive(item) {
+  if (item.path === '/') return route.path === '/'
+  return route.path === item.path
+}
+
+function scrollToHash(path) {
+  // If on the home page, scroll directly; otherwise navigate to home first
+  const hash = path.split('#')[1]
+  if (!hash) return
+
+  if (route.path === '/') {
+    const el = document.getElementById(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  } else {
+    router.push({ path: '/', hash: `#${hash}` })
+  }
+}
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value
@@ -113,6 +159,24 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   padding: 1rem 0;
   background: rgba(10, 22, 40, 0.85);
   backdrop-filter: blur(20px);
+}
+
+/* Light Theme Overrides */
+.navbar--light:not(.navbar--scrolled) .navbar__logo-text,
+.navbar--light:not(.navbar--scrolled) .navbar__link,
+.navbar--light.navbar--scrolled .navbar__logo-text,
+.navbar--light.navbar--scrolled .navbar__link {
+  color: #0f172a;
+}
+
+.navbar--light:not(.navbar--scrolled) .navbar__mobile-btn svg,
+.navbar--light.navbar--scrolled .navbar__mobile-btn svg {
+  stroke: #0f172a;
+}
+
+.navbar--light.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .navbar__inner {

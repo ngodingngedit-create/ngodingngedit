@@ -86,7 +86,7 @@
 
       <!-- Bottom Bar -->
       <div class="footer__bottom">
-        <p class="footer__copy">© 2024 NgodingNgedit. Inovasi Digital Tanpa Batas.</p>
+        <p class="footer__copy">© {{ currentYear }} NgodingNgedit. Inovasi Digital Tanpa Batas.</p>
         <p class="footer__tagline">Built with ❤️ in Indonesia</p>
       </div>
     </div>
@@ -95,6 +95,8 @@
 
 <script setup>
 import { onMounted } from 'vue'
+
+const currentYear = new Date().getFullYear()
 
 onMounted(() => {
   const observer = new IntersectionObserver(
