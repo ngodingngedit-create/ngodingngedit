@@ -65,42 +65,42 @@
           <span class="sv-gallery__count animate-fade-in">{{ activeItems.length }} Layanan Tersedia</span>
         </div>
 
-        <!-- Aceternity Style Bento Grid -->
-        <div class="bento-grid">
+        <!-- Symmetrical Immersive Grid -->
+        <div class="services-grid">
           <article 
             v-for="(item, index) in activeItems" 
             :key="item.id"
-            class="bento-card animate-fade-in-up"
-            :class="getBentoClass(index)"
+            class="service-card animate-fade-in-up"
             :style="{ animationDelay: `${index * 0.1}s` }"
             @mousemove="handleMouseMove($event, index)"
-            @click="onServiceSelect(item)"
+            @mouseleave="handleMouseLeave(index)"
+            @click="onServiceSelect(item, $event)"
             :ref="el => setCardRef(el, index)"
           >
             <!-- Magic Glow Border -->
-            <div class="bento-card__border-glow"></div>
+            <div class="service-card__border-glow"></div>
             
-            <div class="bento-card__inner">
-              <div class="bento-card__content">
-                <div>
+            <div class="service-card__inner">
+              <div class="service-card__img-wrap">
+                <img :src="item.image" :alt="item.title" class="service-card__img" loading="lazy" />
+              </div>
+
+              <div class="service-card__content">
+                <div class="service-card__content-top">
                   <span class="sv-badge">{{ item.badge }}</span>
-                  <h3 class="bento-card__title">{{ item.title }}</h3>
-                  <p class="bento-card__desc">{{ item.description }}</p>
+                  <h3 class="service-card__title">{{ item.title }}</h3>
+                  <p class="service-card__desc">{{ item.description }}</p>
                 </div>
                 
-                <div class="bento-card__footer">
-                  <div class="bento-card__price-wrap">
-                    <span class="bento-card__price-label">Mulai dari</span>
-                    <strong class="bento-card__price">{{ item.price }}</strong>
+                <div class="service-card__footer">
+                  <div class="service-card__price-wrap">
+                    <span class="service-card__price-label">Mulai dari</span>
+                    <strong class="service-card__price">{{ item.price }}</strong>
                   </div>
-                  <span class="bento-card__arrow">
+                  <span class="service-card__arrow">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                   </span>
                 </div>
-              </div>
-              
-              <div class="bento-card__img-wrap">
-                <img :src="item.image" :alt="item.title" class="bento-card__img" loading="lazy" />
               </div>
             </div>
           </article>
@@ -110,7 +110,10 @@
 
     <!-- DETAIL MODAL (Overlay) -->
     <Transition name="modal">
-      <div v-if="selectedService" class="sv-modal" @click.self="selectedService = null">
+      <div v-if="selectedService" 
+           class="sv-modal" 
+           @click.self="selectedService = null"
+           :style="{ '--modal-origin-x': modalOrigin.x, '--modal-origin-y': modalOrigin.y }">
         <article class="sv-modal__card">
           <button class="sv-modal__close" @click="selectedService = null">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -165,6 +168,7 @@ const gallerySection = ref(null)
 const cardRefs = ref([])
 const heroNgodingRef = ref(null)
 const heroNgeditRef = ref(null)
+const modalOrigin = ref({ x: '50%', y: '50%' })
 
 const codingServices = [
   { id: 'web-company', badge: 'WEBSITE', title: 'Company Profiles', price: 'Rp 500.000',
@@ -216,18 +220,6 @@ const activeItems = computed(() =>
   activeCategory.value === 'ngoding' ? codingServices : editingServices
 )
 
-function getBentoClass(index) {
-  // 3-column layout strategy
-  const classes = [
-    'bento-card--wide', // 0: spans 2 cols
-    '',                 // 1: spans 1 col
-    '',                 // 2: spans 1 col
-    'bento-card--wide', // 3: spans 2 cols
-    'bento-card--full'  // 4: spans 3 cols
-  ]
-  return classes[index % 5]
-}
-
 function setCardRef(el, index) {
   if (el) cardRefs.value[index] = el
 }
@@ -236,10 +228,29 @@ function handleMouseMove(e, index) {
   const card = cardRefs.value[index]
   if (!card) return
   const rect = card.getBoundingClientRect()
+  
+  // Magic Glow Coordinates
   const x = e.clientX - rect.left
   const y = e.clientY - rect.top
   card.style.setProperty('--mouse-x', `${x}px`)
   card.style.setProperty('--mouse-y', `${y}px`)
+
+  // 3D Tilt Parallax Coordinates
+  const centerX = rect.width / 2
+  const centerY = rect.height / 2
+  const rotateX = ((y - centerY) / centerY) * -6 // Max 6 deg tilt
+  const rotateY = ((x - centerX) / centerX) * 6
+  
+  card.style.setProperty('--rotate-x', `${rotateX}deg`)
+  card.style.setProperty('--rotate-y', `${rotateY}deg`)
+}
+
+function handleMouseLeave(index) {
+  const card = cardRefs.value[index]
+  if (!card) return
+  // Smoothly reset tilt
+  card.style.setProperty('--rotate-x', `0deg`)
+  card.style.setProperty('--rotate-y', `0deg`)
 }
 
 function handleHeroMove(e, cat) {
@@ -265,7 +276,14 @@ async function selectCategory(cat) {
   }
 }
 
-function onServiceSelect(item) {
+function onServiceSelect(item, event) {
+  if (event) {
+    const rect = event.currentTarget.getBoundingClientRect()
+    modalOrigin.value = {
+      x: `${rect.left + rect.width / 2}px`,
+      y: `${rect.top + rect.height / 2}px`
+    }
+  }
   selectedService.value = item
 }
 
@@ -509,157 +527,139 @@ onUnmounted(() => {
   padding-bottom: 0.5rem;
 }
 
-/* Bento Grid System */
-.bento-grid {
+/* ══ SYMMETRICAL IMMERSIVE GRID ════════════════════════════════════ */
+.services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
   width: 100%;
+  perspective: 1200px; /* Needed for 3D tilt effect */
 }
 
-.bento-card {
+.service-card {
   position: relative;
   border-radius: 24px;
-  background: rgba(0,0,0,0.08); /* Darker border color for clear boundary */
-  padding: 1px;
+  background: rgba(0,0,0,0.12); /* Slightly darker border base */
+  padding: 1.2px; /* Ditebelin dari 1px ke 2px biar border glow lebih kelihatan */
   display: flex;
+  flex-direction: column;
   cursor: pointer;
-  min-height: 380px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04); /* More defined shadow */
+  min-height: 460px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  
+  /* 3D Transform properties set by JS */
+  transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.4s ease;
+  will-change: transform;
 }
 
-.bento-card__border-glow {
+.service-card:hover {
+  box-shadow: 0 30px 60px rgba(37, 99, 235, 0.12);
+  z-index: 10;
+}
+
+.service-card:active {
+  /* Efek ditekan: mengecil sedikit dan rotasi 3D-nya tetap sinkron */
+  transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale(0.96);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.1s ease;
+}
+
+.service-card__border-glow {
   position: absolute;
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    rgba(37, 99, 235, 0.6),
-    rgba(168, 85, 247, 0.2),
-    transparent 40%
+    500px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(37, 99, 235, 0.9), /* Naik dari 0.6 biar lebih tebal */
+    rgba(168, 85, 247, 0.5), /* Naik dari 0.2 biar lebih tebal */
+    transparent 60% /* Sebaran cahaya lebih luas */
   );
   z-index: 0;
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
 }
-.bento-card:hover .bento-card__border-glow { opacity: 1; }
+.service-card:hover .service-card__border-glow { opacity: 1; }
 
-.bento-card__inner {
+.service-card__inner {
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border-radius: calc(24px - 1px);
   overflow: hidden;
   width: 100%;
+  height: 100%;
   position: relative;
   z-index: 1;
-  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  transform-style: preserve-3d;
 }
 
-.bento-card:hover .bento-card__inner {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 48px rgba(37, 99, 235, 0.08);
+.service-card__img-wrap {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
 }
+.service-card__img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.service-card:hover .service-card__img { transform: scale(1.08); }
 
-.bento-card__content {
+.service-card__content {
   flex: 1;
-  padding: 2rem;
+  padding: 1.5rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
+  
+  /* The magic: lifts text closer to user during 3D tilt */
+  transform: translateZ(40px);
+  transition: transform 0.3s ease;
 }
 
-.bento-card__title {
+.service-card__title {
   font-family: var(--font-heading,'Poppins',sans-serif);
-  font-size: 1.5rem; font-weight: 800; color: #0f172a;
+  font-size: 1.35rem; font-weight: 800; color: #0f172a;
   margin: 1rem 0 0.5rem; letter-spacing: -0.02em;
 }
 
-.bento-card__desc {
+.service-card__desc {
   font-size: 0.9rem; color: #64748b; line-height: 1.6; margin: 0;
 }
 
-.bento-card__footer {
+.service-card__footer {
   display: flex; align-items: flex-end; justify-content: space-between;
   margin-top: auto;
 }
 
-.bento-card__price-wrap {
+.service-card__price-wrap {
   display: flex; flex-direction: column; gap: 2px;
 }
-.bento-card__price-label {
+.service-card__price-label {
   font-size: 0.75rem; font-weight: 600; color: #94a3b8; text-transform: uppercase;
 }
-.bento-card__price {
+.service-card__price {
   font-size: 1.125rem; font-weight: 800; color: var(--color-primary, #2563eb);
 }
 
-.bento-card__arrow {
+.service-card__arrow {
   display: flex; align-items: center; justify-content: center;
   width: 40px; height: 40px; border-radius: 50%;
   background: #f1f5f9; color: #64748b;
   transition: all 0.3s ease;
 }
-.bento-card:hover .bento-card__arrow {
+.service-card:hover .service-card__arrow {
   background: var(--color-primary, #2563eb); color: white;
   transform: translateX(4px) rotate(-45deg);
 }
 
-.bento-card__img-wrap {
-  width: 100%;
-  height: 220px;
-  position: relative;
-  overflow: hidden;
-  order: -1; /* Move to top in column layout */
-}
-.bento-card__img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
-}
-.bento-card:hover .bento-card__img { transform: scale(1.05); }
-
-
-/* Layout Modifiers */
-@media (min-width: 1024px) {
-  .bento-card--wide .bento-card__inner, 
-  .bento-card--full .bento-card__inner {
-    flex-direction: row;
-  }
-  
-  .bento-card--wide { grid-column: span 2; }
-  .bento-card--full { grid-column: span 3; }
-  
-  .bento-card--wide .bento-card__img-wrap,
-  .bento-card--full .bento-card__img-wrap {
-    order: 1; /* Move to right */
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    right: 0; top: 0; bottom: 0;
-    mask-image: linear-gradient(to right, transparent, black 25%);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 25%);
-  }
-  
-  .bento-card--wide .bento-card__content,
-  .bento-card--full .bento-card__content {
-    width: 55%;
-    flex: none; /* Prevents flex from growing to 100% and overlapping the image */
-    padding-right: 2rem;
-  }
-}
-
-@media (max-width: 1023px) {
-  .bento-grid { grid-template-columns: repeat(2, 1fr); }
-  .bento-card--wide { grid-column: span 2; }
-  .bento-card--full { grid-column: span 2; }
-}
-
 @media (max-width: 768px) {
-  .bento-grid { grid-template-columns: 1fr; }
-  .bento-card--wide, .bento-card--full { grid-column: span 1; }
+  .services-grid { grid-template-columns: 1fr; }
   .sv-gallery__topbar { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
 
@@ -674,6 +674,8 @@ onUnmounted(() => {
   border-radius: 24px; overflow: hidden;
   background: #ffffff;
   box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+  /* Origin dinamis berdasarkan card yang diklik */
+  transform-origin: var(--modal-origin-x, 50%) var(--modal-origin-y, 50%);
 }
 .sv-modal__close {
   position: absolute; top: 1rem; right: 1rem; z-index: 10;
@@ -779,11 +781,12 @@ onUnmounted(() => {
 .sv-modal__cta:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,99,235,0.45); }
 
 /* Transitions */
-.modal-enter-active { transition: all 0.35s cubic-bezier(0.22,1,0.36,1); }
-.modal-leave-active { transition: all 0.22s ease; }
+.modal-enter-active { transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.modal-leave-active { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 .modal-enter-from { opacity: 0; }
-.modal-enter-from .sv-modal__card { transform: scale(0.9) translateY(20px); }
+.modal-enter-from .sv-modal__card { transform: scale(0.1); }
 .modal-leave-to { opacity: 0; }
+.modal-leave-to .sv-modal__card { transform: scale(0.9); }
 
 /* Responsive */
 @media (min-width: 768px) {
