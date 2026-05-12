@@ -160,6 +160,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import img3dModel from '@/assets/images/services/3d-model.png'
 
 const activeCategory = ref(null)
 const selectedService = ref(null)
@@ -206,10 +207,10 @@ const editingServices = [
     description: 'Editing podcast lengkap — noise removal, leveling, chapter markers, dan visual waveform untuk YouTube.',
     features: ['Audio Enhancement', 'Multi-cam Switching', 'Intro/Outro Addition', 'Chapter Generation'],
     image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80' },
-  { id: 'vid-wedding', badge: 'VIDEO', title: 'Event & Wedding', price: 'Rp 1.500.000',
-    description: 'Video dokumentasi event dan wedding dengan storytelling emosional dan cinematic color grading.',
-    features: ['Highlight Reel', 'Full Documentation', 'Emotional Pacing', 'Custom Title Design'],
-    image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80' },
+  { id: 'vid-3d', badge: '3D MODEL', title: '3D Visualization', price: 'Rp 2.500.000',
+    description: 'Layanan pemodelan 3D dan render realistis untuk produk, arsitektur, atau karakter game dengan kualitas AAA.',
+    features: ['High-Fidelity Rendering', 'Texture & Material Design', 'Animation Ready', 'Source File (Blend/FBX)'],
+    image: img3dModel },
   { id: 'vid-motion', badge: 'MOTION', title: 'Motion Graphics', price: 'Rp 500.000',
     description: 'Animasi motion graphics untuk intro, lower thirds, infografis, dan branding visual yang eye-catching.',
     features: ['Custom Animations', 'Logo Reveals', 'Infographic Video', 'Seamless Looping'],
@@ -670,7 +671,7 @@ onUnmounted(() => {
   background: rgba(15,23,42,0.85); backdrop-filter: blur(12px);
 }
 .sv-modal__card {
-  position: relative; width: 100%; max-width: 800px;
+  position: relative; width: 100%; max-width: 1300px;
   border-radius: 24px; overflow: hidden;
   background: #ffffff;
   box-shadow: 0 40px 100px rgba(0,0,0,0.4);
@@ -702,7 +703,7 @@ onUnmounted(() => {
 }
 
 .sv-modal__body { 
-  padding: 0 2.5rem 2.5rem; display: flex; flex-direction: column; gap: 1rem;
+  padding: 0 3rem 3rem; display: flex; flex-direction: column; gap: 1.25rem;
   margin-top: -2rem; /* Pull up to overlap gradient slightly */
   position: relative;
   z-index: 2;
@@ -717,7 +718,7 @@ onUnmounted(() => {
 
 .sv-modal__title {
   font-family: var(--font-heading,'Poppins',sans-serif);
-  font-size: 2rem; font-weight: 800; color: #0f172a; margin: 0; letter-spacing: -0.02em;
+  font-size: 2.5rem; font-weight: 800; color: #0f172a; margin: 0; letter-spacing: -0.02em;
 }
 
 .sv-modal__desc { 
@@ -751,8 +752,8 @@ onUnmounted(() => {
 .sv-modal__features li {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.875rem;
+  gap: 10px;
+  font-size: 1rem;
   color: #334155;
   font-weight: 500;
 }
@@ -768,7 +769,7 @@ onUnmounted(() => {
 }
 .sv-modal__price {
   font-family: var(--font-heading,'Poppins',sans-serif);
-  font-size: 1.75rem; font-weight: 800; color: var(--color-primary,#2563eb); letter-spacing: -0.02em;
+  font-size: 2rem; font-weight: 800; color: var(--color-primary,#2563eb); letter-spacing: -0.02em;
 }
 .sv-modal__cta {
   display: inline-flex; align-items: center; gap: 6px;
@@ -794,7 +795,7 @@ onUnmounted(() => {
     flex-direction: row;
   }
   .sv-modal__img-wrap {
-    width: 40%;
+    width: 45%;
     height: auto;
     min-height: 400px;
   }
