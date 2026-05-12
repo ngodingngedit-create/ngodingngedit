@@ -97,9 +97,15 @@
                     <span class="service-card__price-label">Mulai dari</span>
                     <strong class="service-card__price">{{ item.price }}</strong>
                   </div>
-                  <span class="service-card__arrow">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                  </span>
+                  <button 
+                    class="service-card__add-btn" 
+                    :class="{ 'is-selected': isSelected(item) }"
+                    @click.stop="toggleSelection(item)"
+                  >
+                    <svg v-if="!isSelected(item)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>{{ isSelected(item) ? 'Terpilih' : 'Tambah' }}</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -148,11 +154,43 @@
                   <span class="sv-modal__price-label">Mulai dari</span>
                   <strong class="sv-modal__price">{{ selectedService.price }}</strong>
                 </div>
-                <a href="#contact" class="sv-modal__cta">Konsultasi Gratis <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <button 
+                  class="sv-modal__cta" 
+                  :class="{ 'is-selected': isSelected(selectedService) }"
+                  @click="toggleSelection(selectedService)"
+                >
+                  <svg v-if="!isSelected(selectedService)" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  {{ isSelected(selectedService) ? 'Hapus dari Estimasi' : 'Tambah ke Estimasi' }}
+                </button>
               </div>
             </div>
           </div>
         </article>
+      </div>
+    </Transition>
+
+    <!-- SIMULATION FLOATING BAR -->
+    <Transition name="slide-up">
+      <div v-if="selectedItems.length > 0" class="sv-sim-bar">
+        <div class="container sv-sim-bar__inner">
+          <div class="sv-sim-bar__info">
+            <span class="sv-sim-bar__count">{{ selectedItems.length }} Layanan Terpilih</span>
+            <div class="sv-sim-bar__total-wrap">
+              <span class="sv-sim-bar__total-label">Estimasi Total</span>
+              <strong class="sv-sim-bar__total">{{ formattedTotal }}</strong>
+            </div>
+          </div>
+          <div class="sv-sim-bar__actions">
+            <button class="sv-sim-bar__btn-reset" @click="selectedItems = []" title="Reset Estimasi">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+            </button>
+            <a :href="whatsappLink" target="_blank" class="sv-sim-bar__btn-cta">
+              Konsultasikan Penawaran Ini
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </Transition>
   </main>
@@ -170,6 +208,8 @@ const cardRefs = ref([])
 const heroNgodingRef = ref(null)
 const heroNgeditRef = ref(null)
 const modalOrigin = ref({ x: '50%', y: '50%' })
+
+const selectedItems = ref([])
 
 const codingServices = [
   { id: 'web-company', badge: 'WEBSITE', title: 'Company Profiles', price: 'Rp 500.000',
@@ -220,6 +260,41 @@ const editingServices = [
 const activeItems = computed(() =>
   activeCategory.value === 'ngoding' ? codingServices : editingServices
 )
+
+const toggleSelection = (item) => {
+  const index = selectedItems.value.findIndex(i => i.id === item.id)
+  if (index === -1) {
+    selectedItems.value.push(item)
+  } else {
+    selectedItems.value.splice(index, 1)
+  }
+}
+
+const isSelected = (item) => {
+  return selectedItems.value.some(i => i.id === item.id)
+}
+
+const parsePrice = (priceStr) => {
+  return parseInt(priceStr.replace(/Rp /g, '').replace(/\./g, ''), 10) || 0
+}
+
+const totalPrice = computed(() => {
+  return selectedItems.value.reduce((sum, item) => sum + parsePrice(item.price), 0)
+})
+
+const formattedTotal = computed(() => {
+  return 'Rp ' + totalPrice.value.toLocaleString('id-ID')
+})
+
+const whatsappLink = computed(() => {
+  const phoneNumber = '628111776617' // Ganti dengan nomor asli jika ada
+  let message = `Halo, saya tertarik dengan estimasi layanan berikut:\n\n`
+  selectedItems.value.forEach(item => {
+    message += `- ${item.title} (${item.price})\n`
+  })
+  message += `\n*Estimasi Total: ${formattedTotal.value}*\n\nMohon informasi lebih lanjut.`
+  return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+})
 
 function setCardRef(el, index) {
   if (el) cardRefs.value[index] = el
@@ -648,15 +723,31 @@ onUnmounted(() => {
   font-size: 1.125rem; font-weight: 800; color: var(--color-primary, #2563eb);
 }
 
-.service-card__arrow {
-  display: flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: #f1f5f9; color: #64748b;
-  transition: all 0.3s ease;
+.service-card__add-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  color: #334155;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 2;
 }
-.service-card:hover .service-card__arrow {
-  background: var(--color-primary, #2563eb); color: white;
-  transform: translateX(4px) rotate(-45deg);
+.service-card__add-btn:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+.service-card__add-btn.is-selected {
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+}
+.service-card__add-btn.is-selected:hover {
+  background: #1d4ed8;
 }
 
 @media (max-width: 768px) {
@@ -781,6 +872,15 @@ onUnmounted(() => {
 }
 .sv-modal__cta:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,99,235,0.45); }
 
+.sv-modal__cta.is-selected {
+  background: #10b981;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+}
+.sv-modal__cta.is-selected:hover {
+  background: #059669;
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.45);
+}
+
 /* Transitions */
 .modal-enter-active { transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .modal-leave-active { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -788,6 +888,127 @@ onUnmounted(() => {
 .modal-enter-from .sv-modal__card { transform: scale(0.1); }
 .modal-leave-to { opacity: 0; }
 .modal-leave-to .sv-modal__card { transform: scale(0.9); }
+
+/* ══ SIMULATION FLOATING BAR ════════════════════════════════════ */
+.sv-sim-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  padding: 0 1rem;
+}
+
+.sv-sim-bar__inner {
+  pointer-events: auto;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  padding: 0.75rem 1.25rem 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255,255,255,0.05) inset;
+  max-width: 800px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.sv-sim-bar__info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sv-sim-bar__count {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.sv-sim-bar__total-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.sv-sim-bar__total-label {
+  font-size: 0.6875rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.sv-sim-bar__total {
+  font-family: var(--font-heading, 'Poppins', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sv-sim-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sv-sim-bar__btn-reset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ef4444;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sv-sim-bar__btn-reset:hover {
+  background: rgba(239, 68, 68, 0.1);
+  transform: scale(1.05);
+}
+
+.sv-sim-bar__btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.sv-sim-bar__btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.slide-up-enter-from,
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+}
 
 /* Responsive */
 @media (min-width: 768px) {
@@ -813,6 +1034,27 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sv-hero__cards { grid-template-columns: 1fr; }
   .sv-modal__features ul { grid-template-columns: 1fr; }
+
+  .sv-sim-bar {
+    bottom: 16px;
+  }
+  .sv-sim-bar__inner {
+    flex-direction: column;
+    padding: 1.25rem;
+    border-radius: 24px;
+    gap: 1.25rem;
+  }
+  .sv-sim-bar__info {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .sv-sim-bar__actions {
+    width: 100%;
+  }
+  .sv-sim-bar__btn-cta {
+    flex: 1;
+    justify-content: center;
+  }
 }
 @media (max-width: 640px) {
   .sv-card__inner { padding: 2.5rem 1.75rem; }
