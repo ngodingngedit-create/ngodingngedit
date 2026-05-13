@@ -13,10 +13,10 @@
         <div class="sv-hero__heading reveal">
           <span class="sv-badge">
             <svg width="8" height="8" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="4"/></svg>
-            Layanan Kami
+            {{ t.badge }}
           </span>
-          <h1 class="sv-hero__title">Pilih Kategori<br/><span class="sv-hero__title-hl">Layanan Anda</span></h1>
-          <p class="sv-hero__sub">Dua divisi. Satu tujuan — mengangkat bisnis Anda.</p>
+          <h1 class="sv-hero__title">{{ t.heroTitle1 }}<br/><span class="sv-hero__title-hl">{{ t.heroTitle2 }}</span></h1>
+          <p class="sv-hero__sub">{{ t.heroSub }}</p>
         </div>
 
         <div class="sv-hero__cards reveal delay-100">
@@ -27,12 +27,12 @@
               <div class="sv-card__icon sv-card__icon--blue">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               </div>
-              <h2 class="sv-card__name">Ngoding</h2>
-              <p class="sv-card__sub">Website · Aplikasi · Solusi Digital</p>
+              <h2 class="sv-card__name">{{ t.ngodingTitle }}</h2>
+              <p class="sv-card__sub">{{ t.ngodingSub }}</p>
               <ul class="sv-card__tags">
-                <li>Company Profile</li><li>Landing Page</li><li>E-Commerce</li>
+                <li v-for="tag in t.ngodingTags" :key="tag">{{ tag }}</li>
               </ul>
-              <span class="sv-card__cta">Jelajahi Ngoding →</span>
+              <span class="sv-card__cta">{{ t.ngodingCta }}</span>
             </div>
           </button>
 
@@ -43,12 +43,12 @@
               <div class="sv-card__icon sv-card__icon--purple">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
               </div>
-              <h2 class="sv-card__name">Ngedit</h2>
-              <p class="sv-card__sub">Video · Motion Graphics · Konten Kreatif</p>
+              <h2 class="sv-card__name">{{ t.ngeditTitle }}</h2>
+              <p class="sv-card__sub">{{ t.ngeditSub }}</p>
               <ul class="sv-card__tags">
-                <li>Short-Form</li><li>Video Promosi</li><li>Podcast</li>
+                <li v-for="tag in t.ngeditTags" :key="tag">{{ tag }}</li>
               </ul>
-              <span class="sv-card__cta sv-card__cta--purple">Jelajahi Ngedit →</span>
+              <span class="sv-card__cta sv-card__cta--purple">{{ t.ngeditCta }}</span>
             </div>
           </button>
         </div>
@@ -62,7 +62,7 @@
           <h2 class="sv-gallery__cat-label animate-fade-in">
             {{ activeCategory === 'ngoding' ? '< Ngoding />' : '▶ Ngedit' }}
           </h2>
-          <span class="sv-gallery__count animate-fade-in">{{ activeItems.length }} Layanan Tersedia</span>
+          <span class="sv-gallery__count animate-fade-in">{{ activeItems.length }} {{ t.galleryAvail }}</span>
         </div>
 
         <!-- Symmetrical Immersive Grid -->
@@ -94,17 +94,15 @@
                 
                 <div class="service-card__footer">
                   <div class="service-card__price-wrap">
-                    <span class="service-card__price-label">Mulai dari</span>
+                    <span class="service-card__price-label">{{ t.cardStartFrom }}</span>
                     <strong class="service-card__price">{{ item.price }}</strong>
                   </div>
                   <button 
                     class="service-card__add-btn" 
-                    :class="{ 'is-selected': isSelected(item) }"
-                    @click.stop="toggleSelection(item)"
+                    @click.stop="addToEstimation(item, 1)"
                   >
-                    <svg v-if="!isSelected(item)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                    <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span>{{ isSelected(item) ? 'Terpilih' : 'Tambah' }}</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <span>{{ isSelected(item) ? t.cardAdded : t.cardAdd }}</span>
                   </button>
                 </div>
               </div>
@@ -140,7 +138,7 @@
               <p class="sv-modal__desc">{{ selectedService.description }}</p>
               
               <div class="sv-modal__features" v-if="selectedService.features">
-                <h4 class="sv-modal__features-title">Termasuk:</h4>
+                <h4 class="sv-modal__features-title">{{ t.modalIncludes }}</h4>
                 <ul>
                   <li v-for="feat in selectedService.features" :key="feat">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -149,19 +147,30 @@
                 </ul>
               </div>
               
+              <div class="sv-modal__qty">
+                <span class="sv-modal__qty-label">{{ t.modalQty }}</span>
+                <div class="sv-qty-control">
+                  <button class="sv-qty-btn" @click="qty = Math.max(1, qty - 1)">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </button>
+                  <input type="number" class="sv-qty-input" v-model.number="qty" min="1" />
+                  <button class="sv-qty-btn" @click="qty++">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </button>
+                </div>
+              </div>
+              
               <div class="sv-modal__footer">
                 <div class="sv-modal__price-wrap">
-                  <span class="sv-modal__price-label">Mulai dari</span>
-                  <strong class="sv-modal__price">{{ selectedService.price }}</strong>
+                  <span class="sv-modal__price-label">{{ qty > 1 ? t.modalTotal.replace('{qty}', qty) : t.cardStartFrom }}</span>
+                  <strong class="sv-modal__price">{{ formatPrice(selectedService.basePrice * qty) }}</strong>
                 </div>
                 <button 
                   class="sv-modal__cta" 
-                  :class="{ 'is-selected': isSelected(selectedService) }"
-                  @click="toggleSelection(selectedService)"
+                  @click="addToEstimation(selectedService, qty)"
                 >
-                  <svg v-if="!isSelected(selectedService)" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                  <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  {{ isSelected(selectedService) ? 'Hapus dari Estimasi' : 'Tambah ke Estimasi' }}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  {{ isSelected(selectedService) ? t.cardAdded : t.modalAdd }}
                 </button>
               </div>
             </div>
@@ -173,22 +182,49 @@
     <!-- SIMULATION FLOATING BAR -->
     <Transition name="slide-up">
       <div v-if="selectedItems.length > 0" class="sv-sim-bar">
-        <div class="container sv-sim-bar__inner">
-          <div class="sv-sim-bar__info">
-            <span class="sv-sim-bar__count">{{ selectedItems.length }} Layanan Terpilih</span>
-            <div class="sv-sim-bar__total-wrap">
-              <span class="sv-sim-bar__total-label">Estimasi Total</span>
-              <strong class="sv-sim-bar__total">{{ formattedTotal }}</strong>
+        <div class="container sv-sim-bar-wrapper">
+          <!-- Cart Popover -->
+          <Transition name="fade-slide">
+            <div v-if="showCart" class="sv-sim-cart">
+              <div class="sv-sim-cart__header">
+                <h4>{{ t.barDetail }}</h4>
+                <button class="sv-sim-cart__close" @click="showCart = false" :title="t.barClose">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+              <div class="sv-sim-cart__items">
+                <div v-for="item in selectedItems" :key="item.id" class="sv-sim-cart__item">
+                  <div class="sv-sim-cart__item-info">
+                    <span class="sv-sim-cart__item-title">{{ item.title }}</span>
+                    <span class="sv-sim-cart__item-price">{{ formatPrice(item.basePrice * item.qty) }}</span>
+                  </div>
+                  <div class="sv-sim-cart__qty-ctrl">
+                    <button class="sv-sim-cart__qty-btn" @click="decreaseItemQty(item)">-</button>
+                    <span class="sv-sim-cart__qty-val">{{ item.qty }}</span>
+                    <button class="sv-sim-cart__qty-btn" @click="addToEstimation(item, 1)">+</button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="sv-sim-bar__actions">
-            <button class="sv-sim-bar__btn-reset" @click="selectedItems = []" title="Reset Estimasi">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
-            </button>
-            <a :href="whatsappLink" target="_blank" class="sv-sim-bar__btn-cta">
-              Konsultasikan Penawaran Ini
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
+          </Transition>
+
+          <div class="sv-sim-bar__inner">
+            <div class="sv-sim-bar__info" @click="showCart = !showCart" style="cursor: pointer;" :title="t.barDetail">
+              <span class="sv-sim-bar__count">{{ totalItemsCount }} {{ t.barSelected }}</span>
+              <div class="sv-sim-bar__total-wrap">
+                <span class="sv-sim-bar__total-label">{{ t.barTotal }} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; opacity:0.7; transform:translateY(1px); display:inline-block"><polyline points="18 15 12 9 6 15"/></svg></span>
+                <strong class="sv-sim-bar__total">{{ formattedTotal }}</strong>
+              </div>
+            </div>
+            <div class="sv-sim-bar__actions">
+              <button class="sv-sim-bar__btn-reset" @click="selectedItems = []; showCart = false" :title="t.barReset">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+              </button>
+              <a :href="whatsappLink" target="_blank" class="sv-sim-bar__btn-cta">
+                {{ t.barConsult }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -199,6 +235,65 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import img3dModel from '@/assets/images/services/3d-model.png'
+import { globalLang as lang } from '@/store.js'
+
+const t = computed(() => lang.value === 'id' ? {
+  badge: 'Layanan Kami',
+  heroTitle1: 'Pilih Kategori',
+  heroTitle2: 'Layanan Anda',
+  heroSub: 'Dua divisi. Satu tujuan — mengangkat bisnis Anda.',
+  ngodingTitle: 'Ngoding',
+  ngodingSub: 'Website · Aplikasi · Solusi Digital',
+  ngodingTags: ['Company Profile', 'Landing Page', 'E-Commerce'],
+  ngodingCta: 'Jelajahi Ngoding →',
+  ngeditTitle: 'Ngedit',
+  ngeditSub: 'Video · Motion Graphics · Konten Kreatif',
+  ngeditTags: ['Short-Form', 'Video Promosi', 'Podcast'],
+  ngeditCta: 'Jelajahi Ngedit →',
+  galleryAvail: 'Layanan Tersedia',
+  cardAdd: 'Tambah',
+  cardAdded: 'Tambah Lagi',
+  cardStartFrom: 'Mulai dari',
+  modalIncludes: 'Termasuk:',
+  modalQty: 'Estimasi Jumlah:',
+  modalTotal: 'Total Estimasi ({qty} unit)',
+  modalAdd: 'Tambah ke Estimasi',
+  modalUnit: 'unit',
+  barSelected: 'Layanan Terpilih',
+  barTotal: 'Estimasi Total',
+  barDetail: 'Detail Estimasi',
+  barReset: 'Reset Estimasi',
+  barConsult: 'Konsultasikan',
+  barClose: 'Tutup'
+} : {
+  badge: 'Our Services',
+  heroTitle1: 'Choose Your',
+  heroTitle2: 'Service Category',
+  heroSub: 'Two divisions. One goal — elevating your business.',
+  ngodingTitle: 'Coding',
+  ngodingSub: 'Website · Apps · Digital Solutions',
+  ngodingTags: ['Company Profile', 'Landing Page', 'E-Commerce'],
+  ngodingCta: 'Explore Coding →',
+  ngeditTitle: 'Editing',
+  ngeditSub: 'Video · Motion Graphics · Creative Content',
+  ngeditTags: ['Short-Form', 'Promo Video', 'Podcast'],
+  ngeditCta: 'Explore Editing →',
+  galleryAvail: 'Services Available',
+  cardAdd: 'Add',
+  cardAdded: 'Add More',
+  cardStartFrom: 'Starting from',
+  modalIncludes: 'Includes:',
+  modalQty: 'Estimated Quantity:',
+  modalTotal: 'Total Estimate ({qty} units)',
+  modalAdd: 'Add to Estimate',
+  modalUnit: 'units',
+  barSelected: 'Services Selected',
+  barTotal: 'Total Estimate',
+  barDetail: 'Estimate Details',
+  barReset: 'Reset Estimate',
+  barConsult: 'Consult',
+  barClose: 'Close'
+})
 
 const activeCategory = ref(null)
 const selectedService = ref(null)
@@ -208,65 +303,88 @@ const cardRefs = ref([])
 const heroNgodingRef = ref(null)
 const heroNgeditRef = ref(null)
 const modalOrigin = ref({ x: '50%', y: '50%' })
+const qty = ref(1)
+const showCart = ref(false)
+
+const decreaseItemQty = (item) => {
+  const index = selectedItems.value.findIndex(i => i.id === item.id)
+  if (index !== -1) {
+    if (selectedItems.value[index].qty > 1) {
+      selectedItems.value[index].qty--
+    } else {
+      selectedItems.value.splice(index, 1)
+      if (selectedItems.value.length === 0) showCart.value = false
+    }
+  }
+}
+
+const formatPrice = (val) => {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(val).replace(/IDR/g, 'Rp').trim()
+}
 
 const selectedItems = ref([])
 
-const codingServices = [
-  { id: 'web-company', badge: 'WEBSITE', title: 'Company Profiles', price: 'Rp 500.000',
-    description: 'Website company profile profesional yang responsif, SEO-friendly, dan dirancang untuk meningkatkan kredibilitas bisnis Anda secara online.',
-    features: ['Desain Responsif & Modern', 'SEO Dasar', 'Integrasi WhatsApp', 'Maintenance Dasar'],
+const codingServices = computed(() => [
+  { id: 'web-company', badge: 'WEBSITE', title: 'Company Profiles', basePrice: 500000, price: 'Rp 500.000',
+    description: lang.value === 'id' ? 'Website company profile profesional yang responsif, SEO-friendly, dan dirancang untuk meningkatkan kredibilitas bisnis Anda secara online.' : 'Professional, responsive, and SEO-friendly company profile websites designed to boost your online credibility.',
+    features: lang.value === 'id' ? ['Desain Responsif & Modern', 'SEO Dasar', 'Integrasi WhatsApp', 'Maintenance Dasar'] : ['Responsive & Modern Design', 'Basic SEO', 'WhatsApp Integration', 'Basic Maintenance'],
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
-  { id: 'web-landing', badge: 'WEBSITE', title: 'Landing Page', price: 'Rp 150.000',
-    description: 'Landing page high-conversion dengan desain modern dan copywriting yang efektif untuk kampanye marketing Anda.',
-    features: ['Copywriting Persuasif', 'Optimasi Kecepatan', 'Form Leads / Call-to-Action', 'Analytics Setup'],
+  { id: 'web-landing', badge: 'WEBSITE', title: 'Landing Page', basePrice: 150000, price: 'Rp 150.000',
+    description: lang.value === 'id' ? 'Landing page high-conversion dengan desain modern dan copywriting yang efektif untuk kampanye marketing Anda.' : 'High-conversion landing pages with modern design and effective copywriting for your marketing campaigns.',
+    features: lang.value === 'id' ? ['Copywriting Persuasif', 'Optimasi Kecepatan', 'Form Leads / Call-to-Action', 'Analytics Setup'] : ['Persuasive Copywriting', 'Speed Optimization', 'Lead Forms / CTA', 'Analytics Setup'],
     image: 'https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&q=80' },
-  { id: 'web-database', badge: 'BACKEND', title: 'Database Setup', price: 'Rp 300.000',
-    description: 'Perancangan dan setup database yang aman, scalable, dan teroptimasi untuk kebutuhan aplikasi Anda.',
-    features: ['Schema Design', 'Optimasi Query', 'Setup Keamanan', 'Backup Otomatis'],
+  { id: 'web-database', badge: 'BACKEND', title: 'Database Setup', basePrice: 300000, price: 'Rp 300.000',
+    description: lang.value === 'id' ? 'Perancangan dan setup database yang aman, scalable, dan teroptimasi untuk kebutuhan aplikasi Anda.' : 'Design and setup of a secure, scalable, and optimized database for your application needs.',
+    features: lang.value === 'id' ? ['Schema Design', 'Optimasi Query', 'Setup Keamanan', 'Backup Otomatis'] : ['Schema Design', 'Query Optimization', 'Security Setup', 'Automated Backups'],
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
-  { id: 'domain', badge: 'DOMAIN', title: 'Connect Domain', price: 'Rp 100.000',
-    description: 'Bantuan setup koneksi domain ke server atau hosting Anda, lengkap dengan konfigurasi DNS.',
-    features: ['Konfigurasi DNS', 'Integrasi Hosting', 'Setup CNAME/A Record', 'Bantuan Teknis'],
+  { id: 'domain', badge: 'DOMAIN', title: 'Connect Domain', basePrice: 100000, price: 'Rp 100.000',
+    description: lang.value === 'id' ? 'Bantuan setup koneksi domain ke server atau hosting Anda, lengkap dengan konfigurasi DNS.' : 'Assistance connecting your domain to your server or hosting, complete with DNS configuration.',
+    features: lang.value === 'id' ? ['Konfigurasi DNS', 'Integrasi Hosting', 'Setup CNAME/A Record', 'Bantuan Teknis'] : ['DNS Configuration', 'Hosting Integration', 'CNAME/A Record Setup', 'Technical Support'],
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80' },
-  { id: 'server', badge: 'INFRA', title: 'Server / Hosting', price: 'Rp 300.000',
-    description: 'Setup dan deployment aplikasi Anda ke server cloud (VPS) atau hosting yang andal dan cepat.',
-    features: ['Deployment Web/App', 'Konfigurasi VPS', 'Setup SSL (HTTPS)', 'Monitoring Dasar'],
+  { id: 'server', badge: 'INFRA', title: 'Server / Hosting', basePrice: 300000, price: 'Rp 300.000',
+    description: lang.value === 'id' ? 'Setup dan deployment aplikasi Anda ke server cloud (VPS) atau hosting yang andal dan cepat.' : 'Setup and deployment of your application to a reliable and fast cloud server (VPS) or hosting.',
+    features: lang.value === 'id' ? ['Deployment Web/App', 'Konfigurasi VPS', 'Setup SSL (HTTPS)', 'Monitoring Dasar'] : ['Web/App Deployment', 'VPS Configuration', 'SSL Setup (HTTPS)', 'Basic Monitoring'],
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' },
-]
+])
 
-const editingServices = [
-  { id: 'vid-short', badge: 'VIDEO', title: 'Short-Form Content', price: 'Rp 200.000',
-    description: 'Editing video short-form untuk TikTok, Reels, dan Shorts dengan transisi dinamis dan pacing yang engaging.',
+const editingServices = computed(() => [
+  { id: 'vid-short', badge: 'VIDEO', title: 'Short-Form Content', basePrice: 200000, price: 'Rp 200.000',
+    description: lang.value === 'id' ? 'Editing video short-form untuk TikTok, Reels, dan Shorts dengan transisi dinamis dan pacing yang engaging.' : 'Short-form video editing for TikTok, Reels, and Shorts with dynamic transitions and engaging pacing.',
     features: ['Dynamic Subtitles', 'Sound Effects & BGM', 'Color Correction', 'Trend Adaptation'],
     image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80' },
-  { id: 'vid-promo', badge: 'VIDEO', title: 'Video Promosi', price: 'Rp 750.000',
-    description: 'Video promosi sinematik dengan color grading profesional, motion graphics, dan sound design premium.',
+  { id: 'vid-promo', badge: 'VIDEO', title: lang.value === 'id' ? 'Video Promosi' : 'Promo Video', basePrice: 750000, price: 'Rp 750.000',
+    description: lang.value === 'id' ? 'Video promosi sinematik dengan color grading profesional, motion graphics, dan sound design premium.' : 'Cinematic promo video with professional color grading, motion graphics, and premium sound design.',
     features: ['Cinematic Color Grading', 'Premium Motion Graphics', 'Licensed Music', 'Storytelling Edit'],
     image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80' },
-  { id: 'vid-podcast', badge: 'VIDEO', title: 'Podcast Editing', price: 'Rp 350.000',
-    description: 'Editing podcast lengkap — noise removal, leveling, chapter markers, dan visual waveform untuk YouTube.',
+  { id: 'vid-podcast', badge: 'VIDEO', title: 'Podcast Editing', basePrice: 350000, price: 'Rp 350.000',
+    description: lang.value === 'id' ? 'Editing podcast lengkap — noise removal, leveling, chapter markers, dan visual waveform untuk YouTube.' : 'Complete podcast editing — noise removal, leveling, chapter markers, and visual waveforms for YouTube.',
     features: ['Audio Enhancement', 'Multi-cam Switching', 'Intro/Outro Addition', 'Chapter Generation'],
     image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80' },
-  { id: 'vid-3d', badge: '3D MODEL', title: '3D Visualization', price: 'Rp 2.500.000',
-    description: 'Layanan pemodelan 3D dan render realistis untuk produk, arsitektur, atau karakter game dengan kualitas AAA.',
+  { id: 'vid-3d', badge: '3D MODEL', title: '3D Visualization', basePrice: 2500000, price: 'Rp 2.500.000',
+    description: lang.value === 'id' ? 'Layanan pemodelan 3D dan render realistis untuk produk, arsitektur, atau karakter game dengan kualitas AAA.' : '3D modeling and realistic rendering services for products, architecture, or game characters with AAA quality.',
     features: ['High-Fidelity Rendering', 'Texture & Material Design', 'Animation Ready', 'Source File (Blend/FBX)'],
     image: img3dModel },
-  { id: 'vid-motion', badge: 'MOTION', title: 'Motion Graphics', price: 'Rp 500.000',
-    description: 'Animasi motion graphics untuk intro, lower thirds, infografis, dan branding visual yang eye-catching.',
+  { id: 'vid-motion', badge: 'MOTION', title: 'Motion Graphics', basePrice: 500000, price: 'Rp 500.000',
+    description: lang.value === 'id' ? 'Animasi motion graphics untuk intro, lower thirds, infografis, dan branding visual yang eye-catching.' : 'Motion graphics animation for intros, lower thirds, infographics, and eye-catching visual branding.',
     features: ['Custom Animations', 'Logo Reveals', 'Infographic Video', 'Seamless Looping'],
     image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80' },
-]
+])
 
 const activeItems = computed(() =>
-  activeCategory.value === 'ngoding' ? codingServices : editingServices
+  activeCategory.value === 'ngoding' ? codingServices.value : editingServices.value
 )
 
-const toggleSelection = (item) => {
+const addToEstimation = (item, quantity) => {
   const index = selectedItems.value.findIndex(i => i.id === item.id)
   if (index === -1) {
-    selectedItems.value.push(item)
+    selectedItems.value.push({ ...item, qty: quantity })
   } else {
-    selectedItems.value.splice(index, 1)
+    selectedItems.value[index].qty += quantity
   }
 }
 
@@ -278,21 +396,29 @@ const parsePrice = (priceStr) => {
   return parseInt(priceStr.replace(/Rp /g, '').replace(/\./g, ''), 10) || 0
 }
 
+const totalItemsCount = computed(() => {
+  return selectedItems.value.reduce((sum, item) => sum + item.qty, 0)
+})
+
 const totalPrice = computed(() => {
-  return selectedItems.value.reduce((sum, item) => sum + parsePrice(item.price), 0)
+  return selectedItems.value.reduce((sum, item) => sum + (item.basePrice * item.qty), 0)
 })
 
 const formattedTotal = computed(() => {
-  return 'Rp ' + totalPrice.value.toLocaleString('id-ID')
+  return formatPrice(totalPrice.value)
 })
 
 const whatsappLink = computed(() => {
-  const phoneNumber = '628111776617' // Ganti dengan nomor asli jika ada
-  let message = `Halo, saya tertarik dengan estimasi layanan berikut:\n\n`
+  const phoneNumber = '628111776617' 
+  let message = lang.value === 'id' 
+    ? `Halo, saya tertarik dengan estimasi layanan berikut:\n\n`
+    : `Hello, I'm interested in the following service estimation:\n\n`
   selectedItems.value.forEach(item => {
-    message += `- ${item.title} (${item.price})\n`
+    message += `- ${item.title} (${item.qty} ${t.value.modalUnit} x ${formatPrice(item.basePrice)}) = ${formatPrice(item.basePrice * item.qty)}\n`
   })
-  message += `\n*Estimasi Total: ${formattedTotal.value}*\n\nMohon informasi lebih lanjut.`
+  message += lang.value === 'id' 
+    ? `\n*Estimasi Total: ${formattedTotal.value}*\n\nMohon informasi lebih lanjut.`
+    : `\n*Total Estimate: ${formattedTotal.value}*\n\nPlease provide more information.`
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 })
 
@@ -360,6 +486,7 @@ function onServiceSelect(item, event) {
       y: `${rect.top + rect.height / 2}px`
     }
   }
+  qty.value = 1
   selectedService.value = item
 }
 
@@ -386,16 +513,17 @@ onUnmounted(() => {
 
 /* Shared badge */
 .sv-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 0.3rem 1rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 0.35rem 1.5rem; /* Padding horizontal diperbesar */
   border-radius: 999px;
   font-size: 0.6875rem; font-weight: 700;
-  letter-spacing: 0.07em; text-transform: uppercase;
+  letter-spacing: 0.1em; /* Spasi huruf dilebarkan sedikit */
+  text-transform: uppercase;
   color: var(--color-primary, #2563eb);
   background: rgba(37, 99, 235, 0.1);
   border: 1px solid rgba(37, 99, 235, 0.2);
 }
-.sv-badge--sm { font-size: 0.625rem; padding: 0.2rem 0.75rem; }
+.sv-badge--sm { font-size: 0.625rem; padding: 0.25rem 1.25rem; }
 
 /* ══ HERO SECTION ════════════════════════════════════════ */
 .sv-hero {
@@ -606,7 +734,7 @@ onUnmounted(() => {
 /* ══ SYMMETRICAL IMMERSIVE GRID ════════════════════════════════════ */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   width: 100%;
   perspective: 1200px; /* Needed for 3D tilt effect */
@@ -620,7 +748,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  min-height: 460px;
+  min-height: 400px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.04);
   
   /* 3D Transform properties set by JS */
@@ -674,7 +802,7 @@ onUnmounted(() => {
 
 .service-card__img-wrap {
   width: 100%;
-  height: 220px;
+  height: 180px;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -687,11 +815,11 @@ onUnmounted(() => {
 
 .service-card__content {
   flex: 1;
-  padding: 1.5rem 2rem 2rem;
+  padding: 1.25rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1.25rem;
   
   /* The magic: lifts text closer to user during 3D tilt */
   transform: translateZ(40px);
@@ -700,7 +828,7 @@ onUnmounted(() => {
 
 .service-card__title {
   font-family: var(--font-heading,'Poppins',sans-serif);
-  font-size: 1.35rem; font-weight: 800; color: #0f172a;
+  font-size: 1.15rem; font-weight: 800; color: #0f172a;
   margin: 1rem 0 0.5rem; letter-spacing: -0.02em;
 }
 
@@ -762,7 +890,7 @@ onUnmounted(() => {
   background: rgba(15,23,42,0.85); backdrop-filter: blur(12px);
 }
 .sv-modal__card {
-  position: relative; width: 100%; max-width: 1300px;
+  position: relative; width: 100%; max-width: 1050px;
   border-radius: 24px; overflow: hidden;
   background: #ffffff;
   box-shadow: 0 40px 100px rgba(0,0,0,0.4);
@@ -794,7 +922,7 @@ onUnmounted(() => {
 }
 
 .sv-modal__body { 
-  padding: 0 3rem 3rem; display: flex; flex-direction: column; gap: 1.25rem;
+  padding: 0 2.5rem 2rem; display: flex; flex-direction: column; gap: 1rem;
   margin-top: -2rem; /* Pull up to overlap gradient slightly */
   position: relative;
   z-index: 2;
@@ -809,16 +937,16 @@ onUnmounted(() => {
 
 .sv-modal__title {
   font-family: var(--font-heading,'Poppins',sans-serif);
-  font-size: 2.5rem; font-weight: 800; color: #0f172a; margin: 0; letter-spacing: -0.02em;
+  font-size: 2rem; font-weight: 800; color: #0f172a; margin: 0; letter-spacing: -0.02em;
 }
 
 .sv-modal__desc { 
-  font-size: 1rem; line-height: 1.7; color: #475569; margin: 0; 
+  font-size: 0.9375rem; line-height: 1.6; color: #475569; margin: 0; 
 }
 
 .sv-modal__features {
   margin-top: 0.5rem;
-  padding: 1.25rem;
+  padding: 1rem;
   background: #f8fafc;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
@@ -849,9 +977,41 @@ onUnmounted(() => {
   font-weight: 500;
 }
 
+/* Qty Control */
+.sv-modal__qty {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-top: 0.5rem;
+}
+.sv-modal__qty-label { font-size: 0.9375rem; font-weight: 700; color: #1e293b; }
+.sv-qty-control { display: flex; align-items: center; gap: 0.75rem; }
+.sv-qty-btn {
+  width: 36px; height: 36px; border-radius: 10px;
+  border: 1px solid #cbd5e1; background: #fff;
+  color: #0f172a; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.sv-qty-btn:hover { 
+  background: #f1f5f9; border-color: var(--color-primary, #2563eb); color: var(--color-primary, #2563eb);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.sv-qty-btn:active { transform: translateY(0); }
+.sv-qty-input {
+  width: 40px; text-align: center; border: none; background: transparent;
+  font-weight: 800; color: #0f172a; font-size: 1.125rem;
+  font-family: inherit;
+}
+.sv-qty-input::-webkit-inner-spin-button, .sv-qty-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
 .sv-modal__footer {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem;
-  padding-top: 1.5rem; margin-top: 0.5rem;
+  padding-top: 1rem; margin-top: 0.25rem;
   border-top: 1px solid #e2e8f0;
 }
 .sv-modal__price-label {
@@ -860,7 +1020,7 @@ onUnmounted(() => {
 }
 .sv-modal__price {
   font-family: var(--font-heading,'Poppins',sans-serif);
-  font-size: 2rem; font-weight: 800; color: var(--color-primary,#2563eb); letter-spacing: -0.02em;
+  font-size: 1.75rem; font-weight: 800; color: var(--color-primary,#2563eb); letter-spacing: -0.02em;
 }
 .sv-modal__cta {
   display: inline-flex; align-items: center; gap: 6px;
@@ -902,6 +1062,74 @@ onUnmounted(() => {
   padding: 0 1rem;
 }
 
+.sv-sim-bar-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.sv-sim-cart {
+  position: absolute;
+  bottom: calc(100% + 16px);
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.05) inset;
+  pointer-events: auto;
+}
+
+.sv-sim-cart__header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sv-sim-cart__header h4 { margin: 0; color: #fff; font-size: 1.125rem; font-family: var(--font-heading,'Poppins',sans-serif); }
+.sv-sim-cart__close { 
+  background: rgba(255,255,255,0.1); border: none; color: #fff; 
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s; 
+}
+.sv-sim-cart__close:hover { background: rgba(255,255,255,0.2); transform: scale(1.05); }
+
+.sv-sim-cart__items {
+  max-height: 300px; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.sv-sim-cart__items::-webkit-scrollbar { width: 6px; }
+.sv-sim-cart__items::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+
+.sv-sim-cart__item {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.75rem 1rem; background: rgba(255,255,255,0.03); border-radius: 12px;
+}
+
+.sv-sim-cart__item-info { display: flex; flex-direction: column; gap: 0.1rem; flex: 1; }
+.sv-sim-cart__item-title { color: #fff; font-size: 0.9375rem; font-weight: 600; }
+.sv-sim-cart__item-price { color: #94a3b8; font-size: 0.8125rem; font-weight: 600; }
+
+.sv-sim-cart__qty-ctrl {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: rgba(0,0,0,0.3); padding: 0.35rem; border-radius: 10px;
+}
+.sv-sim-cart__qty-btn {
+  width: 28px; height: 28px; border-radius: 6px; border: none; background: rgba(255,255,255,0.1);
+  color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; font-weight: 800;
+}
+.sv-sim-cart__qty-btn:hover { background: rgba(255,255,255,0.25); }
+.sv-sim-cart__qty-val { color: #fff; font-size: 0.875rem; font-weight: 700; min-width: 20px; text-align: center; }
+
+/* fade-slide animation */
+.fade-slide-enter-active, .fade-slide-leave-active { transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+.fade-slide-enter-from, .fade-slide-leave-to { opacity: 0; transform: translateY(10px); }
+
 .sv-sim-bar__inner {
   pointer-events: auto;
   background: rgba(15, 23, 42, 0.95);
@@ -913,10 +1141,10 @@ onUnmounted(() => {
   align-items: center;
   gap: 2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255,255,255,0.05) inset;
-  max-width: 800px;
   width: 100%;
   justify-content: space-between;
 }
+
 
 .sv-sim-bar__info {
   display: flex;
@@ -1016,9 +1244,9 @@ onUnmounted(() => {
     flex-direction: row;
   }
   .sv-modal__img-wrap {
-    width: 45%;
+    width: 40%;
     height: auto;
-    min-height: 400px;
+    min-height: 320px;
   }
   .sv-modal__img-overlay {
     background: linear-gradient(to right, rgba(255,255,255,1) 0%, transparent 60%);
@@ -1027,7 +1255,7 @@ onUnmounted(() => {
   }
   .sv-modal__body {
     width: 60%;
-    padding: 2.5rem;
+    padding: 2rem 2.5rem;
     margin-top: 0;
   }
 }

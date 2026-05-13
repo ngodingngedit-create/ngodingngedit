@@ -41,6 +41,12 @@
 
         <!-- CTA -->
         <div class="navbar__actions">
+          <!-- Language Toggle -->
+          <div class="navbar__lang-toggle">
+            <button :class="{ active: lang === 'id' }" @click="lang = 'id'">ID</button>
+            <button :class="{ active: lang === 'en' }" @click="lang = 'en'">EN</button>
+          </div>
+
           <a href="#contact" class="navbar__cta">
             Hubungi Kami
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -93,6 +99,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
+import { globalLang as lang } from '@/store.js'
 
 const route = useRoute()
 const router = useRouter()
@@ -246,6 +253,46 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   display: flex;
   align-items: center;
   gap: var(--space-md);
+}
+
+.navbar__lang-toggle {
+  display: flex;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 99px;
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar--light .navbar__lang-toggle {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar--light.navbar--scrolled .navbar__lang-toggle {
+  background: rgba(0,0,0,0.05);
+}
+
+.navbar__lang-toggle button {
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  padding: 0.4rem 0.8rem;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navbar--light .navbar__lang-toggle button {
+  color: #64748b;
+}
+
+.navbar__lang-toggle button.active {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.2);
 }
 
 .navbar__cta {
