@@ -4,28 +4,28 @@
    CSS Custom Properties
    ===================== */
 :root {
-  /* Colors - Single Primary Blue System */
-  --color-primary: #0066FF;
-  --color-primary-dark: #0052CC;
-  --color-primary-light: #3385FF;
-  --color-accent: #00B2FF;
-  --color-gradient: linear-gradient(135deg, #0066FF 0%, #00B2FF 100%);
-  --color-gradient-text: linear-gradient(135deg, #0066FF 0%, #00B2FF 100%);
+  /* Colors - User Palette: #3F72AF, #DBE2EF, #F9F7F7 */
+  --color-primary: #2563eb;
+  --color-primary-dark: #0548d9;
+  --color-primary-light: #5a8bc7;
+  --color-accent: #DBE2EF;
+  --color-gradient: linear-gradient(135deg, #2563eb 0%, #DBE2EF 100%);
+  --color-gradient-text: linear-gradient(135deg, #2563eb 0%, #112D4E 100%);
 
-  --color-bg-dark: #0A1628;
-  --color-bg-navy: #0f1f3d;
-  --color-bg-navy-light: #162035;
-  --color-surface: #ffffff;
-  --color-surface-2: #f8fafc;
-  --color-surface-3: #f1f5f9;
-  --color-border: #e2e8f0;
-  --color-border-dark: rgba(255, 255, 255, 0.08);
+  --color-bg-dark: #112D4E;
+  --color-bg-navy: #1a3c5a;
+  --color-bg-navy-light: #DBE2EF;
+  --color-surface: #F9F7F7;
+  --color-surface-2: #DBE2EF;
+  --color-surface-3: #ffffff;
+  --color-border: #DBE2EF;
+  --color-border-dark: rgba(17, 45, 78, 0.1);
 
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #64748b;
-  --color-text-muted: #94a3b8;
-  --color-text-light: rgba(255, 255, 255, 0.85);
-  --color-text-light-muted: rgba(255, 255, 255, 0.55);
+  --color-text-primary: #2563eb;
+  --color-text-secondary: #3F72AF;
+  --color-text-muted: #64748b;
+  --color-text-light: #F9F7F7;
+  --color-text-light-muted: rgba(249, 247, 247, 0.7);
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -69,7 +69,9 @@
 /* =====================
    Reset & Base
    ===================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -91,7 +93,8 @@ body {
   overflow-x: hidden;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -102,7 +105,8 @@ a {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -116,7 +120,12 @@ button {
 /* =====================
    Typography
    ===================== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
   font-weight: 700;

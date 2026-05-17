@@ -5,11 +5,7 @@
         <!-- Brand Column -->
         <div class="footer__brand reveal">
           <div class="footer__logo">
-            <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-              <rect width="28" height="28" rx="8" fill="#2563EB"/>
-              <path d="M7 14L11 18L21 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>NgodingNgedit</span>
+            <img src="/logo/logo white.png" alt="NgodingNgedit Logo" class="footer__logo-img" />
           </div>
           <p class="footer__desc">
             Partner terpercaya agensi digital yang membangun solusi teknologi inovatif untuk mendorong pertumbuhan bisnis Anda di era digital.
@@ -87,7 +83,7 @@
       <!-- Bottom Bar -->
       <div class="footer__bottom">
         <p class="footer__copy">© {{ currentYear }} NgodingNgedit. Inovasi Digital Tanpa Batas.</p>
-        <p class="footer__tagline">Built with ❤️ in Indonesia</p>
+        
       </div>
     </div>
   </footer>
@@ -109,8 +105,8 @@ onMounted(() => {
 
 <style scoped>
 .footer {
-  background: var(--color-bg-dark);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: #2563EB; /* Premium Brand Blue Background */
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding: var(--space-4xl) 0 0;
 }
 
@@ -119,36 +115,39 @@ onMounted(() => {
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: var(--space-3xl);
   padding-bottom: var(--space-3xl);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Brand */
 .footer__logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   margin-bottom: var(--space-lg);
 }
 
-.footer__logo span {
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: -0.02em;
+.footer__logo-img {
+  height: 150px; /* Increased logo size for maximum brand impact and bold visibility */
+  object-fit: contain;
+  position: relative;
+  bottom: 50px;
+  right: 16px;
 }
 
 .footer__desc {
-  color: var(--color-text-light-muted);
+  color: #ffffff; /* Pure white description */
   font-size: 0.9rem;
   line-height: 1.75;
   margin-bottom: var(--space-xl);
   max-width: 300px;
+  position: relative;
+  bottom: 100px;
 }
 
 .footer__socials {
   display: flex;
   gap: var(--space-sm);
+  position: relative;
+  bottom: 100px;
 }
 
 .footer__social {
@@ -157,17 +156,17 @@ onMounted(() => {
   justify-content: center;
   width: 38px;
   height: 38px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--color-text-light-muted);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12); /* Stronger background contrast */
+  color: #ffffff; /* Pure white social icon */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all var(--transition-base);
 }
 
 .footer__social:hover {
-  background: var(--color-primary);
-  color: white;
-  border-color: var(--color-primary);
+  background: #ffffff; /* White background on hover */
+  color: #2563EB; /* Blue icon on hover */
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -178,7 +177,7 @@ onMounted(() => {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: #ffffff; /* Pure white bold header */
   margin-bottom: var(--space-lg);
 }
 
@@ -189,25 +188,28 @@ onMounted(() => {
 }
 
 .footer__links li a {
-  color: var(--color-text-light-muted);
+  color: #ffffff; /* Pure white quick links */
+  opacity: 0.9;
   font-size: 0.9rem;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
+  text-decoration: none;
 }
 
 .footer__links li a:hover {
-  color: white;
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .footer__links--contact li {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--color-text-light-muted);
+  color: #ffffff; /* Pure white contact details */
   font-size: 0.9rem;
 }
 
 .footer__links--contact li svg {
-  color: var(--color-primary-light);
+  color: #ffffff; /* Pure white SVG icons */
   flex-shrink: 0;
 }
 
@@ -217,12 +219,15 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-xl) 0;
+  position: relative;
+  bottom: 135px;
 }
 
 .footer__copy,
 .footer__tagline {
   font-size: 0.85rem;
-  color: var(--color-text-light-muted);
+  color: #ffffff; /* Pure white bottom text */
+  opacity: 0.9;
 }
 
 /* Responsive */

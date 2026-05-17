@@ -1,28 +1,33 @@
 <template>
   <section class="portfolio-section section-padding" id="portfolio">
-    <div class="container">
-      <!-- Header -->
-      <div class="portfolio-section__header">
-        <div class="portfolio-section__title-row">
-          <div>
-            <h2 class="section-title reveal" style="text-align:left">Portofolio Terbaru</h2>
-            <div class="section-underline reveal delay-100" style="margin:var(--space-md) 0 0"></div>
-          </div>
-          <a href="#" class="portfolio-section__see-all reveal delay-200">
+    <!-- Scattered Faint Dot Grid Background Pattern -->
+    <div class="portfolio-section__dot-grid"></div>
+
+    <div class="container portfolio-section__container">
+      <!-- Header Section -->
+      <div class="portfolio-section__header reveal">
+        <div class="portfolio-section__header-text">
+
+          <h2 class="portfolio-section__title">
+            Portofolio <span class="highlight"></span>
+          </h2>
+          <p class="portfolio-section__subtitle">
+            Inilah beberapa proyek unggulan yang telah kami selesaikan dengan standar Kolektix.group.
+          </p>
+        </div>
+        <div class="portfolio-section__header-action">
+          <a href="#" class="portfolio-section__see-all">
             Lihat Semua
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
             </svg>
           </a>
         </div>
-        <p class="portfolio-section__subtitle reveal delay-200">
-          Inilah beberapa proyek unggulan yang telah kami selesaikan dengan standar Kolektix.group.
-        </p>
       </div>
 
-      <!-- Cards -->
-      <div class="portfolio-section__grid">
+      <!-- Cards Flex Swiper -->
+      <div class="portfolio-section__grid" ref="gridRef" @scroll="handleScroll">
         <PortfolioCard
           v-for="(project, i) in projects"
           :key="project.title"
@@ -34,13 +39,24 @@
           :delay="i * 0.12"
         />
       </div>
+
+      <!-- Interactive Dynamic Pagination Dots -->
+      <div class="portfolio-section__pagination reveal delay-200">
+        <span
+          v-for="i in projects.length"
+          :key="i"
+          class="pagination-dot"
+          :class="{ active: activeIndex === i - 1 }"
+          @click="scrollToPage(i - 1)"
+        ></span>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
 import PortfolioCard from '@/components/ui/PortfolioCard.vue'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 import imgArtnaflow from '@/assets/images/portfolio_artnaflow.png'
 import imgLuxemarket from '@/assets/images/portfolio_luxemarket.png'
@@ -68,7 +84,67 @@ const projects = [
     description: 'Sistem pencitraan medis berbasis cloud dengan kecerdasan AI untuk diagnosis personal.',
     tags: ['AI', 'Python'],
   },
+  {
+    image: imgArtnaflow,
+    category: 'FINTECH',
+    title: 'PaySphere Gate',
+    description: 'Gerbang pembayaran global instan yang aman dan mudah diintegrasikan untuk bisnis modern.',
+    tags: ['Next.js', 'Go'],
+  },
+  {
+    image: imgLuxemarket,
+    category: 'EDTECH',
+    title: 'EduLearn Platform',
+    description: 'Sistem manajemen pembelajaran interaktif berbasis cloud untuk sekolah modern.',
+    tags: ['Vue.js', 'Tailwind'],
+  },
+  {
+    image: imgMediscan,
+    category: 'TRAVEL',
+    title: 'TravelEase App',
+    description: 'Aplikasi perencana rute wisata pintar terintegrasi dengan pemesanan tiket instan.',
+    tags: ['React Native', 'Node.js'],
+  },
+  {
+    image: imgArtnaflow,
+    category: 'AGRITECH',
+    title: 'AgriGrow IoT',
+    description: 'Sensor pemantau kelembaban dan kesehatan tanaman real-time berbasis Internet of Things.',
+    tags: ['Python', 'IoT'],
+  },
+  {
+    image: imgLuxemarket,
+    category: 'FINTECH',
+    title: 'FinTrack Pro',
+    description: 'Sistem akuntansi perusahaan otomatis dengan analisis resiko keuangan bertenaga AI.',
+    tags: ['React', 'Django'],
+  },
 ]
+
+const activeIndex = ref(0)
+const gridRef = ref(null)
+
+const handleScroll = () => {
+  if (!gridRef.value) return
+  const scrollLeft = gridRef.value.scrollLeft
+  const scrollWidth = gridRef.value.scrollWidth - gridRef.value.clientWidth
+  if (scrollWidth <= 0) {
+    activeIndex.value = 0
+    return
+  }
+  const percentage = scrollLeft / scrollWidth
+  activeIndex.value = Math.min(Math.round(percentage * (projects.length - 1)), projects.length - 1)
+}
+
+const scrollToPage = (index) => {
+  if (!gridRef.value) return
+  const scrollWidth = gridRef.value.scrollWidth - gridRef.value.clientWidth
+  const targetScroll = (index / (projects.length - 1)) * scrollWidth
+  gridRef.value.scrollTo({
+    left: targetScroll,
+    behavior: 'smooth'
+  })
+}
 
 onMounted(() => {
   const observer = new IntersectionObserver(
@@ -81,67 +157,235 @@ onMounted(() => {
 
 <style scoped>
 .portfolio-section {
-  background: var(--color-surface);
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #ffffff 0%, rgba(249, 247, 247, 0.8) 100%);
+  overflow: hidden;
 }
 
+/* Faint Scattered Grey Dot Grid */
+.portfolio-section__dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(100, 116, 139, 0.1) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at center, black 60%, transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 95%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.portfolio-section__container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header styling */
 .portfolio-section__header {
-  margin-bottom: var(--space-3xl);
-}
-
-.portfolio-section__title-row {
   display: flex;
+  flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--space-xl);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-3xl);
+  text-align: left;
+}
+
+.portfolio-section__header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 650px;
+}
+
+.portfolio-section__label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+}
+
+.portfolio-section__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-section__title .highlight {
+  color: var(--color-primary);
+}
+
+.portfolio-section__subtitle {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.portfolio-section__header-action {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .portfolio-section__see-all {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
-  padding-bottom: 4px;
-  border-bottom: 2px solid rgba(37, 99, 235, 0.25);
+  padding: 0.6rem 1.35rem;
+  border: 2px solid rgba(63, 114, 175, 0.15);
+  border-radius: var(--radius-pill);
   white-space: nowrap;
   transition: all var(--transition-fast);
-  flex-shrink: 0;
-  margin-bottom: 4px;
+  background: white;
+  text-decoration: none;
 }
 
 .portfolio-section__see-all:hover {
+  background: var(--color-primary);
+  color: white;
   border-color: var(--color-primary);
-  gap: 10px;
+  box-shadow: var(--shadow-btn);
+  transform: translateY(-2px);
 }
 
-.portfolio-section__subtitle {
-  color: var(--color-text-secondary);
-  font-size: 0.9375rem;
+.portfolio-section__see-all svg {
+  transition: transform var(--transition-fast);
 }
 
+.portfolio-section__see-all:hover svg {
+  transform: translateX(4px);
+}
+
+/* Horizontal Swiper Layout */
 .portfolio-section__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* Aligns all cards same height and parallel */
+  gap: var(--space-lg); /* Sleek gap for compact layout */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: var(--space-md); /* space for thin scrollbar */
+  margin-bottom: var(--space-md);
+  scrollbar-width: thin;
+  scrollbar-color: #2563EB transparent;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Custom Scrollbar - Super Thin & Blue */
+.portfolio-section__grid::-webkit-scrollbar {
+  height: 4px; /* Thinner scrollbar */
+}
+
+.portfolio-section__grid::-webkit-scrollbar-track {
+  background: rgba(37, 99, 235, 0.05); /* Very soft blue track background */
+  border-radius: var(--radius-full);
+}
+
+.portfolio-section__grid::-webkit-scrollbar-thumb {
+  background: #2563EB; /* Vibrant Blue Thumb */
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+.portfolio-section__grid::-webkit-scrollbar-thumb:hover {
+  background: #1D4ED8;
+}
+
+/* Card Width on Desktop: exactly 4 cards fit by default */
+.portfolio-section__grid > * {
+  flex: 0 0 calc(25% - (3 * var(--space-lg) / 4));
+  scroll-snap-align: start;
+}
+
+/* Pagination Dots - Thinner & Blue */
+.portfolio-section__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: var(--space-xl);
+}
+
+.pagination-dot {
+  display: block;
+  width: 6px; /* Super thin, compact dots */
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: rgba(37, 99, 235, 0.2); /* Soft Blue inactive dots */
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.pagination-dot.active {
+  background: #2563EB; /* Vivid Blue active dot */
+  width: 16px; /* Thinner active pill */
+  border-radius: var(--radius-pill);
+}
+
+/* Responsive Breakpoints */
 @media (max-width: 1024px) {
-  .portfolio-section__grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* Tablet layout: exactly 3 cards fit in view */
+  .portfolio-section__grid > * {
+    flex: 0 0 calc(33.333% - (2 * var(--space-lg) / 3));
   }
 }
 
-@media (max-width: 640px) {
-  .portfolio-section__grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .portfolio-section__header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    gap: var(--space-md);
   }
 
-  .portfolio-section__title-row {
-    flex-direction: column;
-    align-items: flex-start;
+  .portfolio-section__header-text {
+    align-items: center;
+  }
+
+  .portfolio-section__header-action {
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--space-xs);
+  }
+
+  .portfolio-section__see-all {
+    width: auto;
+  }
+
+  .portfolio-section__grid {
     gap: var(--space-md);
+    padding-bottom: var(--space-sm);
+  }
+
+  /* Mobile Layout: 1.2 cards peek horizontally */
+  .portfolio-section__grid > * {
+    flex: 0 0 80%;
+  }
+
+  .portfolio-section__pagination {
+    gap: 12px;
+  }
+
+  .pagination-dot {
+    width: 8px; /* Slightly larger on mobile for easy touch tap */
+    height: 8px;
+  }
+
+  .pagination-dot.active {
+    width: 20px;
   }
 }
 </style>
+
+

@@ -1,60 +1,78 @@
 <template>
   <section class="hero" id="beranda">
-    <!-- Aceternity-style Spotlight & Grid Background -->
+    <!-- Background Accents -->
     <div class="hero__bg" aria-hidden="true">
-      <video autoplay muted loop playsinline class="hero__video">
-        <source src="/kantor/kantor.mp4" type="video/mp4" />
-      </video>
-      <div class="hero__overlay"></div>
-      
-      <!-- Animated Spotlight -->
-      <div class="hero__spotlight"></div>
-      
+      <div class="hero__bg-gradient"></div>
       <div class="hero__grid"></div>
+      <div class="hero__geometric-1"></div>
+      <div class="hero__geometric-2"></div>
     </div>
 
-    <div class="container hero__content">
-      <!-- Headline with Text Reveal Effect -->
-      <h1 class="hero__title">
-        <span class="reveal-text" style="--delay: 0.1s">Bangun Ekosistem Digital</span><br class="br-desktop"/>
-        <span class="reveal-text" style="--delay: 0.25s">Masa Depan dengan</span><br/>
-        <span class="hero__title-highlight reveal-text" style="--delay: 0.4s">Presisi Teknikal</span>
-      </h1>
+    <div class="container hero__container">
+      <div class="hero__content-wrapper">
+        <!-- Left Column: Text & CTA -->
+        <div class="hero__text-side">
+          <!-- <div class="hero__badge animate-fade-in-up" style="animation-delay: 0.1s">
+            <span class="badge-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </span>
+            Digital Solution for Modern Business
+          </div> -->
 
-      <!-- Subtitle -->
-      <p class="hero__subtitle animate-fade-in-up" style="animation-delay:0.6s">
-        Kami menghadirkan solusi perangkat lunak dan desain kreatif yang dirancang khusus untuk menjaga level pertumbuhan bisnis Anda di era digital.
-      </p>
+          <h1 class="hero__title">
+            <span class="reveal-text" style="--delay: 0.2s">Build the Digital</span><br/>
+            <span class="reveal-text" style="--delay: 0.35s">Ecosystem of the Future</span><br/>
+            <span class="reveal-text text-royal" style="--delay: 0.5s">with Technical Precision</span>
+          </h1>
 
-      <!-- CTA Buttons with Aceternity-style Shimmer -->
-      <div class="hero__actions animate-fade-in-up" style="animation-delay:0.75s">
-        
-        <!-- Magic Shimmer Button -->
-        <a href="#contact" class="magic-btn">
-          <span class="magic-btn__glow"></span>
-          <span class="magic-btn__content">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.71 16.92z"/>
-            </svg>
-            Konsultasi Gratis
-          </span>
-        </a>
+          <p class="hero__description animate-fade-in-up" style="animation-delay: 0.7s">
+            We deliver high-end software solutions and creative designs tailored to maintain your business growth level in the digital era.
+          </p>
 
-        <!-- Minimal Outline Button -->
-        <a href="#portfolio" class="outline-btn">
-          Lihat Portfolio
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"/>
-            <polyline points="12 5 19 12 12 19"/>
-          </svg>
-        </a>
+          <div class="hero__actions animate-fade-in-up" style="animation-delay: 0.85s">
+            <a href="tel:#" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.71 16.92z"></path></svg>
+              Free Consultation
+            </a>
+            <a href="#portfolio" class="btn-secondary">
+              View Portfolio
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Laptop & Floating Icons -->
+        <div class="hero__image-side">
+          <div class="laptop-wrapper">
+            <img src="/hero/laptop (2).png" alt="MacBook Pro SaaS Dashboard" class="hero__laptop animate-float" />
+            
+            <!-- Floating Glassmorphism Icons -->
+            <div class="floating-icon icon-1 animate-float-delayed" style="--delay: 0.5s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <div class="floating-icon icon-2 animate-float-delayed" style="--delay: 1.2s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <div class="floating-icon icon-3 animate-float-delayed" style="--delay: 2s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div class="floating-icon icon-4 animate-float-delayed" style="--delay: 2.8s">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Stats Row -->
-      <div class="hero__stats animate-fade-in-up" style="animation-delay:0.9s">
-        <div class="hero__stat" v-for="stat in stats" :key="stat.label">
-          <span class="hero__stat-value">{{ stat.value }}</span>
-          <span class="hero__stat-label">{{ stat.label }}</span>
+      <!-- Bottom Feature Bar -->
+      <div class="hero__feature-bar animate-fade-in-up" style="animation-delay: 1s">
+        <div class="feature-card" v-for="(feature, idx) in features" :key="idx">
+          <div class="feature-icon" :style="{ backgroundColor: feature.bgColor, color: feature.color }">
+            <div v-html="feature.icon"></div>
+          </div>
+          <div class="feature-text">
+            <span class="feature-label">{{ feature.label }}</span>
+            <span class="feature-status">Completed</span>
+          </div>
         </div>
       </div>
     </div>
@@ -62,11 +80,31 @@
 </template>
 
 <script setup>
-const stats = [
-  { value: '150+', label: 'Proyek Selesai' },
-  { value: '98%', label: 'Klien Puas' },
-  { value: '5+', label: 'Tahun Pengalaman' },
-  { value: '24/7', label: 'Dukungan Aktif' },
+const features = [
+  { 
+    label: 'Event Information', 
+    bgColor: '#EFF6FF', 
+    color: '#2563EB',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12H15M9 16H12M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  },
+  { 
+    label: 'Tickets & Pricing', 
+    bgColor: '#F0FDF4', 
+    color: '#10B981',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5V7M15 11V13M15 17V19M5 5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V5ZM9 7H11M9 11H11M9 15H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  },
+  { 
+    label: 'Event Media', 
+    bgColor: '#FFFBEB', 
+    color: '#F59E0B',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 16L8.58579 11.4142C9.36683 10.6332 10.6332 10.6332 11.4142 11.4142L16 16M14 14L15.5858 12.4142C16.3668 11.6332 17.6332 11.6332 18.4142 12.4142L20 14M14 8H14.01M6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  },
+  { 
+    label: 'Promotions', 
+    bgColor: '#FDF2F8', 
+    color: '#DB2777',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.48 3.49902L14.021 8.64602L19.702 9.47302C21.011 9.66402 21.534 11.2720 20.584 12.1980L16.474 16.2040L17.444 21.8620C17.668 23.1670 16.297 24.1590 15.127 23.5440L10.001 20.8490L4.87302 23.5440C3.70202 24.1590 2.33202 23.1670 2.55602 21.8620L3.52602 16.2040L-0.583984 12.1980C-1.53398 11.2720 -1.01098 9.66402 0.298016 9.47302L5.97902 8.64602L8.52002 3.49902C9.10502 2.31302 10.895 2.31302 11.48 3.49902Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  }
 ]
 </script>
 
@@ -74,244 +112,451 @@ const stats = [
 .hero {
   position: relative;
   min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background: #ffffff;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  background: #0A1628;
-  overflow: hidden;
-  padding-top: var(--navbar-height);
 }
 
-/* ── BACKGROUND & SPOTLIGHT ────────────────────────────── */
+/* ── BACKGROUND ───────────────────────────────────────── */
 .hero__bg {
   position: absolute;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
 }
 
-.hero__video {
+.hero__bg-gradient {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: 0.4;
-}
-
-.hero__overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(10, 22, 40, 0.95), rgba(10, 22, 40, 0.8) 50%, rgba(10, 22, 40, 0.95));
-}
-
-.hero__spotlight {
-  position: absolute;
-  top: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  height: 80vh;
-  background: radial-gradient(ellipse at top, rgba(37, 99, 235, 0.35) 0%, rgba(168, 85, 247, 0.15) 30%, transparent 70%);
-  animation: spotlight-breathe 8s ease-in-out infinite alternate;
-  z-index: 1;
-}
-
-@keyframes spotlight-breathe {
-  0% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-  100% { opacity: 1; transform: translateX(-50%) scale(1.1) translateY(20px); }
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
 }
 
 .hero__grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, transparent 80%);
-  z-index: 2;
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
 
-/* ── CONTENT ───────────────────────────────────────────── */
-.hero__content {
+.hero__geometric-1 {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  border: 1px solid rgba(37, 99, 235, 0.05);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.hero__geometric-2 {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(37, 99, 235, 0.03);
+  border-radius: 40px;
+  transform: rotate(15deg);
+  z-index: -1;
+}
+
+/* ── CONTAINER & LAYOUT ────────────────────────────────── */
+.hero__container {
   position: relative;
-  z-index: 10;
-  text-align: center;
+  z-index: 1;
+}
+
+.hero__content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+/* ── LEFT SIDE ─────────────────────────────────────────── */
+.hero__text-side {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-xl);
-  padding-top: var(--space-4xl);
-  padding-bottom: var(--space-4xl);
+  gap: 1.5rem;
 }
 
-/* ── TEXT REVEAL ANIMATION ─────────────────────────────── */
-.hero__title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.25rem, 6vw, 4.25rem);
-  font-weight: 800;
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #2563EB;
+  width: fit-content;
+}
+
+.badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #2563EB;
   color: white;
+  border-radius: 50%;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 850;
   line-height: 1.1;
-  letter-spacing: -0.02em;
-  max-width: 860px;
-  margin: 0;
+  color: #1E293B;
+  letter-spacing: -0.03em;
+}
+
+.text-royal {
+  color: #2563EB;
 }
 
 .reveal-text {
   display: inline-block;
   opacity: 0;
-  transform: translateY(40px) rotateX(-20deg);
-  animation: text-reveal-anim 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform: translateY(30px);
+  animation: reveal-anim 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   animation-delay: var(--delay);
 }
 
-@keyframes text-reveal-anim {
-  to {
-    opacity: 1;
-    transform: translateY(0) rotateX(0deg);
-  }
+@keyframes reveal-anim {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hero__title-highlight {
-  background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #f472b6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
+.hero__description {
+  font-size: 1.125rem;
+  color: #64748B;
+  max-width: 540px;
+  line-height: 1.6;
 }
 
-.br-desktop { display: block; }
-
-.hero__subtitle {
-  color: #94a3b8;
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  line-height: 1.75;
-  max-width: 600px;
-  margin: 0;
-}
-
-/* ── BUTTONS (ACETERNITY STYLE) ───────────────────────── */
 .hero__actions {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 0.5rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-/* Shimmer / Magic Button */
-.magic-btn {
+.btn-primary {
   position: relative;
   display: inline-flex;
-  border-radius: 9999px;
-  padding: 2px;
-  overflow: hidden;
-  text-decoration: none;
-  background: rgba(15, 23, 42, 0.5);
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.magic-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
-}
-
-/* Spinning gradient border */
-.magic-btn__glow {
-  position: absolute;
-  inset: -50%;
-  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, #60a5fa 80%, #a855f7 100%);
-  animation: spin 3s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.magic-btn__content {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: #0A1628;
-  padding: 0.875rem 2rem;
-  border-radius: 9999px;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: #004cff;
   color: white;
-  font-size: 1rem;
+  border-radius: 8px;
   font-weight: 700;
-  backdrop-filter: blur(10px);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px -5px rgba(0, 76, 255, 0.3);
+  overflow: hidden;
+  z-index: 1;
 }
 
-/* Minimal Outline Button */
-.outline-btn {
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 400%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  animation: rotate-border 4s linear infinite;
+  z-index: -1;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #004cff;
+  border-radius: 6px;
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(0, 76, 255, 0.4);
+}
+
+.btn-primary:hover::after {
+  background: #0038cc;
+}
+
+.btn-secondary {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0.875rem 2rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.03);
-  color: white;
-  font-size: 1rem;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: white;
+  color: #1E293B;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 1;
 }
 
-.outline-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 400%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 40%,
+    #004cff 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  animation: rotate-border 4s linear infinite;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.btn-secondary::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: white;
+  border-radius: 7px;
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #F8FAFC;
   transform: translateY(-2px);
 }
 
-/* ── STATS ────────────────────────────────────────────── */
-.hero__stats {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3xl);
-  padding-top: var(--space-2xl);
-  margin-top: var(--space-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  flex-wrap: wrap;
-  justify-content: center;
+@keyframes rotate-border {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.hero__stat {
+/* ── RIGHT SIDE ────────────────────────────────────────── */
+.hero__image-side {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.laptop-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  perspective: 1000px;
+}
+
+.hero__laptop {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.12));
+  transform: rotateY(-5deg) rotateX(2deg);
+}
+
+.floating-icon {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.07),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.floating-icon:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.icon-1 { top: -5%; left: 10%; }
+.icon-2 { top: 20%; right: -5%; }
+.icon-3 { bottom: 15%; left: -8%; }
+.icon-4 { bottom: -5%; right: 15%; }
+
+/* ── FEATURE BAR ───────────────────────────────────────── */
+.hero__feature-bar {
+  display: flex;
+  background: white;
+  border-radius: 24px;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 20px 50px -10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #F1F5F9;
+  justify-content: space-between;
+}
+
+.feature-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 16px;
+  transition: background 0.3s ease;
+}
+
+.feature-card:hover {
+  background: #F8FAFC;
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  background: #ECFDF5;
+  color: #10B981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4px;
 }
 
-.hero__stat-value {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -0.02em;
+.feature-label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #1E293B;
 }
 
-.hero__stat-label {
-  font-size: 0.8125rem;
-  color: #94a3b8;
+.feature-status {
+  font-size: 0.75rem;
+  color: #64748B;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+}
+
+/* ── ANIMATIONS ────────────────────────────────────────── */
+.animate-float {
+  animation: float-laptop 6s ease-in-out infinite;
+}
+
+@keyframes float-laptop {
+  0%, 100% { transform: translateY(0) rotateY(-5deg) rotateX(2deg); }
+  50% { transform: translateY(-15px) rotateY(-3deg) rotateX(1deg); }
+}
+
+.animate-float-delayed {
+  animation: float-icon 4s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes float-icon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────── */
-@media (max-width: 768px) {
-  .hero__title { font-size: clamp(2.25rem, 8vw, 3rem); }
-  .br-desktop { display: none; }
-  .hero__stats { gap: var(--space-xl); }
+@media (max-width: 1024px) {
+  .hero__content-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  
+  .hero__text-side {
+    align-items: center;
+  }
+  
+  .hero__description {
+    margin: 0 auto;
+  }
+  
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__feature-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 }
 
-@media (max-width: 480px) {
-  .hero__actions { flex-direction: column; width: 100%; gap: 1rem; }
-  .magic-btn, .outline-btn { width: 100%; }
-  .magic-btn__content, .outline-btn { width: 100%; justify-content: center; }
-  .hero__stats { gap: var(--space-lg); }
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 100px;
+  }
+  
+  .hero__title {
+    font-size: 2.25rem;
+  }
+  
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero__feature-bar {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .floating-icon {
+    width: 42px;
+    height: 42px;
+  }
 }
 </style>
+

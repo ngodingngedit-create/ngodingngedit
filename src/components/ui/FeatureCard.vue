@@ -67,8 +67,8 @@ function onMouseLeave() {
   border-radius: inherit;
   background: radial-gradient(
     400px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    rgba(37, 99, 235, 0.8),
-    rgba(168, 85, 247, 0.4),
+    rgba(63, 114, 175, 0.8),
+    rgba(219, 226, 239, 0.4),
     transparent 40%
   );
   z-index: 0;
@@ -117,7 +117,7 @@ function onMouseLeave() {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(96, 165, 250, 0.08));
+  background: linear-gradient(135deg, rgba(63, 114, 175, 0.08), rgba(219, 226, 239, 0.15));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,10 +126,10 @@ function onMouseLeave() {
 }
 
 .feature-card:hover .feature-card__icon-wrap {
-  background: linear-gradient(135deg, var(--color-primary), #818cf8);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   color: white;
   transform: scale(1.1) rotate(-5deg);
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 10px 20px rgba(63, 114, 175, 0.2);
 }
 
 .feature-card__title {
