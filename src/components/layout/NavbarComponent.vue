@@ -14,9 +14,72 @@
         <!-- Navigation -->
         <nav class="navbar__nav">
           <template v-for="item in navItems" :key="item.path">
+            <!-- Solusi dropdown item -->
+            <div
+              v-if="item.hasDropdown"
+              class="navbar__dropdown-wrap"
+              @mouseenter="showSolusiDropdown = true"
+              @mouseleave="showSolusiDropdown = false"
+            >
+              <RouterLink
+                :to="item.path"
+                class="navbar__link navbar__link--has-arrow"
+                active-class=""
+                :class="{ 'navbar__link--active': isRouteActive(item) }"
+              >
+                {{ item.label }}
+                <svg class="navbar__link-arrow" :class="{ 'navbar__link-arrow--open': showSolusiDropdown }" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <span class="navbar__link-indicator"></span>
+              </RouterLink>
+
+              <Transition name="mega-drop">
+                <div v-if="showSolusiDropdown" class="navbar__mega">
+                  <!-- Header -->
+                  <div class="navbar__mega-head">
+                    <span class="navbar__mega-title">{{ megaT.title }}</span>
+                    <span class="navbar__mega-sub">{{ megaT.sub }}</span>
+                  </div>
+
+                  <!-- Solution cards -->
+                  <div class="navbar__mega-cards">
+                    <RouterLink
+                      v-for="sol in megaSolutions"
+                      :key="sol.id"
+                      to="/solusi"
+                      class="navbar__mega-card"
+                      :class="`navbar__mega-card--${sol.color}`"
+                      @click="showSolusiDropdown = false"
+                    >
+                      <div class="navbar__mega-card__icon" :class="`navbar__mega-card__icon--${sol.color}`">
+                        <div v-html="sol.icon"></div>
+                      </div>
+                      <div class="navbar__mega-card__body">
+                        <strong class="navbar__mega-card__name">{{ sol.name }}</strong>
+                        <p class="navbar__mega-card__desc">{{ sol.desc }}</p>
+                        <ul class="navbar__mega-card__benefits">
+                          <li v-for="b in sol.benefits" :key="b">
+                            <span class="navbar__mega-card__dot" :class="`navbar__mega-card__dot--${sol.color}`"></span>{{ b }}
+                          </li>
+                        </ul>
+                      </div>
+                    </RouterLink>
+                  </div>
+
+                  <!-- Footer CTA -->
+                  <div class="navbar__mega-footer">
+                    <span>{{ megaT.footerText }}</span>
+                    <RouterLink to="/solusi" class="navbar__mega-cta" @click="showSolusiDropdown = false">
+                      {{ megaT.footerCta }}
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </RouterLink>
+                  </div>
+                </div>
+              </Transition>
+            </div>
+
             <!-- Real routes get RouterLink -->
             <RouterLink
-              v-if="item.isRoute"
+              v-else-if="item.isRoute"
               :to="item.path"
               class="navbar__link"
               active-class=""
@@ -87,8 +150,36 @@
       <div v-if="menuOpen" class="navbar__mobile-menu" @click.self="closeMenu">
         <nav class="navbar__mobile-nav">
           <template v-for="item in navItems" :key="item.path">
+            <!-- Solusi accordion in mobile -->
+            <div v-if="item.hasDropdown" class="navbar__mobile-dropdown">
+              <button
+                class="navbar__mobile-link navbar__mobile-link--accordion"
+                @click="mobileAccordionOpen = !mobileAccordionOpen"
+              >
+                {{ item.label }}
+                <svg :class="{ 'rotated': mobileAccordionOpen }" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <Transition name="accordion">
+                <div v-if="mobileAccordionOpen" class="navbar__mobile-accordion">
+                  <RouterLink
+                    v-for="sol in megaSolutions"
+                    :key="sol.id"
+                    to="/solusi"
+                    class="navbar__mobile-sol-item"
+                    @click="closeMenu"
+                  >
+                    <span class="navbar__mobile-sol-dot" :class="`navbar__mobile-sol-dot--${sol.color}`"></span>
+                    <span>
+                      <strong>{{ sol.name }}</strong>
+                      <small>{{ sol.desc }}</small>
+                    </span>
+                  </RouterLink>
+                </div>
+              </Transition>
+            </div>
+
             <RouterLink
-              v-if="item.isRoute"
+              v-else-if="item.isRoute"
               :to="item.path"
               class="navbar__mobile-link"
               active-class=""
@@ -133,6 +224,7 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { globalLang as lang } from '@/store.js'
 
+
 // Click outside directive (simplified inline version)
 const vClickOutside = {
   mounted(el, binding) {
@@ -154,6 +246,8 @@ const router = useRouter()
 const scrolled = ref(false)
 const menuOpen = ref(false)
 const showLangDropdown = ref(false)
+const showSolusiDropdown = ref(false)
+const mobileAccordionOpen = ref(false)
 
 const languages = [
   { label: 'Indonesia', code: 'id', flag: '/leaguage/indo.png' },
@@ -165,17 +259,77 @@ const currentFlag = computed(() => {
   return current ? current.flag : '/leaguage/indo.png'
 })
 
-const isLightTheme = computed(() => route.path === '/services' || route.path === '/')
+const isLightTheme = computed(() => route.path === '/services' || route.path === '/' || route.path === '/solusi')
 
-const navItems = [
-  { label: 'Beranda', path: '/', isRoute: true },
-  { label: 'Portfolio', path: '/#portfolio', isRoute: false },
-  { label: 'Layanan', path: '/services', isRoute: true },
-]
+const navItems = computed(() => [
+  { label: lang.value === 'id' ? 'Beranda' : 'Home', path: '/', isRoute: true },
+  { label: lang.value === 'id' ? 'Portfolio' : 'Portfolio', path: '/#portfolio', isRoute: false },
+  { label: lang.value === 'id' ? 'Layanan' : 'Services', path: '/services', isRoute: true },
+  { label: lang.value === 'id' ? 'Solusi' : 'Solutions', path: '/solusi', isRoute: true, hasDropdown: true },
+])
+
+// ── Mega-dropdown content (reactive to language) ─────────
+const megaT = computed(() => lang.value === 'id' ? {
+  title: 'Solusi Kami',
+  sub: 'Pilih solusi yang tepat untuk bisnis Anda',
+  footerText: 'Lihat semua solusi lengkap',
+  footerCta: 'Jelajahi Halaman Solusi →',
+} : {
+  title: 'Our Solutions',
+  sub: 'Find the right solution for your business',
+  footerText: 'See the full solutions page',
+  footerCta: 'Explore Solutions Page →',
+})
+
+const megaSolutions = computed(() => lang.value === 'id' ? [
+  {
+    id: 'web-dev', color: 'blue',
+    name: 'Website & Aplikasi',
+    desc: 'Solusi digital end-to-end dari desain hingga deployment.',
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    benefits: ['Website responsif & cepat', 'SEO-friendly', 'Integrasi penuh'],
+  },
+  {
+    id: 'content', color: 'purple',
+    name: 'Konten Kreatif',
+    desc: 'Video, motion graphics & konten sosial yang mengkonversi.',
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
+    benefits: ['Kualitas sinematik', 'Siap semua platform', 'Brand yang konsisten'],
+  },
+  {
+    id: 'strategy', color: 'emerald',
+    name: 'Strategi & Infrastruktur',
+    desc: 'Ekosistem digital yang aman, andal & skalabel.',
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`,
+    benefits: ['Server & cloud setup', 'Keamanan sistem', 'Roadmap teknologi'],
+  },
+] : [
+  {
+    id: 'web-dev', color: 'blue',
+    name: 'Website & Apps',
+    desc: 'End-to-end digital solutions from design to deployment.',
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    benefits: ['Responsive & fast', 'SEO-friendly', 'Full integrations'],
+  },
+  {
+    id: 'content', color: 'purple',
+    name: 'Creative Content',
+    desc: 'Video, motion graphics & social content that converts.',
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
+    benefits: ['Cinematic quality', 'All platforms ready', 'Consistent branding'],
+  },
+  {
+    id: 'strategy', color: 'emerald',
+    name: 'Strategy & Infrastructure',
+    desc: 'A secure, reliable & scalable digital ecosystem.',
+    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`,
+    benefits: ['Server & cloud setup', 'System security', 'Technology roadmap'],
+  },
+])
 
 function isRouteActive(item) {
   if (item.path === '/') return route.path === '/'
-  return route.path === item.path
+  return route.path.startsWith(item.path)
 }
 
 function scrollToHash(path) {
@@ -508,6 +662,281 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   font-weight: 700;
   font-size: 1.25rem;
 }
+
+/* ── Dropdown wrap ────────────────────────────────────── */
+.navbar__dropdown-wrap {
+  position: relative;
+}
+
+/* Arrow chevron next to label */
+.navbar__link--has-arrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.navbar__link-arrow {
+  opacity: 0.6;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  margin-top: 1px;
+}
+.navbar__link-arrow--open,
+.navbar__dropdown-wrap:hover .navbar__link-arrow {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* ── Mega-dropdown panel ──────────────────────────────── */
+.navbar__mega {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 740px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.14), 0 4px 12px rgba(0,0,0,0.06);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Transition */
+.mega-drop-enter-active, .mega-drop-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.mega-drop-enter-from, .mega-drop-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-8px) scale(0.97);
+}
+
+/* Header row */
+.navbar__mega-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.navbar__mega-title {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0f172a;
+}
+.navbar__mega-sub {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+/* Cards grid */
+.navbar__mega-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+}
+
+.navbar__mega-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #f8fafc;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.navbar__mega-card:hover {
+  border-color: rgba(37,99,235,0.2);
+  background: rgba(37,99,235,0.03);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,99,235,0.08);
+}
+.navbar__mega-card--purple:hover {
+  border-color: rgba(168,85,247,0.2);
+  background: rgba(168,85,247,0.03);
+  box-shadow: 0 8px 24px rgba(168,85,247,0.08);
+}
+.navbar__mega-card--emerald:hover {
+  border-color: rgba(16,185,129,0.2);
+  background: rgba(16,185,129,0.03);
+  box-shadow: 0 8px 24px rgba(16,185,129,0.08);
+}
+
+.navbar__mega-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.navbar__mega-card:hover .navbar__mega-card__icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+.navbar__mega-card__icon--blue   { background: rgba(37,99,235,0.1);  color: #2563eb; }
+.navbar__mega-card__icon--purple { background: rgba(168,85,247,0.1); color: #a855f7; }
+.navbar__mega-card__icon--emerald{ background: rgba(16,185,129,0.1); color: #10b981; }
+
+.navbar__mega-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.navbar__mega-card__name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+.navbar__mega-card__desc {
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+.navbar__mega-card__benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.navbar__mega-card__benefits li {
+  font-size: 0.6875rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.navbar__mega-card__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.navbar__mega-card__dot--blue   { background: #2563eb; }
+.navbar__mega-card__dot--purple { background: #a855f7; }
+.navbar__mega-card__dot--emerald{ background: #10b981; }
+
+/* Footer row */
+.navbar__mega-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.8125rem;
+  color: #94a3b8;
+}
+.navbar__mega-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+.navbar__mega-cta:hover {
+  gap: 10px;
+  text-decoration: underline;
+}
+
+/* ── Mobile accordion ─────────────────────────────────── */
+.navbar__mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.navbar__mobile-link--accordion {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+.navbar__mobile-link--accordion svg {
+  transition: transform 0.25s ease;
+}
+.navbar__mobile-link--accordion svg.rotated {
+  transform: rotate(180deg);
+}
+
+/* Accordion transition */
+.accordion-enter-active, .accordion-leave-active {
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  overflow: hidden;
+  max-height: 400px;
+}
+.accordion-enter-from, .accordion-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.navbar__mobile-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 90vw;
+  max-width: 340px;
+  padding: 0.75rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 14px;
+  margin-top: 0.5rem;
+}
+
+.navbar__mobile-sol-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.navbar__mobile-sol-item:hover {
+  background: rgba(255,255,255,0.15);
+}
+.navbar__mobile-sol-item span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.navbar__mobile-sol-item strong {
+  color: white;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.navbar__mobile-sol-item small {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+.navbar__mobile-sol-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.navbar__mobile-sol-dot--blue   { background: #93c5fd; }
+.navbar__mobile-sol-dot--purple { background: #d8b4fe; }
+.navbar__mobile-sol-dot--emerald{ background: #6ee7b7; }
 
 /* Responsive */
 @media (max-width: 768px) {
