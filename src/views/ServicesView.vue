@@ -11,10 +11,6 @@
 
       <div class="container sv-hero__inner">
         <div class="sv-hero__heading reveal">
-          <span class="sv-badge">
-            <svg width="8" height="8" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="4"/></svg>
-            {{ t.badge }}
-          </span>
           <h1 class="sv-hero__title">{{ t.heroTitle1 }}<br/><span class="sv-hero__title-hl">{{ t.heroTitle2 }}</span></h1>
           <p class="sv-hero__sub">{{ t.heroSub }}</p>
         </div>

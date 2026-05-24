@@ -11,10 +11,6 @@
 
       <div class="container sol-hero__inner">
         <div class="sol-hero__heading reveal">
-          <span class="sol-badge">
-            <svg width="8" height="8" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="4"/></svg>
-            {{ t.badge }}
-          </span>
           <h1 class="sol-hero__title">
             {{ t.heroTitle1 }}<br/>
             <span class="sol-hero__title-hl">{{ t.heroTitle2 }}</span>
