@@ -10,12 +10,20 @@
       </div>
 
       <div class="container sol-hero__inner">
-        <div class="sol-hero__heading reveal">
-          <h1 class="sol-hero__title">
-            {{ t.heroTitle1 }}<br/>
-            <span class="sol-hero__title-hl">{{ t.heroTitle2 }}</span>
-          </h1>
-          <p class="sol-hero__sub">{{ t.heroSub }}</p>
+        <div class="sol-hero__split reveal">
+          <!-- Left: title -->
+          <div class="sol-hero__left">
+            <h1 class="sol-hero__title">
+              {{ t.heroTitle1 }}<br/>
+              <span class="sol-hero__title-hl">{{ t.heroTitle2 }}</span>
+            </h1>
+          </div>
+          <!-- Right: sub text -->
+          <div class="sol-hero__right">
+            <div class="sol-hero__subs">
+              <p v-for="(line, i) in t.heroSubs" :key="i" class="sol-hero__sub">{{ line }}</p>
+            </div>
+          </div>
         </div>
 
         <!-- Stats row -->
@@ -27,6 +35,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- ═══════════════════════════════════════════════ SOLUTIONS -->
     <section class="sol-solutions" id="solusi">
@@ -150,7 +159,11 @@ const t = computed(() => lang.value === 'id' ? {
   badge: 'Solusi Kami',
   heroTitle1: 'Solusi Digital',
   heroTitle2: 'untuk Bisnis Modern',
-  heroSub: 'Dari konsultasi awal hingga peluncuran — kami hadir di setiap langkah untuk memastikan pertumbuhan bisnis Anda.',
+  heroSubs: [
+    'Dari konsultasi awal hingga peluncuran, kami mendampingi setiap tahap dengan penuh dedikasi.',
+    'Tim kami memadukan teknologi terkini dengan strategi bisnis yang tepat untuk menciptakan dampak nyata.',
+    'Setiap keputusan kami dasarkan pada data, setiap solusi kami rancang khusus untuk bisnis Anda.',
+  ],
   stats: [
     { value: '50+', label: 'Proyek Selesai' },
     { value: '98%', label: 'Kepuasan Klien' },
@@ -169,7 +182,11 @@ const t = computed(() => lang.value === 'id' ? {
   badge: 'Our Solutions',
   heroTitle1: 'Digital Solutions',
   heroTitle2: 'for Modern Business',
-  heroSub: 'From the first consultation to launch day — we are with you at every step to ensure your business growth.',
+  heroSubs: [
+    'From the first consultation to launch day, we stand beside you at every milestone with expertise.',
+    'We combine cutting-edge technology with sharp business strategy to create impact that moves the needle.',
+    'Every decision is data-driven. Every solution is crafted specifically around your business goals.',
+  ],
   stats: [
     { value: '50+', label: 'Projects Delivered' },
     { value: '98%', label: 'Client Satisfaction' },
@@ -359,7 +376,7 @@ onMounted(() => {
   position: relative;
   min-height: 72vh;
   display: flex; align-items: center;
-  padding: calc(var(--navbar-height, 72px) + 3rem) 2rem 5rem;
+  padding: calc(var(--navbar-height, 72px) + 6rem) 2rem 5rem;
   overflow: hidden;
   background: #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -385,31 +402,48 @@ onMounted(() => {
 
 .sol-hero__inner {
   position: relative; z-index: 1;
-  display: flex; flex-direction: column; align-items: center;
+  display: flex; flex-direction: column;
   gap: 4rem; width: 100%;
 }
 
-.sol-hero__heading {
-  text-align: center;
-  display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
+/* Split two-column hero heading */
+.sol-hero__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
   opacity: 0; transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.sol-hero__heading.visible { opacity: 1; transform: translateY(0); }
+.sol-hero__split.visible { opacity: 1; transform: translateY(0); }
+
+.sol-hero__left {
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+
+.sol-hero__right {
+  display: flex; align-items: center;
+}
 
 .sol-hero__title {
   font-family: var(--font-heading, 'Poppins', sans-serif);
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 800; color: #0f172a;
   letter-spacing: -0.03em; line-height: 1.08; margin: 0;
 }
 .sol-hero__title-hl {
-  background: linear-gradient(135deg, #2563eb 0%, #818cf8 50%, #a855f7 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  color: #2563eb;
 }
+
+.sol-hero__subs {
+  display: flex; flex-direction: column; gap: 0.9rem;
+}
+
 .sol-hero__sub {
-  color: #64748b; font-size: 1.0625rem; line-height: 1.7;
-  max-width: 600px; margin: 0 auto;
+  color: #64748b; font-size: 1rem; line-height: 1.75;
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(37,99,235,0.2);
 }
 
 /* Stats */
@@ -651,6 +685,10 @@ onMounted(() => {
 
 /* ══ RESPONSIVE ═══════════════════════════════════════════ */
 @media (max-width: 1024px) {
+  .sol-hero__split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
   .sol-card__inner {
     grid-template-columns: 1fr;
     gap: 2rem;

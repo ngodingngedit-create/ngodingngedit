@@ -1,7 +1,7 @@
 <template>
   <section class="partner-section" :class="variant === 'dark' ? 'partner-section--light' : ''">
     <div class="container">
-      <p class="partner-section__label reveal">PARTNER TERPERCAYA KAMI</p>
+      <p class="partner-section__label reveal">{{ lang === 'id' ? 'PARTNER TERPERCAYA KAMI' : 'OUR TRUSTED PARTNERS' }}</p>
       <!-- Marquee Track -->
       <div class="partner-section__track-wrapper">
         <div class="partner-section__track">
@@ -20,6 +20,7 @@
 <script setup>
 import PartnerLogo from '@/components/ui/PartnerLogo.vue'
 import { onMounted } from 'vue'
+import { globalLang as lang } from '@/store.js'
 
 defineProps({
   variant: { type: String, default: 'light' },

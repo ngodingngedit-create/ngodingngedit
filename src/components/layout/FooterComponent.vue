@@ -8,14 +8,10 @@
             <img src="/logo/logo white.png" alt="NgodingNgedit Logo" class="footer__logo-img" />
           </div>
           <p class="footer__desc">
-            Partner terpercaya agensi digital yang membangun solusi teknologi inovatif untuk mendorong pertumbuhan bisnis Anda di era digital.
+            {{ lang === 'id' ? 'Partner terpercaya agensi digital yang membangun solusi teknologi inovatif untuk mendorong pertumbuhan bisnis Anda di era digital.' : 'A trusted digital agency partner building innovative technology solutions to drive your business growth in the digital era.' }}
           </p>
           <div class="footer__socials">
-            <a href="#" class="footer__social" aria-label="Twitter">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
-              </svg>
-            </a>
+
             <a href="#" class="footer__social" aria-label="LinkedIn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -40,33 +36,33 @@
 
         <!-- Quick Links -->
         <div class="footer__col reveal delay-200">
-          <h4 class="footer__col-title">Tautan Cepat</h4>
+          <h4 class="footer__col-title">{{ lang === 'id' ? 'Tautan Cepat' : 'Quick Links' }}</h4>
           <ul class="footer__links">
-            <li><a href="#about">Tentang Kami</a></li>
-            <li><a href="#services">Layanan</a></li>
+            <li><a href="#about">{{ lang === 'id' ? 'Tentang Kami' : 'About Us' }}</a></li>
+            <li><a href="#services">{{ lang === 'id' ? 'Layanan' : 'Services' }}</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#careers">Karir</a></li>
+            <li><a href="/solusi">{{ lang === 'id' ? 'Solusi' : 'Solutions' }}</a></li>
           </ul>
         </div>
 
         <!-- Help -->
         <div class="footer__col reveal delay-300">
-          <h4 class="footer__col-title">Bantuan</h4>
+          <h4 class="footer__col-title">{{ lang === 'id' ? 'Bantuan' : 'Help' }}</h4>
           <ul class="footer__links">
-            <li><a href="/privacy-policy">Kebijakan Privasi</a></li>
-            <li><a href="/terms-and-conditions">Syarat &amp; Ketentuan</a></li>
-            <li><a href="#">Pusat Bantuan</a></li>
-            <li><a href="#">Mitra</a></li>
+            <li><a href="/privacy-policy">{{ lang === 'id' ? 'Kebijakan Privasi' : 'Privacy Policy' }}</a></li>
+            <li><a href="/terms-and-conditions">{{ lang === 'id' ? 'Syarat & Ketentuan' : 'Terms & Conditions' }}</a></li>
+            <li><a href="#">{{ lang === 'id' ? 'Pusat Bantuan' : 'Help Center' }}</a></li>
+            <li><a href="#">{{ lang === 'id' ? 'Mitra' : 'Partners' }}</a></li>
           </ul>
         </div>
 
         <!-- Contact -->
         <div class="footer__col reveal delay-400">
-          <h4 class="footer__col-title">Kontak</h4>
+          <h4 class="footer__col-title">{{ lang === 'id' ? 'Kontak' : 'Contact' }}</h4>
           <ul class="footer__links footer__links--contact">
             <li>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Jakarta, Indonesia
+              Jl. Dalang Komplek Anggrek Loka Blok F No 1, Munjul Cipayung Jakarta Timur DKI Jakarta
             </li>
             <li>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -82,7 +78,7 @@
 
       <!-- Bottom Bar -->
       <div class="footer__bottom">
-        <p class="footer__copy">© {{ currentYear }} NgodingNgedit. Inovasi Digital Tanpa Batas.</p>
+        <p class="footer__copy">© {{ currentYear }} NgodingNgedit. {{ lang === 'id' ? 'Inovasi Digital Tanpa Batas.' : 'Limitless Digital Innovation.' }}</p>
         
       </div>
     </div>
@@ -91,6 +87,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { globalLang as lang } from '@/store.js'
 
 const currentYear = new Date().getFullYear()
 

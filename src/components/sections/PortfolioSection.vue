@@ -9,15 +9,15 @@
         <div class="portfolio-section__header-text">
 
           <h2 class="portfolio-section__title">
-            Portofolio <span class="highlight"></span>
+            Portfolio <span class="highlight"></span>
           </h2>
           <p class="portfolio-section__subtitle">
-            Inilah beberapa proyek unggulan yang telah kami selesaikan dengan standar Kolektix.group.
+            A selection of our finest projects, delivered to the highest standards.
           </p>
         </div>
         <div class="portfolio-section__header-action">
           <a href="#" class="portfolio-section__see-all">
-            Lihat Semua
+            See All
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
@@ -67,56 +67,56 @@ const projects = [
     image: imgArtnaflow,
     category: 'FINTECH',
     title: 'ArtnaFlow Dashboard',
-    description: 'Solusi manajemen keuangan dan analitik bisnis real-time berbasis cloud yang powerful.',
+    description: 'A powerful cloud-based financial management and real-time business analytics platform.',
     tags: ['React', 'Node.js'],
   },
   {
     image: imgLuxemarket,
     category: 'E-COMMERCE',
     title: 'LuxeMarket Mobile',
-    description: 'Aplikasi belanja mobile untuk pengalaman berbelanja personal berbasis AI.',
+    description: 'An AI-powered mobile shopping app delivering a highly personalized retail experience.',
     tags: ['Flutter', 'Firebase'],
   },
   {
     image: imgMediscan,
     category: 'HEALTH-TECH',
     title: 'MediScan Cloud',
-    description: 'Sistem pencitraan medis berbasis cloud dengan kecerdasan AI untuk diagnosis personal.',
+    description: 'A cloud-based medical imaging system leveraging AI for accurate personal diagnostics.',
     tags: ['AI', 'Python'],
   },
   {
     image: imgArtnaflow,
     category: 'FINTECH',
     title: 'PaySphere Gate',
-    description: 'Gerbang pembayaran global instan yang aman dan mudah diintegrasikan untuk bisnis modern.',
+    description: 'An instant global payment gateway — secure, reliable, and seamlessly integrable for modern businesses.',
     tags: ['Next.js', 'Go'],
   },
   {
     image: imgLuxemarket,
     category: 'EDTECH',
     title: 'EduLearn Platform',
-    description: 'Sistem manajemen pembelajaran interaktif berbasis cloud untuk sekolah modern.',
+    description: 'An interactive cloud-based learning management system built for modern schools.',
     tags: ['Vue.js', 'Tailwind'],
   },
   {
     image: imgMediscan,
     category: 'TRAVEL',
     title: 'TravelEase App',
-    description: 'Aplikasi perencana rute wisata pintar terintegrasi dengan pemesanan tiket instan.',
+    description: 'A smart travel route planner with integrated instant ticket booking.',
     tags: ['React Native', 'Node.js'],
   },
   {
     image: imgArtnaflow,
     category: 'AGRITECH',
     title: 'AgriGrow IoT',
-    description: 'Sensor pemantau kelembaban dan kesehatan tanaman real-time berbasis Internet of Things.',
+    description: 'Real-time soil moisture and crop health monitoring powered by Internet of Things sensors.',
     tags: ['Python', 'IoT'],
   },
   {
     image: imgLuxemarket,
     category: 'FINTECH',
     title: 'FinTrack Pro',
-    description: 'Sistem akuntansi perusahaan otomatis dengan analisis resiko keuangan bertenaga AI.',
+    description: 'An automated corporate accounting system with AI-powered financial risk analysis.',
     tags: ['React', 'Django'],
   },
 ]

@@ -62,51 +62,9 @@
           </div>
         </div>
       </div>
-
-      <!-- Bottom Feature Bar -->
-      <div class="hero__feature-bar animate-fade-in-up" style="animation-delay: 1s">
-        <div class="feature-card" v-for="(feature, idx) in features" :key="idx">
-          <div class="feature-icon" :style="{ backgroundColor: feature.bgColor, color: feature.color }">
-            <div v-html="feature.icon"></div>
-          </div>
-          <div class="feature-text">
-            <span class="feature-label">{{ feature.label }}</span>
-            <span class="feature-status">Completed</span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 </template>
-
-<script setup>
-const features = [
-  { 
-    label: 'Event Information', 
-    bgColor: '#EFF6FF', 
-    color: '#2563EB',
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12H15M9 16H12M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
-  },
-  { 
-    label: 'Tickets & Pricing', 
-    bgColor: '#F0FDF4', 
-    color: '#10B981',
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5V7M15 11V13M15 17V19M5 5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V5ZM9 7H11M9 11H11M9 15H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
-  },
-  { 
-    label: 'Event Media', 
-    bgColor: '#FFFBEB', 
-    color: '#F59E0B',
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 16L8.58579 11.4142C9.36683 10.6332 10.6332 10.6332 11.4142 11.4142L16 16M14 14L15.5858 12.4142C16.3668 11.6332 17.6332 11.6332 18.4142 12.4142L20 14M14 8H14.01M6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
-  },
-  { 
-    label: 'Promotions', 
-    bgColor: '#FDF2F8', 
-    color: '#DB2777',
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.48 3.49902L14.021 8.64602L19.702 9.47302C21.011 9.66402 21.534 11.2720 20.584 12.1980L16.474 16.2040L17.444 21.8620C17.668 23.1670 16.297 24.1590 15.127 23.5440L10.001 20.8490L4.87302 23.5440C3.70202 24.1590 2.33202 23.1670 2.55602 21.8620L3.52602 16.2040L-0.583984 12.1980C-1.53398 11.2720 -1.01098 9.66402 0.298016 9.47302L5.97902 8.64602L8.52002 3.49902C9.10502 2.31302 10.895 2.31302 11.48 3.49902Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
-  }
-]
-</script>
 
 <style scoped>
 .hero {

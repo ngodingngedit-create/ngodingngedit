@@ -35,19 +35,17 @@
         <div class="cta-content">
           <!-- Left Panel: Text Headings -->
           <div class="cta-left-panel">
-            <div class="cta-badge reveal delay-100">
-              <span class="cta-badge__dot">●</span>
-              MULAI SEKARANG
-            </div>
-            
-            <h2 class="cta-title reveal delay-200">
+            <h2 class="cta-title reveal delay-200" v-if="lang === 'id'">
               Siap Memulai<br/>Revolusi <span class="highlight">Digital</span> Anda?
+            </h2>
+            <h2 class="cta-title reveal delay-200" v-else>
+              Ready to Start Your<br/><span class="highlight">Digital</span> Revolution?
             </h2>
 
             <div class="cta-divider reveal delay-200"></div>
             
             <p class="cta-subtitle reveal delay-300">
-              Mari diskusikan bagaimana kami dapat membantu mewujudkan visi dan teknologi Anda menjadi nilai yang luar biasa.
+              {{ lang === 'id' ? 'Mari diskusikan bagaimana kami dapat membantu mewujudkan visi dan teknologi Anda menjadi nilai yang luar biasa.' : "Let's discuss how we can help turn your vision and technology into incredible value." }}
             </p>
           </div>
 
@@ -61,7 +59,7 @@
                     <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                   </svg>
-                  <span class="cta-btn-text">Hubungi Kami Sekarang</span>
+                  <span class="cta-btn-text">{{ lang === 'id' ? 'Hubungi Kami Sekarang' : 'Contact Us Now' }}</span>
                 </div>
                 <svg class="cta-btn-icon cta-btn-icon--arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -79,7 +77,7 @@
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                 </div>
-                <span class="cta-feature-text">Respons dalam &lt; 24 jam</span>
+                <span class="cta-feature-text">{{ lang === 'id' ? 'Respons dalam < 24 jam' : 'Response in < 24 hours' }}</span>
               </div>
               
               <div class="cta-vertical-divider"></div>
@@ -90,7 +88,7 @@
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                   </svg>
                 </div>
-                <span class="cta-feature-text">Konsultasi gratis</span>
+                <span class="cta-feature-text">{{ lang === 'id' ? 'Konsultasi gratis' : 'Free consultation' }}</span>
               </div>
 
               <div class="cta-vertical-divider"></div>
@@ -101,7 +99,7 @@
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                   </svg>
                 </div>
-                <span class="cta-feature-text">Privasi data terjamin</span>
+                <span class="cta-feature-text">{{ lang === 'id' ? 'Privasi data terjamin' : 'Data privacy guaranteed' }}</span>
               </div>
             </div>
           </div>
@@ -114,6 +112,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { globalLang as lang } from '@/store.js'
 
 onMounted(() => {
   const observer = new IntersectionObserver(

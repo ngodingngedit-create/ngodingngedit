@@ -10,9 +10,17 @@
       </div>
 
       <div class="container sv-hero__inner">
-        <div class="sv-hero__heading reveal">
-          <h1 class="sv-hero__title">{{ t.heroTitle1 }}<br/><span class="sv-hero__title-hl">{{ t.heroTitle2 }}</span></h1>
-          <p class="sv-hero__sub">{{ t.heroSub }}</p>
+        <div class="sv-hero__split reveal">
+          <!-- Left: title -->
+          <div class="sv-hero__left">
+            <h1 class="sv-hero__title">{{ t.heroTitle1 }}<br/><span class="sv-hero__title-hl">{{ t.heroTitle2 }}</span></h1>
+          </div>
+          <!-- Right: sub text -->
+          <div class="sv-hero__right">
+            <div class="sv-hero__subs">
+              <p v-for="(line, i) in t.heroSubs" :key="i" class="sv-hero__sub">{{ line }}</p>
+            </div>
+          </div>
         </div>
 
         <div class="sv-hero__cards reveal delay-100">
@@ -237,7 +245,11 @@ const t = computed(() => lang.value === 'id' ? {
   badge: 'Layanan Kami',
   heroTitle1: 'Pilih Kategori',
   heroTitle2: 'Layanan Anda',
-  heroSub: 'Dua divisi. Satu tujuan — mengangkat bisnis Anda.',
+  heroSubs: [
+    'Dua divisi kreatif yang bekerja dalam satu visi besar.',
+    'Dari kode yang berjalan mulus hingga konten yang memikat — kami hadir untuk mengangkat bisnis Anda ke level berikutnya.',
+    'Pilih layanan yang sesuai, dan biarkan tim kami bekerja dengan standar terbaik.',
+  ],
   ngodingTitle: 'Ngoding',
   ngodingSub: 'Website · Aplikasi · Solusi Digital',
   ngodingTags: ['Company Profile', 'Landing Page', 'E-Commerce'],
@@ -265,7 +277,11 @@ const t = computed(() => lang.value === 'id' ? {
   badge: 'Our Services',
   heroTitle1: 'Choose Your',
   heroTitle2: 'Service Category',
-  heroSub: 'Two divisions. One goal — elevating your business.',
+  heroSubs: [
+    'Two creative divisions. One unified vision.',
+    'From clean, performant code to captivating content — we are here to elevate your business to the next level.',
+    'Pick your service, and let our team deliver with the highest professional standards.',
+  ],
   ngodingTitle: 'Coding',
   ngodingSub: 'Website · Apps · Digital Solutions',
   ngodingTags: ['Company Profile', 'Landing Page', 'E-Commerce'],
@@ -526,7 +542,7 @@ onUnmounted(() => {
   position: relative;
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
-  padding: calc(var(--navbar-height, 72px) + 3rem) 2rem 4rem;
+  padding: calc(var(--navbar-height, 72px) + 6rem) 2rem 4rem;
   overflow: hidden;
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
@@ -564,10 +580,25 @@ onUnmounted(() => {
   gap: 4rem; width: 100%;
 }
 
-/* Heading */
-.sv-hero__heading {
-  text-align: center;
-  display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
+/* Split two-column hero heading */
+.sv-hero__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.sv-hero__split.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 1024px) {
+  .sv-hero__split { grid-template-columns: 1fr; }
+}
+.sv-hero__left {
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+.sv-hero__right {
+  display: flex; align-items: center;
 }
 .sv-hero__title {
   font-family: var(--font-heading,'Poppins',sans-serif);
@@ -576,11 +607,15 @@ onUnmounted(() => {
   letter-spacing: -0.03em; line-height: 1.08; margin: 0;
 }
 .sv-hero__title-hl {
-  background: linear-gradient(135deg, #2563eb 0%, #818cf8 50%, #a855f7 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  color: #2563eb;
+}
+.sv-hero__subs {
+  display: flex; flex-direction: column; gap: 0.9rem;
 }
 .sv-hero__sub {
-  color: #64748b; font-size: 1.0625rem; line-height: 1.7; margin: 0;
+  color: #64748b; font-size: 1rem; line-height: 1.75; margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(37,99,235,0.2);
 }
 
 /* Category Cards grid */

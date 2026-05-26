@@ -25,7 +25,7 @@
         <!-- Action Button (Lihat Detail) -->
         <div class="portfolio-card__action">
           <router-link to="/portofoliodetail" class="portfolio-card__btn-detail">
-            Lihat Detail
+            View Details
           </router-link>
         </div>
       </div>

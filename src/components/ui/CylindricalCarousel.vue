@@ -10,7 +10,7 @@
     @keydown="onKeyDown"
     tabindex="0"
     role="listbox"
-    :aria-label="`${categoryLabel} layanan carousel`"
+    :aria-label="`${categoryLabel} services carousel`"
   >
     <!-- 3D Stage -->
     <div class="carousel__stage" :style="stageStyle">
@@ -43,12 +43,12 @@
             <span class="carousel__badge">{{ item.badge }}</span>
             <h3 class="carousel__title">{{ item.title }}</h3>
             <p class="carousel__price">
-              <span class="carousel__price-label">Mulai dari</span>
+              <span class="carousel__price-label">Starting from</span>
               {{ item.price }}
             </p>
             <!-- CTA hint on active card -->
             <span v-if="activeIndex === i" class="carousel__cta-hint">
-              Lihat Detail →
+              View Details →
             </span>
           </div>
         </div>
@@ -70,7 +70,7 @@
     <div class="carousel__hud">
       <div class="carousel__hud-left">
         <span class="carousel__hud-dot"></span>
-        <span>{{ categoryLabel }} · {{ items.length }} Layanan</span>
+        <span>{{ categoryLabel }} · {{ items.length }} Services</span>
       </div>
       <div class="carousel__hud-center">
         <span
