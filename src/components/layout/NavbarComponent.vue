@@ -265,7 +265,7 @@ const navItems = computed(() => [
   { label: lang.value === 'id' ? 'Beranda' : 'Home', path: '/', isRoute: true },
   { label: lang.value === 'id' ? 'Portfolio' : 'Portfolio', path: '/#portfolio', isRoute: false },
   { label: lang.value === 'id' ? 'Layanan' : 'Services', path: '/services', isRoute: true },
-  { label: lang.value === 'id' ? 'Solusi' : 'Solutions', path: '/solusi', isRoute: true, hasDropdown: true },
+  { label: lang.value === 'id' ? 'Solusi' : 'Solutions', path: '/solusi', isRoute: true },
 ])
 
 // ── Mega-dropdown content (reactive to language) ─────────

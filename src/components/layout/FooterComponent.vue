@@ -53,8 +53,8 @@
         <div class="footer__col reveal delay-300">
           <h4 class="footer__col-title">Bantuan</h4>
           <ul class="footer__links">
-            <li><a href="#">Kebijakan Privasi</a></li>
-            <li><a href="#">Syarat &amp; Ketentuan</a></li>
+            <li><a href="/privacy-policy">Kebijakan Privasi</a></li>
+            <li><a href="/terms-and-conditions">Syarat &amp; Ketentuan</a></li>
             <li><a href="#">Pusat Bantuan</a></li>
             <li><a href="#">Mitra</a></li>
           </ul>
@@ -70,11 +70,11 @@
             </li>
             <li>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              hello@ngodingngedit.id
+              support@ngodingngedit.com
             </li>
             <li>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.71 16.92z"/></svg>
-              +62 812-3456-7890
+              +62 851-6734-8056
             </li>
           </ul>
         </div>

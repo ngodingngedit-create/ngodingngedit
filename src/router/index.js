@@ -3,6 +3,8 @@ import HomeView from '@/views/HomeView.vue'
 import ServicesView from '@/views/ServicesView.vue'
 import PortfolioDetail from '@/views/PortfolioDetail.vue'
 import SolusiView from '@/views/SolusiView.vue'
+import TermsAndConditionsView from '@/views/TermsAndConditionsView.vue'
+import PrivacyPolicyView from '@/views/PrivacyPolicyView.vue'
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: '/solusi',
     name: 'solusi',
     component: SolusiView,
+  },
+  {
+    path: '/terms-and-conditions',
+    name: 'terms-and-conditions',
+    component: TermsAndConditionsView,
+  },
+  {
+    path: '/privacy-policy',
+    name: 'privacy-policy',
+    component: PrivacyPolicyView,
   },
 ]
 
