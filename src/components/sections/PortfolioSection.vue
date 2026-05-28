@@ -12,17 +12,17 @@
             Portfolio <span class="highlight"></span>
           </h2>
           <p class="portfolio-section__subtitle">
-            A selection of our finest projects, delivered to the highest standards.
+            {{ $t('portfolio.subtitle') }}
           </p>
         </div>
         <div class="portfolio-section__header-action">
-          <a href="#" class="portfolio-section__see-all">
-            See All
+          <RouterLink to="/portfolio" class="portfolio-section__see-all">
+            {{ $t('portfolio.seeAll') }}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
             </svg>
-          </a>
+          </RouterLink>
         </div>
       </div>
 
@@ -56,70 +56,13 @@
 
 <script setup>
 import PortfolioCard from '@/components/ui/PortfolioCard.vue'
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-import imgArtnaflow from '@/assets/images/portfolio_artnaflow.png'
-import imgLuxemarket from '@/assets/images/portfolio_luxemarket.png'
-import imgMediscan from '@/assets/images/portfolio_mediscan.png'
+import { usePortfolio } from '@/composables/usePortfolio'
 
-const projects = [
-  {
-    image: imgArtnaflow,
-    category: 'FINTECH',
-    title: 'ArtnaFlow Dashboard',
-    description: 'A powerful cloud-based financial management and real-time business analytics platform.',
-    tags: ['React', 'Node.js'],
-  },
-  {
-    image: imgLuxemarket,
-    category: 'E-COMMERCE',
-    title: 'LuxeMarket Mobile',
-    description: 'An AI-powered mobile shopping app delivering a highly personalized retail experience.',
-    tags: ['Flutter', 'Firebase'],
-  },
-  {
-    image: imgMediscan,
-    category: 'HEALTH-TECH',
-    title: 'MediScan Cloud',
-    description: 'A cloud-based medical imaging system leveraging AI for accurate personal diagnostics.',
-    tags: ['AI', 'Python'],
-  },
-  {
-    image: imgArtnaflow,
-    category: 'FINTECH',
-    title: 'PaySphere Gate',
-    description: 'An instant global payment gateway — secure, reliable, and seamlessly integrable for modern businesses.',
-    tags: ['Next.js', 'Go'],
-  },
-  {
-    image: imgLuxemarket,
-    category: 'EDTECH',
-    title: 'EduLearn Platform',
-    description: 'An interactive cloud-based learning management system built for modern schools.',
-    tags: ['Vue.js', 'Tailwind'],
-  },
-  {
-    image: imgMediscan,
-    category: 'TRAVEL',
-    title: 'TravelEase App',
-    description: 'A smart travel route planner with integrated instant ticket booking.',
-    tags: ['React Native', 'Node.js'],
-  },
-  {
-    image: imgArtnaflow,
-    category: 'AGRITECH',
-    title: 'AgriGrow IoT',
-    description: 'Real-time soil moisture and crop health monitoring powered by Internet of Things sensors.',
-    tags: ['Python', 'IoT'],
-  },
-  {
-    image: imgLuxemarket,
-    category: 'FINTECH',
-    title: 'FinTrack Pro',
-    description: 'An automated corporate accounting system with AI-powered financial risk analysis.',
-    tags: ['React', 'Django'],
-  },
-]
+const { projects: allProjects } = usePortfolio()
+const projects = computed(() => allProjects.value.slice(0, 4))
 
 const activeIndex = ref(0)
 const gridRef = ref(null)

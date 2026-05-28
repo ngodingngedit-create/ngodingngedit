@@ -20,22 +20,22 @@
           </div> -->
 
           <h1 class="hero__title">
-            <span class="reveal-text" style="--delay: 0.2s">Build the Digital</span><br/>
-            <span class="reveal-text" style="--delay: 0.35s">Ecosystem of the Future</span><br/>
-            <span class="reveal-text text-royal" style="--delay: 0.5s">with Technical Precision</span>
+            <span class="reveal-text" style="--delay: 0.2s">{{ $t('hero.title1') }}</span><br/>
+            <span class="reveal-text" style="--delay: 0.35s">{{ $t('hero.title2') }}</span><br/>
+            <span class="reveal-text text-royal" style="--delay: 0.5s">{{ $t('hero.title3') }}</span>
           </h1>
 
           <p class="hero__description animate-fade-in-up" style="animation-delay: 0.7s">
-            We deliver high-end software solutions and creative designs tailored to maintain your business growth level in the digital era.
+            {{ $t('hero.description') }}
           </p>
 
           <div class="hero__actions animate-fade-in-up" style="animation-delay: 0.85s">
-            <a href="tel:#" class="btn-primary">
+            <a href="#" class="btn-primary" @click.prevent="scrollToHash('#contact')">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.71 16.92z"></path></svg>
-              Free Consultation
+              {{ $t('hero.freeConsultation') }}
             </a>
-            <a href="#portfolio" class="btn-secondary">
-              View Portfolio
+            <a href="#" class="btn-secondary" @click.prevent="scrollToHash('#portfolio')">
+              {{ $t('hero.viewPortfolio') }}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
@@ -65,6 +65,26 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+import { useRouter, useRoute } from 'vue-router'
+
+const { t } = useI18n()
+const router = useRouter()
+const route = useRoute()
+
+function scrollToHash(path) {
+  const hash = path.split('#')[1]
+  if (!hash) return
+  if (route.path === '/') {
+    const el = document.getElementById(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  } else {
+    router.push({ path: '/', hash: `#${hash}` })
+  }
+}
+</script>
 
 <style scoped>
 .hero {

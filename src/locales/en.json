@@ -1,0 +1,899 @@
+{
+  "portfolioPage": {
+    "title": "Our Best Work",
+    "subtitle": "See how we help businesses transform their ideas into outstanding digital products."
+  },
+  "aboutPage": {
+    "title": "About Us",
+    "subtitle": "Meet the creative team behind NgodingNgedit, ready to help bring your digital vision to life.",
+    "foundersTitle": "Our Founders",
+    "founders": [
+      {
+        "name": "Maisan Hanif Dharmawan",
+        "role": "Lead Founder & Ideator",
+        "desc": "The visionary behind NgodingNgedit. Leading the company's direction with innovative ideas for future digital solutions."
+      },
+      {
+        "name": "Afif Maulana Yusuf",
+        "role": "Lead Designer",
+        "desc": "The chief design expert who ensures every pixel is not only aesthetic but also delivers the best user experience."
+      },
+      {
+        "name": "Farhan Dwi Ananda Putra",
+        "role": "Lead Frontend Developer",
+        "desc": "The spearhead of code development. Turning beautiful designs into interactive, fast, and responsive code."
+      },
+      {
+        "name": "Muhhamad Fadhlurahman",
+        "role": "Marketing & Public Relations",
+        "desc": "The bridge between us and our clients. Ensuring our message and product value are perfectly delivered to the public."
+      }
+    ]
+  },
+  "helpCenter": {
+    "title": "Help Center",
+    "subtitle": "How can we help you today? Find answers to your questions.",
+    "search": "Search articles, guides, or topics...",
+    "categories": {
+      "account": "Account & Profile",
+      "billing": "Billing & Payments",
+      "technical": "Technical Support",
+      "services": "Service Guides",
+      "security": "Security & Privacy",
+      "faq": "General FAQ"
+    }
+  },
+  "partners": {
+    "title": "Partnership Program",
+    "subtitle": "Join us to create the best digital solutions and grow your business further.",
+    "benefits": {
+      "growth": "Rapid Business Growth",
+      "support": "24/7 Full Support",
+      "network": "Wide Professional Network"
+    },
+    "cta": "Become a Partner"
+  },
+  "navbar": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "solutions": "Solutions",
+    "howTo": "How To",
+    "contactUs": "Contact Us",
+    "mega": {
+      "title": "Services & Solutions",
+      "sub": "Find the right digital solution for your business",
+      "footerText": "See the full services page",
+      "footerCta": "Explore Services Page →"
+    },
+    "megaSolutions": {
+      "webDev": {
+        "name": "Website & Apps",
+        "desc": "End-to-end digital solutions from design to deployment.",
+        "benefits": ["Responsive & fast", "SEO-friendly", "Full integrations"]
+      },
+      "content": {
+        "name": "Creative Content",
+        "desc": "Video, motion graphics & social content that converts.",
+        "benefits": ["Cinematic quality", "All platforms ready", "Consistent branding"]
+      },
+      "strategy": {
+        "name": "Strategy & Infrastructure",
+        "desc": "A secure, reliable & scalable digital ecosystem.",
+        "benefits": ["Server & cloud setup", "System security", "Technology roadmap"]
+      }
+    }
+  },
+  "footer": {
+    "desc": "A trusted digital agency partner building innovative technology solutions to drive your business growth in the digital era.",
+    "quickLinks": "Quick Links",
+    "aboutUs": "About Us",
+    "services": "Services",
+    "solutions": "Solutions",
+    "help": "Help",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "helpCenter": "Help Center",
+    "partners": "Partners",
+    "contact": "Contact",
+    "copyright": "Limitless Digital Innovation."
+  },
+  "howTo": {
+    "title": "How We Work",
+    "subtitle": "Step-by-step from consultation to launch. We make the development process transparent and easy to understand.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Consultation & Analysis",
+        "desc": "We listen to your business needs, analyze problems, and design the most effective digital solution."
+      },
+      {
+        "num": "02",
+        "title": "UI/UX Design",
+        "desc": "Our design team creates wireframes and interactive mockups to provide a real picture before coding begins."
+      },
+      {
+        "num": "03",
+        "title": "Development",
+        "desc": "Our developers start writing code using modern technologies tailored for high speed and security."
+      },
+      {
+        "num": "04",
+        "title": "Quality Assurance (QA)",
+        "desc": "Every feature goes through rigorous Quality Assurance (QA) to ensure there are no bugs or errors."
+      },
+      {
+        "num": "05",
+        "title": "Launch & Maintenance",
+        "desc": "The project goes live. We provide a warranty period and long-term maintenance support."
+      }
+    ]
+  },
+  "hero": {
+    "title1": "Build the Digital",
+    "title2": "Ecosystem of the Future",
+    "title3": "with Technical Precision",
+    "description": "We deliver high-end software solutions and creative designs tailored to maintain your business growth level in the digital era.",
+    "freeConsultation": "Free Consultation",
+    "viewPortfolio": "View Portfolio"
+  },
+  "portfolio": {
+    "subtitle": "A selection of our finest projects, delivered to the highest standards.",
+    "seeAll": "See All",
+    "artnaflow": "A powerful cloud-based financial management and real-time business analytics platform.",
+    "luxemarket": "An AI-powered mobile shopping app delivering a highly personalized retail experience.",
+    "mediscan": "A cloud-based medical imaging system leveraging AI for accurate personal diagnostics.",
+    "paysphere": "An instant global payment gateway — secure, reliable, and seamlessly integrable for modern businesses.",
+    "edulearn": "An interactive cloud-based learning management system built for modern schools.",
+    "travelease": "A smart travel route planner with integrated instant ticket booking.",
+    "agrigrow": "Real-time soil moisture and crop health monitoring powered by Internet of Things sensors.",
+    "fintrack": "An automated corporate accounting system with AI-powered financial risk analysis."
+  },
+  "whyChoose": {
+    "title": "Why Choose Us?",
+    "subtitle": "We deliver technical excellence and design that drives real growth for your business.",
+    "qualityCode": {
+      "title": "Quality Code",
+      "description": "Clean, structured code architecture that is easy to scale and maintain in the future."
+    },
+    "highPerformance": {
+      "title": "High Performance",
+      "description": "Full speed and performance optimization so your users are served without friction."
+    },
+    "strictSecurity": {
+      "title": "Strict Security",
+      "description": "Implementation of the highest security standards to protect your data and user privacy."
+    },
+    "support247": {
+      "title": "24/7 Support",
+      "description": "Our team is always ready to help you tackle technical challenges whenever you need."
+    }
+  },
+  "cta": {
+    "titleLine1": "Ready to Start Your",
+    "titleHighlight": "Digital",
+    "titleLine2": "Revolution?",
+    "subtitle": "Let's discuss how we can help turn your vision and technology into incredible value.",
+    "contactNow": "Contact Us Now",
+    "feature1": "Response in < 24 hours",
+    "feature2": "Free consultation",
+    "feature3": "Data privacy guaranteed"
+  },
+  "partner": {
+    "label": "OUR TRUSTED PARTNERS"
+  },
+  "solusi": {
+    "heroTitle1": "Digital Solutions",
+    "heroTitle2": "for Modern Business",
+    "heroSubs": [
+      "From the first consultation to launch day, we stand beside you at every milestone with expertise.",
+      "We combine cutting-edge technology with sharp business strategy to create impact that moves the needle.",
+      "Every decision is data-driven. Every solution is crafted specifically around your business goals."
+    ],
+    "stats": [
+      { "value": "50+", "label": "Projects Delivered" },
+      { "value": "98%", "label": "Client Satisfaction" },
+      { "value": "3x", "label": "Faster to Launch" },
+      { "value": "24/7", "label": "Technical Support" }
+    ],
+    "solutionsTitle": "Three Pillars of Our Solutions",
+    "solutionsSub": "Each solution is designed to create real impact — from digital presence to content that converts.",
+    "processLabel": "Our Process",
+    "benefitsLabel": "Client Benefits",
+    "ctaLabel": "Free Consultation",
+    "ctaBannerTitle": "Ready to Start Your Digital Transformation?",
+    "ctaBannerSub": "Tell us your business needs. Our team will craft the right solution within 24 hours.",
+    "ctaBannerBtn": "Contact Us Now",
+    "webDev": {
+      "badge": "CODING",
+      "name": "Website & App Development",
+      "desc": "We design and build fast, responsive, and scalable websites and web apps — fully tailored to your business requirements.",
+      "process": [
+        "Consultation & business needs analysis",
+        "UI/UX design & wireframing",
+        "Development & backend integration",
+        "Comprehensive QA & testing",
+        "Deployment, hosting & project handover"
+      ],
+      "benefits": [
+        "Professional online presence that builds credibility",
+        "Fast & SEO-friendly websites for organic traffic",
+        "Scalable systems that grow with your business",
+        "Post-launch maintenance & technical support",
+        "WhatsApp, payment gateway & CRM integrations"
+      ]
+    },
+    "contentProd": {
+      "badge": "EDITING",
+      "name": "Creative Content Production",
+      "desc": "Promo videos, motion graphics, and social media content engineered to grab attention, build your brand, and drive conversions.",
+      "process": [
+        "Creative brief & target audience research",
+        "Visual concept & storyboard / moodboard",
+        "Production & editing to cinematic standards",
+        "Iterative revisions based on client feedback",
+        "Delivery in platform-ready formats"
+      ],
+      "benefits": [
+        "Feed-stopping content that boosts engagement",
+        "Consistent brand identity across all platforms",
+        "High-quality video without expensive production costs",
+        "Upload-ready content for every social platform",
+        "Greater reach & conversions from the right audience"
+      ]
+    },
+    "digitalStrategy": {
+      "badge": "STRATEGY",
+      "name": "Digital Strategy & Infrastructure",
+      "desc": "More than a product — we help you architect a solid digital ecosystem: from server infrastructure to long-term growth strategy.",
+      "process": [
+        "Audit & assessment of your current digital ecosystem",
+        "Architecture planning & technology roadmap",
+        "Server, domain, SSL & CI/CD pipeline setup",
+        "Performance optimization & system security hardening",
+        "Team training & full documentation handover"
+      ],
+      "benefits": [
+        "Secure, reliable & scalable infrastructure",
+        "Reduced downtime & cybersecurity risk",
+        "Operational efficiency through process automation",
+        "Technology roadmap aligned to business goals",
+        "An empowered internal team through knowledge transfer"
+      ]
+    }
+  },
+  "services": {
+    "heroTitle1": "Choose Your",
+    "heroTitle2": "Service Category",
+    "heroSubs": [
+      "Two creative divisions. One unified vision.",
+      "From clean, performant code to captivating content — we are here to elevate your business to the next level.",
+      "Pick your service, and let our team deliver with the highest professional standards."
+    ],
+    "ngodingTitle": "Coding",
+    "ngodingSub": "Website · Apps · Digital Solutions",
+    "ngodingTags": ["Company Profile", "Landing Page", "E-Commerce"],
+    "ngodingCta": "Explore Coding →",
+    "ngeditTitle": "Editing",
+    "ngeditSub": "Video · Motion Graphics · Creative Content",
+    "ngeditTags": ["Short-Form", "Promo Video", "Podcast"],
+    "ngeditCta": "Explore Editing →",
+    "galleryAvail": "Services Available",
+    "cardAdd": "Add",
+    "cardAdded": "Add More",
+    "cardStartFrom": "Starting from",
+    "modalIncludes": "Includes:",
+    "modalQty": "Estimated Quantity:",
+    "modalTotal": "Total Estimate ({qty} units)",
+    "modalAdd": "Add to Estimate",
+    "modalUnit": "units",
+    "barSelected": "Services Selected",
+    "barTotal": "Total Estimate",
+    "barDetail": "Estimate Details",
+    "barReset": "Reset Estimate",
+    "barConsult": "Consult",
+    "barClose": "Close",
+    "companyProfileDesc": "Professional, responsive, and SEO-friendly company profile websites designed to boost your online credibility.",
+    "companyProfileFeatures": ["Responsive & Modern Design", "Basic SEO", "WhatsApp Integration", "Basic Maintenance"],
+    "landingPageDesc": "High-conversion landing pages with modern design and effective copywriting for your marketing campaigns.",
+    "landingPageFeatures": ["Persuasive Copywriting", "Speed Optimization", "Lead Forms / CTA", "Analytics Setup"],
+    "databaseDesc": "Design and setup of a secure, scalable, and optimized database for your application needs.",
+    "databaseFeatures": ["Schema Design", "Query Optimization", "Security Setup", "Automated Backups"],
+    "domainDesc": "Assistance connecting your domain to your server or hosting, complete with DNS configuration.",
+    "domainFeatures": ["DNS Configuration", "Hosting Integration", "CNAME/A Record Setup", "Technical Support"],
+    "serverDesc": "Setup and deployment of your application to a reliable and fast cloud server (VPS) or hosting.",
+    "serverFeatures": ["Web/App Deployment", "VPS Configuration", "SSL Setup (HTTPS)", "Basic Monitoring"],
+    "shortFormDesc": "Short-form video editing for TikTok, Reels, and Shorts with dynamic transitions and engaging pacing.",
+    "shortFormFeatures": ["Dynamic Subtitles", "Sound Effects & BGM", "Color Correction", "Trend Adaptation"],
+    "promoVideoTitle": "Promo Video",
+    "promoVideoDesc": "Cinematic promo video with professional color grading, motion graphics, and premium sound design.",
+    "promoVideoFeatures": ["Cinematic Color Grading", "Premium Motion Graphics", "Licensed Music", "Storytelling Edit"],
+    "podcastDesc": "Complete podcast editing — noise removal, leveling, chapter markers, and visual waveforms for YouTube.",
+    "podcastFeatures": ["Audio Enhancement", "Multi-cam Switching", "Intro/Outro Addition", "Chapter Generation"],
+    "threeDDesc": "3D modeling and realistic rendering services for products, architecture, or game characters with AAA quality.",
+    "threeDFeatures": ["High-Fidelity Rendering", "Texture & Material Design", "Animation Ready", "Source File (Blend/FBX)"],
+    "motionDesc": "Motion graphics animation for intros, lower thirds, infographics, and eye-catching visual branding.",
+    "motionFeatures": ["Custom Animations", "Logo Reveals", "Infographic Video", "Seamless Looping"],
+    "whatsappIntro": "Hello, I'm interested in the following service estimation:\n\n",
+    "whatsappTotal": "\n*Total Estimate: {total}*\n\nPlease provide more information."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Last updated: <strong>May 2026</strong> · Applies to all Ngodingngedit.com services",
+    "tocLabel": "Table of Contents",
+    "backHome": "Back to Home",
+    "viewTerms": "View Terms & Conditions →",
+    "toc": [
+      { "id": "pendahuluan", "label": "1. Introduction" },
+      { "id": "definisi", "label": "2. Definitions" },
+      { "id": "ruang-lingkup", "label": "3. Scope of Services" },
+      { "id": "pemesanan", "label": "4. Order Terms" },
+      { "id": "pembayaran", "label": "5. Pricing and Payment" },
+      { "id": "revisi", "label": "6. Revisions" },
+      { "id": "waktu-pengerjaan", "label": "7. Project Timeline" },
+      { "id": "hak-klien", "label": "8. Client Rights & Obligations" },
+      { "id": "hak-penyedia", "label": "9. Provider Rights & Obligations" },
+      { "id": "hak-cipta", "label": "10. Copyright" },
+      { "id": "kerahasiaan", "label": "11. Confidentiality" },
+      { "id": "garansi", "label": "12. Warranty" },
+      { "id": "maintenance", "label": "13. Maintenance & Support" },
+      { "id": "akun", "label": "14. Account Usage" },
+      { "id": "larangan", "label": "15. Prohibitions" },
+      { "id": "pembatalan", "label": "16. Project Cancellation" },
+      { "id": "force-majeure", "label": "17. Force Majeure" },
+      { "id": "batas-tanggung-jawab", "label": "18. Limitation of Liability" },
+      { "id": "perubahan-ketentuan", "label": "19. Changes to Terms" },
+      { "id": "persetujuan", "label": "20. Consent" }
+    ],
+    "sections": [
+      {
+        "id": "pendahuluan",
+        "title": "1. Introduction",
+        "paragraphs": ["This Privacy Policy document governs the rights, obligations, and terms of use for coding, editing, design, and other digital services."],
+        "note": "By using our services, the client is deemed to have read, understood, and agreed to all applicable terms and conditions."
+      },
+      {
+        "id": "definisi",
+        "title": "2. Definitions",
+        "paragraphs": ["In this document:"],
+        "items": [
+          "<strong>\"We\"</strong> refers to the service provider.",
+          "<strong>\"Client\"</strong> refers to the individual, company, or party using the services.",
+          "<strong>\"Project\"</strong> refers to the work agreed upon between the client and the service provider.",
+          "<strong>\"Revision\"</strong> refers to minor changes that are still in line with the original brief."
+        ]
+      },
+      {
+        "id": "ruang-lingkup",
+        "title": "3. Scope of Services",
+        "paragraphs": ["Services we may provide include:"],
+        "items": [
+          "Website development.",
+          "Application development.",
+          "Bot/script development.",
+          "Source code editing.",
+          "Bug/error fixing.",
+          "Document editing.",
+          "Design editing.",
+          "Video or digital content editing.",
+          "Technical consultation.",
+          "Maintenance as agreed."
+        ],
+        "callout": "Services outside the initial agreement may incur additional charges."
+      },
+      {
+        "id": "pemesanan",
+        "title": "4. Order Terms",
+        "items": [
+          "The client must provide a clear and complete project brief.",
+          "The client is responsible for the completeness of project data and materials.",
+          "Work estimation begins after all data has been fully received.",
+          "Work begins after the down payment is received.",
+          "We reserve the right to decline certain projects without providing detailed reasons."
+        ]
+      },
+      {
+        "id": "pembayaran",
+        "title": "5. Pricing and Payment",
+        "items": [
+          "Project pricing is determined based on difficulty level and scope of work.",
+          "Payment is made as agreed.",
+          "A minimum down payment of <strong>50%</strong> is required before work begins.",
+          "Full payment must be made before the final file/full source code is delivered.",
+          "Late payment may result in work delays.",
+          "All payments made are <strong>non-refundable</strong> unless a specific agreement is in place."
+        ]
+      },
+      {
+        "id": "revisi",
+        "title": "6. Revisions",
+        "items": [
+          "Revisions are provided according to the agreed quantity.",
+          "Revisions only apply to minor changes.",
+          "Major concept changes from the original brief are considered additional projects.",
+          "Additional revisions outside the package may incur additional charges.",
+          "Revision requests must be submitted within the specified time limit."
+        ]
+      },
+      {
+        "id": "waktu-pengerjaan",
+        "title": "7. Project Timeline",
+        "items": [
+          "Work time estimates are approximations.",
+          "Work time may change depending on project complexity.",
+          "Delays due to additional revisions or delays in data from the client are not our responsibility.",
+          "National holidays or force majeure conditions may affect the project timeline."
+        ]
+      },
+      {
+        "id": "hak-klien",
+        "title": "8. Client Rights and Obligations",
+        "blocks": [
+          { "type": "p", "html": "<strong>Client obligations:</strong>" },
+          { "type": "ul", "items": ["Provide project information clearly.", "Provide data that is legal and does not violate the law.", "Make timely payments.", "Maintain good communication throughout the project."] },
+          { "type": "p", "html": "<strong>Client rights:</strong>" },
+          { "type": "ul", "items": ["Receive project progress updates.", "Receive results as agreed.", "Submit revisions according to the terms."] }
+        ]
+      },
+      {
+        "id": "hak-penyedia",
+        "title": "9. Service Provider Rights and Obligations",
+        "blocks": [
+          { "type": "p", "html": "<strong>We are entitled to:</strong>" },
+          { "type": "ul", "items": ["Decline certain projects.", "Stop work if terms are violated.", "Use project results as portfolio."] },
+          { "type": "p", "html": "<strong>We are obligated to:</strong>" },
+          { "type": "ul", "items": ["Complete the project as agreed.", "Maintain client data confidentiality.", "Provide professional service to the best of our ability."] }
+        ]
+      },
+      {
+        "id": "hak-cipta",
+        "title": "10. Copyright and Ownership",
+        "items": [
+          "Usage rights are granted after full payment is made.",
+          "Copyright of third-party assets follows their respective licenses.",
+          "We are not responsible for license violations committed by the client.",
+          "The client is prohibited from reselling or claiming certain sources that have special licenses."
+        ]
+      },
+      {
+        "id": "kerahasiaan",
+        "title": "11. Confidentiality",
+        "items": [
+          "All client project data and files will be kept confidential.",
+          "We will not disclose project data without permission.",
+          "The client is also obligated to maintain the confidentiality of certain sources or files if agreed."
+        ]
+      },
+      {
+        "id": "garansi",
+        "title": "12. Warranty",
+        "items": [
+          "Bug/error warranty is provided for a certain period after project completion.",
+          "Warranty only applies to errors from the initial work.",
+          "Warranty <strong>does not apply</strong> if:"
+        ],
+        "subItems": [
+          "Source is modified by another party.",
+          "Server/hosting has issues.",
+          "Errors occur due to client misuse.",
+          "Third-party system changes occur."
+        ]
+      },
+      {
+        "id": "maintenance",
+        "title": "13. Maintenance and Support",
+        "items": [
+          "Maintenance is only provided if included in the service package.",
+          "Support is provided during specified operational hours.",
+          "Requests outside the scope of support may incur additional charges."
+        ]
+      },
+      {
+        "id": "akun",
+        "title": "14. Account and Access Usage",
+        "paragraphs": ["If the client provides account access:"],
+        "items": [
+          "Access is only used for project needs.",
+          "The client is advised to change passwords after the project is completed.",
+          "We are not responsible for leaks due to client negligence."
+        ]
+      },
+      {
+        "id": "larangan",
+        "title": "15. Prohibitions",
+        "paragraphs": ["We reserve the right to decline projects that:"],
+        "items": [
+          "Violate the law.",
+          "Contain malware or illegal hacking.",
+          "Are used for phishing or fraud.",
+          "Contain illegal pornography.",
+          "Violate copyright.",
+          "Contradict the policies of certain platforms."
+        ]
+      },
+      {
+        "id": "pembatalan",
+        "title": "16. Project Cancellation",
+        "items": [
+          "If the project is cancelled by the client during execution, the down payment is forfeited.",
+          "If the project is more than 50% complete, the payments already made cannot be refunded.",
+          "If cancellation is made by us, a refund is made proportional to the unfinished portion of work."
+        ]
+      },
+      {
+        "id": "force-majeure",
+        "title": "17. Force Majeure",
+        "paragraphs": ["We are not responsible for delays or service failures due to:"],
+        "items": [
+          "Natural disasters.",
+          "Internet disruptions.",
+          "Power outages.",
+          "Server failures.",
+          "Government policies.",
+          "Other conditions beyond our control."
+        ]
+      },
+      {
+        "id": "batas-tanggung-jawab",
+        "title": "18. Limitation of Liability",
+        "paragraphs": ["We are not responsible for:"],
+        "items": [
+          "Indirect business losses.",
+          "Data loss due to third parties.",
+          "Misuse of source code by the client.",
+          "Damage due to modifications by other parties.",
+          "Suspension of third-party accounts/platforms."
+        ]
+      },
+      {
+        "id": "perubahan-ketentuan",
+        "title": "19. Changes to Terms",
+        "paragraphs": ["This Privacy Policy may be updated at any time without prior notice. The latest version will serve as the applicable reference."]
+      },
+      {
+        "id": "persetujuan",
+        "title": "20. Consent",
+        "paragraphs": ["By making a payment or using our services, the client is deemed to have agreed to all applicable Privacy Policies."]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "subtitle": "Last updated: <strong>May 2026</strong> · Applies to all Ngodingngedit.com services",
+    "tocLabel": "Table of Contents",
+    "backHome": "Back to Home",
+    "viewPrivacy": "View Privacy Policy →",
+    "toc": [
+      { "id": "pendahuluan", "label": "1. Introduction" },
+      { "id": "definisi", "label": "2. Definitions" },
+      { "id": "ruang-lingkup", "label": "3. Scope of Services" },
+      { "id": "pemesanan", "label": "4. Order Terms" },
+      { "id": "pembayaran", "label": "5. Pricing and Payment" },
+      { "id": "revisi", "label": "6. Revisions" },
+      { "id": "waktu-pengerjaan", "label": "7. Project Timeline" },
+      { "id": "hak-klien", "label": "8. Client Rights & Obligations" },
+      { "id": "hak-penyedia", "label": "9. Provider Rights & Obligations" },
+      { "id": "hak-cipta", "label": "10. Copyright" },
+      { "id": "kerahasiaan", "label": "11. Confidentiality" },
+      { "id": "garansi", "label": "12. Warranty" },
+      { "id": "maintenance", "label": "13. Maintenance & Support" },
+      { "id": "akun", "label": "14. Account Usage" },
+      { "id": "larangan", "label": "15. Prohibitions" },
+      { "id": "pembatalan", "label": "16. Project Cancellation" },
+      { "id": "force-majeure", "label": "17. Force Majeure" },
+      { "id": "batas-tanggung-jawab", "label": "18. Limitation of Liability" },
+      { "id": "perubahan-ketentuan", "label": "19. Changes to Terms" },
+      { "id": "persetujuan", "label": "20. Consent" }
+    ],
+    "sections": [
+      {
+        "id": "pendahuluan",
+        "title": "1. Introduction",
+        "paragraphs": ["This Terms & Conditions document governs the rights, obligations, and terms of use for coding, editing, design, and other digital services."],
+        "note": "By using our services, the client is deemed to have read, understood, and agreed to all applicable terms and conditions."
+      },
+      {
+        "id": "definisi",
+        "title": "2. Definitions",
+        "paragraphs": ["In this document:"],
+        "items": [
+          "<strong>\"We\"</strong> refers to the service provider.",
+          "<strong>\"Client\"</strong> refers to the individual, company, or party using the services.",
+          "<strong>\"Project\"</strong> refers to the work that has been agreed upon.",
+          "<strong>\"Revision\"</strong> refers to minor changes that are still in line with the original brief.",
+          "<strong>\"Source Code\"</strong> refers to the program code files resulting from the project."
+        ]
+      },
+      {
+        "id": "ruang-lingkup",
+        "title": "3. Scope of Services",
+        "paragraphs": ["Services we may provide include:"],
+        "items": [
+          "Website development.",
+          "Application development.",
+          "Bot/script development.",
+          "Bug/error fixing.",
+          "Source code editing.",
+          "Design editing.",
+          "Document editing.",
+          "Video or digital content editing.",
+          "Maintenance and support.",
+          "Technical consultation."
+        ],
+        "callout": "Services outside the initial agreement may incur additional charges."
+      },
+      {
+        "id": "pemesanan",
+        "title": "4. Order Terms",
+        "items": [
+          "The client must provide a clear and complete project brief.",
+          "The client is responsible for the legality of data and materials provided.",
+          "Work begins after the down payment is received.",
+          "Work estimation is calculated after all project requirements are fully received.",
+          "We reserve the right to decline certain projects without providing detailed reasons."
+        ]
+      },
+      {
+        "id": "pembayaran",
+        "title": "5. Pricing and Payment",
+        "items": [
+          "Project pricing is determined based on difficulty level and scope of work.",
+          "Payment is made as agreed.",
+          "A minimum down payment of <strong>50%</strong> is required before work begins.",
+          "Full payment must be made before the final file/full source code is delivered.",
+          "Late payment may result in work delays.",
+          "Payments already made are <strong>non-refundable</strong> unless a specific agreement is in place."
+        ]
+      },
+      {
+        "id": "revisi",
+        "title": "6. Revisions",
+        "items": [
+          "Revisions are provided according to the agreed quantity.",
+          "Revisions only apply to minor changes.",
+          "Major concept changes from the original brief are considered additional work.",
+          "Additional revisions outside the terms may incur additional charges.",
+          "Revision requests must be made within the specified time limit."
+        ]
+      },
+      {
+        "id": "waktu-pengerjaan",
+        "title": "7. Project Timeline",
+        "items": [
+          "Work time estimates are approximations.",
+          "Work time may change depending on project complexity.",
+          "Delays due to additional revisions or delays in data from the client are not our responsibility.",
+          "National holidays or force majeure conditions may affect the project timeline."
+        ]
+      },
+      {
+        "id": "hak-klien",
+        "title": "8. Client Rights and Obligations",
+        "blocks": [
+          { "type": "p", "html": "<strong>Client obligations:</strong>" },
+          { "type": "ul", "items": ["Provide project information clearly.", "Provide data that is legal and does not violate the law.", "Make timely payments.", "Maintain good communication throughout the project."] },
+          { "type": "p", "html": "<strong>Client rights:</strong>" },
+          { "type": "ul", "items": ["Receive project progress updates.", "Receive results as agreed.", "Submit revisions according to the terms."] }
+        ]
+      },
+      {
+        "id": "hak-penyedia",
+        "title": "9. Service Provider Rights and Obligations",
+        "blocks": [
+          { "type": "p", "html": "<strong>We are entitled to:</strong>" },
+          { "type": "ul", "items": ["Decline certain projects.", "Stop work if terms are violated.", "Use project results as portfolio."] },
+          { "type": "p", "html": "<strong>We are obligated to:</strong>" },
+          { "type": "ul", "items": ["Complete the project as agreed.", "Maintain client data confidentiality.", "Provide professional service to the best of our ability."] }
+        ]
+      },
+      {
+        "id": "hak-cipta",
+        "title": "10. Copyright and Ownership",
+        "items": [
+          "Usage rights are granted after full payment is made.",
+          "Copyright of third-party assets follows their respective licenses.",
+          "We are not responsible for license violations committed by the client.",
+          "The client is prohibited from reselling or claiming certain sources that have special licenses."
+        ]
+      },
+      {
+        "id": "kerahasiaan",
+        "title": "11. Confidentiality",
+        "items": [
+          "All client project data and files will be kept confidential.",
+          "We will not disclose project data without permission.",
+          "The client is also obligated to maintain the confidentiality of certain sources or files if agreed."
+        ]
+      },
+      {
+        "id": "garansi",
+        "title": "12. Warranty",
+        "items": [
+          "Bug/error warranty is provided for a certain period after project completion.",
+          "Warranty only applies to errors from the initial work.",
+          "Warranty <strong>does not apply</strong> if:"
+        ],
+        "subItems": [
+          "Source is modified by another party.",
+          "Server/hosting has issues.",
+          "Errors occur due to client misuse.",
+          "Third-party system changes occur."
+        ]
+      },
+      {
+        "id": "maintenance",
+        "title": "13. Maintenance and Support",
+        "items": [
+          "Maintenance is only provided if included in the service package.",
+          "Support is provided during specified operational hours.",
+          "Requests outside the scope of support may incur additional charges."
+        ]
+      },
+      {
+        "id": "akun",
+        "title": "14. Account and Access Usage",
+        "paragraphs": ["If the client provides account access:"],
+        "items": [
+          "Access is only used for project needs.",
+          "The client is advised to change passwords after the project is completed.",
+          "We are not responsible for leaks due to client negligence."
+        ]
+      },
+      {
+        "id": "larangan",
+        "title": "15. Prohibitions",
+        "paragraphs": ["We reserve the right to decline projects that:"],
+        "items": [
+          "Violate the law.",
+          "Contain malware or illegal hacking.",
+          "Are used for phishing or fraud.",
+          "Contain illegal pornography.",
+          "Violate copyright.",
+          "Contradict the policies of certain platforms."
+        ]
+      },
+      {
+        "id": "pembatalan",
+        "title": "16. Project Cancellation",
+        "items": [
+          "If the project is cancelled by the client during execution, the down payment is forfeited.",
+          "If the project is more than 50% complete, the payments already made cannot be refunded.",
+          "If cancellation is made by us, a refund is made proportional to the unfinished portion of work."
+        ]
+      },
+      {
+        "id": "force-majeure",
+        "title": "17. Force Majeure",
+        "paragraphs": ["We are not responsible for delays or service failures due to:"],
+        "items": [
+          "Natural disasters.",
+          "Internet disruptions.",
+          "Power outages.",
+          "Server failures.",
+          "Government policies.",
+          "Other conditions beyond our control."
+        ]
+      },
+      {
+        "id": "batas-tanggung-jawab",
+        "title": "18. Limitation of Liability",
+        "paragraphs": ["We are not responsible for:"],
+        "items": [
+          "Indirect business losses.",
+          "Data loss due to third parties.",
+          "Misuse of source code by the client.",
+          "Damage due to modifications by other parties.",
+          "Suspension of third-party accounts/platforms."
+        ]
+      },
+      {
+        "id": "perubahan-ketentuan",
+        "title": "19. Changes to Terms",
+        "paragraphs": ["These Terms & Conditions may be updated at any time without prior notice. The latest version will serve as the applicable reference."]
+      },
+      {
+        "id": "persetujuan",
+        "title": "20. Consent",
+        "paragraphs": ["By making a payment or using our services, the client is deemed to have agreed to all applicable Terms & Conditions."]
+      }
+    ]
+  },
+  "pd": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "role": "ROLE",
+    "duration": "DURATION",
+    "category": "CATEGORY",
+    "client": "CLIENT",
+    "durationValue": "3 Months",
+    "description": "A revolutionary EdTech platform providing a modern learning ecosystem connecting expert mentors with millions of students through interactive video classes, advanced adaptive quizzes, and real-time analytics dashboards.",
+    "livePreview": "Live Preview",
+    "overviewTitle": "Project Overview",
+    "overviewDesc": "The need for an engaging digital learning platform drove us to build EduLearn. Our primary focus was delivering a highly responsive user interface, ultra-fast page load times, and dynamic quiz data structures so each student gets a personalized learning experience.",
+    "featuresTitle": "Platform Key Features",
+    "feature1Title": "Interactive Dashboard",
+    "feature1Desc": "Students can track class learning progress, quiz scores, and weekly study time in real-time through adaptive visual charts.",
+    "feature2Title": "Smart Quiz System",
+    "feature2Desc": "Adaptive quizzes with dynamic data structures that automatically adjust question difficulty based on student understanding.",
+    "feature3Title": "HD Video Streaming",
+    "feature3Desc": "Custom video player with adaptive streaming quality (HLS) without lag, integrated with automatic timestamp notes for easy material review.",
+    "galleryTitle": "Application Interface",
+    "gallerySubtitle": "Click a thumbnail below to preview different pages live.",
+    "screen1": "Main Dashboard",
+    "screen2": "Learning Video",
+    "screen3": "Smart Quiz",
+    "processTitle": "Development Process",
+    "processSubtitle": "The systematic steps we took to launch EduLearn Platform with the highest quality.",
+    "step1Title": "Research & Analysis",
+    "step1Desc": "Studying online learning barriers and crafting user personas.",
+    "step2Title": "UI/UX Design",
+    "step2Desc": "Creating visual wireframes, soft-blue color schemes, and navigation prototype flows.",
+    "step3Title": "Development",
+    "step3Desc": "Coding with Vue.js and TailwindCSS using a modular reusable structure.",
+    "step4Title": "API Integration",
+    "step4Desc": "Setting up PostgreSQL database and securely routing Node.js REST APIs.",
+    "step5Title": "Testing & Deploy",
+    "step5Desc": "Testing page load performance, debugging API failures, then deploying to a VPS server.",
+    "techTitle": "Technologies Used",
+    "techSubtitle": "Framework and library specifications used.",
+    "techCol1": "Technology",
+    "techCol2": "Main Function",
+    "techCol3": "Advantage",
+    "tech1Func": "User Interface",
+    "tech1Adv": "High reactivity, fast Virtual DOM",
+    "tech2Func": "Responsive Design",
+    "tech2Adv": "Fast modular styling, utility classes",
+    "tech3Func": "State Management",
+    "tech3Adv": "Concise state storage, fully compatible",
+    "tech4Func": "REST API Server",
+    "tech4Adv": "Event-driven non-blocking I/O, robust",
+    "tech5Func": "Database Storage",
+    "tech5Adv": "Secure data relations, structured queries",
+    "challengesTitle": "Challenges & Solutions",
+    "challengesSubtitle": "How our team overcame difficult technical problems.",
+    "challenge1Label": "CHALLENGE 01",
+    "challenge1Title": "Slow Video Loading",
+    "challenge1Desc": "In areas with unstable internet connections, video class content experienced severe buffering.",
+    "solution1Label": "OUR SOLUTION",
+    "solution1Desc": "Implemented an adaptive HTTP Live Streaming (HLS) system to split videos into small fragments and automatically adjust the bitrate.",
+    "challenge2Label": "CHALLENGE 02",
+    "challenge2Title": "Slow Quiz State Changes",
+    "challenge2Desc": "Students experienced visual delays when quiz routes changed and quiz question state was slow to respond to click actions.",
+    "solution2Label": "OUR SOLUTION",
+    "solution2Desc": "Integrated Pinia for local state data caching, pre-fetching the next question in the background.",
+    "resultsTitle": "Project Results & Impact",
+    "resultsSubtitle": "Real achievement numbers for EduLearn Platform after the first release.",
+    "result1Label": "User Engagement",
+    "result2Label": "Student Satisfaction Rate",
+    "result3Label": "Page Load Time",
+    "result4Label": "Monthly Active Users",
+    "quoteText": "NgodingNgedit successfully translated our complex idea into an incredibly intuitive, fast EdTech platform loved by thousands of our students! Their development support was outstanding from initial research to launch.",
+    "quoteRole": "CEO of EduLearn Corp",
+    "ctaTitle": "Interested in Building Your Dream Platform?",
+    "ctaSubtitle": "Discuss your digital project needs with our top developer team.",
+    "ctaBtn": "Contact Us Now",
+    "mockupDashboardTitle": "Student Main Dashboard",
+    "mockupWelcome": "Welcome Back!",
+    "mockupContinue": "Continue your Vue.js Intermediate learning today.",
+    "mockupStudyTime": "STUDY TIME",
+    "mockupStudyVal": "24 Hours / Week",
+    "mockupQuizDone": "QUIZZES COMPLETED",
+    "mockupQuizVal": "12 Quizzes",
+    "mockupChartTitle": "Weekly Engagement Statistics",
+    "mockupDashboard": "Dashboard",
+    "mockupMyClasses": "My Classes",
+    "mockupQuiz": "Quiz",
+    "mockupProgress": "Progress Chart",
+    "mockupMaterial": "Course Material: Vue.js Router",
+    "mockupLesson1": "01. Introduction to Routing",
+    "mockupLesson2": "02. Vue Router Setup",
+    "mockupLesson3": "03. Dynamic Route Params",
+    "mockupLesson4": "04. Navigation Guards",
+    "mockupQuestion": "How do you create dynamic routes in Vue Router?",
+    "mockupOpt1": "A. Using :id syntax on the route path",
+    "mockupOpt2": "B. Using the dynamicRoutes() method",
+    "mockupOpt3": "C. Adding query string dynamic=true",
+    "mockupOpt4": "D. Using the v-route:dynamic tag",
+    "mockupQuizProgress": "Question 3 of 10"
+  }
+}

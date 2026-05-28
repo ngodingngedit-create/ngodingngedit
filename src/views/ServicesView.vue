@@ -183,6 +183,80 @@
       </div>
     </Transition>
 
+    <!-- ═══════════════════════════════════════════════ SOLUTIONS -->
+    <section class="sol-solutions" id="solusi">
+      <div class="container">
+        <!-- Section label -->
+        <div class="sol-section-head reveal">
+          <h2 class="sol-section-head__title">{{ t.solutionsTitle }}</h2>
+          <p class="sol-section-head__sub">{{ t.solutionsSub }}</p>
+        </div>
+
+        <!-- Solution cards -->
+        <div class="sol-cards">
+          <article
+            v-for="(sol, i) in solutions"
+            :key="sol.id"
+            class="sol-card"
+            :class="{ 'sol-card--accent': i % 2 !== 0 }"
+            @mousemove="handleSolMove($event, i)"
+            @mouseleave="handleSolLeave(i)"
+            :ref="el => setSolRef(el, i)"
+            :id="sol.id"
+          >
+            <div class="sol-card__glow"></div>
+
+            <div class="sol-card__inner">
+              <!-- Left: identity -->
+              <div class="sol-card__left">
+                <div class="sol-card__icon" :class="`sol-card__icon--${sol.color}`">
+                  <div v-html="sol.icon"></div>
+                </div>
+                <span class="sol-badge sol-badge--sm" :class="`sol-badge--${sol.color}`">{{ sol.badge }}</span>
+                <h3 class="sol-card__name">{{ sol.name }}</h3>
+                <p class="sol-card__desc">{{ sol.desc }}</p>
+                <a href="#" class="sol-card__cta" @click.prevent="scrollToHash('#contact')">
+                  {{ t.ctaLabel }}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+
+              <!-- Right: process + benefits -->
+              <div class="sol-card__right">
+                <!-- Process -->
+                <div class="sol-card__block">
+                  <h4 class="sol-card__block-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {{ t.processLabel }}
+                  </h4>
+                  <ol class="sol-process">
+                    <li v-for="(step, si) in sol.process" :key="si" class="sol-process__step">
+                      <span class="sol-process__num">{{ si + 1 }}</span>
+                      <span class="sol-process__text">{{ step }}</span>
+                    </li>
+                  </ol>
+                </div>
+
+                <!-- Benefits -->
+                <div class="sol-card__block">
+                  <h4 class="sol-card__block-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    {{ t.benefitsLabel }}
+                  </h4>
+                  <ul class="sol-benefits">
+                    <li v-for="benefit in sol.benefits" :key="benefit" class="sol-benefit">
+                      <span class="sol-benefit__dot" :class="`sol-benefit__dot--${sol.color}`"></span>
+                      {{ benefit }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- SIMULATION FLOATING BAR -->
     <Transition name="slide-up">
       <div v-if="selectedItems.length > 0" class="sv-sim-bar">
@@ -239,73 +313,44 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import img3dModel from '@/assets/images/services/3d-model.png'
-import { globalLang as lang } from '@/store.js'
+import { useI18n } from 'vue-i18n'
 
-const t = computed(() => lang.value === 'id' ? {
-  badge: 'Layanan Kami',
-  heroTitle1: 'Pilih Kategori',
-  heroTitle2: 'Layanan Anda',
-  heroSubs: [
-    'Dua divisi kreatif yang bekerja dalam satu visi besar.',
-    'Dari kode yang berjalan mulus hingga konten yang memikat — kami hadir untuk mengangkat bisnis Anda ke level berikutnya.',
-    'Pilih layanan yang sesuai, dan biarkan tim kami bekerja dengan standar terbaik.',
-  ],
-  ngodingTitle: 'Ngoding',
-  ngodingSub: 'Website · Aplikasi · Solusi Digital',
-  ngodingTags: ['Company Profile', 'Landing Page', 'E-Commerce'],
-  ngodingCta: 'Jelajahi Ngoding →',
-  ngeditTitle: 'Ngedit',
-  ngeditSub: 'Video · Motion Graphics · Konten Kreatif',
-  ngeditTags: ['Short-Form', 'Video Promosi', 'Podcast'],
-  ngeditCta: 'Jelajahi Ngedit →',
-  galleryAvail: 'Layanan Tersedia',
-  cardAdd: 'Tambah',
-  cardAdded: 'Tambah Lagi',
-  cardStartFrom: 'Mulai dari',
-  modalIncludes: 'Termasuk:',
-  modalQty: 'Estimasi Jumlah:',
-  modalTotal: 'Total Estimasi ({qty} unit)',
-  modalAdd: 'Tambah ke Estimasi',
-  modalUnit: 'unit',
-  barSelected: 'Layanan Terpilih',
-  barTotal: 'Estimasi Total',
-  barDetail: 'Detail Estimasi',
-  barReset: 'Reset Estimasi',
-  barConsult: 'Konsultasikan',
-  barClose: 'Tutup'
-} : {
-  badge: 'Our Services',
-  heroTitle1: 'Choose Your',
-  heroTitle2: 'Service Category',
-  heroSubs: [
-    'Two creative divisions. One unified vision.',
-    'From clean, performant code to captivating content — we are here to elevate your business to the next level.',
-    'Pick your service, and let our team deliver with the highest professional standards.',
-  ],
-  ngodingTitle: 'Coding',
-  ngodingSub: 'Website · Apps · Digital Solutions',
-  ngodingTags: ['Company Profile', 'Landing Page', 'E-Commerce'],
-  ngodingCta: 'Explore Coding →',
-  ngeditTitle: 'Editing',
-  ngeditSub: 'Video · Motion Graphics · Creative Content',
-  ngeditTags: ['Short-Form', 'Promo Video', 'Podcast'],
-  ngeditCta: 'Explore Editing →',
-  galleryAvail: 'Services Available',
-  cardAdd: 'Add',
-  cardAdded: 'Add More',
-  cardStartFrom: 'Starting from',
-  modalIncludes: 'Includes:',
-  modalQty: 'Estimated Quantity:',
-  modalTotal: 'Total Estimate ({qty} units)',
-  modalAdd: 'Add to Estimate',
-  modalUnit: 'units',
-  barSelected: 'Services Selected',
-  barTotal: 'Total Estimate',
-  barDetail: 'Estimate Details',
-  barReset: 'Reset Estimate',
-  barConsult: 'Consult',
-  barClose: 'Close'
-})
+const { t: $t, tm, locale } = useI18n()
+
+const t = computed(() => ({
+  badge: locale.value === 'id' ? 'Layanan Kami' : 'Our Services',
+  heroTitle1: $t('services.heroTitle1'),
+  heroTitle2: $t('services.heroTitle2'),
+  heroSubs: tm('services.heroSubs'),
+  ngodingTitle: $t('services.ngodingTitle'),
+  ngodingSub: $t('services.ngodingSub'),
+  ngodingTags: tm('services.ngodingTags'),
+  ngodingCta: $t('services.ngodingCta'),
+  ngeditTitle: $t('services.ngeditTitle'),
+  ngeditSub: $t('services.ngeditSub'),
+  ngeditTags: tm('services.ngeditTags'),
+  ngeditCta: $t('services.ngeditCta'),
+  galleryAvail: $t('services.galleryAvail'),
+  cardAdd: $t('services.cardAdd'),
+  cardAdded: $t('services.cardAdded'),
+  cardStartFrom: $t('services.cardStartFrom'),
+  modalIncludes: $t('services.modalIncludes'),
+  modalQty: $t('services.modalQty'),
+  modalTotal: $t('services.modalTotal'),
+  modalAdd: $t('services.modalAdd'),
+  modalUnit: $t('services.modalUnit'),
+  barSelected: $t('services.barSelected'),
+  barTotal: $t('services.barTotal'),
+  barDetail: $t('services.barDetail'),
+  barReset: $t('services.barReset'),
+  barConsult: $t('services.barConsult'),
+  barClose: $t('services.barClose'),
+  solutionsTitle: $t('solusi.solutionsTitle'),
+  solutionsSub: $t('solusi.solutionsSub'),
+  processLabel: $t('solusi.processLabel'),
+  benefitsLabel: $t('solusi.benefitsLabel'),
+  ctaLabel: $t('solusi.ctaLabel'),
+}))
 
 const activeCategory = ref(null)
 const selectedService = ref(null)
@@ -317,6 +362,74 @@ const heroNgeditRef = ref(null)
 const modalOrigin = ref({ x: '50%', y: '50%' })
 const qty = ref(1)
 const showCart = ref(false)
+
+// Solusi Refs & Handlers
+const solCardRefs = ref([])
+function setSolRef(el, i) {
+  if (el) solCardRefs.value[i] = el
+}
+function handleSolMove(e, i) {
+  const card = solCardRefs.value[i]
+  if (!card) return
+  const rect = card.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  card.style.setProperty('--mouse-x', `${x}px`)
+  card.style.setProperty('--mouse-y', `${y}px`)
+}
+function handleSolLeave(i) {
+  const card = solCardRefs.value[i]
+  if (!card) return
+  card.style.removeProperty('--mouse-x')
+  card.style.removeProperty('--mouse-y')
+}
+
+const solutions = computed(() => [
+  {
+    id: 'web-dev',
+    badge: $t('solusi.webDev.badge'),
+    color: 'blue',
+    name: $t('solusi.webDev.name'),
+    desc: $t('solusi.webDev.desc'),
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    process: tm('solusi.webDev.process'),
+    benefits: tm('solusi.webDev.benefits'),
+  },
+  {
+    id: 'content',
+    badge: $t('solusi.contentProd.badge'),
+    color: 'purple',
+    name: $t('solusi.contentProd.name'),
+    desc: $t('solusi.contentProd.desc'),
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
+    process: tm('solusi.contentProd.process'),
+    benefits: tm('solusi.contentProd.benefits'),
+  },
+  {
+    id: 'strategy',
+    badge: $t('solusi.digitalStrategy.badge'),
+    color: 'emerald',
+    name: $t('solusi.digitalStrategy.name'),
+    desc: $t('solusi.digitalStrategy.desc'),
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`,
+    process: tm('solusi.digitalStrategy.process'),
+    benefits: tm('solusi.digitalStrategy.benefits'),
+  },
+])
+
+import { useRouter, useRoute } from 'vue-router'
+const router = useRouter()
+const route = useRoute()
+function scrollToHash(path) {
+  const hash = path.split('#')[1]
+  if (!hash) return
+  if (route.path === '/') {
+    const el = document.getElementById(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  } else {
+    router.push({ path: '/', hash: `#${hash}` })
+  }
+}
 
 const decreaseItemQty = (item) => {
   const index = selectedItems.value.findIndex(i => i.id === item.id)
@@ -343,47 +456,47 @@ const selectedItems = ref([])
 
 const codingServices = computed(() => [
   { id: 'web-company', badge: 'WEBSITE', title: 'Company Profiles', basePrice: 500000, price: 'Rp 500.000',
-    description: lang.value === 'id' ? 'Website company profile profesional yang responsif, SEO-friendly, dan dirancang untuk meningkatkan kredibilitas bisnis Anda secara online.' : 'Professional, responsive, and SEO-friendly company profile websites designed to boost your online credibility.',
-    features: lang.value === 'id' ? ['Desain Responsif & Modern', 'SEO Dasar', 'Integrasi WhatsApp', 'Maintenance Dasar'] : ['Responsive & Modern Design', 'Basic SEO', 'WhatsApp Integration', 'Basic Maintenance'],
+    description: $t('services.companyProfileDesc'),
+    features: tm('services.companyProfileFeatures'),
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
   { id: 'web-landing', badge: 'WEBSITE', title: 'Landing Page', basePrice: 150000, price: 'Rp 150.000',
-    description: lang.value === 'id' ? 'Landing page high-conversion dengan desain modern dan copywriting yang efektif untuk kampanye marketing Anda.' : 'High-conversion landing pages with modern design and effective copywriting for your marketing campaigns.',
-    features: lang.value === 'id' ? ['Copywriting Persuasif', 'Optimasi Kecepatan', 'Form Leads / Call-to-Action', 'Analytics Setup'] : ['Persuasive Copywriting', 'Speed Optimization', 'Lead Forms / CTA', 'Analytics Setup'],
+    description: $t('services.landingPageDesc'),
+    features: tm('services.landingPageFeatures'),
     image: 'https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&q=80' },
   { id: 'web-database', badge: 'BACKEND', title: 'Database Setup', basePrice: 300000, price: 'Rp 300.000',
-    description: lang.value === 'id' ? 'Perancangan dan setup database yang aman, scalable, dan teroptimasi untuk kebutuhan aplikasi Anda.' : 'Design and setup of a secure, scalable, and optimized database for your application needs.',
-    features: lang.value === 'id' ? ['Schema Design', 'Optimasi Query', 'Setup Keamanan', 'Backup Otomatis'] : ['Schema Design', 'Query Optimization', 'Security Setup', 'Automated Backups'],
+    description: $t('services.databaseDesc'),
+    features: tm('services.databaseFeatures'),
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
   { id: 'domain', badge: 'DOMAIN', title: 'Connect Domain', basePrice: 100000, price: 'Rp 100.000',
-    description: lang.value === 'id' ? 'Bantuan setup koneksi domain ke server atau hosting Anda, lengkap dengan konfigurasi DNS.' : 'Assistance connecting your domain to your server or hosting, complete with DNS configuration.',
-    features: lang.value === 'id' ? ['Konfigurasi DNS', 'Integrasi Hosting', 'Setup CNAME/A Record', 'Bantuan Teknis'] : ['DNS Configuration', 'Hosting Integration', 'CNAME/A Record Setup', 'Technical Support'],
+    description: $t('services.domainDesc'),
+    features: tm('services.domainFeatures'),
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80' },
   { id: 'server', badge: 'INFRA', title: 'Server / Hosting', basePrice: 300000, price: 'Rp 300.000',
-    description: lang.value === 'id' ? 'Setup dan deployment aplikasi Anda ke server cloud (VPS) atau hosting yang andal dan cepat.' : 'Setup and deployment of your application to a reliable and fast cloud server (VPS) or hosting.',
-    features: lang.value === 'id' ? ['Deployment Web/App', 'Konfigurasi VPS', 'Setup SSL (HTTPS)', 'Monitoring Dasar'] : ['Web/App Deployment', 'VPS Configuration', 'SSL Setup (HTTPS)', 'Basic Monitoring'],
+    description: $t('services.serverDesc'),
+    features: tm('services.serverFeatures'),
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' },
 ])
 
 const editingServices = computed(() => [
   { id: 'vid-short', badge: 'VIDEO', title: 'Short-Form Content', basePrice: 200000, price: 'Rp 200.000',
-    description: lang.value === 'id' ? 'Editing video short-form untuk TikTok, Reels, dan Shorts dengan transisi dinamis dan pacing yang engaging.' : 'Short-form video editing for TikTok, Reels, and Shorts with dynamic transitions and engaging pacing.',
-    features: ['Dynamic Subtitles', 'Sound Effects & BGM', 'Color Correction', 'Trend Adaptation'],
+    description: $t('services.shortFormDesc'),
+    features: tm('services.shortFormFeatures'),
     image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80' },
-  { id: 'vid-promo', badge: 'VIDEO', title: lang.value === 'id' ? 'Video Promosi' : 'Promo Video', basePrice: 750000, price: 'Rp 750.000',
-    description: lang.value === 'id' ? 'Video promosi sinematik dengan color grading profesional, motion graphics, dan sound design premium.' : 'Cinematic promo video with professional color grading, motion graphics, and premium sound design.',
-    features: ['Cinematic Color Grading', 'Premium Motion Graphics', 'Licensed Music', 'Storytelling Edit'],
+  { id: 'vid-promo', badge: 'VIDEO', title: $t('services.promoVideoTitle'), basePrice: 750000, price: 'Rp 750.000',
+    description: $t('services.promoVideoDesc'),
+    features: tm('services.promoVideoFeatures'),
     image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80' },
   { id: 'vid-podcast', badge: 'VIDEO', title: 'Podcast Editing', basePrice: 350000, price: 'Rp 350.000',
-    description: lang.value === 'id' ? 'Editing podcast lengkap — noise removal, leveling, chapter markers, dan visual waveform untuk YouTube.' : 'Complete podcast editing — noise removal, leveling, chapter markers, and visual waveforms for YouTube.',
-    features: ['Audio Enhancement', 'Multi-cam Switching', 'Intro/Outro Addition', 'Chapter Generation'],
+    description: $t('services.podcastDesc'),
+    features: tm('services.podcastFeatures'),
     image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80' },
   { id: 'vid-3d', badge: '3D MODEL', title: '3D Visualization', basePrice: 2500000, price: 'Rp 2.500.000',
-    description: lang.value === 'id' ? 'Layanan pemodelan 3D dan render realistis untuk produk, arsitektur, atau karakter game dengan kualitas AAA.' : '3D modeling and realistic rendering services for products, architecture, or game characters with AAA quality.',
-    features: ['High-Fidelity Rendering', 'Texture & Material Design', 'Animation Ready', 'Source File (Blend/FBX)'],
+    description: $t('services.threeDDesc'),
+    features: tm('services.threeDFeatures'),
     image: img3dModel },
   { id: 'vid-motion', badge: 'MOTION', title: 'Motion Graphics', basePrice: 500000, price: 'Rp 500.000',
-    description: lang.value === 'id' ? 'Animasi motion graphics untuk intro, lower thirds, infografis, dan branding visual yang eye-catching.' : 'Motion graphics animation for intros, lower thirds, infographics, and eye-catching visual branding.',
-    features: ['Custom Animations', 'Logo Reveals', 'Infographic Video', 'Seamless Looping'],
+    description: $t('services.motionDesc'),
+    features: tm('services.motionFeatures'),
     image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80' },
 ])
 
@@ -421,16 +534,12 @@ const formattedTotal = computed(() => {
 })
 
 const whatsappLink = computed(() => {
-  const phoneNumber = '628111776617' 
-  let message = lang.value === 'id' 
-    ? `Halo, saya tertarik dengan estimasi layanan berikut:\n\n`
-    : `Hello, I'm interested in the following service estimation:\n\n`
+  const phoneNumber = '628111776617'
+  let message = $t('services.whatsappIntro')
   selectedItems.value.forEach(item => {
     message += `- ${item.title} (${item.qty} ${t.value.modalUnit} x ${formatPrice(item.basePrice)}) = ${formatPrice(item.basePrice * item.qty)}\n`
   })
-  message += lang.value === 'id' 
-    ? `\n*Estimasi Total: ${formattedTotal.value}*\n\nMohon informasi lebih lanjut.`
-    : `\n*Total Estimate: ${formattedTotal.value}*\n\nPlease provide more information.`
+  message += $t('services.whatsappTotal', { total: formattedTotal.value })
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 })
 
@@ -1291,9 +1400,212 @@ onUnmounted(() => {
   }
 }
 @media (max-width: 768px) {
-  .sv-hero__cards { grid-template-columns: 1fr; }
-  .sv-modal__features ul { grid-template-columns: 1fr; }
+  .sv-modal-dialog { padding: 1.5rem; }
+  .sv-modal__img-wrap { height: 160px; }
+  .sv-modal__features { display: grid; grid-template-columns: 1fr; }
+}
 
+/* ══ BADGE ════════════════════════════════════════════════ */
+.sol-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 0.35rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.6875rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--color-primary, #2563eb);
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+.sol-badge--sm { font-size: 0.625rem; padding: 0.2rem 0.9rem; }
+.sol-badge--blue  { color: #2563eb; background: rgba(37,99,235,0.1);  border-color: rgba(37,99,235,0.2); }
+.sol-badge--purple{ color: #a855f7; background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.2); }
+.sol-badge--emerald{ color: #10b981; background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); }
+
+/* ══ SECTION HEADING ══════════════════════════════════════ */
+.sol-section-head {
+  text-align: center; margin-bottom: 3.5rem;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.sol-section-head.visible { opacity: 1; transform: translateY(0); }
+
+.sol-section-head__title {
+  font-family: var(--font-heading, 'Poppins', sans-serif);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800; color: #0f172a;
+  letter-spacing: -0.03em; margin: 0 0 0.75rem;
+}
+.sol-section-head__sub { color: #64748b; font-size: 1rem; line-height: 1.7; margin: 0; }
+
+/* ══ SOLUTIONS SECTION ════════════════════════════════════ */
+.sol-solutions {
+  padding: 6rem 0;
+}
+
+.sol-cards {
+  display: flex; flex-direction: column; gap: 2.5rem;
+}
+
+.sol-card {
+  position: relative;
+  border-radius: 24px;
+  background: rgba(0,0,0,0.1);
+  padding: 1.5px;
+  overflow: hidden;
+  cursor: default;
+  transition: box-shadow 0.4s ease;
+}
+.sol-card:hover {
+  box-shadow: 0 30px 70px rgba(37, 99, 235, 0.1);
+}
+.sol-card--accent:hover {
+  box-shadow: 0 30px 70px rgba(168, 85, 247, 0.1);
+}
+
+.sol-card__glow {
+  position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, -100px) var(--mouse-y, -100px),
+    rgba(37,99,235,0.6),
+    rgba(168,85,247,0.3),
+    transparent 50%
+  );
+  opacity: 0; z-index: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+.sol-card--accent .sol-card__glow {
+  background: radial-gradient(
+    600px circle at var(--mouse-x, -100px) var(--mouse-y, -100px),
+    rgba(168,85,247,0.7),
+    rgba(37,99,235,0.3),
+    transparent 50%
+  );
+}
+.sol-card:hover .sol-card__glow { opacity: 1; }
+
+.sol-card__inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 320px 1fr;
+  gap: 3rem;
+  padding: 3rem;
+  background: #ffffff;
+  border-radius: calc(24px - 1.5px);
+}
+
+/* Left column */
+.sol-card__left {
+  display: flex; flex-direction: column; gap: 1.25rem;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  padding-right: 3rem;
+}
+
+.sol-card__icon {
+  width: 72px; height: 72px; border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.sol-card__icon--blue   { background: rgba(37,99,235,0.1);  color: #2563eb; }
+.sol-card__icon--purple { background: rgba(168,85,247,0.1); color: #a855f7; }
+.sol-card__icon--emerald{ background: rgba(16,185,129,0.1); color: #10b981; }
+.sol-card:hover .sol-card__icon { transform: scale(1.1) rotate(-5deg); }
+.sol-card:not(.sol-card--accent):hover .sol-card__icon--blue   { background: linear-gradient(135deg,#2563eb,#60a5fa); color:#fff; }
+.sol-card--accent:hover .sol-card__icon--purple { background: linear-gradient(135deg,#a855f7,#d946ef); color:#fff; }
+.sol-card:last-child:hover .sol-card__icon--emerald { background: linear-gradient(135deg,#10b981,#34d399); color:#fff; }
+
+.sol-card__name {
+  font-family: var(--font-heading, 'Poppins', sans-serif);
+  font-size: 1.5rem; font-weight: 800; color: #0f172a;
+  letter-spacing: -0.02em; margin: 0; line-height: 1.2;
+}
+.sol-card__desc {
+  color: #64748b; font-size: 0.9375rem; line-height: 1.65; margin: 0;
+  flex: 1;
+}
+
+.sol-card__cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.875rem; font-weight: 700;
+  color: #2563eb; text-decoration: none;
+  transition: gap 0.2s ease;
+}
+.sol-card--accent .sol-card__cta { color: #a855f7; }
+.sol-card:last-child .sol-card__cta { color: #10b981; }
+.sol-card__cta:hover { gap: 10px; text-decoration: underline; }
+
+/* Right column */
+.sol-card__right {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;
+}
+
+.sol-card__block { display: flex; flex-direction: column; gap: 1rem; }
+
+.sol-card__block-title {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: #475569; margin: 0;
+}
+
+/* Process list */
+.sol-process {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 0.75rem;
+  counter-reset: steps;
+}
+.sol-process__step {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+}
+.sol-process__num {
+  flex-shrink: 0;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(37,99,235,0.1); color: #2563eb;
+  font-size: 0.6875rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.sol-card--accent .sol-process__num { background: rgba(168,85,247,0.1); color: #a855f7; }
+.sol-card:last-child .sol-process__num { background: rgba(16,185,129,0.1); color: #10b981; }
+
+.sol-process__text {
+  font-size: 0.875rem; color: #475569; line-height: 1.55;
+}
+
+/* Benefits list */
+.sol-benefits {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 0.7rem;
+}
+.sol-benefit {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.875rem; color: #334155; line-height: 1.5;
+}
+.sol-benefit__dot {
+  flex-shrink: 0;
+  width: 6px; height: 6px; border-radius: 50%;
+  margin-top: 6px;
+}
+.sol-benefit__dot--blue   { background: #2563eb; }
+.sol-benefit__dot--purple { background: #a855f7; }
+.sol-benefit__dot--emerald{ background: #10b981; }
+
+/* ══ RESPONSIVE ═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .sol-card__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .sol-card__left {
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-right: 0; padding-bottom: 2rem;
+  }
+  .sol-card__right {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .sol-card__inner { padding: 2rem; }
   .sv-sim-bar {
     bottom: 16px;
   }

@@ -1,0 +1,899 @@
+{
+  "portfolioPage": {
+    "title": "Karya Terbaik Kami",
+    "subtitle": "Lihat bagaimana kami membantu bisnis mentransformasi ide mereka menjadi produk digital yang luar biasa."
+  },
+  "aboutPage": {
+    "title": "Tentang Kami",
+    "subtitle": "Kenali tim kreatif di balik NgodingNgedit yang siap membantu mewujudkan visi digital Anda.",
+    "foundersTitle": "Tim Pendiri Kami",
+    "founders": [
+      {
+        "name": "Maisan Hanif Dharmawan",
+        "role": "Lead Founder & Ideator",
+        "desc": "Pencetus visi NgodingNgedit. Memimpin arah perusahaan dengan ide-ide inovatif untuk solusi digital masa depan."
+      },
+      {
+        "name": "Afif Maulana Yusuf",
+        "role": "Lead Designer",
+        "desc": "Ahli desain utama yang memastikan setiap piksel produk kami tidak hanya estetik tapi juga memberikan pengalaman pengguna terbaik."
+      },
+      {
+        "name": "Farhan Dwi Ananda Putra",
+        "role": "Lead Frontend Developer",
+        "desc": "Ujung tombak pengembangan kode. Mengubah desain yang indah menjadi kode yang interaktif, cepat, dan responsif."
+      },
+      {
+        "name": "Muhhamad Fadhlurahman",
+        "role": "Marketing & Public Relations",
+        "desc": "Penghubung antara kami dan klien. Memastikan pesan dan nilai produk kami tersampaikan dengan sempurna ke publik."
+      }
+    ]
+  },
+  "helpCenter": {
+    "title": "Pusat Bantuan",
+    "subtitle": "Bagaimana kami bisa membantu Anda hari ini? Temukan jawaban untuk berbagai pertanyaan Anda.",
+    "search": "Cari artikel, panduan, atau topik...",
+    "categories": {
+      "account": "Akun & Profil",
+      "billing": "Pembayaran & Tagihan",
+      "technical": "Dukungan Teknis",
+      "services": "Panduan Layanan",
+      "security": "Keamanan & Privasi",
+      "faq": "FAQ Umum"
+    }
+  },
+  "partners": {
+    "title": "Program Kemitraan",
+    "subtitle": "Bergabunglah bersama kami untuk menciptakan solusi digital terbaik dan kembangkan bisnis Anda lebih jauh.",
+    "benefits": {
+      "growth": "Pertumbuhan Bisnis Cepat",
+      "support": "Dukungan Penuh 24/7",
+      "network": "Jaringan Profesional Luas"
+    },
+    "cta": "Daftar Menjadi Mitra"
+  },
+  "navbar": {
+    "home": "Beranda",
+    "portfolio": "Portfolio",
+    "services": "Layanan",
+    "solutions": "Solusi",
+    "howTo": "Cara Kerja",
+    "contactUs": "Hubungi Kami",
+    "mega": {
+      "title": "Layanan & Solusi",
+      "sub": "Pilih layanan digital yang tepat untuk bisnis Anda",
+      "footerText": "Lihat semua layanan lengkap",
+      "footerCta": "Jelajahi Halaman Layanan →"
+    },
+    "megaSolutions": {
+      "webDev": {
+        "name": "Website & Aplikasi",
+        "desc": "Solusi digital end-to-end dari desain hingga deployment.",
+        "benefits": ["Website responsif & cepat", "SEO-friendly", "Integrasi penuh"]
+      },
+      "content": {
+        "name": "Konten Kreatif",
+        "desc": "Video, motion graphics & konten sosial yang mengkonversi.",
+        "benefits": ["Kualitas sinematik", "Siap semua platform", "Brand yang konsisten"]
+      },
+      "strategy": {
+        "name": "Strategi & Infrastruktur",
+        "desc": "Ekosistem digital yang aman, andal & skalabel.",
+        "benefits": ["Server & cloud setup", "Keamanan sistem", "Roadmap teknologi"]
+      }
+    }
+  },
+  "footer": {
+    "desc": "Partner terpercaya agensi digital yang membangun solusi teknologi inovatif untuk mendorong pertumbuhan bisnis Anda di era digital.",
+    "quickLinks": "Tautan Cepat",
+    "aboutUs": "Tentang Kami",
+    "services": "Layanan",
+    "solutions": "Solusi",
+    "help": "Bantuan",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsConditions": "Syarat & Ketentuan",
+    "helpCenter": "Pusat Bantuan",
+    "partners": "Mitra",
+    "contact": "Kontak",
+    "copyright": "Inovasi Digital Tanpa Batas."
+  },
+  "howTo": {
+    "title": "Cara Kerja Kami",
+    "subtitle": "Langkah demi langkah dari konsultasi hingga peluncuran. Kami membuat proses pengembangan menjadi transparan dan mudah dipahami.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Konsultasi & Analisis",
+        "desc": "Kami mendengarkan kebutuhan bisnis Anda, menganalisis masalah, dan merancang solusi digital yang paling efektif."
+      },
+      {
+        "num": "02",
+        "title": "Desain UI/UX",
+        "desc": "Tim desain kami membuat wireframe dan mockup interaktif untuk memberikan gambaran nyata sebelum masuk tahap coding."
+      },
+      {
+        "num": "03",
+        "title": "Pengembangan",
+        "desc": "Developer kami mulai menulis kode menggunakan teknologi modern yang disesuaikan untuk kecepatan dan keamanan tinggi."
+      },
+      {
+        "num": "04",
+        "title": "Pengujian (QA)",
+        "desc": "Setiap fitur melewati proses Quality Assurance (QA) yang ketat untuk memastikan tidak ada bug atau error."
+      },
+      {
+        "num": "05",
+        "title": "Peluncuran & Maintenance",
+        "desc": "Proyek dirilis secara live. Kami memberikan masa garansi dan dukungan pemeliharaan jangka panjang."
+      }
+    ]
+  },
+  "hero": {
+    "title1": "Bangun Ekosistem Digital",
+    "title2": "Masa Depan",
+    "title3": "dengan Presisi Teknikal",
+    "description": "Kami menghadirkan solusi perangkat lunak berkualitas tinggi dan desain kreatif yang disesuaikan untuk mendorong pertumbuhan bisnis Anda di era digital.",
+    "freeConsultation": "Konsultasi Gratis",
+    "viewPortfolio": "Lihat Portfolio"
+  },
+  "portfolio": {
+    "subtitle": "Pilihan proyek terbaik kami, dikerjakan dengan standar tertinggi.",
+    "seeAll": "Lihat Semua",
+    "artnaflow": "Platform manajemen keuangan berbasis cloud yang kuat dengan analitik bisnis real-time.",
+    "luxemarket": "Aplikasi belanja mobile bertenaga AI yang menghadirkan pengalaman retail yang sangat personal.",
+    "mediscan": "Sistem pencitraan medis berbasis cloud yang memanfaatkan AI untuk diagnostik personal yang akurat.",
+    "paysphere": "Gateway pembayaran global instan — aman, andal, dan mudah diintegrasikan untuk bisnis modern.",
+    "edulearn": "Sistem manajemen pembelajaran berbasis cloud interaktif yang dibangun untuk sekolah modern.",
+    "travelease": "Perencana rute perjalanan cerdas dengan pemesanan tiket instan terintegrasi.",
+    "agrigrow": "Pemantauan kelembaban tanah dan kesehatan tanaman secara real-time dengan sensor IoT.",
+    "fintrack": "Sistem akuntansi perusahaan otomatis dengan analisis risiko keuangan berbasis AI."
+  },
+  "whyChoose": {
+    "title": "Mengapa Memilih Kami?",
+    "subtitle": "Kami menghadirkan keunggulan teknikal dan desain yang mendorong pertumbuhan nyata untuk bisnis Anda.",
+    "qualityCode": {
+      "title": "Kode Berkualitas",
+      "description": "Arsitektur kode yang bersih, terstruktur, dan mudah untuk dikembangkan kembali di masa depan."
+    },
+    "highPerformance": {
+      "title": "Performa Tinggi",
+      "description": "Optimisasi kecepatan dan performa penuh sehingga pengguna Anda terlayani tanpa hambatan."
+    },
+    "strictSecurity": {
+      "title": "Keamanan Ketat",
+      "description": "Implementasi standar keamanan tertinggi untuk melindungi data dan privasi pengguna Anda."
+    },
+    "support247": {
+      "title": "Dukungan 24/7",
+      "description": "Tim kami selalu siap membantu Anda mengatasi tantangan teknikal kapanpun Anda membutuhkan."
+    }
+  },
+  "cta": {
+    "titleLine1": "Siap Memulai",
+    "titleHighlight": "Digital",
+    "titleLine2": "Revolusi Anda?",
+    "subtitle": "Mari diskusikan bagaimana kami dapat membantu mewujudkan visi dan teknologi Anda menjadi nilai yang luar biasa.",
+    "contactNow": "Hubungi Kami Sekarang",
+    "feature1": "Respons dalam < 24 jam",
+    "feature2": "Konsultasi gratis",
+    "feature3": "Privasi data terjamin"
+  },
+  "partner": {
+    "label": "PARTNER TERPERCAYA KAMI"
+  },
+  "solusi": {
+    "heroTitle1": "Solusi Digital",
+    "heroTitle2": "untuk Bisnis Modern",
+    "heroSubs": [
+      "Dari konsultasi awal hingga peluncuran, kami mendampingi setiap tahap dengan penuh dedikasi.",
+      "Tim kami memadukan teknologi terkini dengan strategi bisnis yang tepat untuk menciptakan dampak nyata.",
+      "Setiap keputusan kami dasarkan pada data, setiap solusi kami rancang khusus untuk bisnis Anda."
+    ],
+    "stats": [
+      { "value": "50+", "label": "Proyek Selesai" },
+      { "value": "98%", "label": "Kepuasan Klien" },
+      { "value": "3x", "label": "Lebih Cepat Launch" },
+      { "value": "24/7", "label": "Dukungan Teknis" }
+    ],
+    "solutionsTitle": "Tiga Pilar Solusi Kami",
+    "solutionsSub": "Setiap solusi dirancang untuk memberikan dampak nyata — dari presence digital hingga konten yang mengkonversi.",
+    "processLabel": "Proses Kerja",
+    "benefitsLabel": "Manfaat Klien",
+    "ctaLabel": "Konsultasi Gratis",
+    "ctaBannerTitle": "Siap Memulai Transformasi Digital Anda?",
+    "ctaBannerSub": "Ceritakan kebutuhan bisnis Anda. Tim kami siap merancang solusi yang tepat dalam 24 jam.",
+    "ctaBannerBtn": "Hubungi Kami Sekarang",
+    "webDev": {
+      "badge": "NGODING",
+      "name": "Pengembangan Website & Aplikasi",
+      "desc": "Kami merancang dan membangun website serta aplikasi web yang cepat, responsif, dan skalabel — disesuaikan penuh dengan kebutuhan bisnis Anda.",
+      "process": [
+        "Konsultasi & analisis kebutuhan bisnis",
+        "Perancangan desain UI/UX & wireframe",
+        "Pengembangan & integrasi backend",
+        "Quality assurance & testing menyeluruh",
+        "Deployment, hosting & serah terima proyek"
+      ],
+      "benefits": [
+        "Kehadiran online profesional yang meningkatkan kredibilitas",
+        "Website cepat & SEO-friendly untuk traffic organik",
+        "Sistem yang skalabel sesuai pertumbuhan bisnis",
+        "Maintenance & dukungan teknis pasca-launch",
+        "Integrasi WhatsApp, payment gateway & CRM"
+      ]
+    },
+    "contentProd": {
+      "badge": "NGEDIT",
+      "name": "Produksi Konten Kreatif",
+      "desc": "Video promosi, motion graphics, dan konten sosial media yang dirancang untuk menarik perhatian, membangun brand, dan mendorong konversi.",
+      "process": [
+        "Brief kreatif & riset target audiens",
+        "Konsep visual & storyboard / moodboard",
+        "Produksi & editing dengan standar sinematik",
+        "Revisi iteratif berdasarkan feedback klien",
+        "Pengiriman file dalam format platform-ready"
+      ],
+      "benefits": [
+        "Konten yang stand-out di feed dan meningkatkan engagement",
+        "Brand identity yang konsisten di semua platform",
+        "Video berkualitas tinggi tanpa biaya produksi mahal",
+        "Konten siap unggah untuk semua platform sosial media",
+        "Peningkatan reach & konversi dari audiens yang tepat"
+      ]
+    },
+    "digitalStrategy": {
+      "badge": "STRATEGI",
+      "name": "Strategi & Infrastruktur Digital",
+      "desc": "Lebih dari sekadar produk — kami membantu Anda merancang ekosistem digital yang solid: dari infrastruktur server hingga strategi pertumbuhan jangka panjang.",
+      "process": [
+        "Audit & assessment ekosistem digital saat ini",
+        "Perencanaan arsitektur & roadmap teknologi",
+        "Setup server, domain, SSL & pipeline CI/CD",
+        "Optimasi performa & keamanan sistem",
+        "Pelatihan tim & handover dokumentasi lengkap"
+      ],
+      "benefits": [
+        "Infrastruktur yang aman, andal & siap skalabel",
+        "Pengurangan downtime & risiko keamanan siber",
+        "Efisiensi operasional dengan otomatisasi proses",
+        "Roadmap teknologi yang selaras dengan tujuan bisnis",
+        "Tim internal yang berdaya dengan knowledge transfer"
+      ]
+    }
+  },
+  "services": {
+    "heroTitle1": "Pilih Kategori",
+    "heroTitle2": "Layanan Anda",
+    "heroSubs": [
+      "Dua divisi kreatif yang bekerja dalam satu visi besar.",
+      "Dari kode yang berjalan mulus hingga konten yang memikat — kami hadir untuk mengangkat bisnis Anda ke level berikutnya.",
+      "Pilih layanan yang sesuai, dan biarkan tim kami bekerja dengan standar terbaik."
+    ],
+    "ngodingTitle": "Ngoding",
+    "ngodingSub": "Website · Aplikasi · Solusi Digital",
+    "ngodingTags": ["Company Profile", "Landing Page", "E-Commerce"],
+    "ngodingCta": "Jelajahi Ngoding →",
+    "ngeditTitle": "Ngedit",
+    "ngeditSub": "Video · Motion Graphics · Konten Kreatif",
+    "ngeditTags": ["Short-Form", "Video Promosi", "Podcast"],
+    "ngeditCta": "Jelajahi Ngedit →",
+    "galleryAvail": "Layanan Tersedia",
+    "cardAdd": "Tambah",
+    "cardAdded": "Tambah Lagi",
+    "cardStartFrom": "Mulai dari",
+    "modalIncludes": "Termasuk:",
+    "modalQty": "Estimasi Jumlah:",
+    "modalTotal": "Total Estimasi ({qty} unit)",
+    "modalAdd": "Tambah ke Estimasi",
+    "modalUnit": "unit",
+    "barSelected": "Layanan Terpilih",
+    "barTotal": "Estimasi Total",
+    "barDetail": "Detail Estimasi",
+    "barReset": "Reset Estimasi",
+    "barConsult": "Konsultasikan",
+    "barClose": "Tutup",
+    "companyProfileDesc": "Website company profile profesional yang responsif, SEO-friendly, dan dirancang untuk meningkatkan kredibilitas bisnis Anda secara online.",
+    "companyProfileFeatures": ["Desain Responsif & Modern", "SEO Dasar", "Integrasi WhatsApp", "Maintenance Dasar"],
+    "landingPageDesc": "Landing page high-conversion dengan desain modern dan copywriting yang efektif untuk kampanye marketing Anda.",
+    "landingPageFeatures": ["Copywriting Persuasif", "Optimasi Kecepatan", "Form Leads / Call-to-Action", "Analytics Setup"],
+    "databaseDesc": "Perancangan dan setup database yang aman, scalable, dan teroptimasi untuk kebutuhan aplikasi Anda.",
+    "databaseFeatures": ["Schema Design", "Optimasi Query", "Setup Keamanan", "Backup Otomatis"],
+    "domainDesc": "Bantuan setup koneksi domain ke server atau hosting Anda, lengkap dengan konfigurasi DNS.",
+    "domainFeatures": ["Konfigurasi DNS", "Integrasi Hosting", "Setup CNAME/A Record", "Bantuan Teknis"],
+    "serverDesc": "Setup dan deployment aplikasi Anda ke server cloud (VPS) atau hosting yang andal dan cepat.",
+    "serverFeatures": ["Deployment Web/App", "Konfigurasi VPS", "Setup SSL (HTTPS)", "Monitoring Dasar"],
+    "shortFormDesc": "Editing video short-form untuk TikTok, Reels, dan Shorts dengan transisi dinamis dan pacing yang engaging.",
+    "shortFormFeatures": ["Dynamic Subtitles", "Sound Effects & BGM", "Color Correction", "Trend Adaptation"],
+    "promoVideoTitle": "Video Promosi",
+    "promoVideoDesc": "Video promosi sinematik dengan color grading profesional, motion graphics, dan sound design premium.",
+    "promoVideoFeatures": ["Cinematic Color Grading", "Premium Motion Graphics", "Licensed Music", "Storytelling Edit"],
+    "podcastDesc": "Editing podcast lengkap — noise removal, leveling, chapter markers, dan visual waveform untuk YouTube.",
+    "podcastFeatures": ["Audio Enhancement", "Multi-cam Switching", "Intro/Outro Addition", "Chapter Generation"],
+    "threeDDesc": "Layanan pemodelan 3D dan render realistis untuk produk, arsitektur, atau karakter game dengan kualitas AAA.",
+    "threeDFeatures": ["High-Fidelity Rendering", "Texture & Material Design", "Animation Ready", "Source File (Blend/FBX)"],
+    "motionDesc": "Animasi motion graphics untuk intro, lower thirds, infografis, dan branding visual yang eye-catching.",
+    "motionFeatures": ["Custom Animations", "Logo Reveals", "Infographic Video", "Seamless Looping"],
+    "whatsappIntro": "Halo, saya tertarik dengan estimasi layanan berikut:\n\n",
+    "whatsappTotal": "\n*Estimasi Total: {total}*\n\nMohon informasi lebih lanjut."
+  },
+  "privacy": {
+    "title": "Kebijakan Privasi",
+    "subtitle": "Terakhir diperbarui: <strong>Mei 2026</strong> · Berlaku untuk semua layanan Ngodingngedit.com",
+    "tocLabel": "Daftar Isi",
+    "backHome": "Kembali ke Beranda",
+    "viewTerms": "Lihat Syarat & Ketentuan →",
+    "toc": [
+      { "id": "pendahuluan", "label": "1. Pendahuluan" },
+      { "id": "definisi", "label": "2. Definisi" },
+      { "id": "ruang-lingkup", "label": "3. Ruang Lingkup Layanan" },
+      { "id": "pemesanan", "label": "4. Ketentuan Pemesanan" },
+      { "id": "pembayaran", "label": "5. Harga dan Pembayaran" },
+      { "id": "revisi", "label": "6. Revisi" },
+      { "id": "waktu-pengerjaan", "label": "7. Waktu Pengerjaan" },
+      { "id": "hak-klien", "label": "8. Hak & Kewajiban Klien" },
+      { "id": "hak-penyedia", "label": "9. Hak & Kewajiban Penyedia" },
+      { "id": "hak-cipta", "label": "10. Hak Cipta" },
+      { "id": "kerahasiaan", "label": "11. Kerahasiaan" },
+      { "id": "garansi", "label": "12. Garansi" },
+      { "id": "maintenance", "label": "13. Maintenance & Support" },
+      { "id": "akun", "label": "14. Penggunaan Akun" },
+      { "id": "larangan", "label": "15. Larangan" },
+      { "id": "pembatalan", "label": "16. Pembatalan Proyek" },
+      { "id": "force-majeure", "label": "17. Force Majeure" },
+      { "id": "batas-tanggung-jawab", "label": "18. Batas Tanggung Jawab" },
+      { "id": "perubahan-ketentuan", "label": "19. Perubahan Ketentuan" },
+      { "id": "persetujuan", "label": "20. Persetujuan" }
+    ],
+    "sections": [
+      {
+        "id": "pendahuluan",
+        "title": "1. Pendahuluan",
+        "paragraphs": ["Dokumen Kebijakan Privasi ini mengatur hak, kewajiban, dan ketentuan penggunaan layanan jasa pembuatan coding, editing, desain, dan layanan digital lainnya."],
+        "note": "Dengan menggunakan layanan kami, klien dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku."
+      },
+      {
+        "id": "definisi",
+        "title": "2. Definisi",
+        "paragraphs": ["Dalam dokumen ini:"],
+        "items": [
+          "<strong>\"Kami\"</strong> mengacu pada penyedia jasa.",
+          "<strong>\"Klien\"</strong> mengacu pada individu, perusahaan, atau pihak yang menggunakan layanan.",
+          "<strong>\"Proyek\"</strong> mengacu pada pekerjaan yang disepakati antara klien dan penyedia jasa.",
+          "<strong>\"Revisi\"</strong> adalah perubahan minor yang masih sesuai dengan brief awal."
+        ]
+      },
+      {
+        "id": "ruang-lingkup",
+        "title": "3. Ruang Lingkup Layanan",
+        "paragraphs": ["Layanan yang dapat kami sediakan meliputi:"],
+        "items": [
+          "Pembuatan website.",
+          "Pembuatan aplikasi.",
+          "Pembuatan bot/script.",
+          "Editing source code.",
+          "Perbaikan bug/error.",
+          "Editing dokumen.",
+          "Editing desain.",
+          "Editing video atau konten digital.",
+          "Konsultasi teknis.",
+          "Maintenance sesuai kesepakatan."
+        ],
+        "callout": "Layanan di luar kesepakatan awal dapat dikenakan biaya tambahan."
+      },
+      {
+        "id": "pemesanan",
+        "title": "4. Ketentuan Pemesanan",
+        "items": [
+          "Klien wajib memberikan brief dan kebutuhan proyek secara jelas.",
+          "Klien bertanggung jawab atas kelengkapan data dan materi proyek.",
+          "Estimasi pengerjaan dimulai setelah seluruh data diterima lengkap.",
+          "Pengerjaan dimulai setelah pembayaran DP diterima.",
+          "Kami berhak menolak proyek tertentu tanpa wajib memberikan alasan detail."
+        ]
+      },
+      {
+        "id": "pembayaran",
+        "title": "5. Harga dan Pembayaran",
+        "items": [
+          "Harga proyek ditentukan berdasarkan tingkat kesulitan dan ruang lingkup pekerjaan.",
+          "Pembayaran dilakukan sesuai kesepakatan.",
+          "DP minimal <strong>50%</strong> sebelum pengerjaan dimulai.",
+          "Pelunasan wajib dilakukan sebelum file final/full source dikirim.",
+          "Keterlambatan pembayaran dapat menyebabkan penundaan pengerjaan.",
+          "Semua pembayaran yang sudah masuk bersifat <strong>non-refundable</strong> kecuali terdapat kesepakatan khusus."
+        ]
+      },
+      {
+        "id": "revisi",
+        "title": "6. Revisi",
+        "items": [
+          "Revisi diberikan sesuai jumlah yang disepakati.",
+          "Revisi hanya berlaku untuk perubahan minor.",
+          "Perubahan konsep besar dari brief awal dianggap proyek tambahan.",
+          "Revisi tambahan di luar paket dapat dikenakan biaya tambahan.",
+          "Permintaan revisi harus disampaikan dalam batas waktu yang ditentukan."
+        ]
+      },
+      {
+        "id": "waktu-pengerjaan",
+        "title": "7. Waktu Pengerjaan",
+        "items": [
+          "Estimasi waktu pengerjaan bersifat perkiraan.",
+          "Waktu pengerjaan dapat berubah tergantung tingkat kesulitan proyek.",
+          "Keterlambatan akibat revisi tambahan atau keterlambatan data dari klien bukan menjadi tanggung jawab kami.",
+          "Hari libur nasional atau kondisi force majeure dapat memengaruhi timeline pengerjaan."
+        ]
+      },
+      {
+        "id": "hak-klien",
+        "title": "8. Hak dan Kewajiban Klien",
+        "blocks": [
+          { "type": "p", "html": "<strong>Klien wajib:</strong>" },
+          { "type": "ul", "items": ["Memberikan informasi proyek secara jelas.", "Memberikan data yang legal dan tidak melanggar hukum.", "Melakukan pembayaran tepat waktu.", "Menjaga komunikasi yang baik selama proyek berlangsung."] },
+          { "type": "p", "html": "<strong>Klien berhak:</strong>" },
+          { "type": "ul", "items": ["Mendapat update progres proyek.", "Mendapat hasil sesuai kesepakatan.", "Mengajukan revisi sesuai ketentuan."] }
+        ]
+      },
+      {
+        "id": "hak-penyedia",
+        "title": "9. Hak dan Kewajiban Penyedia Jasa",
+        "blocks": [
+          { "type": "p", "html": "<strong>Kami berhak:</strong>" },
+          { "type": "ul", "items": ["Menolak proyek tertentu.", "Menghentikan pengerjaan jika terjadi pelanggaran ketentuan.", "Menggunakan hasil proyek sebagai portofolio."] },
+          { "type": "p", "html": "<strong>Kami wajib:</strong>" },
+          { "type": "ul", "items": ["Menyelesaikan proyek sesuai kesepakatan.", "Menjaga kerahasiaan data klien.", "Memberikan layanan profesional sesuai kemampuan."] }
+        ]
+      },
+      {
+        "id": "hak-cipta",
+        "title": "10. Hak Cipta dan Kepemilikan",
+        "items": [
+          "Hak penggunaan hasil kerja diberikan setelah pembayaran lunas.",
+          "Hak cipta aset pihak ketiga tetap mengikuti lisensi masing-masing.",
+          "Kami tidak bertanggung jawab atas pelanggaran lisensi yang dilakukan klien.",
+          "Klien dilarang menjual ulang atau mengklaim source tertentu yang memiliki lisensi khusus."
+        ]
+      },
+      {
+        "id": "kerahasiaan",
+        "title": "11. Kerahasiaan",
+        "items": [
+          "Seluruh data dan file proyek klien akan dijaga kerahasiaannya.",
+          "Kami tidak akan menyebarluaskan data proyek tanpa izin.",
+          "Klien juga wajib menjaga kerahasiaan source atau file tertentu apabila disepakati."
+        ]
+      },
+      {
+        "id": "garansi",
+        "title": "12. Garansi",
+        "items": [
+          "Garansi bug/error diberikan selama periode tertentu setelah proyek selesai.",
+          "Garansi hanya berlaku untuk error dari pengerjaan awal.",
+          "Garansi <strong>tidak berlaku</strong> apabila:"
+        ],
+        "subItems": [
+          "Source diubah pihak lain.",
+          "Server/hosting bermasalah.",
+          "Terjadi kesalahan penggunaan oleh klien.",
+          "Ada perubahan sistem pihak ketiga."
+        ]
+      },
+      {
+        "id": "maintenance",
+        "title": "13. Maintenance dan Support",
+        "items": [
+          "Maintenance hanya diberikan apabila termasuk dalam paket layanan.",
+          "Support diberikan dalam jam operasional yang ditentukan.",
+          "Permintaan di luar ruang lingkup support dapat dikenakan biaya tambahan."
+        ]
+      },
+      {
+        "id": "akun",
+        "title": "14. Penggunaan Akun dan Akses",
+        "paragraphs": ["Apabila klien memberikan akses akun:"],
+        "items": [
+          "Akses hanya digunakan untuk kebutuhan proyek.",
+          "Klien disarankan mengganti password setelah proyek selesai.",
+          "Kami tidak bertanggung jawab atas kebocoran akibat kelalaian klien."
+        ]
+      },
+      {
+        "id": "larangan",
+        "title": "15. Larangan",
+        "paragraphs": ["Kami berhak menolak proyek yang:"],
+        "items": [
+          "Melanggar hukum.",
+          "Mengandung malware atau hacking ilegal.",
+          "Digunakan untuk phishing atau penipuan.",
+          "Mengandung pornografi ilegal.",
+          "Melanggar hak cipta.",
+          "Bertentangan dengan kebijakan platform tertentu."
+        ]
+      },
+      {
+        "id": "pembatalan",
+        "title": "16. Pembatalan Proyek",
+        "items": [
+          "Jika proyek dibatalkan oleh klien saat pengerjaan berlangsung, DP dianggap hangus.",
+          "Jika proyek telah berjalan lebih dari 50%, biaya yang sudah dibayarkan tidak dapat dikembalikan.",
+          "Jika pembatalan dilakukan oleh kami, pengembalian dana dilakukan sesuai bagian pekerjaan yang belum dikerjakan."
+        ]
+      },
+      {
+        "id": "force-majeure",
+        "title": "17. Force Majeure",
+        "paragraphs": ["Kami tidak bertanggung jawab atas keterlambatan atau kegagalan layanan akibat:"],
+        "items": [
+          "Bencana alam.",
+          "Gangguan internet.",
+          "Pemadaman listrik.",
+          "Kerusakan server.",
+          "Kebijakan pemerintah.",
+          "Kondisi di luar kendali lainnya."
+        ]
+      },
+      {
+        "id": "batas-tanggung-jawab",
+        "title": "18. Batas Tanggung Jawab",
+        "paragraphs": ["Kami tidak bertanggung jawab atas:"],
+        "items": [
+          "Kerugian bisnis tidak langsung.",
+          "Kehilangan data akibat pihak ketiga.",
+          "Penyalahgunaan source oleh klien.",
+          "Kerusakan akibat modifikasi pihak lain.",
+          "Penangguhan akun/platform pihak ketiga."
+        ]
+      },
+      {
+        "id": "perubahan-ketentuan",
+        "title": "19. Perubahan Ketentuan",
+        "paragraphs": ["Kebijakan Privasi ini dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru akan menjadi acuan yang berlaku."]
+      },
+      {
+        "id": "persetujuan",
+        "title": "20. Persetujuan",
+        "paragraphs": ["Dengan melakukan pembayaran atau menggunakan layanan kami, klien dianggap menyetujui seluruh Kebijakan Privasi yang berlaku."]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Syarat & Ketentuan",
+    "subtitle": "Terakhir diperbarui: <strong>Mei 2026</strong> · Berlaku untuk semua layanan Ngodingngedit.com",
+    "tocLabel": "Daftar Isi",
+    "backHome": "Kembali ke Beranda",
+    "viewPrivacy": "Lihat Kebijakan Privasi →",
+    "toc": [
+      { "id": "pendahuluan", "label": "1. Pendahuluan" },
+      { "id": "definisi", "label": "2. Definisi" },
+      { "id": "ruang-lingkup", "label": "3. Ruang Lingkup Layanan" },
+      { "id": "pemesanan", "label": "4. Ketentuan Pemesanan" },
+      { "id": "pembayaran", "label": "5. Harga dan Pembayaran" },
+      { "id": "revisi", "label": "6. Revisi" },
+      { "id": "waktu-pengerjaan", "label": "7. Waktu Pengerjaan" },
+      { "id": "hak-klien", "label": "8. Hak & Kewajiban Klien" },
+      { "id": "hak-penyedia", "label": "9. Hak & Kewajiban Penyedia" },
+      { "id": "hak-cipta", "label": "10. Hak Cipta" },
+      { "id": "kerahasiaan", "label": "11. Kerahasiaan" },
+      { "id": "garansi", "label": "12. Garansi" },
+      { "id": "maintenance", "label": "13. Maintenance & Support" },
+      { "id": "akun", "label": "14. Penggunaan Akun" },
+      { "id": "larangan", "label": "15. Larangan" },
+      { "id": "pembatalan", "label": "16. Pembatalan Proyek" },
+      { "id": "force-majeure", "label": "17. Force Majeure" },
+      { "id": "batas-tanggung-jawab", "label": "18. Batas Tanggung Jawab" },
+      { "id": "perubahan-ketentuan", "label": "19. Perubahan Ketentuan" },
+      { "id": "persetujuan", "label": "20. Persetujuan" }
+    ],
+    "sections": [
+      {
+        "id": "pendahuluan",
+        "title": "1. Pendahuluan",
+        "paragraphs": ["Dokumen Syarat & Ketentuan ini mengatur hak, kewajiban, serta ketentuan penggunaan layanan jasa pembuatan coding, editing, desain, dan layanan digital lainnya."],
+        "note": "Dengan menggunakan layanan kami, klien dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku."
+      },
+      {
+        "id": "definisi",
+        "title": "2. Definisi",
+        "paragraphs": ["Dalam dokumen ini:"],
+        "items": [
+          "<strong>\"Kami\"</strong> mengacu pada penyedia jasa.",
+          "<strong>\"Klien\"</strong> mengacu pada individu, perusahaan, atau pihak yang menggunakan layanan.",
+          "<strong>\"Proyek\"</strong> mengacu pada pekerjaan yang telah disepakati.",
+          "<strong>\"Revisi\"</strong> adalah perubahan minor yang masih sesuai dengan brief awal.",
+          "<strong>\"Source Code\"</strong> adalah file kode program hasil pengerjaan proyek."
+        ]
+      },
+      {
+        "id": "ruang-lingkup",
+        "title": "3. Ruang Lingkup Layanan",
+        "paragraphs": ["Layanan yang dapat kami sediakan meliputi:"],
+        "items": [
+          "Pembuatan website.",
+          "Pembuatan aplikasi.",
+          "Pembuatan bot/script.",
+          "Perbaikan bug/error.",
+          "Editing source code.",
+          "Editing desain.",
+          "Editing dokumen.",
+          "Editing video atau konten digital.",
+          "Maintenance dan support.",
+          "Konsultasi teknis."
+        ],
+        "callout": "Layanan di luar kesepakatan awal dapat dikenakan biaya tambahan."
+      },
+      {
+        "id": "pemesanan",
+        "title": "4. Ketentuan Pemesanan",
+        "items": [
+          "Klien wajib memberikan brief proyek secara jelas dan lengkap.",
+          "Klien bertanggung jawab atas legalitas data dan materi yang diberikan.",
+          "Pengerjaan dimulai setelah pembayaran DP diterima.",
+          "Estimasi pengerjaan dihitung setelah seluruh kebutuhan proyek diterima lengkap.",
+          "Kami berhak menolak proyek tertentu tanpa wajib memberikan alasan detail."
+        ]
+      },
+      {
+        "id": "pembayaran",
+        "title": "5. Harga dan Pembayaran",
+        "items": [
+          "Harga proyek ditentukan berdasarkan tingkat kesulitan dan ruang lingkup pekerjaan.",
+          "Pembayaran dilakukan sesuai kesepakatan.",
+          "DP minimal <strong>50%</strong> sebelum pengerjaan dimulai.",
+          "Pelunasan wajib dilakukan sebelum file final/full source dikirim.",
+          "Keterlambatan pembayaran dapat menyebabkan penundaan pengerjaan.",
+          "Pembayaran yang sudah dilakukan bersifat <strong>non-refundable</strong> kecuali terdapat kesepakatan khusus."
+        ]
+      },
+      {
+        "id": "revisi",
+        "title": "6. Revisi",
+        "items": [
+          "Revisi diberikan sesuai jumlah yang disepakati.",
+          "Revisi hanya berlaku untuk perubahan minor.",
+          "Perubahan konsep besar dari brief awal dianggap pekerjaan tambahan.",
+          "Revisi tambahan di luar ketentuan dapat dikenakan biaya tambahan.",
+          "Permintaan revisi harus dilakukan dalam batas waktu yang telah ditentukan."
+        ]
+      },
+      {
+        "id": "waktu-pengerjaan",
+        "title": "7. Waktu Pengerjaan",
+        "items": [
+          "Estimasi pengerjaan bersifat perkiraan.",
+          "Waktu pengerjaan dapat berubah tergantung tingkat kesulitan proyek.",
+          "Keterlambatan akibat revisi tambahan atau keterlambatan data dari klien bukan menjadi tanggung jawab kami.",
+          "Hari libur nasional atau kondisi force majeure dapat memengaruhi timeline pengerjaan."
+        ]
+      },
+      {
+        "id": "hak-klien",
+        "title": "8. Hak dan Kewajiban Klien",
+        "blocks": [
+          { "type": "p", "html": "<strong>Klien wajib:</strong>" },
+          { "type": "ul", "items": ["Memberikan informasi proyek secara jelas.", "Memberikan data yang legal dan tidak melanggar hukum.", "Melakukan pembayaran tepat waktu.", "Menjaga komunikasi yang baik selama proyek berlangsung."] },
+          { "type": "p", "html": "<strong>Klien berhak:</strong>" },
+          { "type": "ul", "items": ["Mendapat update progres proyek.", "Mendapat hasil sesuai kesepakatan.", "Mengajukan revisi sesuai ketentuan."] }
+        ]
+      },
+      {
+        "id": "hak-penyedia",
+        "title": "9. Hak dan Kewajiban Penyedia Jasa",
+        "blocks": [
+          { "type": "p", "html": "<strong>Kami berhak:</strong>" },
+          { "type": "ul", "items": ["Menolak proyek tertentu.", "Menghentikan pengerjaan jika terjadi pelanggaran ketentuan.", "Menggunakan hasil proyek sebagai portofolio."] },
+          { "type": "p", "html": "<strong>Kami wajib:</strong>" },
+          { "type": "ul", "items": ["Menyelesaikan proyek sesuai kesepakatan.", "Menjaga kerahasiaan data klien.", "Memberikan layanan profesional sesuai kemampuan."] }
+        ]
+      },
+      {
+        "id": "hak-cipta",
+        "title": "10. Hak Cipta dan Kepemilikan",
+        "items": [
+          "Hak penggunaan hasil kerja diberikan setelah pembayaran lunas.",
+          "Hak cipta aset pihak ketiga tetap mengikuti lisensi masing-masing.",
+          "Kami tidak bertanggung jawab atas pelanggaran lisensi yang dilakukan klien.",
+          "Klien dilarang menjual ulang atau mengklaim source tertentu yang memiliki lisensi khusus."
+        ]
+      },
+      {
+        "id": "kerahasiaan",
+        "title": "11. Kerahasiaan",
+        "items": [
+          "Seluruh data dan file proyek klien akan dijaga kerahasiaannya.",
+          "Kami tidak akan menyebarluaskan data proyek tanpa izin.",
+          "Klien juga wajib menjaga kerahasiaan source atau file tertentu apabila disepakati."
+        ]
+      },
+      {
+        "id": "garansi",
+        "title": "12. Garansi",
+        "items": [
+          "Garansi bug/error diberikan selama periode tertentu setelah proyek selesai.",
+          "Garansi hanya berlaku untuk error dari pengerjaan awal.",
+          "Garansi <strong>tidak berlaku</strong> apabila:"
+        ],
+        "subItems": [
+          "Source diubah pihak lain.",
+          "Server/hosting bermasalah.",
+          "Terjadi kesalahan penggunaan oleh klien.",
+          "Ada perubahan sistem pihak ketiga."
+        ]
+      },
+      {
+        "id": "maintenance",
+        "title": "13. Maintenance dan Support",
+        "items": [
+          "Maintenance hanya diberikan apabila termasuk dalam paket layanan.",
+          "Support diberikan dalam jam operasional yang ditentukan.",
+          "Permintaan di luar ruang lingkup support dapat dikenakan biaya tambahan."
+        ]
+      },
+      {
+        "id": "akun",
+        "title": "14. Penggunaan Akun dan Akses",
+        "paragraphs": ["Apabila klien memberikan akses akun:"],
+        "items": [
+          "Akses hanya digunakan untuk kebutuhan proyek.",
+          "Klien disarankan mengganti password setelah proyek selesai.",
+          "Kami tidak bertanggung jawab atas kebocoran akibat kelalaian klien."
+        ]
+      },
+      {
+        "id": "larangan",
+        "title": "15. Larangan",
+        "paragraphs": ["Kami berhak menolak proyek yang:"],
+        "items": [
+          "Melanggar hukum.",
+          "Mengandung malware atau hacking ilegal.",
+          "Digunakan untuk phishing atau penipuan.",
+          "Mengandung pornografi ilegal.",
+          "Melanggar hak cipta.",
+          "Bertentangan dengan kebijakan platform tertentu."
+        ]
+      },
+      {
+        "id": "pembatalan",
+        "title": "16. Pembatalan Proyek",
+        "items": [
+          "Jika proyek dibatalkan oleh klien saat pengerjaan berlangsung, DP dianggap hangus.",
+          "Jika proyek telah berjalan lebih dari 50%, biaya yang sudah dibayarkan tidak dapat dikembalikan.",
+          "Jika pembatalan dilakukan oleh kami, pengembalian dana dilakukan sesuai bagian pekerjaan yang belum dikerjakan."
+        ]
+      },
+      {
+        "id": "force-majeure",
+        "title": "17. Force Majeure",
+        "paragraphs": ["Kami tidak bertanggung jawab atas keterlambatan atau kegagalan layanan akibat:"],
+        "items": [
+          "Bencana alam.",
+          "Gangguan internet.",
+          "Pemadaman listrik.",
+          "Kerusakan server.",
+          "Kebijakan pemerintah.",
+          "Kondisi di luar kendali lainnya."
+        ]
+      },
+      {
+        "id": "batas-tanggung-jawab",
+        "title": "18. Batas Tanggung Jawab",
+        "paragraphs": ["Kami tidak bertanggung jawab atas:"],
+        "items": [
+          "Kerugian bisnis tidak langsung.",
+          "Kehilangan data akibat pihak ketiga.",
+          "Penyalahgunaan source oleh klien.",
+          "Kerusakan akibat modifikasi pihak lain.",
+          "Penangguhan akun/platform pihak ketiga."
+        ]
+      },
+      {
+        "id": "perubahan-ketentuan",
+        "title": "19. Perubahan Ketentuan",
+        "paragraphs": ["Syarat & Ketentuan ini dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru akan menjadi acuan yang berlaku."]
+      },
+      {
+        "id": "persetujuan",
+        "title": "20. Persetujuan",
+        "paragraphs": ["Dengan melakukan pembayaran atau menggunakan layanan kami, klien dianggap menyetujui seluruh Syarat & Ketentuan yang berlaku."]
+      }
+    ]
+  },
+  "pd": {
+    "home": "Beranda",
+    "portfolio": "Portfolio",
+    "role": "PERAN",
+    "duration": "DURASI",
+    "category": "KATEGORI",
+    "client": "KLIEN",
+    "durationValue": "3 Bulan",
+    "description": "Platform edutech revolusioner yang menyediakan ekosistem pembelajaran modern untuk menghubungkan mentor ahli dengan jutaan siswa melalui kelas video interaktif, kuis adaptif canggih, dan dasbor analitis real-time.",
+    "livePreview": "Live Preview",
+    "overviewTitle": "Gambaran Proyek",
+    "overviewDesc": "Kebutuhan akan platform pembelajaran digital yang tidak membosankan mendorong kami untuk membangun EduLearn Platform. Fokus utama kami adalah menghadirkan antarmuka pengguna yang sangat responsif, waktu pemuatan halaman yang sangat cepat, serta struktur data kuis yang dinamis agar setiap siswa mendapatkan pengalaman belajar yang dipersonalisasi.",
+    "featuresTitle": "Fitur Utama Platform",
+    "feature1Title": "Dashboard Interaktif",
+    "feature1Desc": "Siswa dapat melacak progres pembelajaran kelas, capaian poin kuis, serta waktu belajar mingguan secara real-time melalui grafik visual yang adaptif.",
+    "feature2Title": "Sistem Kuis Cerdas",
+    "feature2Desc": "Kuis adaptif dengan struktur data dinamis yang menyesuaikan tingkat kesulitan pertanyaan secara otomatis berdasarkan pemahaman siswa.",
+    "feature3Title": "Video Streaming HD",
+    "feature3Desc": "Pemutar video custom dengan kualitas streaming adaptif (HLS) tanpa lag, terintegrasi dengan fitur catatan waktu otomatis untuk mempermudah review materi.",
+    "galleryTitle": "Tampilan Antarmuka Aplikasi",
+    "gallerySubtitle": "Klik thumbnail di bawah ini untuk melihat pratinjau halaman yang berbeda secara langsung.",
+    "screen1": "Dasbor Utama",
+    "screen2": "Video Pembelajaran",
+    "screen3": "Sistem Kuis Cerdas",
+    "processTitle": "Proses Pengembangan",
+    "processSubtitle": "Langkah sistematis yang kami lakukan untuk meluncurkan EduLearn Platform dengan kualitas terbaik.",
+    "step1Title": "Riset & Analisis",
+    "step1Desc": "Mempelajari hambatan pembelajaran online dan merancang persona pengguna.",
+    "step2Title": "Desain UI/UX",
+    "step2Desc": "Membuat visual wireframe, skema warna soft-blue, dan alur prototype navigasi.",
+    "step3Title": "Pengembangan",
+    "step3Desc": "Coding menggunakan Vue.js and TailwindCSS dengan struktur modular reusable.",
+    "step4Title": "Integrasi API",
+    "step4Desc": "Setup database PostgreSQL dan routing REST API Node.js secara aman.",
+    "step5Title": "Pengujian & Deploy",
+    "step5Desc": "Uji performa loading halaman, debug kegagalan API, lalu deploy ke server VPS.",
+    "techTitle": "Teknologi yang Digunakan",
+    "techSubtitle": "Spesifikasi framework dan pustaka pendukung.",
+    "techCol1": "Teknologi",
+    "techCol2": "Fungsi Utama",
+    "techCol3": "Keunggulan",
+    "tech1Func": "Antarmuka Pengguna",
+    "tech1Adv": "Reaktivitas tinggi, Virtual DOM cepat",
+    "tech2Func": "Desain Responsif",
+    "tech2Adv": "Styling modular cepat, utility classes",
+    "tech3Func": "State Management",
+    "tech3Adv": "Penyimpanan state ringkas, kompatibel penuh",
+    "tech4Func": "Server REST API",
+    "tech4Adv": "Event-driven non-blocking I/O, tangguh",
+    "tech5Func": "Penyimpanan Database",
+    "tech5Adv": "Relasi data aman, query terstruktur",
+    "challengesTitle": "Tantangan & Solusi",
+    "challengesSubtitle": "Bagaimana tim kami mengatasi masalah teknis yang sulit.",
+    "challenge1Label": "TANTANGAN 01",
+    "challenge1Title": "Pemuatan Video Lambat",
+    "challenge1Desc": "Pada area dengan koneksi internet kurang stabil, pemuatan materi kelas video mengalami buffering parah.",
+    "solution1Label": "SOLUSI KAMI",
+    "solution1Desc": "Menerapkan sistem HTTP Live Streaming (HLS) adaptif untuk memotong video menjadi fragmen-fragmen kecil dan menyesuaikan bitrate otomatis.",
+    "challenge2Label": "TANTANGAN 02",
+    "challenge2Title": "Perubahan State Kuis Lambat",
+    "challenge2Desc": "Siswa mengalami delay visual saat rute kuis berpindah dan state soal kuis lambat merespons aksi klik.",
+    "solution2Label": "SOLUSI KAMI",
+    "solution2Desc": "Mengintegrasikan Pinia untuk caching data state lokal, meluncurkan pre-fetch soal berikutnya di latar belakang.",
+    "resultsTitle": "Hasil & Dampak Proyek",
+    "resultsSubtitle": "Angka riil pencapaian EduLearn Platform setelah rilis perdana.",
+    "result1Label": "Keterlibatan Pengguna",
+    "result2Label": "Tingkat Kepuasan Siswa",
+    "result3Label": "Waktu Loading Halaman",
+    "result4Label": "Pengguna Aktif Bulanan",
+    "quoteText": "NgodingNgedit berhasil menerjemahkan ide kompleks kami menjadi platform edutech yang sangat intuitif, cepat, dan dicintai oleh ribuan siswa kami! Dukungan pengembangan mereka luar biasa dari riset awal hingga peluncuran.",
+    "quoteRole": "CEO of EduLearn Corp",
+    "ctaTitle": "Tertarik Membangun Platform Impian Anda?",
+    "ctaSubtitle": "Diskusikan kebutuhan proyek digital Anda bersama tim developer terbaik kami.",
+    "ctaBtn": "Hubungi Kami Sekarang",
+    "mockupDashboardTitle": "Dashboard Utama Siswa",
+    "mockupWelcome": "Selamat Datang Kembali!",
+    "mockupContinue": "Lanjutkan pembelajaran Vue.js Intermediate Anda hari ini.",
+    "mockupStudyTime": "WAKTU BELAJAR",
+    "mockupStudyVal": "24 Jam / Minggu",
+    "mockupQuizDone": "KUIS DISELESAIKAN",
+    "mockupQuizVal": "12 Kuis",
+    "mockupChartTitle": "Statistik Keterlibatan Mingguan",
+    "mockupDashboard": "Dashboard",
+    "mockupMyClasses": "Kelas Saya",
+    "mockupQuiz": "Kuis",
+    "mockupProgress": "Grafik Progres",
+    "mockupMaterial": "Materi Kelas: Vue.js Router",
+    "mockupLesson1": "01. Pengantar Routing",
+    "mockupLesson2": "02. Setup Vue Router",
+    "mockupLesson3": "03. Dynamic Route Params",
+    "mockupLesson4": "04. Navigation Guards",
+    "mockupQuestion": "Bagaimana cara membuat rute dinamis pada Vue Router?",
+    "mockupOpt1": "A. Menggunakan sintaks :id pada path rute",
+    "mockupOpt2": "B. Menggunakan method dynamicRoutes()",
+    "mockupOpt3": "C. Menambahkan query string dynamic=true",
+    "mockupOpt4": "D. Menggunakan tag v-route:dynamic",
+    "mockupQuizProgress": "Soal 3 dari 10"
+  }
+}

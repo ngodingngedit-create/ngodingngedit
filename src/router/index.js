@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import ServicesView from '@/views/ServicesView.vue'
-import PortfolioDetail from '@/views/PortfolioDetail.vue'
-import SolusiView from '@/views/SolusiView.vue'
-import TermsAndConditionsView from '@/views/TermsAndConditionsView.vue'
+import ServicesView from '../views/ServicesView.vue'
+import HowToView from '../views/HowToView.vue'
+import PortfolioView from '../views/PortfolioView.vue'
+import PortfolioDetail from '../views/PortfolioDetail.vue'
+import TermsAndConditionsView from '../views/TermsAndConditionsView.vue'
 import PrivacyPolicyView from '@/views/PrivacyPolicyView.vue'
+import HelpCenterView from '@/views/HelpCenterView.vue'
+import AboutView from '@/views/AboutView.vue'
 
 const routes = [
   {
@@ -13,9 +16,19 @@ const routes = [
     component: HomeView,
   },
   {
+    path: '/about',
+    name: 'about',
+    component: AboutView,
+  },
+  {
     path: '/services',
     name: 'services',
     component: ServicesView,
+  },
+  {
+    path: '/portfolio',
+    name: 'portfolio',
+    component: PortfolioView,
   },
   {
     path: '/portofoliodetail',
@@ -23,9 +36,9 @@ const routes = [
     component: PortfolioDetail,
   },
   {
-    path: '/solusi',
-    name: 'solusi',
-    component: SolusiView,
+    path: '/how-to',
+    name: 'how-to',
+    component: HowToView,
   },
   {
     path: '/terms-and-conditions',
@@ -36,6 +49,11 @@ const routes = [
     path: '/privacy-policy',
     name: 'privacy-policy',
     component: PrivacyPolicyView,
+  },
+  {
+    path: '/help-center',
+    name: 'help-center',
+    component: HelpCenterView,
   },
 ]
 

@@ -14,72 +14,10 @@
         <!-- Navigation -->
         <nav class="navbar__nav">
           <template v-for="item in navItems" :key="item.path">
-            <!-- Solusi dropdown item -->
-            <div
-              v-if="item.hasDropdown"
-              class="navbar__dropdown-wrap"
-              @mouseenter="showSolusiDropdown = true"
-              @mouseleave="showSolusiDropdown = false"
-            >
-              <RouterLink
-                :to="item.path"
-                class="navbar__link navbar__link--has-arrow"
-                active-class=""
-                :class="{ 'navbar__link--active': isRouteActive(item) }"
-              >
-                {{ item.label }}
-                <svg class="navbar__link-arrow" :class="{ 'navbar__link-arrow--open': showSolusiDropdown }" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                <span class="navbar__link-indicator"></span>
-              </RouterLink>
 
-              <Transition name="mega-drop">
-                <div v-if="showSolusiDropdown" class="navbar__mega">
-                  <!-- Header -->
-                  <div class="navbar__mega-head">
-                    <span class="navbar__mega-title">{{ megaT.title }}</span>
-                    <span class="navbar__mega-sub">{{ megaT.sub }}</span>
-                  </div>
 
-                  <!-- Solution cards -->
-                  <div class="navbar__mega-cards">
-                    <RouterLink
-                      v-for="sol in megaSolutions"
-                      :key="sol.id"
-                      to="/solusi"
-                      class="navbar__mega-card"
-                      :class="`navbar__mega-card--${sol.color}`"
-                      @click="showSolusiDropdown = false"
-                    >
-                      <div class="navbar__mega-card__icon" :class="`navbar__mega-card__icon--${sol.color}`">
-                        <div v-html="sol.icon"></div>
-                      </div>
-                      <div class="navbar__mega-card__body">
-                        <strong class="navbar__mega-card__name">{{ sol.name }}</strong>
-                        <p class="navbar__mega-card__desc">{{ sol.desc }}</p>
-                        <ul class="navbar__mega-card__benefits">
-                          <li v-for="b in sol.benefits" :key="b">
-                            <span class="navbar__mega-card__dot" :class="`navbar__mega-card__dot--${sol.color}`"></span>{{ b }}
-                          </li>
-                        </ul>
-                      </div>
-                    </RouterLink>
-                  </div>
-
-                  <!-- Footer CTA -->
-                  <div class="navbar__mega-footer">
-                    <span>{{ megaT.footerText }}</span>
-                    <RouterLink to="/solusi" class="navbar__mega-cta" @click="showSolusiDropdown = false">
-                      {{ megaT.footerCta }}
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </RouterLink>
-                  </div>
-                </div>
-              </Transition>
-            </div>
-
-            <!-- Real routes get RouterLink -->
             <RouterLink
-              v-else-if="item.isRoute"
+              v-if="item.isRoute"
               :to="item.path"
               class="navbar__link"
               active-class=""
@@ -127,8 +65,8 @@
             </Transition>
           </div>
 
-          <a href="#contact" class="navbar__cta">
-            {{ lang === 'id' ? 'Hubungi Kami' : 'Contact Us' }}
+          <a href="#" class="navbar__cta" @click.prevent="scrollToHash('#contact')">
+            {{ $t('navbar.contactUs') }}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
@@ -150,36 +88,10 @@
       <div v-if="menuOpen" class="navbar__mobile-menu" @click.self="closeMenu">
         <nav class="navbar__mobile-nav">
           <template v-for="item in navItems" :key="item.path">
-            <!-- Solusi accordion in mobile -->
-            <div v-if="item.hasDropdown" class="navbar__mobile-dropdown">
-              <button
-                class="navbar__mobile-link navbar__mobile-link--accordion"
-                @click="mobileAccordionOpen = !mobileAccordionOpen"
-              >
-                {{ item.label }}
-                <svg :class="{ 'rotated': mobileAccordionOpen }" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <Transition name="accordion">
-                <div v-if="mobileAccordionOpen" class="navbar__mobile-accordion">
-                  <RouterLink
-                    v-for="sol in megaSolutions"
-                    :key="sol.id"
-                    to="/solusi"
-                    class="navbar__mobile-sol-item"
-                    @click="closeMenu"
-                  >
-                    <span class="navbar__mobile-sol-dot" :class="`navbar__mobile-sol-dot--${sol.color}`"></span>
-                    <span>
-                      <strong>{{ sol.name }}</strong>
-                      <small>{{ sol.desc }}</small>
-                    </span>
-                  </RouterLink>
-                </div>
-              </Transition>
-            </div>
+
 
             <RouterLink
-              v-else-if="item.isRoute"
+              v-if="item.isRoute"
               :to="item.path"
               class="navbar__mobile-link"
               active-class=""
@@ -212,7 +124,7 @@
             </button>
           </div>
 
-          <a href="#contact" class="navbar__mobile-cta" @click="closeMenu">{{ lang === 'id' ? 'Hubungi Kami' : 'Contact Us' }}</a>
+          <a href="#" class="navbar__mobile-cta" @click.prevent="scrollToHash('#contact'); closeMenu()">{{ $t('navbar.contactUs') }}</a>
         </nav>
       </div>
     </Transition>
@@ -222,8 +134,10 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { globalLang as lang } from '@/store.js'
 
+const { t, tm } = useI18n()
 
 // Click outside directive (simplified inline version)
 const vClickOutside = {
@@ -259,73 +173,17 @@ const currentFlag = computed(() => {
   return current ? current.flag : '/leaguage/indo.png'
 })
 
-const isLightTheme = computed(() => route.path === '/services' || route.path === '/' || route.path === '/solusi')
+const isLightTheme = computed(() => route.path === '/services' || route.path === '/' || route.path === '/how-to' || route.path === '/portfolio' || route.path === '/help-center' || route.path === '/about')
 
 const navItems = computed(() => [
-  { label: lang.value === 'id' ? 'Beranda' : 'Home', path: '/', isRoute: true },
-  { label: lang.value === 'id' ? 'Portfolio' : 'Portfolio', path: '/#portfolio', isRoute: false },
-  { label: lang.value === 'id' ? 'Layanan' : 'Services', path: '/services', isRoute: true },
-  { label: lang.value === 'id' ? 'Solusi' : 'Solutions', path: '/solusi', isRoute: true },
+  { label: t('navbar.home'), path: '/', isRoute: true },
+  { label: t('footer.aboutUs'), path: '/about', isRoute: true },
+  { label: t('navbar.portfolio'), path: '/portfolio', isRoute: true },
+  { label: t('navbar.services'), path: '/services', isRoute: true },
+  { label: t('navbar.howTo'), path: '/how-to', isRoute: true },
 ])
 
-// ── Mega-dropdown content (reactive to language) ─────────
-const megaT = computed(() => lang.value === 'id' ? {
-  title: 'Solusi Kami',
-  sub: 'Pilih solusi yang tepat untuk bisnis Anda',
-  footerText: 'Lihat semua solusi lengkap',
-  footerCta: 'Jelajahi Halaman Solusi →',
-} : {
-  title: 'Our Solutions',
-  sub: 'Find the right solution for your business',
-  footerText: 'See the full solutions page',
-  footerCta: 'Explore Solutions Page →',
-})
 
-const megaSolutions = computed(() => lang.value === 'id' ? [
-  {
-    id: 'web-dev', color: 'blue',
-    name: 'Website & Aplikasi',
-    desc: 'Solusi digital end-to-end dari desain hingga deployment.',
-    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
-    benefits: ['Website responsif & cepat', 'SEO-friendly', 'Integrasi penuh'],
-  },
-  {
-    id: 'content', color: 'purple',
-    name: 'Konten Kreatif',
-    desc: 'Video, motion graphics & konten sosial yang mengkonversi.',
-    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
-    benefits: ['Kualitas sinematik', 'Siap semua platform', 'Brand yang konsisten'],
-  },
-  {
-    id: 'strategy', color: 'emerald',
-    name: 'Strategi & Infrastruktur',
-    desc: 'Ekosistem digital yang aman, andal & skalabel.',
-    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`,
-    benefits: ['Server & cloud setup', 'Keamanan sistem', 'Roadmap teknologi'],
-  },
-] : [
-  {
-    id: 'web-dev', color: 'blue',
-    name: 'Website & Apps',
-    desc: 'End-to-end digital solutions from design to deployment.',
-    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
-    benefits: ['Responsive & fast', 'SEO-friendly', 'Full integrations'],
-  },
-  {
-    id: 'content', color: 'purple',
-    name: 'Creative Content',
-    desc: 'Video, motion graphics & social content that converts.',
-    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
-    benefits: ['Cinematic quality', 'All platforms ready', 'Consistent branding'],
-  },
-  {
-    id: 'strategy', color: 'emerald',
-    name: 'Strategy & Infrastructure',
-    desc: 'A secure, reliable & scalable digital ecosystem.',
-    icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`,
-    benefits: ['Server & cloud setup', 'System security', 'Technology roadmap'],
-  },
-])
 
 function isRouteActive(item) {
   if (item.path === '/') return route.path === '/'
@@ -903,14 +761,29 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .navbar__mobile-sol-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
+  gap: 12px;
+  padding: 12px 16px;
   text-decoration: none;
-  transition: background 0.2s ease;
+  border-radius: 8px;
+  transition: background 0.2s;
 }
-.navbar__mobile-sol-item:hover {
-  background: rgba(255,255,255,0.15);
+.navbar__mobile-sol-item:hover, .navbar__mobile-sol-item:active {
+  background: rgba(0,0,0,0.03);
+}
+.navbar__mobile-sol-all {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  margin: 8px 16px 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 8px;
+  text-decoration: none;
+}
+.navbar__mobile-sol-all:active {
+  background: rgba(37, 99, 235, 0.1);
 }
 .navbar__mobile-sol-item span:last-child {
   display: flex;

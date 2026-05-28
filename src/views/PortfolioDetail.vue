@@ -23,9 +23,9 @@
         <!-- Left Column: Headings, stack tags, buttons -->
         <div class="pd-header__left reveal">
           <nav class="pd-breadcrumbs" aria-label="Breadcrumb">
-            <router-link to="/">Beranda</router-link>
+            <router-link to="/">{{ $t('pd.home') }}</router-link>
             <span class="divider">/</span>
-            <router-link to="/#portfolio">Portfolio</router-link>
+            <router-link to="/#portfolio">{{ $t('pd.portfolio') }}</router-link>
             <span class="divider">/</span>
             <span class="current">EduLearn Platform</span>
           </nav>
@@ -38,7 +38,7 @@
           <h1 class="pd-title">EduLearn Platform</h1>
           
           <p class="pd-description">
-            Platform edutech revolusioner yang menyediakan ekosistem pembelajaran modern untuk menghubungkan mentor ahli dengan jutaan siswa melalui kelas video interaktif, kuis adaptif canggih, dan dasbor analitis real-time.
+            {{ $t('pd.description') }}
           </p>
 
           <!-- Tech stack tags -->
@@ -58,7 +58,7 @@
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
-              <span>Live Preview</span>
+              <span>{{ $t('pd.livePreview') }}</span>
             </a>
             <a href="https://github.com/ngodingngedit/edulearn-platform" target="_blank" class="btn btn-outline">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -152,27 +152,27 @@
       <div class="container">
         <div class="pd-overview-grid reveal">
           <div class="overview-card">
-            <span class="label">PERAN</span>
+            <span class="label">{{ $t('pd.role') }}</span>
             <h3 class="value">Lead Frontend</h3>
           </div>
           <div class="overview-card">
-            <span class="label">DURASI</span>
-            <h3 class="value">3 Bulan</h3>
+            <span class="label">{{ $t('pd.duration') }}</span>
+            <h3 class="value">{{ $t('pd.durationValue') }}</h3>
           </div>
           <div class="overview-card">
-            <span class="label">KATEGORI</span>
+            <span class="label">{{ $t('pd.category') }}</span>
             <h3 class="value">Edutech / LMS</h3>
           </div>
           <div class="overview-card">
-            <span class="label">KLIEN</span>
+            <span class="label">{{ $t('pd.client') }}</span>
             <h3 class="value">EduLearn Corp</h3>
           </div>
         </div>
 
         <div class="pd-section-intro reveal delay-100">
-          <h2 class="section-title">Gambaran Proyek</h2>
+          <h2 class="section-title">{{ $t('pd.overviewTitle') }}</h2>
           <p class="section-subtitle">
-            Kebutuhan akan platform pembelajaran digital yang tidak membosankan mendorong kami untuk membangun EduLearn Platform. Fokus utama kami adalah menghadirkan antarmuka pengguna yang sangat responsif, waktu pemuatan halaman yang sangat cepat, serta struktur data kuis yang dinamis agar setiap siswa mendapatkan pengalaman belajar yang dipersonalisasi.
+            {{ $t('pd.overviewDesc') }}
           </p>
         </div>
       </div>
@@ -181,7 +181,7 @@
     <!-- Fitur Utama (3 Columns Desktop / Stack Mobile) -->
     <section class="pd-section pd-features-section">
       <div class="container">
-        <h2 class="section-title text-center reveal">Fitur Utama Platform</h2>
+        <h2 class="section-title text-center reveal">{{ $t('pd.featuresTitle') }}</h2>
         
         <div class="pd-features-grid">
           <!-- Feature Card 1 -->
@@ -195,9 +195,9 @@
                 <line x1="12" y1="8" x2="17" y2="8"></line>
               </svg>
             </div>
-            <h3 class="feature-title">Dashboard Interaktif</h3>
+            <h3 class="feature-title">{{ $t('pd.feature1Title') }}</h3>
             <p class="feature-desc">
-              Siswa dapat melacak progres pembelajaran kelas, capaian poin kuis, serta waktu belajar mingguan secara real-time melalui grafik visual yang adaptif.
+              {{ $t('pd.feature1Desc') }}
             </p>
           </div>
 
@@ -208,9 +208,9 @@
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
               </svg>
             </div>
-            <h3 class="feature-title">Sistem Kuis Cerdas</h3>
+            <h3 class="feature-title">{{ $t('pd.feature2Title') }}</h3>
             <p class="feature-desc">
-              Kuis adaptif dengan struktur data dinamis yang menyesuaikan tingkat kesulitan pertanyaan secara otomatis berdasarkan pemahaman siswa.
+              {{ $t('pd.feature2Desc') }}
             </p>
           </div>
 
@@ -222,9 +222,9 @@
                 <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
               </svg>
             </div>
-            <h3 class="feature-title">Video Streaming HD</h3>
+            <h3 class="feature-title">{{ $t('pd.feature3Title') }}</h3>
             <p class="feature-desc">
-              Pemutar video custom dengan kualitas streaming adaptif (HLS) tanpa lag, terintegrasi dengan fitur catatan waktu otomatis untuk mempermudah review materi.
+              {{ $t('pd.feature3Desc') }}
             </p>
           </div>
         </div>
@@ -234,9 +234,9 @@
     <!-- Tampilan Aplikasi (UI Gallery Interactive) -->
     <section class="pd-section pd-gallery-section">
       <div class="container">
-        <h2 class="section-title text-center reveal">Tampilan Antarmuka Aplikasi</h2>
+        <h2 class="section-title text-center reveal">{{ $t('pd.galleryTitle') }}</h2>
         <p class="section-subtitle text-center reveal delay-100" style="margin-bottom: 3rem;">
-          Klik thumbnail di bawah ini untuk melihat pratinjau halaman yang berbeda secara langsung.
+          {{ $t('pd.gallerySubtitle') }}
         </p>
 
         <!-- Main Screenshot View -->
@@ -248,16 +248,16 @@
               <div class="web-sidebar">
                 <div class="logo">EduLearn</div>
                 <div class="nav-links">
-                  <div class="link active"><span>Dashboard</span></div>
-                  <div class="link"><span>Kelas Saya</span></div>
-                  <div class="link"><span>Kuis</span></div>
-                  <div class="link"><span>Grafik Progres</span></div>
+                  <div class="link active"><span>{{ $t('pd.mockupDashboard') }}</span></div>
+                  <div class="link"><span>{{ $t('pd.mockupMyClasses') }}</span></div>
+                  <div class="link"><span>{{ $t('pd.mockupQuiz') }}</span></div>
+                  <div class="link"><span>{{ $t('pd.mockupProgress') }}</span></div>
                 </div>
               </div>
               <!-- Content Screen -->
               <div class="web-body">
                 <div class="body-header">
-                  <h3>Dashboard Utama Siswa</h3>
+                  <h3>{{ $t('pd.mockupDashboardTitle') }}</h3>
                   <div class="avatar-wrap">
                     <span class="user-name">Faisal A.</span>
                     <div class="user-avatar"></div>
@@ -265,21 +265,21 @@
                 </div>
                 <div class="body-cards">
                   <div class="b-card b-card--welcome">
-                    <h4>Selamat Datang Kembali!</h4>
-                    <p>Lanjutkan pembelajaran Vue.js Intermediate Anda hari ini.</p>
+                    <h4>{{ $t('pd.mockupWelcome') }}</h4>
+                    <p>{{ $t('pd.mockupContinue') }}</p>
                   </div>
                   <div class="b-card">
-                    <span class="b-label">WAKTU BELAJAR</span>
-                    <strong class="b-val">24 Jam / Minggu</strong>
+                    <span class="b-label">{{ $t('pd.mockupStudyTime') }}</span>
+                    <strong class="b-val">{{ $t('pd.mockupStudyVal') }}</strong>
                   </div>
                   <div class="b-card">
-                    <span class="b-label">KUIS DISENTASKAN</span>
-                    <strong class="b-val">12 Kuis</strong>
+                    <span class="b-label">{{ $t('pd.mockupQuizDone') }}</span>
+                    <strong class="b-val">{{ $t('pd.mockupQuizVal') }}</strong>
                   </div>
                 </div>
                 <!-- Main Chart Graph Area -->
                 <div class="body-chart-card">
-                  <h4>Statistik Keterlibatan Mingguan</h4>
+                  <h4>{{ $t('pd.mockupChartTitle') }}</h4>
                   <svg class="main-svg-chart" viewBox="0 0 600 150">
                     <defs>
                       <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
@@ -391,9 +391,9 @@
     <!-- Proses Pengembangan (Horizontal Timeline Desktop / Vertical Mobile) -->
     <section class="pd-section pd-process-section">
       <div class="container">
-        <h2 class="section-title text-center reveal">Proses Pengembangan</h2>
+        <h2 class="section-title text-center reveal">{{ $t('pd.processTitle') }}</h2>
         <p class="section-subtitle text-center reveal delay-100" style="margin-bottom: 4.5rem;">
-          Langkah sistematis yang kami lakukan untuk meluncurkan EduLearn Platform dengan kualitas terbaik.
+          {{ $t('pd.processSubtitle') }}
         </p>
 
         <!-- Dynamic Timeline Grid -->
@@ -405,40 +405,40 @@
             <div class="timeline-step">
               <span class="step-num">Step 01</span>
               <div class="step-card">
-                <h4 class="step-title">Riset &amp; Analisis</h4>
-                <p class="step-desc">Mempelajari hambatan pembelajaran online dan merancang persona pengguna.</p>
+                <h4 class="step-title">{{ $t('pd.step1Title') }}</h4>
+                <p class="step-desc">{{ $t('pd.step1Desc') }}</p>
               </div>
             </div>
 
             <div class="timeline-step">
               <span class="step-num">Step 02</span>
               <div class="step-card">
-                <h4 class="step-title">Desain UI/UX</h4>
-                <p class="step-desc">Membuat visual wireframe, skema warna soft-blue, dan alur prototype navigasi.</p>
+                <h4 class="step-title">{{ $t('pd.step2Title') }}</h4>
+                <p class="step-desc">{{ $t('pd.step2Desc') }}</p>
               </div>
             </div>
 
             <div class="timeline-step">
               <span class="step-num">Step 03</span>
               <div class="step-card">
-                <h4 class="step-title">Pengembangan</h4>
-                <p class="step-desc">Coding menggunakan Vue.js and TailwindCSS dengan struktur modular reusable.</p>
+                <h4 class="step-title">{{ $t('pd.step3Title') }}</h4>
+                <p class="step-desc">{{ $t('pd.step3Desc') }}</p>
               </div>
             </div>
 
             <div class="timeline-step">
               <span class="step-num">Step 04</span>
               <div class="step-card">
-                <h4 class="step-title">Integrasi API</h4>
-                <p class="step-desc">Setup database PostgreSQL dan routing REST API Node.js secara aman.</p>
+                <h4 class="step-title">{{ $t('pd.step4Title') }}</h4>
+                <p class="step-desc">{{ $t('pd.step4Desc') }}</p>
               </div>
             </div>
 
             <div class="timeline-step">
               <span class="step-num">Step 05</span>
               <div class="step-card">
-                <h4 class="step-title">Pengujian &amp; Deploy</h4>
-                <p class="step-desc">Uji performa loading halaman, debug kegagalan API, lalu deploy ke server VPS.</p>
+                <h4 class="step-title">{{ $t('pd.step5Title') }}</h4>
+                <p class="step-desc">{{ $t('pd.step5Desc') }}</p>
               </div>
             </div>
           </div>
@@ -452,43 +452,43 @@
         <div class="pd-tech-layout">
           <!-- Left side: Tech Table -->
           <div class="pd-tech-left reveal">
-            <h2 class="section-title">Teknologi yang Digunakan</h2>
-            <p class="section-subtitle" style="margin-bottom: 2rem;">Spesifikasi framework dan pustaka pendukung.</p>
+            <h2 class="section-title">{{ $t('pd.techTitle') }}</h2>
+            <p class="section-subtitle" style="margin-bottom: 2rem;">{{ $t('pd.techSubtitle') }}</p>
             
             <div class="table-wrap">
               <table class="tech-table">
                 <thead>
                   <tr>
-                    <th>Teknologi</th>
-                    <th>Fungsi Utama</th>
-                    <th>Keunggulan</th>
+                    <th>{{ $t('pd.techCol1') }}</th>
+                    <th>{{ $t('pd.techCol2') }}</th>
+                    <th>{{ $t('pd.techCol3') }}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td><strong>Vue.js 3</strong></td>
-                    <td>Antarmuka Pengguna</td>
-                    <td>Reaktivitas tinggi, Virtual DOM cepat</td>
+                    <td>{{ $t('pd.tech1Func') }}</td>
+                    <td>{{ $t('pd.tech1Adv') }}</td>
                   </tr>
                   <tr>
                     <td><strong>TailwindCSS</strong></td>
-                    <td>Desain Responsif</td>
-                    <td>Styling modular cepat, utility classes</td>
+                    <td>{{ $t('pd.tech2Func') }}</td>
+                    <td>{{ $t('pd.tech2Adv') }}</td>
                   </tr>
                   <tr>
                     <td><strong>Pinia</strong></td>
-                    <td>State Management</td>
-                    <td>Penyimpanan state ringkas, kompatibel penuh</td>
+                    <td>{{ $t('pd.tech3Func') }}</td>
+                    <td>{{ $t('pd.tech3Adv') }}</td>
                   </tr>
                   <tr>
                     <td><strong>Node.js</strong></td>
-                    <td>Server REST API</td>
-                    <td>Event-driven non-blocking I/O, tangguh</td>
+                    <td>{{ $t('pd.tech4Func') }}</td>
+                    <td>{{ $t('pd.tech4Adv') }}</td>
                   </tr>
                   <tr>
                     <td><strong>PostgreSQL</strong></td>
-                    <td>Penyimpanan Database</td>
-                    <td>Relasi data aman, query terstruktur</td>
+                    <td>{{ $t('pd.tech5Func') }}</td>
+                    <td>{{ $t('pd.tech5Adv') }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -497,39 +497,39 @@
 
           <!-- Right side: Challenges & Solutions -->
           <div class="pd-tech-right reveal delay-200">
-            <h2 class="section-title">Tantangan &amp; Solusi</h2>
-            <p class="section-subtitle" style="margin-bottom: 2rem;">Bagaimana tim kami mengatasi masalah teknis yang sulit.</p>
+            <h2 class="section-title">{{ $t('pd.challengesTitle') }}</h2>
+            <p class="section-subtitle" style="margin-bottom: 2rem;">{{ $t('pd.challengesSubtitle') }}</p>
 
             <div class="challenges-list">
               <div class="challenge-item">
                 <div class="challenge-header">
-                  <span class="badge badge--red">TANTANGAN 01</span>
-                  <h4>Pemuatan Video Lambat</h4>
+                  <span class="badge badge--red">{{ $t('pd.challenge1Label') }}</span>
+                  <h4>{{ $t('pd.challenge1Title') }}</h4>
                 </div>
                 <p class="desc">
-                  Pada area dengan koneksi internet kurang stabil, pemuatan materi kelas video mengalami buffering parah.
+                  {{ $t('pd.challenge1Desc') }}
                 </p>
                 <div class="solution-header">
-                  <span class="badge badge--green">SOLUSI KAMI</span>
+                  <span class="badge badge--green">{{ $t('pd.solution1Label') }}</span>
                 </div>
                 <p class="desc desc--sol">
-                  Menerapkan sistem HTTP Live Streaming (HLS) adaptif untuk memotong video menjadi fragmen-fragmen kecil dan menyesuaikan bitrate otomatis.
+                  {{ $t('pd.solution1Desc') }}
                 </p>
               </div>
 
               <div class="challenge-item">
                 <div class="challenge-header">
-                  <span class="badge badge--red">TANTANGAN 02</span>
-                  <h4>Perubahan State Kuis Lambat</h4>
+                  <span class="badge badge--red">{{ $t('pd.challenge2Label') }}</span>
+                  <h4>{{ $t('pd.challenge2Title') }}</h4>
                 </div>
                 <p class="desc">
-                  Siswa mengalami delay visual saat rute kuis berpindah dan state soal kuis lambat merespons aksi klik.
+                  {{ $t('pd.challenge2Desc') }}
                 </p>
                 <div class="solution-header">
-                  <span class="badge badge--green">SOLUSI KAMI</span>
+                  <span class="badge badge--green">{{ $t('pd.solution2Label') }}</span>
                 </div>
                 <p class="desc desc--sol">
-                  Mengintegrasikan Pinia untuk caching data state lokal, meluncurkan pre-fetch soal berikutnya di latar belakang.
+                  {{ $t('pd.solution2Desc') }}
                 </p>
               </div>
             </div>
@@ -541,31 +541,31 @@
     <!-- Bottom Section: Results & Testimonials -->
     <section class="pd-section pd-results-section">
       <div class="container">
-        <h2 class="section-title text-center reveal">Hasil &amp; Dampak Proyek</h2>
+        <h2 class="section-title text-center reveal">{{ $t('pd.resultsTitle') }}</h2>
         <p class="section-subtitle text-center reveal delay-100" style="margin-bottom: 4rem;">
-          Angka riil pencapaian EduLearn Platform setelah rilis perdana.
+          {{ $t('pd.resultsSubtitle') }}
         </p>
 
         <!-- 4 Cards Grid (Desktop horizontal / Mobile grid 2x2 or stack) -->
         <div class="pd-results-grid reveal delay-200">
           <div class="result-card">
             <h3 class="num">+120%</h3>
-            <span class="label">Keterlibatan Pengguna</span>
+            <span class="label">{{ $t('pd.result1Label') }}</span>
           </div>
 
           <div class="result-card">
             <h3 class="num">98%</h3>
-            <span class="label">Tingkat Kepuasan Siswa</span>
+            <span class="label">{{ $t('pd.result2Label') }}</span>
           </div>
 
           <div class="result-card">
             <h3 class="num">&lt; 1.2s</h3>
-            <span class="label">Waktu Loading Halaman</span>
+            <span class="label">{{ $t('pd.result3Label') }}</span>
           </div>
 
           <div class="result-card">
             <h3 class="num">50.000+</h3>
-            <span class="label">Pengguna Aktif Bulanan</span>
+            <span class="label">{{ $t('pd.result4Label') }}</span>
           </div>
         </div>
 
@@ -574,13 +574,13 @@
           <div class="testimonial-content">
             <div class="quote-icon">“</div>
             <p class="quote-text">
-              NgodingNgedit berhasil menerjemahkan ide kompleks kami menjadi platform edutech yang sangat intuitif, cepat, dan dicintai oleh ribuan siswa kami! Dukungan pengembangan mereka luar biasa dari riset awal hingga peluncuran.
+              {{ $t('pd.quoteText') }}
             </p>
             <div class="quote-author">
               <div class="author-avatar"></div>
               <div class="author-info">
                 <strong>Budi Darmawan</strong>
-                <span>CEO of EduLearn Corp</span>
+                <span>{{ $t('pd.quoteRole') }}</span>
               </div>
             </div>
           </div>
@@ -593,11 +593,11 @@
       <div class="container">
         <div class="cta-banner-card">
           <div class="cta-banner__left">
-            <h2 class="cta-banner__title">Tertarik Membangun Platform Impian Anda?</h2>
-            <p class="cta-banner__sub">Diskusikan kebutuhan proyek digital Anda bersama tim developer terbaik kami.</p>
+            <h2 class="cta-banner__title">{{ $t('pd.ctaTitle') }}</h2>
+            <p class="cta-banner__sub">{{ $t('pd.ctaSubtitle') }}</p>
           </div>
           <div class="cta-banner__right">
-            <a href="mailto:hello@ngodingngedit.id" class="btn btn-white">Hubungi Kami Sekarang</a>
+            <a href="mailto:hello@ngodingngedit.id" class="btn btn-white">{{ $t('pd.ctaBtn') }}</a>
           </div>
         </div>
       </div>
@@ -606,15 +606,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const activeScreen = ref(0)
 
-const thumbs = [
-  { title: 'Dasbor Utama' },
-  { title: 'Video Pembelajaran' },
-  { title: 'Sistem Kuis Cerdas' }
-]
+const thumbs = computed(() => [
+  { title: t('pd.screen1') },
+  { title: t('pd.screen2') },
+  { title: t('pd.screen3') }
+])
 
 onMounted(() => {
   const observer = new IntersectionObserver(

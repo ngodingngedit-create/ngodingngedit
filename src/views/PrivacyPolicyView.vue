@@ -2,17 +2,15 @@
   <main class="legal-page">
     <div class="legal-hero">
       <div class="legal-hero__inner container">
-        <h1 class="legal-hero__title">Kebijakan Privasi</h1>
-        <p class="legal-hero__subtitle">
-          Terakhir diperbarui: <strong>Mei 2026</strong> · Berlaku untuk semua layanan Ngodingngedit.com
-        </p>
+        <h1 class="legal-hero__title">{{ $t('privacy.title') }}</h1>
+        <p class="legal-hero__subtitle" v-html="$t('privacy.subtitle')"></p>
       </div>
     </div>
 
     <div class="legal-body container">
       <!-- Sidebar TOC -->
       <aside class="legal-toc">
-        <p class="legal-toc__label">Daftar Isi</p>
+        <p class="legal-toc__label">{{ $t('privacy.tocLabel') }}</p>
         <nav>
           <a v-for="item in tocItems" :key="item.id" :href="`#${item.id}`" class="legal-toc__link">
             {{ item.label }}
@@ -22,271 +20,68 @@
 
       <!-- Main Content -->
       <article class="legal-content">
+        <section v-for="section in sections" :key="section.id" :id="section.id" class="legal-section">
+          <h2>{{ section.title }}</h2>
 
-        <section id="pendahuluan" class="legal-section">
-          <h2>1. Pendahuluan</h2>
-          <p>Dokumen Kebijakan Privasi ini mengatur hak, kewajiban, dan ketentuan penggunaan layanan jasa pembuatan coding, editing, desain, dan layanan digital lainnya.</p>
-          <p class="legal-note">Dengan menggunakan layanan kami, klien dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku.</p>
-        </section>
+          <!-- Paragraphs -->
+          <template v-if="section.paragraphs">
+            <p v-for="(p, i) in section.paragraphs" :key="i" v-html="p"></p>
+          </template>
 
-        <section id="definisi" class="legal-section">
-          <h2>2. Definisi</h2>
-          <p>Dalam dokumen ini:</p>
-          <ul>
-            <li><strong>"Kami"</strong> mengacu pada penyedia jasa.</li>
-            <li><strong>"Klien"</strong> mengacu pada individu, perusahaan, atau pihak yang menggunakan layanan.</li>
-            <li><strong>"Proyek"</strong> mengacu pada pekerjaan yang disepakati antara klien dan penyedia jasa.</li>
-            <li><strong>"Revisi"</strong> adalah perubahan minor yang masih sesuai dengan brief awal.</li>
-          </ul>
-        </section>
+          <!-- Items (ul) -->
+          <template v-if="section.items">
+            <ul>
+              <li v-for="(item, i) in section.items" :key="i" v-html="item"></li>
+            </ul>
+          </template>
 
-        <section id="ruang-lingkup" class="legal-section">
-          <h2>3. Ruang Lingkup Layanan</h2>
-          <p>Layanan yang dapat kami sediakan meliputi:</p>
-          <ul>
-            <li>Pembuatan website.</li>
-            <li>Pembuatan aplikasi.</li>
-            <li>Pembuatan bot/script.</li>
-            <li>Editing source code.</li>
-            <li>Perbaikan bug/error.</li>
-            <li>Editing dokumen.</li>
-            <li>Editing desain.</li>
-            <li>Editing video atau konten digital.</li>
-            <li>Konsultasi teknis.</li>
-            <li>Maintenance sesuai kesepakatan.</li>
-          </ul>
-          <div class="legal-callout">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Layanan di luar kesepakatan awal dapat dikenakan biaya tambahan.
-          </div>
-        </section>
+          <!-- Sub Items (ul class="legal-sub-list") -->
+          <template v-if="section.subItems">
+            <ul class="legal-sub-list">
+              <li v-for="(subItem, i) in section.subItems" :key="i" v-html="subItem"></li>
+            </ul>
+          </template>
 
-        <section id="pemesanan" class="legal-section">
-          <h2>4. Ketentuan Pemesanan</h2>
-          <ul>
-            <li>Klien wajib memberikan brief dan kebutuhan proyek secara jelas.</li>
-            <li>Klien bertanggung jawab atas kelengkapan data dan materi proyek.</li>
-            <li>Estimasi pengerjaan dimulai setelah seluruh data diterima lengkap.</li>
-            <li>Pengerjaan dimulai setelah pembayaran DP diterima.</li>
-            <li>Kami berhak menolak proyek tertentu tanpa wajib memberikan alasan detail.</li>
-          </ul>
-        </section>
+          <!-- Blocks (mixed p and ul) -->
+          <template v-if="section.blocks">
+            <template v-for="(block, i) in section.blocks" :key="i">
+              <p v-if="block.type === 'p'" v-html="block.html"></p>
+              <ul v-if="block.type === 'ul'">
+                <li v-for="(item, j) in block.items" :key="j" v-html="item"></li>
+              </ul>
+            </template>
+          </template>
 
-        <section id="pembayaran" class="legal-section">
-          <h2>5. Harga dan Pembayaran</h2>
-          <ul>
-            <li>Harga proyek ditentukan berdasarkan tingkat kesulitan dan ruang lingkup pekerjaan.</li>
-            <li>Pembayaran dilakukan sesuai kesepakatan.</li>
-            <li>DP minimal <strong>50%</strong> sebelum pengerjaan dimulai.</li>
-            <li>Pelunasan wajib dilakukan sebelum file final/full source dikirim.</li>
-            <li>Keterlambatan pembayaran dapat menyebabkan penundaan pengerjaan.</li>
-            <li>Semua pembayaran yang sudah masuk bersifat <strong>non-refundable</strong> kecuali terdapat kesepakatan khusus.</li>
-          </ul>
-        </section>
+          <!-- Note -->
+          <p v-if="section.note" class="legal-note" v-html="section.note"></p>
 
-        <section id="revisi" class="legal-section">
-          <h2>6. Revisi</h2>
-          <ul>
-            <li>Revisi diberikan sesuai jumlah yang disepakati.</li>
-            <li>Revisi hanya berlaku untuk perubahan minor.</li>
-            <li>Perubahan konsep besar dari brief awal dianggap proyek tambahan.</li>
-            <li>Revisi tambahan di luar paket dapat dikenakan biaya tambahan.</li>
-            <li>Permintaan revisi harus disampaikan dalam batas waktu yang ditentukan.</li>
-          </ul>
-        </section>
-
-        <section id="waktu-pengerjaan" class="legal-section">
-          <h2>7. Waktu Pengerjaan</h2>
-          <ul>
-            <li>Estimasi waktu pengerjaan bersifat perkiraan.</li>
-            <li>Waktu pengerjaan dapat berubah tergantung tingkat kesulitan proyek.</li>
-            <li>Keterlambatan akibat revisi tambahan atau keterlambatan data dari klien bukan menjadi tanggung jawab kami.</li>
-            <li>Hari libur nasional atau kondisi force majeure dapat memengaruhi timeline pengerjaan.</li>
-          </ul>
-        </section>
-
-        <section id="hak-klien" class="legal-section">
-          <h2>8. Hak dan Kewajiban Klien</h2>
-          <p><strong>Klien wajib:</strong></p>
-          <ul>
-            <li>Memberikan informasi proyek secara jelas.</li>
-            <li>Memberikan data yang legal dan tidak melanggar hukum.</li>
-            <li>Melakukan pembayaran tepat waktu.</li>
-            <li>Menjaga komunikasi yang baik selama proyek berlangsung.</li>
-          </ul>
-          <p><strong>Klien berhak:</strong></p>
-          <ul>
-            <li>Mendapat update progres proyek.</li>
-            <li>Mendapat hasil sesuai kesepakatan.</li>
-            <li>Mengajukan revisi sesuai ketentuan.</li>
-          </ul>
-        </section>
-
-        <section id="hak-penyedia" class="legal-section">
-          <h2>9. Hak dan Kewajiban Penyedia Jasa</h2>
-          <p><strong>Kami berhak:</strong></p>
-          <ul>
-            <li>Menolak proyek tertentu.</li>
-            <li>Menghentikan pengerjaan jika terjadi pelanggaran ketentuan.</li>
-            <li>Menggunakan hasil proyek sebagai portofolio.</li>
-          </ul>
-          <p><strong>Kami wajib:</strong></p>
-          <ul>
-            <li>Menyelesaikan proyek sesuai kesepakatan.</li>
-            <li>Menjaga kerahasiaan data klien.</li>
-            <li>Memberikan layanan profesional sesuai kemampuan.</li>
-          </ul>
-        </section>
-
-        <section id="hak-cipta" class="legal-section">
-          <h2>10. Hak Cipta dan Kepemilikan</h2>
-          <ul>
-            <li>Hak penggunaan hasil kerja diberikan setelah pembayaran lunas.</li>
-            <li>Hak cipta aset pihak ketiga tetap mengikuti lisensi masing-masing.</li>
-            <li>Kami tidak bertanggung jawab atas pelanggaran lisensi yang dilakukan klien.</li>
-            <li>Klien dilarang menjual ulang atau mengklaim source tertentu yang memiliki lisensi khusus.</li>
-          </ul>
-        </section>
-
-        <section id="kerahasiaan" class="legal-section">
-          <h2>11. Kerahasiaan</h2>
-          <ul>
-            <li>Seluruh data dan file proyek klien akan dijaga kerahasiaannya.</li>
-            <li>Kami tidak akan menyebarluaskan data proyek tanpa izin.</li>
-            <li>Klien juga wajib menjaga kerahasiaan source atau file tertentu apabila disepakati.</li>
-          </ul>
-        </section>
-
-        <section id="garansi" class="legal-section">
-          <h2>12. Garansi</h2>
-          <ul>
-            <li>Garansi bug/error diberikan selama periode tertentu setelah proyek selesai.</li>
-            <li>Garansi hanya berlaku untuk error dari pengerjaan awal.</li>
-            <li>Garansi <strong>tidak berlaku</strong> apabila:</li>
-          </ul>
-          <ul class="legal-sub-list">
-            <li>Source diubah pihak lain.</li>
-            <li>Server/hosting bermasalah.</li>
-            <li>Terjadi kesalahan penggunaan oleh klien.</li>
-            <li>Ada perubahan sistem pihak ketiga.</li>
-          </ul>
-        </section>
-
-        <section id="maintenance" class="legal-section">
-          <h2>13. Maintenance dan Support</h2>
-          <ul>
-            <li>Maintenance hanya diberikan apabila termasuk dalam paket layanan.</li>
-            <li>Support diberikan dalam jam operasional yang ditentukan.</li>
-            <li>Permintaan di luar ruang lingkup support dapat dikenakan biaya tambahan.</li>
-          </ul>
-        </section>
-
-        <section id="akun" class="legal-section">
-          <h2>14. Penggunaan Akun dan Akses</h2>
-          <p>Apabila klien memberikan akses akun:</p>
-          <ul>
-            <li>Akses hanya digunakan untuk kebutuhan proyek.</li>
-            <li>Klien disarankan mengganti password setelah proyek selesai.</li>
-            <li>Kami tidak bertanggung jawab atas kebocoran akibat kelalaian klien.</li>
-          </ul>
-        </section>
-
-        <section id="larangan" class="legal-section">
-          <h2>15. Larangan</h2>
-          <p>Kami berhak menolak proyek yang:</p>
-          <ul>
-            <li>Melanggar hukum.</li>
-            <li>Mengandung malware atau hacking ilegal.</li>
-            <li>Digunakan untuk phishing atau penipuan.</li>
-            <li>Mengandung pornografi ilegal.</li>
-            <li>Melanggar hak cipta.</li>
-            <li>Bertentangan dengan kebijakan platform tertentu.</li>
-          </ul>
-        </section>
-
-        <section id="pembatalan" class="legal-section">
-          <h2>16. Pembatalan Proyek</h2>
-          <ul>
-            <li>Jika proyek dibatalkan oleh klien saat pengerjaan berlangsung, DP dianggap hangus.</li>
-            <li>Jika proyek telah berjalan lebih dari 50%, biaya yang sudah dibayarkan tidak dapat dikembalikan.</li>
-            <li>Jika pembatalan dilakukan oleh kami, pengembalian dana dilakukan sesuai bagian pekerjaan yang belum dikerjakan.</li>
-          </ul>
-        </section>
-
-        <section id="force-majeure" class="legal-section">
-          <h2>17. Force Majeure</h2>
-          <p>Kami tidak bertanggung jawab atas keterlambatan atau kegagalan layanan akibat:</p>
-          <ul>
-            <li>Bencana alam.</li>
-            <li>Gangguan internet.</li>
-            <li>Pemadaman listrik.</li>
-            <li>Kerusakan server.</li>
-            <li>Kebijakan pemerintah.</li>
-            <li>Kondisi di luar kendali lainnya.</li>
-          </ul>
-        </section>
-
-        <section id="batas-tanggung-jawab" class="legal-section">
-          <h2>18. Batas Tanggung Jawab</h2>
-          <p>Kami tidak bertanggung jawab atas:</p>
-          <ul>
-            <li>Kerugian bisnis tidak langsung.</li>
-            <li>Kehilangan data akibat pihak ketiga.</li>
-            <li>Penyalahgunaan source oleh klien.</li>
-            <li>Kerusakan akibat modifikasi pihak lain.</li>
-            <li>Penangguhan akun/platform pihak ketiga.</li>
-          </ul>
-        </section>
-
-        <section id="perubahan-ketentuan" class="legal-section">
-          <h2>19. Perubahan Ketentuan</h2>
-          <p>Kebijakan Privasi ini dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru akan menjadi acuan yang berlaku.</p>
-        </section>
-
-        <section id="persetujuan" class="legal-section">
-          <h2>20. Persetujuan</h2>
-          <p>Dengan melakukan pembayaran atau menggunakan layanan kami, klien dianggap menyetujui seluruh Kebijakan Privasi yang berlaku.</p>
+          <!-- Callout -->
+          <p v-if="section.callout" class="legal-callout" v-html="section.callout"></p>
         </section>
 
         <!-- Back Nav -->
         <div class="legal-back">
           <router-link to="/" class="legal-back__btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
-            Kembali ke Beranda
+            {{ $t('privacy.backHome') }}
           </router-link>
           <router-link to="/terms-and-conditions" class="legal-back__btn legal-back__btn--alt">
-            Lihat Syarat &amp; Ketentuan →
+            {{ $t('privacy.viewTerms') }}
           </router-link>
         </div>
-
       </article>
     </div>
   </main>
 </template>
 
 <script setup>
-const tocItems = [
-  { id: 'pendahuluan', label: '1. Pendahuluan' },
-  { id: 'definisi', label: '2. Definisi' },
-  { id: 'ruang-lingkup', label: '3. Ruang Lingkup Layanan' },
-  { id: 'pemesanan', label: '4. Ketentuan Pemesanan' },
-  { id: 'pembayaran', label: '5. Harga dan Pembayaran' },
-  { id: 'revisi', label: '6. Revisi' },
-  { id: 'waktu-pengerjaan', label: '7. Waktu Pengerjaan' },
-  { id: 'hak-klien', label: '8. Hak & Kewajiban Klien' },
-  { id: 'hak-penyedia', label: '9. Hak & Kewajiban Penyedia' },
-  { id: 'hak-cipta', label: '10. Hak Cipta' },
-  { id: 'kerahasiaan', label: '11. Kerahasiaan' },
-  { id: 'garansi', label: '12. Garansi' },
-  { id: 'maintenance', label: '13. Maintenance & Support' },
-  { id: 'akun', label: '14. Penggunaan Akun' },
-  { id: 'larangan', label: '15. Larangan' },
-  { id: 'pembatalan', label: '16. Pembatalan Proyek' },
-  { id: 'force-majeure', label: '17. Force Majeure' },
-  { id: 'batas-tanggung-jawab', label: '18. Batas Tanggung Jawab' },
-  { id: 'perubahan-ketentuan', label: '19. Perubahan Ketentuan' },
-  { id: 'persetujuan', label: '20. Persetujuan' },
-]
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { tm } = useI18n()
+
+const tocItems = computed(() => tm('privacy.toc'))
+const sections = computed(() => tm('privacy.sections'))
 </script>
 
 <style scoped>

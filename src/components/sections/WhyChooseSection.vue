@@ -3,10 +3,10 @@
     <div class="container">
       <!-- Header -->
       <div class="why-section__header">
-        <h2 class="section-title reveal">{{ lang === 'id' ? 'Mengapa Memilih Kami?' : 'Why Choose Us?' }}</h2>
+        <h2 class="section-title reveal">{{ $t('whyChoose.title') }}</h2>
         <div class="section-underline reveal delay-100"></div>
         <p class="section-subtitle reveal delay-200">
-          {{ lang === 'id' ? 'Kami menghadirkan keunggulan teknikal dan desain yang mendorong pertumbuhan nyata untuk bisnis Anda.' : 'We deliver technical excellence and design that drives real growth for your business.' }}
+          {{ $t('whyChoose.subtitle') }}
         </p>
       </div>
 
@@ -28,34 +28,36 @@
 <script setup>
 import FeatureCard from '@/components/ui/FeatureCard.vue'
 import { onMounted, computed } from 'vue'
-import { globalLang as lang } from '@/store.js'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const features = computed(() => [
   {
-    title: lang.value === 'id' ? 'Kode Berkualitas' : 'Quality Code',
-    description: lang.value === 'id' ? 'Arsitektur kode yang bersih, terstruktur, dan mudah untuk dikembangkan kembali di masa depan.' : 'Clean, structured code architecture that is easy to scale and maintain in the future.',
+    title: t('whyChoose.qualityCode.title'),
+    description: t('whyChoose.qualityCode.description'),
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="16 18 22 12 16 6"></polyline>
       <polyline points="8 6 2 12 8 18"></polyline>
     </svg>`,
   },
   {
-    title: lang.value === 'id' ? 'Performa Tinggi' : 'High Performance',
-    description: lang.value === 'id' ? 'Optimisasi kecepatan dan performa penuh sehingga pengguna Anda terlayani tanpa hambatan.' : 'Full speed and performance optimization so your users are served without friction.',
+    title: t('whyChoose.highPerformance.title'),
+    description: t('whyChoose.highPerformance.description'),
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
     </svg>`,
   },
   {
-    title: lang.value === 'id' ? 'Keamanan Ketat' : 'Strict Security',
-    description: lang.value === 'id' ? 'Implementasi standar keamanan tertinggi untuk melindungi data dan privasi pengguna Anda.' : 'Implementation of the highest security standards to protect your data and user privacy.',
+    title: t('whyChoose.strictSecurity.title'),
+    description: t('whyChoose.strictSecurity.description'),
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
     </svg>`,
   },
   {
-    title: lang.value === 'id' ? 'Dukungan 24/7' : '24/7 Support',
-    description: lang.value === 'id' ? 'Tim kami selalu siap membantu Anda mengatasi tantangan teknikal kapanpun Anda membutuhkan.' : 'Our team is always ready to help you tackle technical challenges whenever you need.',
+    title: t('whyChoose.support247.title'),
+    description: t('whyChoose.support247.description'),
     icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
     </svg>`,

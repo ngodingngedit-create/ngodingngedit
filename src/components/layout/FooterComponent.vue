@@ -8,7 +8,7 @@
             <img src="/logo/logo white.png" alt="NgodingNgedit Logo" class="footer__logo-img" />
           </div>
           <p class="footer__desc">
-            {{ lang === 'id' ? 'Partner terpercaya agensi digital yang membangun solusi teknologi inovatif untuk mendorong pertumbuhan bisnis Anda di era digital.' : 'A trusted digital agency partner building innovative technology solutions to drive your business growth in the digital era.' }}
+          {{ $t('footer.desc') }}
           </p>
           <div class="footer__socials">
 
@@ -36,29 +36,28 @@
 
         <!-- Quick Links -->
         <div class="footer__col reveal delay-200">
-          <h4 class="footer__col-title">{{ lang === 'id' ? 'Tautan Cepat' : 'Quick Links' }}</h4>
+          <h4 class="footer__col-title">{{ $t('footer.quickLinks') }}</h4>
           <ul class="footer__links">
-            <li><a href="#about">{{ lang === 'id' ? 'Tentang Kami' : 'About Us' }}</a></li>
-            <li><a href="#services">{{ lang === 'id' ? 'Layanan' : 'Services' }}</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="/solusi">{{ lang === 'id' ? 'Solusi' : 'Solutions' }}</a></li>
+            <li><a href="#about">{{ $t('footer.aboutUs') }}</a></li>
+            <li><a href="#services">{{ $t('footer.services') }}</a></li>
+            <li><RouterLink to="/portfolio">{{ $t('navbar.portfolio') }}</RouterLink></li>
+
           </ul>
         </div>
 
         <!-- Help -->
         <div class="footer__col reveal delay-300">
-          <h4 class="footer__col-title">{{ lang === 'id' ? 'Bantuan' : 'Help' }}</h4>
+          <h4 class="footer__col-title">{{ $t('footer.help') }}</h4>
           <ul class="footer__links">
-            <li><a href="/privacy-policy">{{ lang === 'id' ? 'Kebijakan Privasi' : 'Privacy Policy' }}</a></li>
-            <li><a href="/terms-and-conditions">{{ lang === 'id' ? 'Syarat & Ketentuan' : 'Terms & Conditions' }}</a></li>
-            <li><a href="#">{{ lang === 'id' ? 'Pusat Bantuan' : 'Help Center' }}</a></li>
-            <li><a href="#">{{ lang === 'id' ? 'Mitra' : 'Partners' }}</a></li>
+            <li><a href="/privacy-policy">{{ $t('footer.privacyPolicy') }}</a></li>
+            <li><a href="/terms-and-conditions">{{ $t('footer.termsConditions') }}</a></li>
+            <li><RouterLink to="/help-center">{{ $t('footer.helpCenter') }}</RouterLink></li>
           </ul>
         </div>
 
         <!-- Contact -->
         <div class="footer__col reveal delay-400">
-          <h4 class="footer__col-title">{{ lang === 'id' ? 'Kontak' : 'Contact' }}</h4>
+          <h4 class="footer__col-title">{{ $t('footer.contact') }}</h4>
           <ul class="footer__links footer__links--contact">
             <li>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -78,7 +77,7 @@
 
       <!-- Bottom Bar -->
       <div class="footer__bottom">
-        <p class="footer__copy">© {{ currentYear }} NgodingNgedit. {{ lang === 'id' ? 'Inovasi Digital Tanpa Batas.' : 'Limitless Digital Innovation.' }}</p>
+        <p class="footer__copy">© {{ currentYear }} NgodingNgedit. {{ $t('footer.copyright') }}</p>
         
       </div>
     </div>
@@ -87,8 +86,9 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { globalLang as lang } from '@/store.js'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const currentYear = new Date().getFullYear()
 
 onMounted(() => {
