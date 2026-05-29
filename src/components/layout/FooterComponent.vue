@@ -119,32 +119,25 @@ onMounted(() => {
 .footer__logo {
   display: flex;
   align-items: center;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .footer__logo-img {
-  height: 150px; /* Increased logo size for maximum brand impact and bold visibility */
+  height: 80px;
   object-fit: contain;
-  position: relative;
-  bottom: 50px;
-  right: 16px;
 }
 
 .footer__desc {
-  color: #ffffff; /* Pure white description */
+  color: #ffffff;
   font-size: 0.9rem;
   line-height: 1.75;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   max-width: 300px;
-  position: relative;
-  bottom: 100px;
 }
 
 .footer__socials {
   display: flex;
   gap: var(--space-sm);
-  position: relative;
-  bottom: 100px;
 }
 
 .footer__social {
@@ -215,9 +208,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-xl) 0;
-  position: relative;
-  bottom: 135px;
+  padding: var(--space-lg) 0;
 }
 
 .footer__copy,

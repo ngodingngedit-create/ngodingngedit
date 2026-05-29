@@ -87,6 +87,11 @@ onMounted(() => {
   background: #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
+@media (max-width: 768px) {
+  .howto-hero {
+    padding: calc(var(--navbar-height, 64px) + 2.5rem) 1.25rem 2.5rem;
+  }
+}
 .howto-hero__bg {
   position: absolute; inset: 0; pointer-events: none; z-index: 0;
 }
@@ -121,6 +126,11 @@ onMounted(() => {
 .howto-timeline {
   padding: 5rem 1rem;
   max-width: 900px; margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .howto-timeline {
+    padding: 3rem 1rem;
+  }
 }
 .timeline-wrap {
   position: relative;
@@ -197,9 +207,18 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .timeline-line { left: 20px; }
-  .timeline-marker { width: 40px; height: 40px; }
-  .timeline-item { gap: 1rem; }
-  .timeline-content { padding: 1.5rem; }
+  .timeline-line { left: 18px; }
+  .timeline-marker {
+    width: 36px; height: 36px;
+    flex-shrink: 0;
+  }
+  .timeline-item { gap: 1rem; margin-bottom: 2.5rem; }
+  .timeline-content { padding: 1.25rem; border-radius: 16px; }
+  .timeline-num { font-size: 2rem; margin-bottom: 0.5rem; }
+  .timeline-title { font-size: 1.125rem; }
+  .timeline-desc { font-size: 0.9375rem; }
+  .howto-cta__inner { padding: 2.5rem 1.5rem; border-radius: 18px; }
+  .howto-cta__inner h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+  .howto-cta__btn { width: 100%; justify-content: center; }
 }
 </style>

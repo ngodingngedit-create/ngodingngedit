@@ -6,27 +6,46 @@
   "aboutPage": {
     "title": "About Us",
     "subtitle": "Meet the creative team behind NgodingNgedit, ready to help bring your digital vision to life.",
-    "foundersTitle": "Our Founders",
+    "valuesTitle": "Our Core Values",
+    "values": [
+      {
+        "title": "Relentless Innovation",
+        "desc": "We continuously explore the latest technologies and design trends to deliver relevant and futuristic solutions."
+      },
+      {
+        "title": "Uncompromising Quality",
+        "desc": "From the first line of code to the final design touch, we uphold the highest standards of quality."
+      },
+      {
+        "title": "Collaboration & Transparency",
+        "desc": "We position ourselves as your partner, communicating openly, and growing together with your business."
+      }
+    ],
+    "foundersTitle": "Our Team",
     "founders": [
       {
         "name": "Maisan Hanif Dharmawan",
         "role": "Lead Founder & Ideator",
+        "heading": "Building a vision beyond the boundaries of tomorrow.",
         "desc": "The visionary behind NgodingNgedit. Leading the company's direction with innovative ideas for future digital solutions."
       },
       {
         "name": "Afif Maulana Yusuf",
         "role": "Lead Designer",
-        "desc": "The chief design expert who ensures every pixel is not only aesthetic but also delivers the best user experience."
+        "heading": "Designing with empathy, creating with purpose.",
+        "desc": "Lead design expert ensuring every pixel of our products is not only aesthetic but also provides the best user experience."
       },
       {
         "name": "Farhan Dwi Ananda Putra",
-        "role": "Lead Frontend Developer",
-        "desc": "The spearhead of code development. Turning beautiful designs into interactive, fast, and responsive code."
+        "role": "God Prompter",
+        "heading": "Building digital experiences that matter.",
+        "desc": "The spearhead of code development. Transforming beautiful designs into interactive, fast, and responsive code."
       },
       {
         "name": "Muhhamad Fadhlurahman",
         "role": "Marketing & Public Relations",
-        "desc": "The bridge between us and our clients. Ensuring our message and product value are perfectly delivered to the public."
+        "heading": "Connecting value to the right audience.",
+        "desc": "The bridge between us and the clients. Ensuring our product messages and values are perfectly conveyed to the public."
       }
     ]
   },
@@ -70,17 +89,29 @@
       "webDev": {
         "name": "Website & Apps",
         "desc": "End-to-end digital solutions from design to deployment.",
-        "benefits": ["Responsive & fast", "SEO-friendly", "Full integrations"]
+        "benefits": [
+          "Responsive & fast",
+          "SEO-friendly",
+          "Full integrations"
+        ]
       },
       "content": {
         "name": "Creative Content",
         "desc": "Video, motion graphics & social content that converts.",
-        "benefits": ["Cinematic quality", "All platforms ready", "Consistent branding"]
+        "benefits": [
+          "Cinematic quality",
+          "All platforms ready",
+          "Consistent branding"
+        ]
       },
       "strategy": {
         "name": "Strategy & Infrastructure",
         "desc": "A secure, reliable & scalable digital ecosystem.",
-        "benefits": ["Server & cloud setup", "System security", "Technology roadmap"]
+        "benefits": [
+          "Server & cloud setup",
+          "System security",
+          "Technology roadmap"
+        ]
       }
     }
   },
@@ -191,10 +222,22 @@
       "Every decision is data-driven. Every solution is crafted specifically around your business goals."
     ],
     "stats": [
-      { "value": "50+", "label": "Projects Delivered" },
-      { "value": "98%", "label": "Client Satisfaction" },
-      { "value": "3x", "label": "Faster to Launch" },
-      { "value": "24/7", "label": "Technical Support" }
+      {
+        "value": "50+",
+        "label": "Projects Delivered"
+      },
+      {
+        "value": "98%",
+        "label": "Client Satisfaction"
+      },
+      {
+        "value": "3x",
+        "label": "Faster to Launch"
+      },
+      {
+        "value": "24/7",
+        "label": "Technical Support"
+      }
     ],
     "solutionsTitle": "Three Pillars of Our Solutions",
     "solutionsSub": "Each solution is designed to create real impact — from digital presence to content that converts.",
@@ -272,11 +315,19 @@
     ],
     "ngodingTitle": "Coding",
     "ngodingSub": "Website · Apps · Digital Solutions",
-    "ngodingTags": ["Company Profile", "Landing Page", "E-Commerce"],
+    "ngodingTags": [
+      "Company Profile",
+      "Landing Page",
+      "E-Commerce"
+    ],
     "ngodingCta": "Explore Coding →",
     "ngeditTitle": "Editing",
     "ngeditSub": "Video · Motion Graphics · Creative Content",
-    "ngeditTags": ["Short-Form", "Promo Video", "Podcast"],
+    "ngeditTags": [
+      "Short-Form",
+      "Promo Video",
+      "Podcast"
+    ],
     "ngeditCta": "Explore Editing →",
     "galleryAvail": "Services Available",
     "cardAdd": "Add",
@@ -294,26 +345,76 @@
     "barConsult": "Consult",
     "barClose": "Close",
     "companyProfileDesc": "Professional, responsive, and SEO-friendly company profile websites designed to boost your online credibility.",
-    "companyProfileFeatures": ["Responsive & Modern Design", "Basic SEO", "WhatsApp Integration", "Basic Maintenance"],
+    "companyProfileFeatures": [
+      "Responsive & Modern Design",
+      "Basic SEO",
+      "WhatsApp Integration",
+      "Basic Maintenance"
+    ],
     "landingPageDesc": "High-conversion landing pages with modern design and effective copywriting for your marketing campaigns.",
-    "landingPageFeatures": ["Persuasive Copywriting", "Speed Optimization", "Lead Forms / CTA", "Analytics Setup"],
+    "landingPageFeatures": [
+      "Persuasive Copywriting",
+      "Speed Optimization",
+      "Lead Forms / CTA",
+      "Analytics Setup"
+    ],
     "databaseDesc": "Design and setup of a secure, scalable, and optimized database for your application needs.",
-    "databaseFeatures": ["Schema Design", "Query Optimization", "Security Setup", "Automated Backups"],
+    "databaseFeatures": [
+      "Schema Design",
+      "Query Optimization",
+      "Security Setup",
+      "Automated Backups"
+    ],
     "domainDesc": "Assistance connecting your domain to your server or hosting, complete with DNS configuration.",
-    "domainFeatures": ["DNS Configuration", "Hosting Integration", "CNAME/A Record Setup", "Technical Support"],
+    "domainFeatures": [
+      "DNS Configuration",
+      "Hosting Integration",
+      "CNAME/A Record Setup",
+      "Technical Support"
+    ],
     "serverDesc": "Setup and deployment of your application to a reliable and fast cloud server (VPS) or hosting.",
-    "serverFeatures": ["Web/App Deployment", "VPS Configuration", "SSL Setup (HTTPS)", "Basic Monitoring"],
+    "serverFeatures": [
+      "Web/App Deployment",
+      "VPS Configuration",
+      "SSL Setup (HTTPS)",
+      "Basic Monitoring"
+    ],
     "shortFormDesc": "Short-form video editing for TikTok, Reels, and Shorts with dynamic transitions and engaging pacing.",
-    "shortFormFeatures": ["Dynamic Subtitles", "Sound Effects & BGM", "Color Correction", "Trend Adaptation"],
+    "shortFormFeatures": [
+      "Dynamic Subtitles",
+      "Sound Effects & BGM",
+      "Color Correction",
+      "Trend Adaptation"
+    ],
     "promoVideoTitle": "Promo Video",
     "promoVideoDesc": "Cinematic promo video with professional color grading, motion graphics, and premium sound design.",
-    "promoVideoFeatures": ["Cinematic Color Grading", "Premium Motion Graphics", "Licensed Music", "Storytelling Edit"],
+    "promoVideoFeatures": [
+      "Cinematic Color Grading",
+      "Premium Motion Graphics",
+      "Licensed Music",
+      "Storytelling Edit"
+    ],
     "podcastDesc": "Complete podcast editing — noise removal, leveling, chapter markers, and visual waveforms for YouTube.",
-    "podcastFeatures": ["Audio Enhancement", "Multi-cam Switching", "Intro/Outro Addition", "Chapter Generation"],
+    "podcastFeatures": [
+      "Audio Enhancement",
+      "Multi-cam Switching",
+      "Intro/Outro Addition",
+      "Chapter Generation"
+    ],
     "threeDDesc": "3D modeling and realistic rendering services for products, architecture, or game characters with AAA quality.",
-    "threeDFeatures": ["High-Fidelity Rendering", "Texture & Material Design", "Animation Ready", "Source File (Blend/FBX)"],
+    "threeDFeatures": [
+      "High-Fidelity Rendering",
+      "Texture & Material Design",
+      "Animation Ready",
+      "Source File (Blend/FBX)"
+    ],
     "motionDesc": "Motion graphics animation for intros, lower thirds, infographics, and eye-catching visual branding.",
-    "motionFeatures": ["Custom Animations", "Logo Reveals", "Infographic Video", "Seamless Looping"],
+    "motionFeatures": [
+      "Custom Animations",
+      "Logo Reveals",
+      "Infographic Video",
+      "Seamless Looping"
+    ],
     "whatsappIntro": "Hello, I'm interested in the following service estimation:\n\n",
     "whatsappTotal": "\n*Total Estimate: {total}*\n\nPlease provide more information."
   },
@@ -324,38 +425,102 @@
     "backHome": "Back to Home",
     "viewTerms": "View Terms & Conditions →",
     "toc": [
-      { "id": "pendahuluan", "label": "1. Introduction" },
-      { "id": "definisi", "label": "2. Definitions" },
-      { "id": "ruang-lingkup", "label": "3. Scope of Services" },
-      { "id": "pemesanan", "label": "4. Order Terms" },
-      { "id": "pembayaran", "label": "5. Pricing and Payment" },
-      { "id": "revisi", "label": "6. Revisions" },
-      { "id": "waktu-pengerjaan", "label": "7. Project Timeline" },
-      { "id": "hak-klien", "label": "8. Client Rights & Obligations" },
-      { "id": "hak-penyedia", "label": "9. Provider Rights & Obligations" },
-      { "id": "hak-cipta", "label": "10. Copyright" },
-      { "id": "kerahasiaan", "label": "11. Confidentiality" },
-      { "id": "garansi", "label": "12. Warranty" },
-      { "id": "maintenance", "label": "13. Maintenance & Support" },
-      { "id": "akun", "label": "14. Account Usage" },
-      { "id": "larangan", "label": "15. Prohibitions" },
-      { "id": "pembatalan", "label": "16. Project Cancellation" },
-      { "id": "force-majeure", "label": "17. Force Majeure" },
-      { "id": "batas-tanggung-jawab", "label": "18. Limitation of Liability" },
-      { "id": "perubahan-ketentuan", "label": "19. Changes to Terms" },
-      { "id": "persetujuan", "label": "20. Consent" }
+      {
+        "id": "pendahuluan",
+        "label": "1. Introduction"
+      },
+      {
+        "id": "definisi",
+        "label": "2. Definitions"
+      },
+      {
+        "id": "ruang-lingkup",
+        "label": "3. Scope of Services"
+      },
+      {
+        "id": "pemesanan",
+        "label": "4. Order Terms"
+      },
+      {
+        "id": "pembayaran",
+        "label": "5. Pricing and Payment"
+      },
+      {
+        "id": "revisi",
+        "label": "6. Revisions"
+      },
+      {
+        "id": "waktu-pengerjaan",
+        "label": "7. Project Timeline"
+      },
+      {
+        "id": "hak-klien",
+        "label": "8. Client Rights & Obligations"
+      },
+      {
+        "id": "hak-penyedia",
+        "label": "9. Provider Rights & Obligations"
+      },
+      {
+        "id": "hak-cipta",
+        "label": "10. Copyright"
+      },
+      {
+        "id": "kerahasiaan",
+        "label": "11. Confidentiality"
+      },
+      {
+        "id": "garansi",
+        "label": "12. Warranty"
+      },
+      {
+        "id": "maintenance",
+        "label": "13. Maintenance & Support"
+      },
+      {
+        "id": "akun",
+        "label": "14. Account Usage"
+      },
+      {
+        "id": "larangan",
+        "label": "15. Prohibitions"
+      },
+      {
+        "id": "pembatalan",
+        "label": "16. Project Cancellation"
+      },
+      {
+        "id": "force-majeure",
+        "label": "17. Force Majeure"
+      },
+      {
+        "id": "batas-tanggung-jawab",
+        "label": "18. Limitation of Liability"
+      },
+      {
+        "id": "perubahan-ketentuan",
+        "label": "19. Changes to Terms"
+      },
+      {
+        "id": "persetujuan",
+        "label": "20. Consent"
+      }
     ],
     "sections": [
       {
         "id": "pendahuluan",
         "title": "1. Introduction",
-        "paragraphs": ["This Privacy Policy document governs the rights, obligations, and terms of use for coding, editing, design, and other digital services."],
+        "paragraphs": [
+          "This Privacy Policy document governs the rights, obligations, and terms of use for coding, editing, design, and other digital services."
+        ],
         "note": "By using our services, the client is deemed to have read, understood, and agreed to all applicable terms and conditions."
       },
       {
         "id": "definisi",
         "title": "2. Definitions",
-        "paragraphs": ["In this document:"],
+        "paragraphs": [
+          "In this document:"
+        ],
         "items": [
           "<strong>\"We\"</strong> refers to the service provider.",
           "<strong>\"Client\"</strong> refers to the individual, company, or party using the services.",
@@ -366,7 +531,9 @@
       {
         "id": "ruang-lingkup",
         "title": "3. Scope of Services",
-        "paragraphs": ["Services we may provide include:"],
+        "paragraphs": [
+          "Services we may provide include:"
+        ],
         "items": [
           "Website development.",
           "Application development.",
@@ -429,20 +596,61 @@
         "id": "hak-klien",
         "title": "8. Client Rights and Obligations",
         "blocks": [
-          { "type": "p", "html": "<strong>Client obligations:</strong>" },
-          { "type": "ul", "items": ["Provide project information clearly.", "Provide data that is legal and does not violate the law.", "Make timely payments.", "Maintain good communication throughout the project."] },
-          { "type": "p", "html": "<strong>Client rights:</strong>" },
-          { "type": "ul", "items": ["Receive project progress updates.", "Receive results as agreed.", "Submit revisions according to the terms."] }
+          {
+            "type": "p",
+            "html": "<strong>Client obligations:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Provide project information clearly.",
+              "Provide data that is legal and does not violate the law.",
+              "Make timely payments.",
+              "Maintain good communication throughout the project."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "<strong>Client rights:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Receive project progress updates.",
+              "Receive results as agreed.",
+              "Submit revisions according to the terms."
+            ]
+          }
         ]
       },
       {
         "id": "hak-penyedia",
         "title": "9. Service Provider Rights and Obligations",
         "blocks": [
-          { "type": "p", "html": "<strong>We are entitled to:</strong>" },
-          { "type": "ul", "items": ["Decline certain projects.", "Stop work if terms are violated.", "Use project results as portfolio."] },
-          { "type": "p", "html": "<strong>We are obligated to:</strong>" },
-          { "type": "ul", "items": ["Complete the project as agreed.", "Maintain client data confidentiality.", "Provide professional service to the best of our ability."] }
+          {
+            "type": "p",
+            "html": "<strong>We are entitled to:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Decline certain projects.",
+              "Stop work if terms are violated.",
+              "Use project results as portfolio."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "<strong>We are obligated to:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Complete the project as agreed.",
+              "Maintain client data confidentiality.",
+              "Provide professional service to the best of our ability."
+            ]
+          }
         ]
       },
       {
@@ -491,7 +699,9 @@
       {
         "id": "akun",
         "title": "14. Account and Access Usage",
-        "paragraphs": ["If the client provides account access:"],
+        "paragraphs": [
+          "If the client provides account access:"
+        ],
         "items": [
           "Access is only used for project needs.",
           "The client is advised to change passwords after the project is completed.",
@@ -501,7 +711,9 @@
       {
         "id": "larangan",
         "title": "15. Prohibitions",
-        "paragraphs": ["We reserve the right to decline projects that:"],
+        "paragraphs": [
+          "We reserve the right to decline projects that:"
+        ],
         "items": [
           "Violate the law.",
           "Contain malware or illegal hacking.",
@@ -523,7 +735,9 @@
       {
         "id": "force-majeure",
         "title": "17. Force Majeure",
-        "paragraphs": ["We are not responsible for delays or service failures due to:"],
+        "paragraphs": [
+          "We are not responsible for delays or service failures due to:"
+        ],
         "items": [
           "Natural disasters.",
           "Internet disruptions.",
@@ -536,7 +750,9 @@
       {
         "id": "batas-tanggung-jawab",
         "title": "18. Limitation of Liability",
-        "paragraphs": ["We are not responsible for:"],
+        "paragraphs": [
+          "We are not responsible for:"
+        ],
         "items": [
           "Indirect business losses.",
           "Data loss due to third parties.",
@@ -548,12 +764,16 @@
       {
         "id": "perubahan-ketentuan",
         "title": "19. Changes to Terms",
-        "paragraphs": ["This Privacy Policy may be updated at any time without prior notice. The latest version will serve as the applicable reference."]
+        "paragraphs": [
+          "This Privacy Policy may be updated at any time without prior notice. The latest version will serve as the applicable reference."
+        ]
       },
       {
         "id": "persetujuan",
         "title": "20. Consent",
-        "paragraphs": ["By making a payment or using our services, the client is deemed to have agreed to all applicable Privacy Policies."]
+        "paragraphs": [
+          "By making a payment or using our services, the client is deemed to have agreed to all applicable Privacy Policies."
+        ]
       }
     ]
   },
@@ -564,38 +784,102 @@
     "backHome": "Back to Home",
     "viewPrivacy": "View Privacy Policy →",
     "toc": [
-      { "id": "pendahuluan", "label": "1. Introduction" },
-      { "id": "definisi", "label": "2. Definitions" },
-      { "id": "ruang-lingkup", "label": "3. Scope of Services" },
-      { "id": "pemesanan", "label": "4. Order Terms" },
-      { "id": "pembayaran", "label": "5. Pricing and Payment" },
-      { "id": "revisi", "label": "6. Revisions" },
-      { "id": "waktu-pengerjaan", "label": "7. Project Timeline" },
-      { "id": "hak-klien", "label": "8. Client Rights & Obligations" },
-      { "id": "hak-penyedia", "label": "9. Provider Rights & Obligations" },
-      { "id": "hak-cipta", "label": "10. Copyright" },
-      { "id": "kerahasiaan", "label": "11. Confidentiality" },
-      { "id": "garansi", "label": "12. Warranty" },
-      { "id": "maintenance", "label": "13. Maintenance & Support" },
-      { "id": "akun", "label": "14. Account Usage" },
-      { "id": "larangan", "label": "15. Prohibitions" },
-      { "id": "pembatalan", "label": "16. Project Cancellation" },
-      { "id": "force-majeure", "label": "17. Force Majeure" },
-      { "id": "batas-tanggung-jawab", "label": "18. Limitation of Liability" },
-      { "id": "perubahan-ketentuan", "label": "19. Changes to Terms" },
-      { "id": "persetujuan", "label": "20. Consent" }
+      {
+        "id": "pendahuluan",
+        "label": "1. Introduction"
+      },
+      {
+        "id": "definisi",
+        "label": "2. Definitions"
+      },
+      {
+        "id": "ruang-lingkup",
+        "label": "3. Scope of Services"
+      },
+      {
+        "id": "pemesanan",
+        "label": "4. Order Terms"
+      },
+      {
+        "id": "pembayaran",
+        "label": "5. Pricing and Payment"
+      },
+      {
+        "id": "revisi",
+        "label": "6. Revisions"
+      },
+      {
+        "id": "waktu-pengerjaan",
+        "label": "7. Project Timeline"
+      },
+      {
+        "id": "hak-klien",
+        "label": "8. Client Rights & Obligations"
+      },
+      {
+        "id": "hak-penyedia",
+        "label": "9. Provider Rights & Obligations"
+      },
+      {
+        "id": "hak-cipta",
+        "label": "10. Copyright"
+      },
+      {
+        "id": "kerahasiaan",
+        "label": "11. Confidentiality"
+      },
+      {
+        "id": "garansi",
+        "label": "12. Warranty"
+      },
+      {
+        "id": "maintenance",
+        "label": "13. Maintenance & Support"
+      },
+      {
+        "id": "akun",
+        "label": "14. Account Usage"
+      },
+      {
+        "id": "larangan",
+        "label": "15. Prohibitions"
+      },
+      {
+        "id": "pembatalan",
+        "label": "16. Project Cancellation"
+      },
+      {
+        "id": "force-majeure",
+        "label": "17. Force Majeure"
+      },
+      {
+        "id": "batas-tanggung-jawab",
+        "label": "18. Limitation of Liability"
+      },
+      {
+        "id": "perubahan-ketentuan",
+        "label": "19. Changes to Terms"
+      },
+      {
+        "id": "persetujuan",
+        "label": "20. Consent"
+      }
     ],
     "sections": [
       {
         "id": "pendahuluan",
         "title": "1. Introduction",
-        "paragraphs": ["This Terms & Conditions document governs the rights, obligations, and terms of use for coding, editing, design, and other digital services."],
+        "paragraphs": [
+          "This Terms & Conditions document governs the rights, obligations, and terms of use for coding, editing, design, and other digital services."
+        ],
         "note": "By using our services, the client is deemed to have read, understood, and agreed to all applicable terms and conditions."
       },
       {
         "id": "definisi",
         "title": "2. Definitions",
-        "paragraphs": ["In this document:"],
+        "paragraphs": [
+          "In this document:"
+        ],
         "items": [
           "<strong>\"We\"</strong> refers to the service provider.",
           "<strong>\"Client\"</strong> refers to the individual, company, or party using the services.",
@@ -607,7 +891,9 @@
       {
         "id": "ruang-lingkup",
         "title": "3. Scope of Services",
-        "paragraphs": ["Services we may provide include:"],
+        "paragraphs": [
+          "Services we may provide include:"
+        ],
         "items": [
           "Website development.",
           "Application development.",
@@ -670,20 +956,61 @@
         "id": "hak-klien",
         "title": "8. Client Rights and Obligations",
         "blocks": [
-          { "type": "p", "html": "<strong>Client obligations:</strong>" },
-          { "type": "ul", "items": ["Provide project information clearly.", "Provide data that is legal and does not violate the law.", "Make timely payments.", "Maintain good communication throughout the project."] },
-          { "type": "p", "html": "<strong>Client rights:</strong>" },
-          { "type": "ul", "items": ["Receive project progress updates.", "Receive results as agreed.", "Submit revisions according to the terms."] }
+          {
+            "type": "p",
+            "html": "<strong>Client obligations:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Provide project information clearly.",
+              "Provide data that is legal and does not violate the law.",
+              "Make timely payments.",
+              "Maintain good communication throughout the project."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "<strong>Client rights:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Receive project progress updates.",
+              "Receive results as agreed.",
+              "Submit revisions according to the terms."
+            ]
+          }
         ]
       },
       {
         "id": "hak-penyedia",
         "title": "9. Service Provider Rights and Obligations",
         "blocks": [
-          { "type": "p", "html": "<strong>We are entitled to:</strong>" },
-          { "type": "ul", "items": ["Decline certain projects.", "Stop work if terms are violated.", "Use project results as portfolio."] },
-          { "type": "p", "html": "<strong>We are obligated to:</strong>" },
-          { "type": "ul", "items": ["Complete the project as agreed.", "Maintain client data confidentiality.", "Provide professional service to the best of our ability."] }
+          {
+            "type": "p",
+            "html": "<strong>We are entitled to:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Decline certain projects.",
+              "Stop work if terms are violated.",
+              "Use project results as portfolio."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "<strong>We are obligated to:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Complete the project as agreed.",
+              "Maintain client data confidentiality.",
+              "Provide professional service to the best of our ability."
+            ]
+          }
         ]
       },
       {
@@ -732,7 +1059,9 @@
       {
         "id": "akun",
         "title": "14. Account and Access Usage",
-        "paragraphs": ["If the client provides account access:"],
+        "paragraphs": [
+          "If the client provides account access:"
+        ],
         "items": [
           "Access is only used for project needs.",
           "The client is advised to change passwords after the project is completed.",
@@ -742,7 +1071,9 @@
       {
         "id": "larangan",
         "title": "15. Prohibitions",
-        "paragraphs": ["We reserve the right to decline projects that:"],
+        "paragraphs": [
+          "We reserve the right to decline projects that:"
+        ],
         "items": [
           "Violate the law.",
           "Contain malware or illegal hacking.",
@@ -764,7 +1095,9 @@
       {
         "id": "force-majeure",
         "title": "17. Force Majeure",
-        "paragraphs": ["We are not responsible for delays or service failures due to:"],
+        "paragraphs": [
+          "We are not responsible for delays or service failures due to:"
+        ],
         "items": [
           "Natural disasters.",
           "Internet disruptions.",
@@ -777,7 +1110,9 @@
       {
         "id": "batas-tanggung-jawab",
         "title": "18. Limitation of Liability",
-        "paragraphs": ["We are not responsible for:"],
+        "paragraphs": [
+          "We are not responsible for:"
+        ],
         "items": [
           "Indirect business losses.",
           "Data loss due to third parties.",
@@ -789,12 +1124,16 @@
       {
         "id": "perubahan-ketentuan",
         "title": "19. Changes to Terms",
-        "paragraphs": ["These Terms & Conditions may be updated at any time without prior notice. The latest version will serve as the applicable reference."]
+        "paragraphs": [
+          "These Terms & Conditions may be updated at any time without prior notice. The latest version will serve as the applicable reference."
+        ]
       },
       {
         "id": "persetujuan",
         "title": "20. Consent",
-        "paragraphs": ["By making a payment or using our services, the client is deemed to have agreed to all applicable Terms & Conditions."]
+        "paragraphs": [
+          "By making a payment or using our services, the client is deemed to have agreed to all applicable Terms & Conditions."
+        ]
       }
     ]
   },

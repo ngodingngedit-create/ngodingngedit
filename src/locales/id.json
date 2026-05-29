@@ -6,26 +6,45 @@
   "aboutPage": {
     "title": "Tentang Kami",
     "subtitle": "Kenali tim kreatif di balik NgodingNgedit yang siap membantu mewujudkan visi digital Anda.",
-    "foundersTitle": "Tim Pendiri Kami",
+    "valuesTitle": "Nilai Inti Perusahaan",
+    "values": [
+      {
+        "title": "Inovasi Tanpa Henti",
+        "desc": "Kami terus mengeksplorasi teknologi dan tren desain terbaru untuk memberikan solusi yang relevan dan futuristik."
+      },
+      {
+        "title": "Kualitas Tanpa Kompromi",
+        "desc": "Dari baris kode pertama hingga sentuhan desain terakhir, kami menjaga standar kualitas tertinggi."
+      },
+      {
+        "title": "Kolaborasi & Transparansi",
+        "desc": "Kami memposisikan diri sebagai mitra Anda, berkomunikasi secara terbuka, dan tumbuh bersama bisnis Anda."
+      }
+    ],
+    "foundersTitle": "Tim Kami",
     "founders": [
       {
         "name": "Maisan Hanif Dharmawan",
         "role": "Lead Founder & Ideator",
+        "heading": "Membangun visi melampaui batasan masa depan.",
         "desc": "Pencetus visi NgodingNgedit. Memimpin arah perusahaan dengan ide-ide inovatif untuk solusi digital masa depan."
       },
       {
         "name": "Afif Maulana Yusuf",
         "role": "Lead Designer",
+        "heading": "Mendesain dengan empati, menciptakan dengan tujuan.",
         "desc": "Ahli desain utama yang memastikan setiap piksel produk kami tidak hanya estetik tapi juga memberikan pengalaman pengguna terbaik."
       },
       {
         "name": "Farhan Dwi Ananda Putra",
-        "role": "Lead Frontend Developer",
+        "role": "God Prompter",
+        "heading": "Membangun pengalaman digital yang bermakna.",
         "desc": "Ujung tombak pengembangan kode. Mengubah desain yang indah menjadi kode yang interaktif, cepat, dan responsif."
       },
       {
         "name": "Muhhamad Fadhlurahman",
         "role": "Marketing & Public Relations",
+        "heading": "Menghubungkan nilai ke audiens yang tepat.",
         "desc": "Penghubung antara kami dan klien. Memastikan pesan dan nilai produk kami tersampaikan dengan sempurna ke publik."
       }
     ]
@@ -70,17 +89,29 @@
       "webDev": {
         "name": "Website & Aplikasi",
         "desc": "Solusi digital end-to-end dari desain hingga deployment.",
-        "benefits": ["Website responsif & cepat", "SEO-friendly", "Integrasi penuh"]
+        "benefits": [
+          "Website responsif & cepat",
+          "SEO-friendly",
+          "Integrasi penuh"
+        ]
       },
       "content": {
         "name": "Konten Kreatif",
         "desc": "Video, motion graphics & konten sosial yang mengkonversi.",
-        "benefits": ["Kualitas sinematik", "Siap semua platform", "Brand yang konsisten"]
+        "benefits": [
+          "Kualitas sinematik",
+          "Siap semua platform",
+          "Brand yang konsisten"
+        ]
       },
       "strategy": {
         "name": "Strategi & Infrastruktur",
         "desc": "Ekosistem digital yang aman, andal & skalabel.",
-        "benefits": ["Server & cloud setup", "Keamanan sistem", "Roadmap teknologi"]
+        "benefits": [
+          "Server & cloud setup",
+          "Keamanan sistem",
+          "Roadmap teknologi"
+        ]
       }
     }
   },
@@ -191,10 +222,22 @@
       "Setiap keputusan kami dasarkan pada data, setiap solusi kami rancang khusus untuk bisnis Anda."
     ],
     "stats": [
-      { "value": "50+", "label": "Proyek Selesai" },
-      { "value": "98%", "label": "Kepuasan Klien" },
-      { "value": "3x", "label": "Lebih Cepat Launch" },
-      { "value": "24/7", "label": "Dukungan Teknis" }
+      {
+        "value": "50+",
+        "label": "Proyek Selesai"
+      },
+      {
+        "value": "98%",
+        "label": "Kepuasan Klien"
+      },
+      {
+        "value": "3x",
+        "label": "Lebih Cepat Launch"
+      },
+      {
+        "value": "24/7",
+        "label": "Dukungan Teknis"
+      }
     ],
     "solutionsTitle": "Tiga Pilar Solusi Kami",
     "solutionsSub": "Setiap solusi dirancang untuk memberikan dampak nyata — dari presence digital hingga konten yang mengkonversi.",
@@ -272,11 +315,19 @@
     ],
     "ngodingTitle": "Ngoding",
     "ngodingSub": "Website · Aplikasi · Solusi Digital",
-    "ngodingTags": ["Company Profile", "Landing Page", "E-Commerce"],
+    "ngodingTags": [
+      "Company Profile",
+      "Landing Page",
+      "E-Commerce"
+    ],
     "ngodingCta": "Jelajahi Ngoding →",
     "ngeditTitle": "Ngedit",
     "ngeditSub": "Video · Motion Graphics · Konten Kreatif",
-    "ngeditTags": ["Short-Form", "Video Promosi", "Podcast"],
+    "ngeditTags": [
+      "Short-Form",
+      "Video Promosi",
+      "Podcast"
+    ],
     "ngeditCta": "Jelajahi Ngedit →",
     "galleryAvail": "Layanan Tersedia",
     "cardAdd": "Tambah",
@@ -294,26 +345,76 @@
     "barConsult": "Konsultasikan",
     "barClose": "Tutup",
     "companyProfileDesc": "Website company profile profesional yang responsif, SEO-friendly, dan dirancang untuk meningkatkan kredibilitas bisnis Anda secara online.",
-    "companyProfileFeatures": ["Desain Responsif & Modern", "SEO Dasar", "Integrasi WhatsApp", "Maintenance Dasar"],
+    "companyProfileFeatures": [
+      "Desain Responsif & Modern",
+      "SEO Dasar",
+      "Integrasi WhatsApp",
+      "Maintenance Dasar"
+    ],
     "landingPageDesc": "Landing page high-conversion dengan desain modern dan copywriting yang efektif untuk kampanye marketing Anda.",
-    "landingPageFeatures": ["Copywriting Persuasif", "Optimasi Kecepatan", "Form Leads / Call-to-Action", "Analytics Setup"],
+    "landingPageFeatures": [
+      "Copywriting Persuasif",
+      "Optimasi Kecepatan",
+      "Form Leads / Call-to-Action",
+      "Analytics Setup"
+    ],
     "databaseDesc": "Perancangan dan setup database yang aman, scalable, dan teroptimasi untuk kebutuhan aplikasi Anda.",
-    "databaseFeatures": ["Schema Design", "Optimasi Query", "Setup Keamanan", "Backup Otomatis"],
+    "databaseFeatures": [
+      "Schema Design",
+      "Optimasi Query",
+      "Setup Keamanan",
+      "Backup Otomatis"
+    ],
     "domainDesc": "Bantuan setup koneksi domain ke server atau hosting Anda, lengkap dengan konfigurasi DNS.",
-    "domainFeatures": ["Konfigurasi DNS", "Integrasi Hosting", "Setup CNAME/A Record", "Bantuan Teknis"],
+    "domainFeatures": [
+      "Konfigurasi DNS",
+      "Integrasi Hosting",
+      "Setup CNAME/A Record",
+      "Bantuan Teknis"
+    ],
     "serverDesc": "Setup dan deployment aplikasi Anda ke server cloud (VPS) atau hosting yang andal dan cepat.",
-    "serverFeatures": ["Deployment Web/App", "Konfigurasi VPS", "Setup SSL (HTTPS)", "Monitoring Dasar"],
+    "serverFeatures": [
+      "Deployment Web/App",
+      "Konfigurasi VPS",
+      "Setup SSL (HTTPS)",
+      "Monitoring Dasar"
+    ],
     "shortFormDesc": "Editing video short-form untuk TikTok, Reels, dan Shorts dengan transisi dinamis dan pacing yang engaging.",
-    "shortFormFeatures": ["Dynamic Subtitles", "Sound Effects & BGM", "Color Correction", "Trend Adaptation"],
+    "shortFormFeatures": [
+      "Dynamic Subtitles",
+      "Sound Effects & BGM",
+      "Color Correction",
+      "Trend Adaptation"
+    ],
     "promoVideoTitle": "Video Promosi",
     "promoVideoDesc": "Video promosi sinematik dengan color grading profesional, motion graphics, dan sound design premium.",
-    "promoVideoFeatures": ["Cinematic Color Grading", "Premium Motion Graphics", "Licensed Music", "Storytelling Edit"],
+    "promoVideoFeatures": [
+      "Cinematic Color Grading",
+      "Premium Motion Graphics",
+      "Licensed Music",
+      "Storytelling Edit"
+    ],
     "podcastDesc": "Editing podcast lengkap — noise removal, leveling, chapter markers, dan visual waveform untuk YouTube.",
-    "podcastFeatures": ["Audio Enhancement", "Multi-cam Switching", "Intro/Outro Addition", "Chapter Generation"],
+    "podcastFeatures": [
+      "Audio Enhancement",
+      "Multi-cam Switching",
+      "Intro/Outro Addition",
+      "Chapter Generation"
+    ],
     "threeDDesc": "Layanan pemodelan 3D dan render realistis untuk produk, arsitektur, atau karakter game dengan kualitas AAA.",
-    "threeDFeatures": ["High-Fidelity Rendering", "Texture & Material Design", "Animation Ready", "Source File (Blend/FBX)"],
+    "threeDFeatures": [
+      "High-Fidelity Rendering",
+      "Texture & Material Design",
+      "Animation Ready",
+      "Source File (Blend/FBX)"
+    ],
     "motionDesc": "Animasi motion graphics untuk intro, lower thirds, infografis, dan branding visual yang eye-catching.",
-    "motionFeatures": ["Custom Animations", "Logo Reveals", "Infographic Video", "Seamless Looping"],
+    "motionFeatures": [
+      "Custom Animations",
+      "Logo Reveals",
+      "Infographic Video",
+      "Seamless Looping"
+    ],
     "whatsappIntro": "Halo, saya tertarik dengan estimasi layanan berikut:\n\n",
     "whatsappTotal": "\n*Estimasi Total: {total}*\n\nMohon informasi lebih lanjut."
   },
@@ -324,38 +425,102 @@
     "backHome": "Kembali ke Beranda",
     "viewTerms": "Lihat Syarat & Ketentuan →",
     "toc": [
-      { "id": "pendahuluan", "label": "1. Pendahuluan" },
-      { "id": "definisi", "label": "2. Definisi" },
-      { "id": "ruang-lingkup", "label": "3. Ruang Lingkup Layanan" },
-      { "id": "pemesanan", "label": "4. Ketentuan Pemesanan" },
-      { "id": "pembayaran", "label": "5. Harga dan Pembayaran" },
-      { "id": "revisi", "label": "6. Revisi" },
-      { "id": "waktu-pengerjaan", "label": "7. Waktu Pengerjaan" },
-      { "id": "hak-klien", "label": "8. Hak & Kewajiban Klien" },
-      { "id": "hak-penyedia", "label": "9. Hak & Kewajiban Penyedia" },
-      { "id": "hak-cipta", "label": "10. Hak Cipta" },
-      { "id": "kerahasiaan", "label": "11. Kerahasiaan" },
-      { "id": "garansi", "label": "12. Garansi" },
-      { "id": "maintenance", "label": "13. Maintenance & Support" },
-      { "id": "akun", "label": "14. Penggunaan Akun" },
-      { "id": "larangan", "label": "15. Larangan" },
-      { "id": "pembatalan", "label": "16. Pembatalan Proyek" },
-      { "id": "force-majeure", "label": "17. Force Majeure" },
-      { "id": "batas-tanggung-jawab", "label": "18. Batas Tanggung Jawab" },
-      { "id": "perubahan-ketentuan", "label": "19. Perubahan Ketentuan" },
-      { "id": "persetujuan", "label": "20. Persetujuan" }
+      {
+        "id": "pendahuluan",
+        "label": "1. Pendahuluan"
+      },
+      {
+        "id": "definisi",
+        "label": "2. Definisi"
+      },
+      {
+        "id": "ruang-lingkup",
+        "label": "3. Ruang Lingkup Layanan"
+      },
+      {
+        "id": "pemesanan",
+        "label": "4. Ketentuan Pemesanan"
+      },
+      {
+        "id": "pembayaran",
+        "label": "5. Harga dan Pembayaran"
+      },
+      {
+        "id": "revisi",
+        "label": "6. Revisi"
+      },
+      {
+        "id": "waktu-pengerjaan",
+        "label": "7. Waktu Pengerjaan"
+      },
+      {
+        "id": "hak-klien",
+        "label": "8. Hak & Kewajiban Klien"
+      },
+      {
+        "id": "hak-penyedia",
+        "label": "9. Hak & Kewajiban Penyedia"
+      },
+      {
+        "id": "hak-cipta",
+        "label": "10. Hak Cipta"
+      },
+      {
+        "id": "kerahasiaan",
+        "label": "11. Kerahasiaan"
+      },
+      {
+        "id": "garansi",
+        "label": "12. Garansi"
+      },
+      {
+        "id": "maintenance",
+        "label": "13. Maintenance & Support"
+      },
+      {
+        "id": "akun",
+        "label": "14. Penggunaan Akun"
+      },
+      {
+        "id": "larangan",
+        "label": "15. Larangan"
+      },
+      {
+        "id": "pembatalan",
+        "label": "16. Pembatalan Proyek"
+      },
+      {
+        "id": "force-majeure",
+        "label": "17. Force Majeure"
+      },
+      {
+        "id": "batas-tanggung-jawab",
+        "label": "18. Batas Tanggung Jawab"
+      },
+      {
+        "id": "perubahan-ketentuan",
+        "label": "19. Perubahan Ketentuan"
+      },
+      {
+        "id": "persetujuan",
+        "label": "20. Persetujuan"
+      }
     ],
     "sections": [
       {
         "id": "pendahuluan",
         "title": "1. Pendahuluan",
-        "paragraphs": ["Dokumen Kebijakan Privasi ini mengatur hak, kewajiban, dan ketentuan penggunaan layanan jasa pembuatan coding, editing, desain, dan layanan digital lainnya."],
+        "paragraphs": [
+          "Dokumen Kebijakan Privasi ini mengatur hak, kewajiban, dan ketentuan penggunaan layanan jasa pembuatan coding, editing, desain, dan layanan digital lainnya."
+        ],
         "note": "Dengan menggunakan layanan kami, klien dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku."
       },
       {
         "id": "definisi",
         "title": "2. Definisi",
-        "paragraphs": ["Dalam dokumen ini:"],
+        "paragraphs": [
+          "Dalam dokumen ini:"
+        ],
         "items": [
           "<strong>\"Kami\"</strong> mengacu pada penyedia jasa.",
           "<strong>\"Klien\"</strong> mengacu pada individu, perusahaan, atau pihak yang menggunakan layanan.",
@@ -366,7 +531,9 @@
       {
         "id": "ruang-lingkup",
         "title": "3. Ruang Lingkup Layanan",
-        "paragraphs": ["Layanan yang dapat kami sediakan meliputi:"],
+        "paragraphs": [
+          "Layanan yang dapat kami sediakan meliputi:"
+        ],
         "items": [
           "Pembuatan website.",
           "Pembuatan aplikasi.",
@@ -429,20 +596,61 @@
         "id": "hak-klien",
         "title": "8. Hak dan Kewajiban Klien",
         "blocks": [
-          { "type": "p", "html": "<strong>Klien wajib:</strong>" },
-          { "type": "ul", "items": ["Memberikan informasi proyek secara jelas.", "Memberikan data yang legal dan tidak melanggar hukum.", "Melakukan pembayaran tepat waktu.", "Menjaga komunikasi yang baik selama proyek berlangsung."] },
-          { "type": "p", "html": "<strong>Klien berhak:</strong>" },
-          { "type": "ul", "items": ["Mendapat update progres proyek.", "Mendapat hasil sesuai kesepakatan.", "Mengajukan revisi sesuai ketentuan."] }
+          {
+            "type": "p",
+            "html": "<strong>Klien wajib:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Memberikan informasi proyek secara jelas.",
+              "Memberikan data yang legal dan tidak melanggar hukum.",
+              "Melakukan pembayaran tepat waktu.",
+              "Menjaga komunikasi yang baik selama proyek berlangsung."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "<strong>Klien berhak:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Mendapat update progres proyek.",
+              "Mendapat hasil sesuai kesepakatan.",
+              "Mengajukan revisi sesuai ketentuan."
+            ]
+          }
         ]
       },
       {
         "id": "hak-penyedia",
         "title": "9. Hak dan Kewajiban Penyedia Jasa",
         "blocks": [
-          { "type": "p", "html": "<strong>Kami berhak:</strong>" },
-          { "type": "ul", "items": ["Menolak proyek tertentu.", "Menghentikan pengerjaan jika terjadi pelanggaran ketentuan.", "Menggunakan hasil proyek sebagai portofolio."] },
-          { "type": "p", "html": "<strong>Kami wajib:</strong>" },
-          { "type": "ul", "items": ["Menyelesaikan proyek sesuai kesepakatan.", "Menjaga kerahasiaan data klien.", "Memberikan layanan profesional sesuai kemampuan."] }
+          {
+            "type": "p",
+            "html": "<strong>Kami berhak:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Menolak proyek tertentu.",
+              "Menghentikan pengerjaan jika terjadi pelanggaran ketentuan.",
+              "Menggunakan hasil proyek sebagai portofolio."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "<strong>Kami wajib:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Menyelesaikan proyek sesuai kesepakatan.",
+              "Menjaga kerahasiaan data klien.",
+              "Memberikan layanan profesional sesuai kemampuan."
+            ]
+          }
         ]
       },
       {
@@ -491,7 +699,9 @@
       {
         "id": "akun",
         "title": "14. Penggunaan Akun dan Akses",
-        "paragraphs": ["Apabila klien memberikan akses akun:"],
+        "paragraphs": [
+          "Apabila klien memberikan akses akun:"
+        ],
         "items": [
           "Akses hanya digunakan untuk kebutuhan proyek.",
           "Klien disarankan mengganti password setelah proyek selesai.",
@@ -501,7 +711,9 @@
       {
         "id": "larangan",
         "title": "15. Larangan",
-        "paragraphs": ["Kami berhak menolak proyek yang:"],
+        "paragraphs": [
+          "Kami berhak menolak proyek yang:"
+        ],
         "items": [
           "Melanggar hukum.",
           "Mengandung malware atau hacking ilegal.",
@@ -523,7 +735,9 @@
       {
         "id": "force-majeure",
         "title": "17. Force Majeure",
-        "paragraphs": ["Kami tidak bertanggung jawab atas keterlambatan atau kegagalan layanan akibat:"],
+        "paragraphs": [
+          "Kami tidak bertanggung jawab atas keterlambatan atau kegagalan layanan akibat:"
+        ],
         "items": [
           "Bencana alam.",
           "Gangguan internet.",
@@ -536,7 +750,9 @@
       {
         "id": "batas-tanggung-jawab",
         "title": "18. Batas Tanggung Jawab",
-        "paragraphs": ["Kami tidak bertanggung jawab atas:"],
+        "paragraphs": [
+          "Kami tidak bertanggung jawab atas:"
+        ],
         "items": [
           "Kerugian bisnis tidak langsung.",
           "Kehilangan data akibat pihak ketiga.",
@@ -548,12 +764,16 @@
       {
         "id": "perubahan-ketentuan",
         "title": "19. Perubahan Ketentuan",
-        "paragraphs": ["Kebijakan Privasi ini dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru akan menjadi acuan yang berlaku."]
+        "paragraphs": [
+          "Kebijakan Privasi ini dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru akan menjadi acuan yang berlaku."
+        ]
       },
       {
         "id": "persetujuan",
         "title": "20. Persetujuan",
-        "paragraphs": ["Dengan melakukan pembayaran atau menggunakan layanan kami, klien dianggap menyetujui seluruh Kebijakan Privasi yang berlaku."]
+        "paragraphs": [
+          "Dengan melakukan pembayaran atau menggunakan layanan kami, klien dianggap menyetujui seluruh Kebijakan Privasi yang berlaku."
+        ]
       }
     ]
   },
@@ -564,38 +784,102 @@
     "backHome": "Kembali ke Beranda",
     "viewPrivacy": "Lihat Kebijakan Privasi →",
     "toc": [
-      { "id": "pendahuluan", "label": "1. Pendahuluan" },
-      { "id": "definisi", "label": "2. Definisi" },
-      { "id": "ruang-lingkup", "label": "3. Ruang Lingkup Layanan" },
-      { "id": "pemesanan", "label": "4. Ketentuan Pemesanan" },
-      { "id": "pembayaran", "label": "5. Harga dan Pembayaran" },
-      { "id": "revisi", "label": "6. Revisi" },
-      { "id": "waktu-pengerjaan", "label": "7. Waktu Pengerjaan" },
-      { "id": "hak-klien", "label": "8. Hak & Kewajiban Klien" },
-      { "id": "hak-penyedia", "label": "9. Hak & Kewajiban Penyedia" },
-      { "id": "hak-cipta", "label": "10. Hak Cipta" },
-      { "id": "kerahasiaan", "label": "11. Kerahasiaan" },
-      { "id": "garansi", "label": "12. Garansi" },
-      { "id": "maintenance", "label": "13. Maintenance & Support" },
-      { "id": "akun", "label": "14. Penggunaan Akun" },
-      { "id": "larangan", "label": "15. Larangan" },
-      { "id": "pembatalan", "label": "16. Pembatalan Proyek" },
-      { "id": "force-majeure", "label": "17. Force Majeure" },
-      { "id": "batas-tanggung-jawab", "label": "18. Batas Tanggung Jawab" },
-      { "id": "perubahan-ketentuan", "label": "19. Perubahan Ketentuan" },
-      { "id": "persetujuan", "label": "20. Persetujuan" }
+      {
+        "id": "pendahuluan",
+        "label": "1. Pendahuluan"
+      },
+      {
+        "id": "definisi",
+        "label": "2. Definisi"
+      },
+      {
+        "id": "ruang-lingkup",
+        "label": "3. Ruang Lingkup Layanan"
+      },
+      {
+        "id": "pemesanan",
+        "label": "4. Ketentuan Pemesanan"
+      },
+      {
+        "id": "pembayaran",
+        "label": "5. Harga dan Pembayaran"
+      },
+      {
+        "id": "revisi",
+        "label": "6. Revisi"
+      },
+      {
+        "id": "waktu-pengerjaan",
+        "label": "7. Waktu Pengerjaan"
+      },
+      {
+        "id": "hak-klien",
+        "label": "8. Hak & Kewajiban Klien"
+      },
+      {
+        "id": "hak-penyedia",
+        "label": "9. Hak & Kewajiban Penyedia"
+      },
+      {
+        "id": "hak-cipta",
+        "label": "10. Hak Cipta"
+      },
+      {
+        "id": "kerahasiaan",
+        "label": "11. Kerahasiaan"
+      },
+      {
+        "id": "garansi",
+        "label": "12. Garansi"
+      },
+      {
+        "id": "maintenance",
+        "label": "13. Maintenance & Support"
+      },
+      {
+        "id": "akun",
+        "label": "14. Penggunaan Akun"
+      },
+      {
+        "id": "larangan",
+        "label": "15. Larangan"
+      },
+      {
+        "id": "pembatalan",
+        "label": "16. Pembatalan Proyek"
+      },
+      {
+        "id": "force-majeure",
+        "label": "17. Force Majeure"
+      },
+      {
+        "id": "batas-tanggung-jawab",
+        "label": "18. Batas Tanggung Jawab"
+      },
+      {
+        "id": "perubahan-ketentuan",
+        "label": "19. Perubahan Ketentuan"
+      },
+      {
+        "id": "persetujuan",
+        "label": "20. Persetujuan"
+      }
     ],
     "sections": [
       {
         "id": "pendahuluan",
         "title": "1. Pendahuluan",
-        "paragraphs": ["Dokumen Syarat & Ketentuan ini mengatur hak, kewajiban, serta ketentuan penggunaan layanan jasa pembuatan coding, editing, desain, dan layanan digital lainnya."],
+        "paragraphs": [
+          "Dokumen Syarat & Ketentuan ini mengatur hak, kewajiban, serta ketentuan penggunaan layanan jasa pembuatan coding, editing, desain, dan layanan digital lainnya."
+        ],
         "note": "Dengan menggunakan layanan kami, klien dianggap telah membaca, memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku."
       },
       {
         "id": "definisi",
         "title": "2. Definisi",
-        "paragraphs": ["Dalam dokumen ini:"],
+        "paragraphs": [
+          "Dalam dokumen ini:"
+        ],
         "items": [
           "<strong>\"Kami\"</strong> mengacu pada penyedia jasa.",
           "<strong>\"Klien\"</strong> mengacu pada individu, perusahaan, atau pihak yang menggunakan layanan.",
@@ -607,7 +891,9 @@
       {
         "id": "ruang-lingkup",
         "title": "3. Ruang Lingkup Layanan",
-        "paragraphs": ["Layanan yang dapat kami sediakan meliputi:"],
+        "paragraphs": [
+          "Layanan yang dapat kami sediakan meliputi:"
+        ],
         "items": [
           "Pembuatan website.",
           "Pembuatan aplikasi.",
@@ -670,20 +956,61 @@
         "id": "hak-klien",
         "title": "8. Hak dan Kewajiban Klien",
         "blocks": [
-          { "type": "p", "html": "<strong>Klien wajib:</strong>" },
-          { "type": "ul", "items": ["Memberikan informasi proyek secara jelas.", "Memberikan data yang legal dan tidak melanggar hukum.", "Melakukan pembayaran tepat waktu.", "Menjaga komunikasi yang baik selama proyek berlangsung."] },
-          { "type": "p", "html": "<strong>Klien berhak:</strong>" },
-          { "type": "ul", "items": ["Mendapat update progres proyek.", "Mendapat hasil sesuai kesepakatan.", "Mengajukan revisi sesuai ketentuan."] }
+          {
+            "type": "p",
+            "html": "<strong>Klien wajib:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Memberikan informasi proyek secara jelas.",
+              "Memberikan data yang legal dan tidak melanggar hukum.",
+              "Melakukan pembayaran tepat waktu.",
+              "Menjaga komunikasi yang baik selama proyek berlangsung."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "<strong>Klien berhak:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Mendapat update progres proyek.",
+              "Mendapat hasil sesuai kesepakatan.",
+              "Mengajukan revisi sesuai ketentuan."
+            ]
+          }
         ]
       },
       {
         "id": "hak-penyedia",
         "title": "9. Hak dan Kewajiban Penyedia Jasa",
         "blocks": [
-          { "type": "p", "html": "<strong>Kami berhak:</strong>" },
-          { "type": "ul", "items": ["Menolak proyek tertentu.", "Menghentikan pengerjaan jika terjadi pelanggaran ketentuan.", "Menggunakan hasil proyek sebagai portofolio."] },
-          { "type": "p", "html": "<strong>Kami wajib:</strong>" },
-          { "type": "ul", "items": ["Menyelesaikan proyek sesuai kesepakatan.", "Menjaga kerahasiaan data klien.", "Memberikan layanan profesional sesuai kemampuan."] }
+          {
+            "type": "p",
+            "html": "<strong>Kami berhak:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Menolak proyek tertentu.",
+              "Menghentikan pengerjaan jika terjadi pelanggaran ketentuan.",
+              "Menggunakan hasil proyek sebagai portofolio."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "<strong>Kami wajib:</strong>"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Menyelesaikan proyek sesuai kesepakatan.",
+              "Menjaga kerahasiaan data klien.",
+              "Memberikan layanan profesional sesuai kemampuan."
+            ]
+          }
         ]
       },
       {
@@ -732,7 +1059,9 @@
       {
         "id": "akun",
         "title": "14. Penggunaan Akun dan Akses",
-        "paragraphs": ["Apabila klien memberikan akses akun:"],
+        "paragraphs": [
+          "Apabila klien memberikan akses akun:"
+        ],
         "items": [
           "Akses hanya digunakan untuk kebutuhan proyek.",
           "Klien disarankan mengganti password setelah proyek selesai.",
@@ -742,7 +1071,9 @@
       {
         "id": "larangan",
         "title": "15. Larangan",
-        "paragraphs": ["Kami berhak menolak proyek yang:"],
+        "paragraphs": [
+          "Kami berhak menolak proyek yang:"
+        ],
         "items": [
           "Melanggar hukum.",
           "Mengandung malware atau hacking ilegal.",
@@ -764,7 +1095,9 @@
       {
         "id": "force-majeure",
         "title": "17. Force Majeure",
-        "paragraphs": ["Kami tidak bertanggung jawab atas keterlambatan atau kegagalan layanan akibat:"],
+        "paragraphs": [
+          "Kami tidak bertanggung jawab atas keterlambatan atau kegagalan layanan akibat:"
+        ],
         "items": [
           "Bencana alam.",
           "Gangguan internet.",
@@ -777,7 +1110,9 @@
       {
         "id": "batas-tanggung-jawab",
         "title": "18. Batas Tanggung Jawab",
-        "paragraphs": ["Kami tidak bertanggung jawab atas:"],
+        "paragraphs": [
+          "Kami tidak bertanggung jawab atas:"
+        ],
         "items": [
           "Kerugian bisnis tidak langsung.",
           "Kehilangan data akibat pihak ketiga.",
@@ -789,12 +1124,16 @@
       {
         "id": "perubahan-ketentuan",
         "title": "19. Perubahan Ketentuan",
-        "paragraphs": ["Syarat & Ketentuan ini dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru akan menjadi acuan yang berlaku."]
+        "paragraphs": [
+          "Syarat & Ketentuan ini dapat diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru akan menjadi acuan yang berlaku."
+        ]
       },
       {
         "id": "persetujuan",
         "title": "20. Persetujuan",
-        "paragraphs": ["Dengan melakukan pembayaran atau menggunakan layanan kami, klien dianggap menyetujui seluruh Syarat & Ketentuan yang berlaku."]
+        "paragraphs": [
+          "Dengan melakukan pembayaran atau menggunakan layanan kami, klien dianggap menyetujui seluruh Syarat & Ketentuan yang berlaku."
+        ]
       }
     ]
   },

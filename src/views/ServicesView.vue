@@ -655,6 +655,12 @@ onUnmounted(() => {
   overflow: hidden;
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
+@media (max-width: 768px) {
+  .sv-hero {
+    padding: calc(var(--navbar-height, 64px) + 3rem) 1.25rem 3rem;
+    min-height: auto;
+  }
+}
 
 .sv-hero__bg {
   position: absolute; inset: -50px; pointer-events: none;
@@ -731,6 +737,12 @@ onUnmounted(() => {
 .sv-hero__cards {
   display: grid; grid-template-columns: repeat(2,1fr);
   gap: 2rem; width: 100%; max-width: 900px;
+}
+@media (max-width: 640px) {
+  .sv-hero__cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .sv-card {
@@ -1026,7 +1038,8 @@ onUnmounted(() => {
 /* ══ DETAIL MODAL ════════════════════════════════════════ */
 .sv-modal {
   position: fixed; inset: 0; z-index: 2000;
-  display: flex; align-items: center; justify-content: center; padding: 2rem;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
   background: rgba(15,23,42,0.85); backdrop-filter: blur(12px);
 }
 .sv-modal__card {
@@ -1034,6 +1047,8 @@ onUnmounted(() => {
   border-radius: 24px; overflow: hidden;
   background: #ffffff;
   box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+  max-height: 92vh;
+  overflow-y: auto;
   /* Origin dinamis berdasarkan card yang diklik */
   transform-origin: var(--modal-origin-x, 50%) var(--modal-origin-y, 50%);
 }
@@ -1200,6 +1215,7 @@ onUnmounted(() => {
   justify-content: center;
   pointer-events: none;
   padding: 0 1rem;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .sv-sim-bar-wrapper {
@@ -1400,9 +1416,21 @@ onUnmounted(() => {
   }
 }
 @media (max-width: 768px) {
-  .sv-modal-dialog { padding: 1.5rem; }
-  .sv-modal__img-wrap { height: 160px; }
+  .sv-modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .sv-modal__card {
+    border-radius: 24px 24px 0 0;
+    max-height: 88vh;
+    width: 100%;
+  }
+  .sv-modal__img-wrap { height: 200px; }
   .sv-modal__features { display: grid; grid-template-columns: 1fr; }
+  .sv-modal__features ul { grid-template-columns: 1fr; }
+  .sv-modal__body { padding: 0 1.25rem 1.5rem; }
+  .sv-modal__title { font-size: 1.5rem; }
+  .sv-modal__price { font-size: 1.375rem; }
 }
 
 /* ══ BADGE ════════════════════════════════════════════════ */
@@ -1628,9 +1656,13 @@ onUnmounted(() => {
   }
 }
 @media (max-width: 640px) {
-  .sv-card__inner { padding: 2.5rem 1.75rem; }
-  .sv-card__name { font-size: 1.75rem; }
-  .sv-modal__card { border-radius: 20px; }
+  .sv-card__inner { padding: 2rem 1.5rem; }
+  .sv-card__name { font-size: 1.5rem; }
+  .sv-modal__card { border-radius: 24px 24px 0 0; }
   .sv-modal__footer { flex-direction: column; align-items: flex-start; }
+  .sv-sim-bar { bottom: 12px; }
+  .sv-hero__title { font-size: clamp(1.875rem, 7vw, 3rem); }
+  .sv-hero__split { gap: 2rem; }
+  .sv-hero__sub { font-size: 0.9375rem; }
 }
 </style>

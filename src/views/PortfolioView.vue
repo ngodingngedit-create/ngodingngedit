@@ -85,6 +85,11 @@ onMounted(() => {
   background: #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
+@media (max-width: 768px) {
+  .portfolio-hero {
+    padding: calc(var(--navbar-height, 64px) + 2.5rem) 1.25rem 2.5rem;
+  }
+}
 .portfolio-hero__bg {
   position: absolute; inset: 0; pointer-events: none; z-index: 0;
 }
@@ -162,11 +167,15 @@ onMounted(() => {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .portfolio-grid-section { padding: 3rem 1rem; }
 }
 
 @media (max-width: 640px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
+  .portfolio-cta__inner { padding: 2.5rem 1.5rem; border-radius: 18px; }
+  .portfolio-cta__inner h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+  .portfolio-cta__btn { width: 100%; justify-content: center; }
 }
 </style>
