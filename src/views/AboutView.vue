@@ -88,9 +88,7 @@
           </div>
         </div>
 
-        <div class="founders-footer reveal">
-          <p>THANK YOU FOR SCROLLING</p>
-        </div>
+
       </div>
     </section>
   </main>
@@ -108,18 +106,28 @@ const getImageUrl = (name) => {
   return new URL(`../assets/images/founders/${name}`, import.meta.url).href
 }
 
-// Use Farhan's photos as dummy for all founders
+// Use Farhan's photos as dummy for all founders, except Hanif's which are now available
 const founders = computed(() => {
   const data = tm('aboutPage.founders')
   if (!Array.isArray(data)) return []
-  return data.map((f, i) => ({
-    ...f,
-    imageCandid: getImageUrl('farhan.png'),
-    imageLook: getImageUrl('farhan2.png'),
-    fallback: `https://picsum.photos/seed/${f.name}/400/500`,
-    instagram: '#',
-    linkedin: '#'
-  }))
+  return data.map((f, i) => {
+    let candidImg = 'farhan.png';
+    let lookImg = 'farhan2.png';
+
+    if (f.name && f.name.includes('Hanif')) {
+      candidImg = 'hanif.png';
+      lookImg = 'hanif2.png';
+    }
+
+    return {
+      ...f,
+      imageCandid: getImageUrl(candidImg),
+      imageLook: getImageUrl(lookImg),
+      fallback: `https://picsum.photos/seed/${f.name}/400/500`,
+      instagram: '#',
+      linkedin: '#'
+    };
+  })
 })
 
 const handleImageError = (e, fallback) => {
@@ -129,7 +137,6 @@ const handleImageError = (e, fallback) => {
 // ── Scroll Reveal ──────────────────────────────────────────────
 
 onMounted(() => {
-  // Scroll reveal general
   const io = new IntersectionObserver(
     e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')),
     { threshold: 0.1 }
@@ -265,7 +272,7 @@ function scrollToHash(path) {
    FOUNDERS — ZIG-ZAG EDITORIAL SECTION
    ═══════════════════════════════════════════════════ */
 .founders-section {
-  background: #0a0f1e; /* Navy background restored */
+  background: #0a0f1e;
   position: relative;
   padding: 8rem 0 4rem;
   color: white;
@@ -280,13 +287,7 @@ function scrollToHash(path) {
   opacity: 0.4;
 }
 
-/* Top fade edge to blend from core-values section above */
-.founders-section::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 80px; z-index: 1;
-  background: linear-gradient(to bottom, #f8fafc, transparent);
-  pointer-events: none;
-}
+/* Top fade edge removed — wave divider now handles the transition */
 
 .founders-section__inner {
   max-width: 1200px;
