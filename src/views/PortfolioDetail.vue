@@ -846,6 +846,8 @@ onMounted(() => {
 .mockup-wrap {
   position: relative;
   width: 100%;
+  max-width: 560px;
+  margin-left: auto;
 }
 
 .mockup-laptop {
@@ -1927,9 +1929,26 @@ onMounted(() => {
     margin-right: auto;
   }
 
+  .mockup-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
   .mockup-laptop {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .mockup-phone {
+    width: 140px;
+    right: -10px;
+    bottom: -15px;
+  }
+
+  .phone-img {
+    height: 38px;
   }
 
   .pd-overview-grid {
@@ -1998,6 +2017,46 @@ onMounted(() => {
   .pd-header__container {
     display: flex;
     flex-direction: column-reverse;
+  }
+
+  .mockup-wrap {
+    padding-right: 15px;
+  }
+
+  .mockup-phone {
+    width: 110px;
+    right: -5px;
+    bottom: -10px;
+    border-width: 5px;
+    border-radius: 16px;
+  }
+
+  .mockup-phone__screen {
+    border-radius: 12px;
+  }
+
+  .mockup-phone__content {
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .phone-header .notch {
+    width: 25px;
+    height: 4px;
+    margin-bottom: 2px;
+  }
+
+  .phone-header .phone-title {
+    font-size: 0.4rem;
+  }
+
+  .phone-card {
+    border-radius: 4px;
+    padding: 4px;
+  }
+
+  .phone-img {
+    height: 30px;
   }
 
   .pd-gallery-viewer {

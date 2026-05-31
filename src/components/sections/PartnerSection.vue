@@ -90,4 +90,30 @@ onMounted(() => {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+@media (max-width: 1024px) {
+  .partner-section {
+    padding: var(--space-2xl) 0;
+  }
+  .partner-section__label {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-xl);
+  }
+  .partner-section__track {
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-section {
+    padding: var(--space-xl) 0;
+  }
+  .partner-section__label {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-lg);
+  }
+  .partner-section__track {
+    gap: 3rem;
+  }
+}
 </style>

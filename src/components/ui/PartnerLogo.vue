@@ -43,4 +43,24 @@ defineProps({
 .partner-logo:hover .partner-logo__img {
   filter: grayscale(0) opacity(1);
 }
+
+@media (max-width: 1024px) {
+  .partner-logo {
+    padding: var(--space-sm);
+  }
+  .partner-logo__icon,
+  .partner-logo__img {
+    height: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-logo {
+    padding: 0.5rem;
+  }
+  .partner-logo__icon,
+  .partner-logo__img {
+    height: 50px;
+  }
+}
 </style>

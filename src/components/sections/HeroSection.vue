@@ -508,6 +508,10 @@ function scrollToHash(path) {
 }
 
 @media (max-width: 640px) {
+  .hero__image-side {
+    display: none;
+  }
+
   .hero {
     padding-top: 100px;
   }

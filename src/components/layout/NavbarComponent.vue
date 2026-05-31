@@ -72,98 +72,23 @@
               <polyline points="12 5 19 12 12 19"/>
             </svg>
           </a>
-          <button class="navbar__mobile-btn" @click="toggleMenu" :class="{ 'navbar__mobile-btn--open': menuOpen }" aria-label="Toggle menu">
-            <span class="navbar__hamburger">
-              <span class="navbar__hamburger-line"></span>
-              <span class="navbar__hamburger-line"></span>
-              <span class="navbar__hamburger-line"></span>
-            </span>
-          </button>
+          <MobileNavbar
+            :menu-open="menuOpen"
+            :scrolled="scrolled"
+            :is-light-theme="isLightTheme"
+            :nav-items="navItems"
+            :languages="languages"
+            :lang="lang"
+            @toggle-menu="toggleMenu"
+            @close-menu="closeMenu"
+            @set-language="setLanguage"
+            @click-link="(path) => { scrollToHash(path); closeMenu(); }"
+          />
         </div>
       </div>
     </div>
 
   </header>
-
-  <!-- Teleport: keluar dari stacking context navbar (backdrop-filter menciptakan stacking context baru) -->
-  <Teleport to="body">
-    <!-- Backdrop -->
-    <Transition name="backdrop-fade">
-      <div v-if="menuOpen" class="navbar__backdrop" @click="closeMenu"></div>
-    </Transition>
-
-    <!-- Slide-in Drawer -->
-    <Transition name="drawer-slide">
-      <div v-if="menuOpen" class="navbar__drawer">
-        <!-- Drawer Header -->
-        <div class="navbar__drawer-header">
-          <RouterLink to="/" class="navbar__drawer-logo" @click="closeMenu">
-            <img src="/logo/logo blue.png" alt="NgodingNgedit" class="navbar__drawer-logo-img" />
-          </RouterLink>
-          <button class="navbar__drawer-close" @click="closeMenu" aria-label="Close menu">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-              <line x1="18" y1="6" x2="6" y2="18"/>
-              <line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Nav Links -->
-        <nav class="navbar__drawer-nav">
-          <template v-for="item in navItems" :key="item.path">
-            <RouterLink
-              v-if="item.isRoute"
-              :to="item.path"
-              class="navbar__drawer-link"
-              active-class=""
-              :class="{ 'navbar__drawer-link--active': isRouteActive(item) }"
-              @click="closeMenu"
-            >
-              <span class="navbar__drawer-link-text">{{ item.label }}</span>
-              <svg class="navbar__drawer-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </RouterLink>
-            <a
-              v-else
-              :href="item.path"
-              class="navbar__drawer-link"
-              @click.prevent="scrollToHash(item.path); closeMenu()"
-            >
-              <span class="navbar__drawer-link-text">{{ item.label }}</span>
-              <svg class="navbar__drawer-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </template>
-        </nav>
-
-        <!-- Divider -->
-        <div class="navbar__drawer-divider"></div>
-
-        <!-- Language Switcher -->
-        <div class="navbar__drawer-lang-section">
-          <span class="navbar__drawer-lang-label">Bahasa / Language</span>
-          <div class="navbar__drawer-lang-btns">
-            <button
-              v-for="l in languages"
-              :key="l.code"
-              class="navbar__drawer-lang-btn"
-              :class="{ 'navbar__drawer-lang-btn--active': lang === l.code }"
-              @click="setLanguage(l.code)"
-            >
-              <img :src="l.flag" :alt="l.label" class="navbar__drawer-lang-flag" />
-              <span>{{ l.label }}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="navbar__drawer-footer">
-          <a href="#" class="navbar__drawer-cta" @click.prevent="scrollToHash('#contact'); closeMenu()">
-            {{ $t('navbar.contactUs') }}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-    </Transition>
-  </Teleport>
 </template>
 
 <script setup>
@@ -171,6 +96,7 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { globalLang as lang } from '@/store.js'
+import MobileNavbar from './MobileNavbar.vue'
 
 const { t, tm } = useI18n()
 
@@ -487,65 +413,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   box-shadow: 0 10px 20px rgba(0, 76, 255, 0.2);
 }
 
-/* ── Mobile Hamburger Button ─────────────────────────── */
-.navbar__mobile-btn {
-  display: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: transparent;
-  border: 1.5px solid rgba(255,255,255,0.2);
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  padding: 0;
-  flex-shrink: 0;
-}
-.navbar--light .navbar__mobile-btn {
-  border-color: rgba(0,0,0,0.12);
-}
-.navbar__mobile-btn:hover {
-  background: rgba(255,255,255,0.1);
-  transform: scale(1.05);
-}
-.navbar--light .navbar__mobile-btn:hover {
-  background: rgba(0,0,0,0.05);
-}
 
-/* Hamburger lines → X */
-.navbar__hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 22px;
-  height: 22px;
-  gap: 5px;
-}
-.navbar__hamburger-line {
-  display: block;
-  width: 22px;
-  height: 2px;
-  border-radius: 2px;
-  background: white;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center;
-}
-.navbar--light .navbar__hamburger-line {
-  background: #0f172a;
-}
-/* X state */
-.navbar__mobile-btn--open .navbar__hamburger-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.navbar__mobile-btn--open .navbar__hamburger-line:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-.navbar__mobile-btn--open .navbar__hamburger-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
 
 /* ── Backdrop ──────────────────────────────────────────── */
 .navbar__backdrop {
@@ -1040,7 +908,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .navbar__mobile-sol-dot--emerald{ background: #6ee7b7; }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navbar__nav {
     display: none;
   }
@@ -1050,213 +918,6 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   .navbar__lang {
     display: none;
   }
-  .navbar__mobile-btn {
-    display: flex;
-  }
 }
 </style>
 
-<!-- Global styles untuk elemen yang di-teleport ke body (scoped tidak berlaku di luar component DOM) -->
-<style>
-/* ── Backdrop (Teleported) ─────────────────────────── */
-.navbar__backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(4px);
-  z-index: 9998;
-}
-.backdrop-fade-enter-active,
-.backdrop-fade-leave-active { transition: opacity 0.3s ease; }
-.backdrop-fade-enter-from,
-.backdrop-fade-leave-to { opacity: 0; }
-
-/* ── Slide-in Drawer (Teleported) ──────────────────── */
-.navbar__drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(360px, 92vw);
-  background: #ffffff;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  box-shadow: -16px 0 60px rgba(0,0,0,0.2);
-  padding-bottom: env(safe-area-inset-bottom, 24px);
-}
-
-.drawer-slide-enter-active,
-.drawer-slide-leave-active {
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.drawer-slide-enter-from,
-.drawer-slide-leave-to {
-  transform: translateX(100%);
-}
-
-/* Drawer Header */
-.navbar__drawer-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  flex-shrink: 0;
-}
-.navbar__drawer-logo-img {
-  height: 44px;
-  width: auto;
-  object-fit: contain;
-}
-.navbar__drawer-close {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: #f1f5f9;
-  border: none;
-  color: #475569;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-}
-.navbar__drawer-close:hover {
-  background: #e2e8f0;
-  color: #0f172a;
-  transform: scale(1.05);
-}
-
-/* Drawer Nav */
-.navbar__drawer-nav {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  gap: 2px;
-  flex-shrink: 0;
-}
-.navbar__drawer-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1e293b;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
-}
-.navbar__drawer-link:hover {
-  background: #f8fafc;
-  border-color: rgba(0,0,0,0.05);
-  color: #2563eb;
-}
-.navbar__drawer-link--active {
-  background: rgba(37, 99, 235, 0.08);
-  border-color: rgba(37, 99, 235, 0.15);
-  color: #2563eb;
-}
-.navbar__drawer-link-arrow {
-  color: #94a3b8;
-  transition: transform 0.2s ease, color 0.2s ease;
-  flex-shrink: 0;
-}
-.navbar__drawer-link:hover .navbar__drawer-link-arrow,
-.navbar__drawer-link--active .navbar__drawer-link-arrow {
-  transform: translateX(3px);
-  color: #2563eb;
-}
-
-/* Drawer Divider */
-.navbar__drawer-divider {
-  height: 1px;
-  background: rgba(0,0,0,0.06);
-  margin: 0.5rem 1.5rem;
-  flex-shrink: 0;
-}
-
-/* Language Section */
-.navbar__drawer-lang-section {
-  padding: 1rem 1.5rem;
-  flex-shrink: 0;
-}
-.navbar__drawer-lang-label {
-  display: block;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #94a3b8;
-  margin-bottom: 0.75rem;
-}
-.navbar__drawer-lang-btns {
-  display: flex;
-  gap: 0.75rem;
-}
-.navbar__drawer-lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0.625rem 1rem;
-  border-radius: 10px;
-  border: 1.5px solid rgba(0,0,0,0.08);
-  background: #f8fafc;
-  color: #334155;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  flex: 1;
-  justify-content: center;
-}
-.navbar__drawer-lang-btn:hover {
-  border-color: rgba(37,99,235,0.3);
-  background: rgba(37,99,235,0.05);
-  color: #2563eb;
-}
-.navbar__drawer-lang-btn--active {
-  border-color: #2563eb;
-  background: rgba(37,99,235,0.08);
-  color: #2563eb;
-}
-.navbar__drawer-lang-flag {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  object-fit: cover;
-}
-
-/* Drawer Footer CTA */
-.navbar__drawer-footer {
-  margin-top: auto;
-  padding: 1.5rem;
-  flex-shrink: 0;
-}
-.navbar__drawer-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 1rem;
-  background: #2563eb;
-  color: white;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(37,99,235,0.3);
-}
-.navbar__drawer-cta:hover {
-  background: #1d4ed8;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37,99,235,0.4);
-}
-</style>
