@@ -34,7 +34,7 @@ const partners = [
   { name: 'CIMB Niaga', image: '/partner/cimb.png' },
   { name: 'KOMDIGI', image: '/partner/komdigi.png' },
   { name: 'Mandiri', image: '/partner/mandiri.png' },
-  { name: 'NASA', image: '/partner/nasa.png' },
+  { name: 'smpDarulIlmi', image: '/partner/smpDarulIlmi.jpeg' },
   { name: 'Telkom Indonesia', image: '/partner/telkom.png' },
 ]
 

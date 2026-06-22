@@ -6,6 +6,12 @@
   "aboutPage": {
     "title": "About Us",
     "subtitle": "Meet the creative team behind NgodingNgedit, ready to help bring your digital vision to life.",
+    "quote": "We design, develop, and deliver digital solutions that help brands grow and succeed in the digital era.",
+    "stats": {
+      "clients": "100+ Happy Clients",
+      "projects": "150+ Projects Done",
+      "experience": "4+ Years Experience"
+    },
     "valuesTitle": "Our Core Values",
     "values": [
       {
@@ -27,25 +33,29 @@
         "name": "Maisan Hanif Dharmawan",
         "role": "Lead Founder & Ideator",
         "heading": "Building a vision beyond the boundaries of tomorrow.",
-        "desc": "The visionary behind NgodingNgedit. Leading the company's direction with innovative ideas for future digital solutions."
+        "desc": "The visionary behind NgodingNgedit. Leading the company's direction with innovative ideas for future digital solutions.",
+        "skills": ["Leadership", "Product Strategy", "Business Dev", "Digital Innovation", "Team Building"]
       },
       {
         "name": "Afif Maulana Yusuf",
         "role": "Lead Designer",
         "heading": "Designing with empathy, creating with purpose.",
-        "desc": "Lead design expert ensuring every pixel of our products is not only aesthetic but also provides the best user experience."
+        "desc": "Lead design expert ensuring every pixel of our products is not only aesthetic but also provides the best user experience.",
+        "skills": ["UI/UX Design", "Figma", "Motion Graphics", "Branding", "Prototyping"]
       },
       {
         "name": "Farhan Dwi Ananda Putra",
         "role": "Lead Frontend",
         "heading": "Building digital experiences that matter.",
-        "desc": "The spearhead of code development. Transforming beautiful designs into interactive, fast, and responsive code."
+        "desc": "The spearhead of code development. Transforming beautiful designs into interactive, fast, and responsive code.",
+        "skills": ["Vue.js", "React", "TypeScript", "Tailwind CSS", "REST API"]
       },
       {
         "name": "Muhhamad Fadhlurahman",
         "role": "Marketing & Public Relations",
         "heading": "Connecting value to the right audience.",
-        "desc": "The bridge between us and the clients. Ensuring our product messages and values are perfectly conveyed to the public."
+        "desc": "The bridge between us and the clients. Ensuring our product messages and values are perfectly conveyed to the public.",
+        "skills": ["Content Strategy", "Social Media", "SEO", "Copywriting", "Brand Voice"]
       }
     ]
   },

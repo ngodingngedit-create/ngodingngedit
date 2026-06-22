@@ -6,6 +6,12 @@
   "aboutPage": {
     "title": "Tentang Kami",
     "subtitle": "Kenali tim kreatif di balik NgodingNgedit yang siap membantu mewujudkan visi digital Anda.",
+    "quote": "Kami merancang, mengembangkan, dan memberikan solusi digital yang membantu merek tumbuh dan sukses di era digital.",
+    "stats": {
+      "clients": "100+ Happy Clients",
+      "projects": "150+ Projects Done",
+      "experience": "4+ Years Experience"
+    },
     "valuesTitle": "Nilai Inti Perusahaan",
     "values": [
       {
@@ -27,25 +33,29 @@
         "name": "Maisan Hanif Dharmawan",
         "role": "Lead Founder & Ideator",
         "heading": "Membangun visi melampaui batasan masa depan.",
-        "desc": "Pencetus visi NgodingNgedit. Memimpin arah perusahaan dengan ide-ide inovatif untuk solusi digital masa depan."
+        "desc": "Pencetus visi NgodingNgedit. Memimpin arah perusahaan dengan ide-ide inovatif untuk solusi digital masa depan.",
+        "skills": ["Leadership", "Product Strategy", "Business Dev", "Digital Innovation", "Team Building"]
       },
       {
         "name": "Afif Maulana Yusuf",
         "role": "Lead Designer",
         "heading": "Mendesain dengan empati, menciptakan dengan tujuan.",
-        "desc": "Ahli desain utama yang memastikan setiap piksel produk kami tidak hanya estetik tapi juga memberikan pengalaman pengguna terbaik."
+        "desc": "Ahli desain utama yang memastikan setiap piksel produk kami tidak hanya estetik tapi juga memberikan pengalaman pengguna terbaik.",
+        "skills": ["UI/UX Design", "Figma", "Motion Graphics", "Branding", "Prototyping"]
       },
       {
         "name": "Farhan Dwi Ananda Putra",
         "role": "Lead Frontend",
         "heading": "Membangun pengalaman digital yang bermakna.",
-        "desc": "Ujung tombak pengembangan kode. Mengubah desain yang indah menjadi kode yang interaktif, cepat, dan responsif."
+        "desc": "Ujung tombak pengembangan kode. Mengubah desain yang indah menjadi kode yang interaktif, cepat, dan responsif.",
+        "skills": ["Vue.js", "React", "TypeScript", "Tailwind CSS", "REST API"]
       },
       {
         "name": "Muhhamad Fadhlurahman",
         "role": "Marketing & Public Relations",
         "heading": "Menghubungkan nilai ke audiens yang tepat.",
-        "desc": "Penghubung antara kami dan klien. Memastikan pesan dan nilai produk kami tersampaikan dengan sempurna ke publik."
+        "desc": "Penghubung antara kami dan klien. Memastikan pesan dan nilai produk kami tersampaikan dengan sempurna ke publik.",
+        "skills": ["Content Strategy", "Social Media", "SEO", "Copywriting", "Brand Voice"]
       }
     ]
   },
