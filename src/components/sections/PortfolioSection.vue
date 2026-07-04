@@ -56,7 +56,7 @@
 
 <script setup>
 import PortfolioCard from '@/components/ui/PortfolioCard.vue'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { usePortfolio } from '@/composables/usePortfolio'
@@ -76,26 +76,38 @@ const handleScroll = () => {
     return
   }
   const percentage = scrollLeft / scrollWidth
-  activeIndex.value = Math.min(Math.round(percentage * (projects.length - 1)), projects.length - 1)
+  activeIndex.value = Math.min(Math.round(percentage * (projects.value.length - 1)), projects.value.length - 1)
 }
 
 const scrollToPage = (index) => {
   if (!gridRef.value) return
   const scrollWidth = gridRef.value.scrollWidth - gridRef.value.clientWidth
-  const targetScroll = (index / (projects.length - 1)) * scrollWidth
+  const targetScroll = (index / (projects.value.length - 1)) * scrollWidth
   gridRef.value.scrollTo({
     left: targetScroll,
     behavior: 'smooth'
   })
 }
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
+let observer = null;
+const observeElements = () => {
+  if (observer) observer.disconnect()
+  observer = new IntersectionObserver(
     entries => entries.forEach(el => el.isIntersecting && el.target.classList.add('visible')),
     { threshold: 0.1 }
   )
   document.querySelectorAll('.portfolio-section .reveal, .portfolio-section .reveal-scale').forEach(el => observer.observe(el))
+}
+
+onMounted(() => {
+  observeElements()
 })
+
+watch(projects, () => {
+  nextTick(() => {
+    observeElements()
+  })
+}, { deep: true })
 </script>
 
 <style scoped>

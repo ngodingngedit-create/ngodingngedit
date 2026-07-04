@@ -397,20 +397,21 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #004cff;
+  background: #2563eb;
   color: white;
   padding: 0.6rem 1.5rem;
   border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 700;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
 }
 
 .navbar__cta:hover {
-  background: #0038cc;
+  background: #1d4ed8;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 76, 255, 0.2);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
 }
 
 

@@ -60,12 +60,12 @@ onMounted(() => {
 
 .partner-section__label {
   text-align: center;
-  font-family: var(--font-heading);
-  font-size: 1.75rem; /* Large title size */
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary); /* Darker color */
-  margin-bottom: var(--space-3xl);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #94A3B8; /* Muted — it's a supporting label, not a headline */
+  margin-bottom: var(--space-2xl);
   text-transform: uppercase;
 }
 

@@ -249,29 +249,30 @@ onMounted(() => {
   width: 100%;
 }
 
-/* White Floated Button Card */
+/* Solid Blue Button Card */
 .cta-btn-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 420px;
-  background: #ffffff;
-  border: 1px solid rgba(17, 45, 78, 0.04);
+  background: #2563EB; /* Primary Blue */
+  border: 1px solid #1D4ED8;
   border-radius: 16px;
   padding: 1.25rem 1.75rem;
   text-decoration: none;
   box-shadow: 
-    0 1px 2px rgba(17, 45, 78, 0.02),
-    0 12px 30px rgba(17, 45, 78, 0.06);
+    0 4px 12px rgba(37, 99, 235, 0.25),
+    0 12px 30px rgba(37, 99, 235, 0.2);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cta-btn-card:hover {
   transform: translateY(-4px);
+  background: #1D4ED8; /* Darker Blue */
   box-shadow: 
-    0 4px 6px rgba(17, 45, 78, 0.02),
-    0 20px 40px rgba(17, 45, 78, 0.12);
+    0 8px 16px rgba(37, 99, 235, 0.3),
+    0 20px 40px rgba(37, 99, 235, 0.25);
 }
 
 .cta-btn-left {
@@ -281,12 +282,12 @@ onMounted(() => {
 }
 
 .cta-btn-icon {
-  color: #2563EB; /* Blue icon */
+  color: #ffffff; /* White icon */
   transition: transform 0.3s ease;
 }
 
 .cta-btn-icon--arrow {
-  color: #2563EB;
+  color: #ffffff; /* White arrow */
 }
 
 .cta-btn-card:hover .cta-btn-icon--arrow {
@@ -294,7 +295,7 @@ onMounted(() => {
 }
 
 .cta-btn-text {
-  color: #112D4E; /* Deep Navy */
+  color: #ffffff; /* White text */
   font-weight: 700;
   font-size: 1.0625rem;
 }

@@ -202,6 +202,7 @@ onMounted(() => {
 .help-cta__inner h2 {
   font-family: var(--font-heading, 'Poppins', sans-serif);
   font-size: 2rem; font-weight: 800; margin-bottom: 2rem;
+  color: #ffffff; /* Explicit white — overrides global heading near-black */
 }
 .help-cta__btn {
   display: inline-flex; align-items: center; gap: 8px;

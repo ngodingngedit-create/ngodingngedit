@@ -314,6 +314,7 @@
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import img3dModel from '@/assets/images/services/3d-model.png'
 import { useI18n } from 'vue-i18n'
+import { supabase } from '@/supabase'
 
 const { t: $t, tm, locale } = useI18n()
 
@@ -453,56 +454,14 @@ const formatPrice = (val) => {
 }
 
 const selectedItems = ref([])
+const servicesData = ref([])
 
-const codingServices = computed(() => [
-  { id: 'web-company', badge: 'WEBSITE', title: 'Company Profiles', basePrice: 500000, price: 'Rp 500.000',
-    description: $t('services.companyProfileDesc'),
-    features: tm('services.companyProfileFeatures'),
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
-  { id: 'web-landing', badge: 'WEBSITE', title: 'Landing Page', basePrice: 150000, price: 'Rp 150.000',
-    description: $t('services.landingPageDesc'),
-    features: tm('services.landingPageFeatures'),
-    image: 'https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&q=80' },
-  { id: 'web-database', badge: 'BACKEND', title: 'Database Setup', basePrice: 300000, price: 'Rp 300.000',
-    description: $t('services.databaseDesc'),
-    features: tm('services.databaseFeatures'),
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
-  { id: 'domain', badge: 'DOMAIN', title: 'Connect Domain', basePrice: 100000, price: 'Rp 100.000',
-    description: $t('services.domainDesc'),
-    features: tm('services.domainFeatures'),
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80' },
-  { id: 'server', badge: 'INFRA', title: 'Server / Hosting', basePrice: 300000, price: 'Rp 300.000',
-    description: $t('services.serverDesc'),
-    features: tm('services.serverFeatures'),
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' },
-])
-
-const editingServices = computed(() => [
-  { id: 'vid-short', badge: 'VIDEO', title: 'Short-Form Content', basePrice: 200000, price: 'Rp 200.000',
-    description: $t('services.shortFormDesc'),
-    features: tm('services.shortFormFeatures'),
-    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80' },
-  { id: 'vid-promo', badge: 'VIDEO', title: $t('services.promoVideoTitle'), basePrice: 750000, price: 'Rp 750.000',
-    description: $t('services.promoVideoDesc'),
-    features: tm('services.promoVideoFeatures'),
-    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80' },
-  { id: 'vid-podcast', badge: 'VIDEO', title: 'Podcast Editing', basePrice: 350000, price: 'Rp 350.000',
-    description: $t('services.podcastDesc'),
-    features: tm('services.podcastFeatures'),
-    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80' },
-  { id: 'vid-3d', badge: '3D MODEL', title: '3D Visualization', basePrice: 2500000, price: 'Rp 2.500.000',
-    description: $t('services.threeDDesc'),
-    features: tm('services.threeDFeatures'),
-    image: img3dModel },
-  { id: 'vid-motion', badge: 'MOTION', title: 'Motion Graphics', basePrice: 500000, price: 'Rp 500.000',
-    description: $t('services.motionDesc'),
-    features: tm('services.motionFeatures'),
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80' },
-])
-
-const activeItems = computed(() =>
-  activeCategory.value === 'ngoding' ? codingServices.value : editingServices.value
-)
+const activeItems = computed(() => {
+  return servicesData.value.filter(s => {
+    if (!s.category) return true
+    return activeCategory.value === 'ngoding' ? s.category === 'ngoding' : s.category === 'ngedit'
+  })
+})
 
 const addToEstimation = (item, quantity) => {
   const index = selectedItems.value.findIndex(i => i.id === item.id)
@@ -611,7 +570,7 @@ function onServiceSelect(item, event) {
   selectedService.value = item
 }
 
-onMounted(() => {
+onMounted(async () => {
   window.addEventListener('scroll', onScroll, { passive: true })
   
   const io = new IntersectionObserver(
@@ -619,6 +578,20 @@ onMounted(() => {
     { threshold: 0.1 }
   )
   document.querySelectorAll('.reveal').forEach(el => io.observe(el))
+
+  const { data, error } = await supabase.from('services').select('*').eq('is_active', true)
+  if (data && !error) {
+    servicesData.value = data.map(item => ({
+      ...item,
+      basePrice: item.price,
+      price: formatPrice(item.price),
+      image: item.image_url,
+      badge: item.badge || 'SERVICE',
+      features: item.features || []
+    }))
+  } else if (error) {
+    console.error("Error fetching services:", error)
+  }
 })
 
 onUnmounted(() => {

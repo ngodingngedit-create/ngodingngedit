@@ -38,8 +38,8 @@
         <div class="footer__col reveal delay-200">
           <h4 class="footer__col-title">{{ $t('footer.quickLinks') }}</h4>
           <ul class="footer__links">
-            <li><a href="#about">{{ $t('footer.aboutUs') }}</a></li>
-            <li><a href="#services">{{ $t('footer.services') }}</a></li>
+            <li><RouterLink to="/about">{{ $t('footer.aboutUs') }}</RouterLink></li>
+            <li><RouterLink to="/services">{{ $t('footer.services') }}</RouterLink></li>
             <li><RouterLink to="/portfolio">{{ $t('navbar.portfolio') }}</RouterLink></li>
 
           </ul>
@@ -49,8 +49,8 @@
         <div class="footer__col reveal delay-300">
           <h4 class="footer__col-title">{{ $t('footer.help') }}</h4>
           <ul class="footer__links">
-            <li><a href="/privacy-policy">{{ $t('footer.privacyPolicy') }}</a></li>
-            <li><a href="/terms-and-conditions">{{ $t('footer.termsConditions') }}</a></li>
+            <li><RouterLink to="/privacy-policy">{{ $t('footer.privacyPolicy') }}</RouterLink></li>
+            <li><RouterLink to="/terms-and-conditions">{{ $t('footer.termsConditions') }}</RouterLink></li>
             <li><RouterLink to="/help-center">{{ $t('footer.helpCenter') }}</RouterLink></li>
           </ul>
         </div>
@@ -102,8 +102,8 @@ onMounted(() => {
 
 <style scoped>
 .footer {
-  background: #2563EB; /* Premium Brand Blue Background */
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: #112D4E; /* Deep Navy — premium, distinct from CTA blue */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: var(--space-4xl) 0 0;
 }
 

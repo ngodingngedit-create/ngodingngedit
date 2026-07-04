@@ -218,7 +218,7 @@ function scrollToHash(path) {
 
 .hero__description {
   font-size: 1.125rem;
-  color: #64748B;
+  color: #475569; /* Slate grey — readable, not blue */
   max-width: 540px;
   line-height: 1.6;
 }
@@ -235,13 +235,13 @@ function scrollToHash(path) {
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  background: #004cff;
+  background: #2563eb;
   color: white;
   border-radius: 8px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px -5px rgba(0, 76, 255, 0.3);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
   overflow: hidden;
   z-index: 1;
 }
@@ -277,11 +277,12 @@ function scrollToHash(path) {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px -5px rgba(0, 76, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  background: #1d4ed8;
 }
 
 .btn-primary:hover::after {
-  background: #0038cc;
+  background: #1d4ed8;
 }
 
 .btn-secondary {
@@ -292,11 +293,12 @@ function scrollToHash(path) {
   padding: 1rem 2rem;
   background: white;
   color: #1E293B;
-  border: 1px solid #E2E8F0;
+  border: 1.5px solid #CBD5E1; /* Clearly visible border */
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   z-index: 1;
 }

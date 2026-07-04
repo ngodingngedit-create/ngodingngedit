@@ -6,26 +6,28 @@
 :root {
   /* Colors - User Palette: #3F72AF, #DBE2EF, #F9F7F7 */
   --color-primary: #2563eb;
-  --color-primary-dark: #0548d9;
-  --color-primary-light: #5a8bc7;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #3b82f6;
   --color-accent: #DBE2EF;
-  --color-gradient: linear-gradient(135deg, #2563eb 0%, #DBE2EF 100%);
+  --color-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   --color-gradient-text: linear-gradient(135deg, #2563eb 0%, #112D4E 100%);
 
   --color-bg-dark: #112D4E;
   --color-bg-navy: #1a3c5a;
   --color-bg-navy-light: #DBE2EF;
   --color-surface: #F9F7F7;
-  --color-surface-2: #DBE2EF;
+  --color-surface-2: #EFF3FA;
   --color-surface-3: #ffffff;
-  --color-border: #DBE2EF;
+  --color-border: #E2E8F0;
   --color-border-dark: rgba(17, 45, 78, 0.1);
 
-  --color-text-primary: #2563eb;
-  --color-text-secondary: #3F72AF;
-  --color-text-muted: #64748b;
+  /* Text: near-black for headings, slate grey for body — NOT blue */
+  --color-text-primary: #1E293B;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
   --color-text-light: #F9F7F7;
   --color-text-light-muted: rgba(249, 247, 247, 0.7);
+  --color-brand: #2563eb; /* Use this explicitly for branded/accent text */
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -129,7 +131,7 @@ h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: #1E293B; /* Headings always near-black for readability */
 }
 
 /* =====================
@@ -239,16 +241,16 @@ h6 {
 }
 
 .section-underline {
-  width: 64px;
-  height: 4px;
-  background: var(--color-gradient);
+  width: 48px;
+  height: 3px;
+  background: #2563eb;
   border-radius: var(--radius-full);
   margin: 0 auto var(--space-lg);
 }
 
 .section-subtitle {
   text-align: center;
-  color: var(--color-text-secondary);
+  color: #475569; /* Slate grey — readable, not blue */
   font-size: 1.0625rem;
   max-width: 600px;
   margin: 0 auto;

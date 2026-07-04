@@ -129,6 +129,7 @@
                     :src="founder.imageLook"
                     :alt="founder.name"
                     class="founder-card__portrait"
+                    :style="founder.objectPosition ? { objectPosition: founder.objectPosition } : {}"
                     @error="handleImageError($event, founder.fallback)"
                   />
                 </div>
@@ -222,16 +223,23 @@ const founders = computed(() => {
   return data.map((f, i) => {
     let candidImg = 'farhan.png';
     let lookImg = 'farhan2.png';
+    let objectPosition = null;
 
     if (f.name && f.name.includes('Hanif')) {
       candidImg = 'hanif.png';
       lookImg = 'hanif2.png';
+    }
+    if (f.name && f.name.toLowerCase().includes('rahman')) {
+      candidImg = 'rahman2.png';
+      lookImg = 'rahman2.png';
+      objectPosition = 'center 30%'; // Naikin gambar (crop lebih banyak bagian atas)
     }
 
     return {
       ...f,
       imageCandid: getImageUrl(candidImg),
       imageLook: getImageUrl(lookImg),
+      objectPosition,
       fallback: `https://picsum.photos/seed/${f.name}/400/500`,
       instagram: '#',
       linkedin: '#'

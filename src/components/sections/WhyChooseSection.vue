@@ -75,7 +75,7 @@ onMounted(() => {
 
 <style scoped>
 .why-section {
-  background: rgb(243, 243, 243);
+  background: var(--color-surface);
 }
 
 .why-section__header {

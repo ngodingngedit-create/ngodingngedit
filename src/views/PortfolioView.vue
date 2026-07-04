@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, watch, nextTick } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import PortfolioCard from '@/components/ui/PortfolioCard.vue'
 import { usePortfolio } from '@/composables/usePortfolio'
@@ -60,13 +60,25 @@ function scrollToHash(path) {
   }
 }
 
-onMounted(() => {
-  const io = new IntersectionObserver(
+let io = null;
+const observeElements = () => {
+  if (io) io.disconnect()
+  io = new IntersectionObserver(
     e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')),
     { threshold: 0.1 }
   )
   document.querySelectorAll('.reveal').forEach(el => io.observe(el))
+}
+
+onMounted(() => {
+  observeElements()
 })
+
+watch(projects, () => {
+  nextTick(() => {
+    observeElements()
+  })
+}, { deep: true })
 </script>
 
 <style scoped>
@@ -150,6 +162,7 @@ onMounted(() => {
 .portfolio-cta__inner h2 {
   font-family: var(--font-heading, 'Poppins', sans-serif);
   font-size: 2rem; font-weight: 800; margin-bottom: 2rem;
+  color: #ffffff; /* Explicit white — overrides global heading near-black */
 }
 .portfolio-cta__btn {
   display: inline-flex; align-items: center; gap: 8px;
