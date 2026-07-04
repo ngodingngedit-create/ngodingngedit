@@ -1,13 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
+// HomeView loaded eagerly (it's the first page users see)
 import HomeView from '@/views/HomeView.vue'
-import ServicesView from '../views/ServicesView.vue'
-import HowToView from '../views/HowToView.vue'
-import PortfolioView from '../views/PortfolioView.vue'
-import PortfolioDetail from '../views/PortfolioDetail.vue'
-import TermsAndConditionsView from '../views/TermsAndConditionsView.vue'
-import PrivacyPolicyView from '@/views/PrivacyPolicyView.vue'
-import HelpCenterView from '@/views/HelpCenterView.vue'
-import AboutView from '@/views/AboutView.vue'
 
 const routes = [
   {
@@ -18,42 +12,42 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: AboutView,
+    component: () => import('../views/AboutView.vue'),
   },
   {
     path: '/services',
     name: 'services',
-    component: ServicesView,
+    component: () => import('../views/ServicesView.vue'),
   },
   {
     path: '/portfolio',
     name: 'portfolio',
-    component: PortfolioView,
+    component: () => import('../views/PortfolioView.vue'),
   },
   {
     path: '/portofoliodetail',
     name: 'portfolio-detail',
-    component: PortfolioDetail,
+    component: () => import('../views/PortfolioDetail.vue'),
   },
   {
     path: '/how-to',
     name: 'how-to',
-    component: HowToView,
+    component: () => import('../views/HowToView.vue'),
   },
   {
     path: '/terms-and-conditions',
     name: 'terms-and-conditions',
-    component: TermsAndConditionsView,
+    component: () => import('../views/TermsAndConditionsView.vue'),
   },
   {
     path: '/privacy-policy',
     name: 'privacy-policy',
-    component: PrivacyPolicyView,
+    component: () => import('@/views/PrivacyPolicyView.vue'),
   },
   {
     path: '/help-center',
     name: 'help-center',
-    component: HelpCenterView,
+    component: () => import('@/views/HelpCenterView.vue'),
   },
 ]
 
