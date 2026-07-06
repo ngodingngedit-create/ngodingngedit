@@ -24,7 +24,7 @@
 
         <!-- Action Button (Lihat Detail) -->
         <div class="portfolio-card__action">
-          <router-link to="/portofoliodetail" class="portfolio-card__btn-detail">
+          <router-link :to="`/portfolio/${id}`" class="portfolio-card__btn-detail">
             View Details
           </router-link>
         </div>
@@ -35,6 +35,7 @@
 
 <script setup>
 defineProps({
+  id: { type: String, required: true },
   image: { type: String, required: true },
   category: { type: String, required: true },
   title: { type: String, required: true },

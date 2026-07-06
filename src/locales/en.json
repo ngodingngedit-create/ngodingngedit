@@ -1145,6 +1145,27 @@
       }
     ]
   },
+  "portfolioDetail": {
+    "backToPortfolio": "← Back to Portfolio",
+    "loading": "Loading...",
+    "projectNotFound": "Portfolio Not Found",
+    "projectNotFoundDesc": "The project you're looking for doesn't exist or has been removed.",
+    "backToHome": "Back to Home",
+    "previousProject": "← Previous Project",
+    "nextProject": "Next Project →",
+    "clientName": "Client",
+    "projectDate": "Project Date",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "result": "Result",
+    "technologies": "Technologies Used",
+    "description": "About This Project",
+    "gallery": "Project Gallery",
+    "projectInfo": "Project Information",
+    "noImages": "No images available",
+    "noTech": "No technologies listed",
+    "visitWebsite": "Visit Website"
+  },
   "pd": {
     "home": "Home",
     "portfolio": "Portfolio",

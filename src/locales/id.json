@@ -1145,6 +1145,27 @@
       }
     ]
   },
+  "portfolioDetail": {
+    "backToPortfolio": "← Kembali ke Portfolio",
+    "loading": "Memuat...",
+    "projectNotFound": "Portfolio Tidak Ditemukan",
+    "projectNotFoundDesc": "Proyek yang Anda cari tidak ada atau telah dihapus.",
+    "backToHome": "Kembali ke Beranda",
+    "previousProject": "← Proyek Sebelumnya",
+    "nextProject": "Proyek Selanjutnya →",
+    "clientName": "Klien",
+    "projectDate": "Tanggal Proyek",
+    "challenge": "Tantangan",
+    "solution": "Solusi",
+    "result": "Hasil",
+    "technologies": "Teknologi yang Digunakan",
+    "description": "Tentang Proyek Ini",
+    "gallery": "Galeri Proyek",
+    "projectInfo": "Informasi Proyek",
+    "noImages": "Tidak ada gambar tersedia",
+    "noTech": "Tidak ada teknologi yang tercantum",
+    "visitWebsite": "Kunjungi Website"
+  },
   "pd": {
     "home": "Beranda",
     "portfolio": "Portfolio",

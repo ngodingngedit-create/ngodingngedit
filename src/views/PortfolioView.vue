@@ -15,7 +15,8 @@
       <div class="portfolio-grid">
         <PortfolioCard
           v-for="(project, i) in projects"
-          :key="project.title"
+          :key="project.id"
+          :id="project.id"
           :image="project.image"
           :category="project.category"
           :title="project.title"
